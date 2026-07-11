@@ -100,7 +100,7 @@ export default function Contact() {
 
     const data = {
       ...formState,
-      access_key: "6268f700-1c0b-410a-b28f-7f7243c2cbb4", // Default Web3Forms Key
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "6268f700-1c0b-410a-b28f-7f7243c2cbb4",
       subject: `New Portfolio Message from ${formState.name}`,
       from_name: "Portfolio Contact Form",
     };
