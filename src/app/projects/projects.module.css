@@ -1,0 +1,368 @@
+.archiveWrapper {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shifting moving mesh backdrop */
+.meshBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(at 15% 25%, rgba(0, 240, 255, 0.04) 0px, transparent 50%),
+    radial-gradient(at 85% 75%, rgba(245, 197, 66, 0.03) 0px, transparent 50%),
+    radial-gradient(at 50% 5%, rgba(189, 0, 255, 0.03) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: moveMesh 22s infinite alternate ease-in-out;
+}
+
+@keyframes moveMesh {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Return to Home link button */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: var(--transition-fast);
+  margin-bottom: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.backBtn:hover {
+  color: var(--accent-secondary);
+  transform: translateX(-4px);
+}
+
+/* Header typography styling */
+.headerBlock {
+  margin-bottom: 4rem;
+  max-width: 600px;
+}
+
+.archiveSubtitle {
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+
+.archiveTitle {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.0;
+  margin: 0.75rem 0 1.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+
+.archiveDesc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Category Filters Bar */
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 5;
+}
+
+.filterBtn {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.filterBtn:hover {
+  border-color: var(--border-color-active);
+  color: var(--text-primary);
+}
+
+.filterBtnActive {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: #000;
+}
+
+/* 3-Column Portfolio grid */
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+.gridItem {
+  will-change: transform;
+}
+
+/* Project Card layout */
+.projectCard {
+  background: rgba(255, 255, 255, 0.012);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  height: 100%;
+}
+
+.projectCard:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 15px 35px rgba(0, 240, 255, 0.06);
+}
+
+/* Card Glow Backlight */
+.cardGlow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--tech-color) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+}
+
+.projectCard:hover .cardGlow {
+  opacity: 0.85;
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+/* Silver Shine Shimmer */
+.projectCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent
+  );
+  transform: skewX(-25deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.projectCard:hover::before {
+  animation: shine-sweep 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes shine-sweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1;
+  transform: translateZ(15px);
+}
+
+.categoryTag {
+  font-size: 0.6rem;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0.5rem 0 0 0;
+}
+
+.cardBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  z-index: 1;
+  transform: translateZ(20px);
+  margin-top: 2rem;
+}
+
+/* Specs Row inside card */
+.cardSpecs {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cardSpecItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cardSpecLabel {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.cardSpecVal {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Card launch button */
+.cardLinkBtn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.projectCard:hover .cardLinkBtn {
+  color: var(--accent-secondary);
+}
+
+@media (max-width: 992px) {
+  .portfolioGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .archiveTitle {
+    font-size: 2.75rem;
+  }
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Background visual Cover images */
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Gradient overlay on top of the image to ensure high text contrast */
+.cardBg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 8, 0.78) 0%,
+    rgba(5, 5, 8, 0.55) 45%,
+    rgba(5, 5, 8, 0.9) 100%
+  );
+  z-index: 1;
+  transition: background 0.5s ease;
+}
+
+.projectCard:hover .cardBg::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 8, 0.68) 0%,
+    rgba(5, 5, 8, 0.35) 45%,
+    rgba(5, 5, 8, 0.85) 100%
+  );
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+  filter: grayscale(20%) brightness(0.85);
+}
+
+.projectCard:hover .projectImage {
+  opacity: 0.8;
+  transform: scale(1.05);
+  filter: grayscale(0%) brightness(0.98);
+}
+

@@ -1,0 +1,208 @@
+.skillsSection {
+  position: relative;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0 5rem 0; /* Spacing shifted to bottom */
+}
+
+/* Shifting moving mesh backdrop */
+.meshBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(at 15% 25%, rgba(0, 240, 255, 0.03) 0px, transparent 50%),
+    radial-gradient(at 85% 75%, rgba(245, 197, 66, 0.02) 0px, transparent 50%),
+    radial-gradient(at 50% 5%, rgba(189, 0, 255, 0.02) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: moveMesh 22s infinite alternate ease-in-out;
+}
+
+@keyframes moveMesh {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Tic-tac-toe internal-only border grid layout (4 Columns) */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0; /* Gap is 0 to align borders perfectly */
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+  border: none; /* No outer border */
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.cardFloatWrapper {
+  display: contents;
+}
+
+/* Tic-tac-toe Cell */
+.skillCard {
+  background-color: transparent;
+  height: 120px; /* Compact height */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem; /* Tighter spacing */
+  position: relative;
+  overflow: hidden;
+  
+  /* Tic-tac-toe border mappings */
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-left: none;
+  border-top: none;
+  
+  transition: background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.1s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform, background-color;
+  cursor: pointer;
+}
+
+/* Remove right border on the last column (column 4) */
+.cardFloatWrapper:nth-child(4n) .skillCard {
+  border-right: none;
+}
+
+/* Remove bottom border on the last row (items 5, 6, 7, 8) */
+.cardFloatWrapper:nth-child(n+5) .skillCard {
+  border-bottom: none;
+}
+
+/* Lighten background on hover */
+.skillCard:hover {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+/* Creative Shimmer Shine sweep */
+.skillCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent
+  );
+  transform: skewX(-25deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skillCard:hover::before {
+  animation: shine-sweep 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes shine-sweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* Hover glow backlight behind the logo */
+.techGlow {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--tech-color) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+}
+
+.skillCard:hover .techGlow {
+  opacity: 0.75;
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+/* Logo icon pops in 3D */
+.logoWrapper {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transform: translateZ(20px);
+  filter: grayscale(0.15) contrast(0.95);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.3s ease;
+}
+
+.skillCard:hover .logoWrapper {
+  transform: translateZ(35px) scale(1.1);
+  filter: grayscale(0) contrast(1.05);
+}
+
+.logoWrapper svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Floating typography label */
+.skillName {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+  letter-spacing: 0.08em;
+  z-index: 1;
+  transform: translateZ(15px);
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+  text-align: center;
+}
+
+.skillCard:hover .skillName {
+  color: var(--text-primary);
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 992px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Re-align border removal for 2-column layout */
+  .cardFloatWrapper .skillCard {
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+  .cardFloatWrapper:nth-child(2n) .skillCard {
+    border-right: none;
+  }
+  .cardFloatWrapper:nth-child(n+7) .skillCard {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .logoWrapper {
+    width: 44px;
+    height: 44px;
+  }
+  .skillName {
+    font-size: 0.8rem;
+  }
+}

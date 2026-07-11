@@ -1,0 +1,327 @@
+.howIWorkSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  padding: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.slidesContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Slide Panel absolute stacking */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+/* Slide index background colors shifts to add depth */
+.slide:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.slideGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  width: 100%;
+}
+
+.slideLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.slideRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Slide Info details styling */
+.slideNum {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.05em;
+  display: block;
+}
+
+.slideTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.slideDesc {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  max-width: 480px;
+}
+
+/* Vector Illustration Frames */
+.visualFrame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: var(--transition-smooth);
+}
+
+.visualVector {
+  width: 75%;
+  height: 75%;
+  opacity: 0.75;
+  transition: var(--transition-smooth);
+}
+
+.slide:hover .visualFrame {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 30px 60px rgba(0, 240, 255, 0.06);
+}
+
+.slide:hover .visualVector {
+  opacity: 1;
+}
+
+/* --- Dynamic SVG Micro-Animations --- */
+
+/* Discover animations */
+.discoverRadar {
+  transform-origin: center;
+  animation: rotate-slow 12s infinite linear;
+}
+
+.discoverCore {
+  transform-origin: center;
+  animation: pulse-scale 3s infinite ease-in-out;
+}
+
+/* Research animations */
+.researchGlass {
+  transform-origin: center;
+  animation: float-slow 4s infinite ease-in-out;
+}
+
+.researchLine {
+  stroke-dasharray: 20 20;
+  animation: stroke-flow 1.5s infinite linear;
+}
+
+/* Wireframe animations */
+.wireframeGrid {
+  opacity: 0.15;
+}
+
+.wireframeDraw {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-path 3s forwards ease-in-out;
+}
+
+/* Design animations */
+.designShape1 {
+  transform-origin: 35px 50px;
+  animation: rotate-slow 16s infinite linear;
+}
+
+.designShape2 {
+  transform-origin: 65px 50px;
+  animation: rotate-slow 16s infinite linear reverse;
+}
+
+/* Prototype animations */
+.prototypeLine {
+  stroke-dasharray: 8 8;
+  animation: stroke-flow 0.8s infinite linear;
+}
+
+.prototypeNode {
+  transform-origin: center;
+  animation: pulse-scale 2.5s infinite ease-in-out;
+}
+
+/* Development animations */
+.devCursor {
+  animation: cursor-blink 1s infinite steps(2, start);
+}
+
+.devCode {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: draw-path 2.5s infinite alternate ease-in-out;
+}
+
+/* Launch animations */
+.launchRocket {
+  transform-origin: center;
+  animation: rocket-float 2.5s infinite ease-in-out;
+}
+
+.launchFlame {
+  transform-origin: 50px 70px;
+  animation: flame-pulse 0.4s infinite alternate ease-in-out;
+}
+
+/* Keyframes definitions */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes stroke-flow {
+  to { stroke-dashoffset: -16; }
+}
+
+@keyframes draw-path {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes rocket-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes flame-pulse {
+  0% { transform: scaleY(0.85); opacity: 0.6; }
+  100% { transform: scaleY(1.15); opacity: 1; }
+}
+
+/* Pinned Page Title overlay in top-left */
+.sectionTitleOverlay {
+  position: absolute;
+  top: 4rem;
+  left: 3rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.overlaySubtitle {
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+
+.overlayTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+/* Pinned side dot navigation panel (Right Side) */
+.progressNav {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+  z-index: 90;
+  pointer-events: auto;
+}
+
+.progressItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  opacity: 0.35;
+  transition: var(--transition-fast);
+}
+
+.progressItem:hover, .progressItemActive {
+  opacity: 1;
+}
+
+.progressLabel {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.progressDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+
+.progressItemActive .progressDot {
+  background-color: var(--accent-secondary);
+  box-shadow: 0 0 10px var(--accent-secondary);
+  transform: scale(1.5);
+}
+
+@media (max-width: 992px) {
+  .slideGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .slideRight {
+    order: -1;
+  }
+  .visualFrame {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .slideTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .progressNav {
+    right: 1.5rem;
+  }
+}

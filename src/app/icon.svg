@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#00f0ff" />
+    <stop offset="100%" stop-color="#f5c542" />
+  </linearGradient>
+  <rect width="100" height="100" rx="22" fill="#050508" stroke="rgba(0, 240, 255, 0.15)" stroke-width="2"/>
+  <path 
+    d="M 72 32 C 72 18, 28 18, 28 42 C 28 65, 72 58, 72 80 C 72 92, 28 92, 28 78" 
+    fill="none"
+    stroke="url(#logoGradient)"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -1,0 +1,372 @@
+.heroWrapper {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Animated Gradient Mesh */
+.meshBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: 
+    radial-gradient(at 10% 20%, rgba(0, 240, 255, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(189, 0, 255, 0.04) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(245, 197, 66, 0.03) 0px, transparent 50%);
+  background-size: 200% 200%;
+  animation: mesh-move 20s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+/* Giant background decorative vector logo "S" */
+.bgLogoVector {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 680px;
+  height: 680px;
+  z-index: 1;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  opacity: 0.85;
+}
+
+/* Soft Spotlight following the cursor */
+.spotlight {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.06) 0%, rgba(189, 0, 255, 0.03) 50%, transparent 100%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 1000px; /* 3D Card Tilt Perspective */
+}
+
+/* Availability Badge */
+.availabilityBadge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: #39ff14; /* Pulsing green */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #39ff14;
+  animation: pulse 1.8s infinite alternate ease-in-out;
+}
+
+/* Typography Title Row reveals */
+.heroTitle {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.titleRow {
+  display: block;
+  overflow: hidden;
+  height: 1.15em;
+  position: relative;
+}
+
+.wordSpan {
+  display: inline-block;
+  transform: translateY(115%);
+  will-change: transform;
+}
+
+/* Stylized middle name word */
+.singhWord {
+  font-family: var(--font-serif-italic) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  color: var(--accent-primary) !important;
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  padding-right: 0.15em;
+  letter-spacing: normal;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metaVal {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.metaLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.heroCta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Floating Profile Image inside glowing glass frame - Increased to 420px */
+.imageFrame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 0.95 / 1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.imageFrame:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 40px 80px rgba(0, 240, 255, 0.15);
+}
+
+.profileImgContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-tertiary);
+  transform: translateZ(25px); /* Pops image slightly out in 3D */
+}
+
+/* Vertical Floating Socials Left side */
+.floatingSocials {
+  position: absolute;
+  left: 2rem;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  z-index: 10;
+}
+
+.socialIconLink {
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIconLink:hover {
+  color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* Scroll down mouse indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  z-index: 10;
+}
+
+.mouseOutline {
+  width: 20px;
+  height: 30px;
+  border: 1.5px solid var(--border-color-active);
+  border-radius: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mouseWheel {
+  width: 3px;
+  height: 6px;
+  background-color: var(--accent-secondary);
+  border-radius: 100px;
+  position: absolute;
+  top: 6px;
+  animation: wheel-scroll 1.6s infinite ease-in-out;
+}
+
+/* Floating Particle shapes */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 1;
+}
+
+.particleCircle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text-primary);
+  border-radius: 50%;
+  top: 15%;
+  left: 5%;
+  animation: float-slow 8s infinite alternate ease-in-out;
+}
+
+.particleTriangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid var(--accent-secondary);
+  bottom: 20%;
+  right: 8%;
+  animation: float-slow 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes mesh-move {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes wheel-scroll {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+@keyframes float-slow {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-25px) rotate(45deg); }
+}
+
+@media (max-width: 992px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .heroLeft {
+    align-items: center;
+    text-align: center;
+  }
+  .availabilityBadge {
+    align-self: center;
+  }
+  .heroDescription {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .heroCta {
+    justify-content: center;
+  }
+  .heroMeta {
+    justify-content: center;
+    gap: 2rem;
+  }
+  .floatingSocials {
+    display: none;
+  }
+  .bgLogoVector {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
