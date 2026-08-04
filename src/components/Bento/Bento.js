@@ -79,33 +79,31 @@ export default function Bento() {
             </div>
           </div>
 
-          {/* Cell 3: Traffic Metric */}
+          {/* Cell 3: Completed Projects */}
           <div className={`${styles.item} ${styles.metricCard}`}>
             <span className={styles.cardTitle}>
-              <TrendingUp size={16} /> Traffic Growth
+              <Briefcase size={16} /> Projects Completed
             </span>
-            <div className={styles.metricCircle}>
-              <span>+40%</span>
-            </div>
-            <span className={styles.metricDesc}>SAVO TECH PLATFORM REDESIGN</span>
+            <div className={styles.metricValue}>50+</div>
+            <span className={styles.metricDesc}>Enterprise • SaaS • Marketplace • WordPress</span>
           </div>
 
-          {/* Cell 4: Views Metric */}
+          {/* Cell 4: Years of Experience */}
           <div className={`${styles.item} ${styles.metricCard}`}>
             <span className={styles.cardTitle}>
-              <Eye size={16} /> Page Views
+              <Clock size={16} /> Years of Experience
             </span>
-            <div className={styles.metricValue}>+60%</div>
-            <span className={styles.metricDesc}>PLATFORM INTERACTION METRIC</span>
+            <div className={styles.metricValue}>5+</div>
+            <span className={styles.metricDesc}>Product Design • UX/UI • Frontend Development</span>
           </div>
 
-          {/* Cell 5: Session Metric */}
+          {/* Cell 5: Technologies */}
           <div className={`${styles.item} ${styles.metricCard}`}>
             <span className={styles.cardTitle}>
-              <Clock size={16} /> Session Time
+              <Sparkles size={16} /> Technologies
             </span>
-            <div className={styles.metricValue}>+90%</div>
-            <span className={styles.metricDesc}>AVERAGE USER ENGAGEMENT</span>
+            <div className={styles.metricValue}>20+</div>
+            <span className={styles.metricDesc}>React • Next.js • WordPress • Figma • TypeScript</span>
           </div>
 
           {/* Cell 6: Experience Milestones */}

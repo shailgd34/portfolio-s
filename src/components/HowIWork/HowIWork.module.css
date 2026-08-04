@@ -1,99 +1,176 @@
 .howIWorkSection {
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
   background-color: var(--bg-primary);
-  padding: 0;
+  padding: 8rem 0;
   border-bottom: 1px solid var(--border-color);
 }
 
-.slidesContainer {
-  position: relative;
+.dashboard {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3.5rem;
   width: 100%;
-  height: 100vh;
+  margin-top: 3rem;
+  align-items: flex-start;
 }
 
-/* Slide Panel absolute stacking */
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+/* Sidebar selector list */
+.selectorPane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.selectorItem {
   display: flex;
   align-items: center;
-  will-change: transform;
+  gap: 1.25rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.2s ease;
+}
+
+.selectorItem:hover {
+  background-color: rgba(255, 255, 255, 0.015);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.selectorItemActive {
+  background-color: var(--bg-glass);
+  border-color: var(--accent-secondary);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(6px);
+}
+
+.selectorNum {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.selectorItemActive .selectorNum {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.selectorTitle {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.selectorItemActive .selectorTitle {
+  color: var(--text-primary);
+}
+
+/* Right side active display pane */
+.displayPane {
+  width: 100%;
+}
+
+.displayCard {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  padding: 3.5rem;
+  border-radius: 12px;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  position: relative;
   overflow: hidden;
-  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+  animation: cardFadeIn 0.45s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* Slide index background colors shifts to add depth */
-.slide:nth-child(even) {
-  background-color: var(--bg-secondary);
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
-.slideGrid {
+.displayGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
   align-items: center;
   width: 100%;
 }
 
-.slideLeft {
+.displayLeft {
   display: flex;
   flex-direction: column;
 }
 
-.slideRight {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* Slide Info details styling */
-.slideNum {
+.displayNum {
   font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.03);
+  font-size: 6rem;
+  font-weight: 850;
+  color: rgba(255, 255, 255, 0.025);
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.05em;
   display: block;
 }
 
-.slideTitle {
-  font-size: 4rem;
+.displayTitle {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
   font-weight: 800;
-  margin-bottom: 2rem;
-  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
   text-transform: uppercase;
 }
 
-.slideDesc {
+.displayDesc {
   color: var(--text-secondary);
   font-size: 1.15rem;
-  line-height: 1.65;
-  max-width: 480px;
+  line-height: 1.7;
+}
+
+.displayRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 /* Vector Illustration Frames */
 .visualFrame {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 320px;
   aspect-ratio: 1 / 1;
   border: 1px solid var(--border-color);
   background: rgba(255, 255, 255, 0.01);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
   transition: var(--transition-smooth);
+  border-radius: 8px;
 }
 
 .visualVector {
@@ -103,18 +180,22 @@
   transition: var(--transition-smooth);
 }
 
-.slide:hover .visualFrame {
+.displayCard:hover .visualFrame {
   border-color: var(--accent-secondary);
-  box-shadow: 0 30px 60px rgba(0, 240, 255, 0.06);
+  box-shadow: 0 20px 45px rgba(0, 240, 255, 0.06);
 }
 
-.slide:hover .visualVector {
+.displayCard:hover .visualVector {
   opacity: 1;
 }
 
-/* --- Dynamic SVG Micro-Animations --- */
+/* Fallback layouts for mobile stack (hidden on desktop) */
+.mobileStack {
+  display: none;
+  width: 100%;
+}
 
-/* Discover animations */
+/* --- Dynamic SVG Micro-Animations --- */
 .discoverRadar {
   transform-origin: center;
   animation: rotate-slow 12s infinite linear;
@@ -125,7 +206,6 @@
   animation: pulse-scale 3s infinite ease-in-out;
 }
 
-/* Research animations */
 .researchGlass {
   transform-origin: center;
   animation: float-slow 4s infinite ease-in-out;
@@ -136,7 +216,6 @@
   animation: stroke-flow 1.5s infinite linear;
 }
 
-/* Wireframe animations */
 .wireframeGrid {
   opacity: 0.15;
 }
@@ -147,7 +226,6 @@
   animation: draw-path 3s forwards ease-in-out;
 }
 
-/* Design animations */
 .designShape1 {
   transform-origin: 35px 50px;
   animation: rotate-slow 16s infinite linear;
@@ -158,7 +236,6 @@
   animation: rotate-slow 16s infinite linear reverse;
 }
 
-/* Prototype animations */
 .prototypeLine {
   stroke-dasharray: 8 8;
   animation: stroke-flow 0.8s infinite linear;
@@ -169,7 +246,6 @@
   animation: pulse-scale 2.5s infinite ease-in-out;
 }
 
-/* Development animations */
 .devCursor {
   animation: cursor-blink 1s infinite steps(2, start);
 }
@@ -180,7 +256,6 @@
   animation: draw-path 2.5s infinite alternate ease-in-out;
 }
 
-/* Launch animations */
 .launchRocket {
   transform-origin: center;
   animation: rocket-float 2.5s infinite ease-in-out;
@@ -230,98 +305,75 @@
   100% { transform: scaleY(1.15); opacity: 1; }
 }
 
-/* Pinned Page Title overlay in top-left */
-.sectionTitleOverlay {
-  position: absolute;
-  top: 4rem;
-  left: 3rem;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.overlaySubtitle {
-  font-size: 0.75rem;
-  color: var(--accent-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-weight: 700;
-}
-
-.overlayTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-top: 0.5rem;
-}
-
-/* Pinned side dot navigation panel (Right Side) */
-.progressNav {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1.25rem;
-  z-index: 90;
-  pointer-events: auto;
-}
-
-.progressItem {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem 0;
-  opacity: 0.35;
-  transition: var(--transition-fast);
-}
-
-.progressItem:hover, .progressItemActive {
-  opacity: 1;
-}
-
-.progressLabel {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.progressDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--text-primary);
-  transition: var(--transition-fast);
-}
-
-.progressItemActive .progressDot {
-  background-color: var(--accent-secondary);
-  box-shadow: 0 0 10px var(--accent-secondary);
-  transform: scale(1.5);
-}
-
+/* Responsive queries */
 @media (max-width: 992px) {
-  .slideGrid {
+  .dashboard {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 0;
   }
-  .slideRight {
-    order: -1;
+
+  .selectorPane, .displayPane {
+    display: none;
   }
-  .visualFrame {
-    max-width: 280px;
-    margin: 0 auto;
+
+  .mobileStack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
   }
-  .slideTitle {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+
+  .mobileCard {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-sm);
   }
-  .progressNav {
-    right: 1.5rem;
+
+  .mobileHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+  }
+
+  .mobileNum {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-secondary);
+    line-height: 1;
+  }
+
+  .mobileTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .mobileVisual {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .mobileVisual .visualFrame {
+    max-width: 240px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobileDesc {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
   }
 }

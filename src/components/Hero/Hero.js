@@ -210,7 +210,7 @@ export default function Hero() {
               </a>
               <a 
                 ref={secondaryBtnRef}
-                href="/Shail CV 2025.pdf" 
+                href="/shailash 2026.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-secondary"

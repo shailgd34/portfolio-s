@@ -24,23 +24,26 @@ const serifItalic = Playfair_Display({
 });
 
 export const metadata = {
-  title: 'Sheelash Singh Bhadoriya | Product Designer & Frontend Developer',
-  description: 'Portfolio of Sheelash Singh Bhadoriya, an Indore-based Product Designer & UX/UI Lead with 5 years of experience specializing in Fintech startups and high-impact digital experiences.',
-  keywords: 'Sheelash Singh Bhadoriya, Product Designer, UX/UI Lead, UX Designer, UI Designer, Frontend Developer, Web Designer, Fintech UX, Savo Technology, Indore Portfolio',
+  title: 'Sheelash Singh Bhadoriya | Top UX/UI Designer & Best Frontend Developer',
+  description: 'Portfolio of Sheelash Singh Bhadoriya, recognized as a top UX/UI designer and best frontend developer. Specializing in high-growth SaaS platforms, fintech product design, and premium web development with 5+ years of experience.',
+  keywords: 'Sheelash Singh Bhadoriya, best product designer, top product designer, best ux ui designer, top ux ui designer, best frontend developer, top frontend developer, indore best ux ui designer, best product designer in indore, web designer, fintech ux design, saas ui ux designer, React nextjs developer, product designer portfolio',
   authors: [{ name: 'Sheelash Singh Bhadoriya' }],
   creator: 'Sheelash Singh Bhadoriya',
   openGraph: {
-    title: 'Sheelash Singh Bhadoriya | Product Designer & Frontend Developer',
-    description: 'Explore the portfolio of Sheelash Singh Bhadoriya. 5+ years creating intuitive digital experiences and high-growth fintech interfaces.',
-    url: 'https://behance.net/prithvibhadour',
+    title: 'Sheelash Singh Bhadoriya | Top UX/UI Designer & Best Frontend Developer',
+    description: 'Explore the portfolio of Sheelash Singh Bhadoriya. 5+ years creating intuitive, high-growth digital experiences, SaaS dashboards, and fintech interfaces.',
+    url: 'https://portfolio-s-gilt.vercel.app/',
     siteName: 'Sheelash Singh Bhadoriya Portfolio',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sheelash Singh Bhadoriya | Product Designer & Frontend Developer',
-    description: '5+ years creating intuitive digital experiences and high-growth fintech interfaces.',
+    title: 'Sheelash Singh Bhadoriya | Top UX/UI Designer & Best Frontend Developer',
+    description: '5+ years creating intuitive digital experiences, high-growth SaaS, and fintech interfaces.',
+  },
+  verification: {
+    google: 'zgIDA8SAPOmbiMqa5_DzDWVviEgfUP-RWPIVZT5Tad4',
   },
 };
 

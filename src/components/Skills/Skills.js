@@ -64,6 +64,17 @@ export default function Skills() {
       )
     },
     {
+      id: 'javascript',
+      name: 'JavaScript',
+      color: 'rgba(247, 223, 30, 0.18)', // JS Yellow
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="#F7DF1E" rx="10"/>
+          <text x="75" y="80" fill="#000000" fontSize="38" fontWeight="bold" textAnchor="end" fontFamily="sans-serif">JS</text>
+        </svg>
+      )
+    },
+    {
       id: 'react',
       name: 'React.js',
       color: 'rgba(97, 218, 251, 0.2)', // React Cyan
@@ -93,8 +104,27 @@ export default function Skills() {
         </svg>
       )
     },
-
-    // Row 2 (Design & CMS Tools)
+    {
+      id: 'tailwind',
+      name: 'Tailwind CSS',
+      color: 'rgba(56, 189, 248, 0.18)', // Tailwind Cyan
+      logo: (
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12.001 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" fill="#38bdf8"/>
+        </svg>
+      )
+    },
+    {
+      id: 'bootstrap',
+      name: 'Bootstrap',
+      color: 'rgba(121, 82, 179, 0.18)', // Bootstrap Purple
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="#563d7c" rx="20"/>
+          <text x="50" y="72" fill="#ffffff" fontSize="65" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">B</text>
+        </svg>
+      )
+    },
     {
       id: 'figma',
       name: 'Figma',
@@ -118,6 +148,18 @@ export default function Skills() {
           <rect width="100" height="100" fill="#2E001F" rx="10"/>
           <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF61F6" strokeWidth="4" rx="8"/>
           <text x="50" y="64" fill="#FF61F6" fontSize="42" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">Xd</text>
+        </svg>
+      )
+    },
+    {
+      id: 'illustrator',
+      name: 'Illustrator',
+      color: 'rgba(255, 154, 0, 0.18)', // Illustrator Orange
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="#330000" rx="10"/>
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF9A00" strokeWidth="4" rx="8"/>
+          <text x="50" y="64" fill="#FF9A00" fontSize="42" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">Ai</text>
         </svg>
       )
     },

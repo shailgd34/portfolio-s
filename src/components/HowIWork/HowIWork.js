@@ -1,12 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState } from 'react';
 import styles from './HowIWork.module.css';
 
 export default function HowIWork() {
-  const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const steps = [
@@ -113,108 +110,79 @@ export default function HowIWork() {
     }
   ];
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const container = containerRef.current;
-    const slides = container.querySelectorAll(`.${styles.slide}`);
-
-    const ctx = gsap.context(() => {
-      // Master timeline with pinning
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container,
-          start: 'top top',
-          end: () => `+=${(slides.length - 1) * 100}%`,
-          pin: true,
-          scrub: true,
-          onUpdate: (self) => {
-            // Track dynamic progress to update active nav indicator
-            const index = Math.round(self.progress * (slides.length - 1));
-            setActiveIndex(index);
-          }
-        }
-      });
-
-      // Chain the vertical overlay slide transitions sequentially in a single timeline
-      slides.forEach((slide, idx) => {
-        if (idx === 0) return; // Keep slide 0 un-translated as base layer
-        tl.fromTo(slide,
-          { yPercent: 100 },
-          { yPercent: 0, ease: 'none' }
-        );
-      });
-    }, container);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Jump to specific slide on click of dot nav
-  const handleDotClick = (idx) => {
-    if (typeof window === 'undefined') return;
-    const scrollDistance = containerRef.current.offsetTop + idx * window.innerHeight;
-    window.scrollTo({
-      top: scrollDistance,
-      behavior: 'smooth'
-    });
-  };
-
   return (
-    <section id="how-i-work" className={styles.howIWorkSection} ref={containerRef}>
-      
-      {/* Pinned Title Info */}
-      <div className={styles.sectionTitleOverlay}>
-        <span className={styles.overlaySubtitle}>Workflow</span>
-        <h2 className={styles.overlayTitle}>How I Work</h2>
-      </div>
+    <section id="how-i-work" className={styles.howIWorkSection}>
+      <div className="container">
+        
+        {/* Title Info */}
+        <div className="section-title-wrapper">
+          <span className="section-subtitle">Workflow</span>
+          <h2 className="section-title">How I Work</h2>
+        </div>
 
-      {/* Slide Stack */}
-      <div className={styles.slidesContainer}>
-        {steps.map((step, idx) => (
-          <article 
-            key={idx} 
-            id={`process-step-${step.title.toLowerCase()}`}
-            className={styles.slide} 
-            style={{ zIndex: idx + 1 }}
-          >
-            <div className="container">
-              <div className={styles.slideGrid}>
+        {/* Dashboard Split View & Mobile Stack */}
+        <div className={styles.dashboard}>
+          
+          {/* Left Panel: Step Selector buttons */}
+          <nav className={styles.selectorPane} aria-label="Workflow Steps">
+            {steps.map((step, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                onMouseEnter={() => setActiveIndex(idx)}
+                className={`${styles.selectorItem} ${activeIndex === idx ? styles.selectorItemActive : ''}`}
+                aria-label={`View step ${step.title}`}
+                aria-selected={activeIndex === idx}
+                role="tab"
+              >
+                <span className={styles.selectorNum}>{step.num}</span>
+                <span className={styles.selectorTitle}>{step.title}</span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Right Panel: Step Detail Card */}
+          <div className={styles.displayPane} role="tabpanel">
+            <div key={activeIndex} className={styles.displayCard}>
+              <div className={styles.displayGrid}>
                 
-                {/* Left: Info Text */}
-                <div className={styles.slideLeft}>
-                  <span className={styles.slideNum}>{step.num}</span>
-                  <h3 className={styles.slideTitle}>{step.title}</h3>
-                  <p className={styles.slideDesc}>{step.desc}</p>
+                <div className={styles.displayLeft}>
+                  <span className={styles.displayNum}>{steps[activeIndex].num}</span>
+                  <h3 className={styles.displayTitle}>{steps[activeIndex].title}</h3>
+                  <p className={styles.displayDesc}>{steps[activeIndex].desc}</p>
                 </div>
 
-                {/* Right: Custom Vector visualizer */}
-                <div className={styles.slideRight}>
-                  <div className={styles.visualFrame} data-cursor-text={step.title.toUpperCase()}>
-                    {step.icon}
+                <div className={styles.displayRight}>
+                  <div className={styles.visualFrame} data-cursor-text={steps[activeIndex].title.toUpperCase()}>
+                    {steps[activeIndex].icon}
                   </div>
                 </div>
 
               </div>
             </div>
-          </article>
-        ))}
-      </div>
+          </div>
 
-      {/* Pinned Dot Navigation (Right Side) */}
-      <div className={styles.progressNav}>
-        {steps.map((step, idx) => (
-          <button
-            key={idx}
-            onClick={() => handleDotClick(idx)}
-            className={`${styles.progressItem} ${activeIndex === idx ? styles.progressItemActive : ''}`}
-            aria-label={`Jump to step ${step.title}`}
-          >
-            <span className={styles.progressLabel}>{step.title}</span>
-            <div className={styles.progressDot}></div>
-          </button>
-        ))}
-      </div>
+          {/* Mobile Layout: Vertical stacked cards */}
+          <div className={styles.mobileStack}>
+            {steps.map((step, idx) => (
+              <article key={idx} className={styles.mobileCard}>
+                <div className={styles.mobileHeader}>
+                  <span className={styles.mobileNum}>{step.num}</span>
+                  <h3 className={styles.mobileTitle}>{step.title}</h3>
+                </div>
+                <div className={styles.mobileVisual}>
+                  <div className={styles.visualFrame}>
+                    {step.icon}
+                  </div>
+                </div>
+                <p className={styles.mobileDesc}>{step.desc}</p>
+              </article>
+            ))}
+          </div>
 
+        </div>
+
+      </div>
     </section>
   );
 }

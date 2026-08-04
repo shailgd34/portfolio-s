@@ -10,6 +10,34 @@ export default function Footer() {
         
         {/* Top metadata row: Availability, Navigation and Social blocks */}
         <div className={styles.footerMetaRow}>
+          {/* Brand/Logo Block */}
+          <div className={styles.brandBlock}>
+            <a href="#hero" className={styles.footerLogoLink} aria-label="Sheelash Portfolio Home">
+              <div className={styles.logoIcon}>
+                <svg viewBox="0 0 100 100" width="28" height="28">
+                  <defs>
+                    <linearGradient id="footerLogoGradientTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="var(--accent-secondary)" />
+                      <stop offset="100%" stopColor="var(--accent-primary)" />
+                    </linearGradient>
+                  </defs>
+                  <path 
+                    d="M 75 32 C 75 18, 25 18, 25 42 C 25 65, 75 58, 75 80 C 75 92, 25 92, 25 78" 
+                    fill="none"
+                    stroke="url(#footerLogoGradientTop)"
+                    strokeWidth="14"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <span className={styles.logoText}>Sheelash.</span>
+            </a>
+            <p className={styles.brandDesc}>
+              Crafting high-growth fintech interfaces & premium SaaS dashboards. Bridging design fidelity with clean code.
+            </p>
+          </div>
+
           {/* Status Block */}
           <div className={styles.metaBlock}>
             <span className={styles.metaLabel}>Status</span>
@@ -99,7 +127,7 @@ export default function Footer() {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className={styles.logoText}>Sheelash</span>
+            <span className={styles.logoText}>Sheelash.</span>
           </a>
           <p className={styles.copyright}>
             &copy; {new Date().getFullYear()} Sheelash Singh Bhadoriya. All rights reserved.
