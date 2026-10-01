@@ -6,7 +6,7 @@ import Hero from '@/components/Hero/Hero';
 import Bento from '@/components/Bento/Bento';
 import HowIWork from '@/components/HowIWork/HowIWork';
 import Skills from '@/components/Skills/Skills';
-import Projects from '@/components/Projects/Projects';
+import ProjectCarousel from '@/components/ProjectCarousel/ProjectCarousel';
 import Contact from '@/components/Contact/Contact';
 import Footer from '@/components/Footer/Footer';
 import Widgets from '@/components/Widgets/Widgets';
@@ -124,7 +124,7 @@ export default function Home() {
         <Bento />
         <HowIWork />
         <Skills />
-        <Projects />
+        <ProjectCarousel />
         <Contact />
       </main>
       <Footer />

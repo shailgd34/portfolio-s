@@ -210,7 +210,7 @@ export default function Hero() {
               </a>
               <a 
                 ref={secondaryBtnRef}
-                href="/shailash 2026.pdf" 
+                href="/shailash%202026.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-secondary"
@@ -239,7 +239,7 @@ export default function Hero() {
             <div ref={cardRef} className={styles.imageFrame} data-cursor-text="ME">
               <div className={styles.profileImgContainer}>
                 <img 
-                  src="/protfoilobanner01.png" 
+                  src="/professional_headshot.jpg" 
                   alt="Sheelash Singh Bhadoriya" 
                   style={{
                     width: '100%',

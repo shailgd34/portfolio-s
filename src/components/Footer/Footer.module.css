@@ -162,14 +162,14 @@
   letter-spacing: -0.05em;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+  -webkit-text-stroke: 1px var(--border-color);
   transition: color 0.5s ease, -webkit-text-stroke 0.5s ease, text-shadow 0.5s ease;
 }
 
 .hugeDisplay:hover .hugeText {
   color: var(--text-primary);
   -webkit-text-stroke: 1px var(--text-primary);
-  text-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 35px var(--border-color-active);
 }
 
 /* Bottom copyright info */

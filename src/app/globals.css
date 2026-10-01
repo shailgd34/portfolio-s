@@ -1,23 +1,25 @@
 :root {
-  
+
   /* Cyber Obsidian Chrome Palette */
   --bg-primary: #050508;
   --bg-secondary: #0a0a0f;
   --bg-tertiary: #101015;
   --bg-glass: rgba(5, 5, 8, 0.85);
-  
+
   /* Awwwards Gold & Steel Accents */
-  --accent-primary: #f5c542; /* Electric Gold */
-  --accent-secondary: #00f0ff; /* Cyber Cyan */
+  --accent-primary: #f5c542;
+  /* Electric Gold */
+  --accent-secondary: #00f0ff;
+  /* Cyber Cyan */
   --accent-tertiary: #ffffff;
   --border-color: rgba(255, 255, 255, 0.07);
   --border-color-active: rgba(255, 255, 255, 0.15);
-  
+
   /* Text Colors */
   --text-primary: #ffffff;
   --text-secondary: #8e909a;
   --text-muted: #4e4f57;
-  
+
   --transition-smooth: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
   --transition-fast: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   --blur-glass: 30px;
@@ -29,20 +31,22 @@
   --bg-secondary: #f4f3ef;
   --bg-tertiary: #eae9e4;
   --bg-glass: rgba(252, 250, 249, 0.9);
-  
-  --accent-primary: #aa8642; 
-  --accent-secondary: #008899; 
+
+  --accent-primary: #aa8642;
+  --accent-secondary: #008899;
   --accent-tertiary: #000000;
   --border-color: rgba(0, 0, 0, 0.07);
   --border-color-active: rgba(0, 0, 0, 0.15);
-  
+
   --text-primary: #0a0a0f;
   --text-secondary: #5a5b66;
   --text-muted: #8e8f99;
 }
 
 /* Reset rules */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -64,7 +68,15 @@ body {
 }
 
 @media (min-width: 1024px) {
-  body, a, button, select, input, textarea, [role="button"], iframe {
+
+  body,
+  a,
+  button,
+  select,
+  input,
+  textarea,
+  [role="button"],
+  iframe {
     cursor: none !important;
   }
 }
@@ -87,20 +99,23 @@ body::before {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--bg-tertiary);
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
 }
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -113,7 +128,12 @@ section {
 }
 
 /* Giant typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 0.95;
@@ -134,7 +154,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   gap: 1rem;
   padding: 1.25rem 2.5rem;
-  border-radius: 0; /* Minimalist sharp corners */
+  border-radius: 0;
+  /* Minimalist sharp corners */
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
@@ -247,9 +268,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 1.5rem;
   }
+
   .section-title {
     font-size: 3rem;
   }
+
   .container {
     padding: 0 2rem;
   }

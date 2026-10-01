@@ -44,6 +44,9 @@
 
 /* Square Project Tile Card */
 .projectCard {
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #808090;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--border-color);
   border-radius: 0; /* Premium sharp corners */

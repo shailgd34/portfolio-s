@@ -143,11 +143,13 @@ export default function Projects() {
       <div className={styles.meshBg}></div>
 
       <div className="container">
-        
+
         {/* Simple descriptive header for SEO */}
-        <div className="section-title-wrapper">
+        <div className="section ">
           <span className="section-subtitle">Work</span>
           <h2 className="section-title">My Projects</h2>
+          <p>Explore a diverse range of projects across FinTech, Web3, and creative industries, showcasing modern design and robust development practices.</p>
+
         </div>
 
         {/* 3-Column Square Tiles Grid */}
@@ -170,15 +172,15 @@ export default function Projects() {
                 <div className={styles.cardGlow}></div>
 
                 {/* Backlight visual gradient overlay */}
-                <div 
+                <div
                   className={styles.cardBg}
                   style={{ background: project.bgGradient }}
                 >
                   {project.image && (
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className={styles.projectImage} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={styles.projectImage}
                     />
                   )}
                 </div>

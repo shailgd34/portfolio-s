@@ -51,8 +51,8 @@
 .hovering {
   width: 80px;
   height: 80px;
-  background-color: #ffffff;
-  border-color: #ffffff;
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
   mix-blend-mode: normal; /* Normal blend mode when white background is active for text visibility */
 }
 
