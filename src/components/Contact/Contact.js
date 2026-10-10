@@ -20,25 +20,22 @@ export default function Contact() {
     setLoading(true);
     setError(null);
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '6268f700-1c0b-410a-b28f-7f7243c2cbb4';
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '9d3157b3-3c20-49f9-976d-11cc49545740';
 
     try {
-      // Direct Web3Forms submission
+      const formData = new FormData();
+      formData.append('access_key', accessKey);
+      formData.append('name', formState.name);
+      formData.append('email', formState.email);
+      formData.append('service', formState.service || 'General Inquiry');
+      formData.append('message', formState.message);
+      formData.append('from_name', `${formState.name} (Portfolio)`);
+      formData.append('subject', `New Client Inquiry from ${formState.name} (${formState.service || 'Design'})`);
+
+      // Direct Web3Forms submission to shailashs79@gmail.com
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          from_name: formState.name || 'Portfolio Visitor',
-          subject: `Portfolio Inquiry from ${formState.name || 'New Client'} (${formState.service || 'General'})`,
-          name: formState.name,
-          email: formState.email,
-          service: formState.service,
-          message: formState.message,
-        }),
+        body: formData,
       });
 
       const result = await response.json();
@@ -131,6 +128,7 @@ export default function Contact() {
                     </label>
                     <input
                       id="contact-name"
+                      name="name"
                       type="text"
                       required
                       placeholder="John Smith"
@@ -146,6 +144,7 @@ export default function Contact() {
                     </label>
                     <input
                       id="contact-email"
+                      name="email"
                       type="email"
                       required
                       placeholder="johnsmith@gmail.com"
@@ -164,6 +163,7 @@ export default function Contact() {
                   <div className={styles.selectWrapper}>
                     <select
                       id="contact-service"
+                      name="service"
                       required
                       value={formState.service}
                       onChange={(e) => setFormState({ ...formState, service: e.target.value })}
@@ -191,6 +191,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="contact-message"
+                    name="message"
                     required
                     rows={4}
                     placeholder="Hello, I'd like to enquire about..."
