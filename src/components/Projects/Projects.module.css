@@ -117,30 +117,26 @@
 .cardOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(10, 10, 14, 0.94) 0%,
-    rgba(10, 10, 14, 0.76) 20%,
-    rgba(10, 10, 14, 0.35) 38%,
-    rgba(10, 10, 14, 0.05) 54%,
-    transparent 68%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      rgba(10, 10, 14, 0.94) 0%,
+      rgba(10, 10, 14, 0.76) 20%,
+      rgba(10, 10, 14, 0.35) 38%,
+      rgba(10, 10, 14, 0.05) 54%,
+      transparent 68%,
+      transparent 100%);
   z-index: 3;
   pointer-events: none;
   transition: opacity 0.35s ease;
 }
 
 :global([data-theme='light']) .cardOverlay {
-  background: linear-gradient(
-    to top,
-    rgba(14, 14, 18, 0.88) 0%,
-    rgba(14, 14, 18, 0.68) 20%,
-    rgba(14, 14, 18, 0.28) 38%,
-    rgba(14, 14, 18, 0.04) 54%,
-    transparent 68%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      rgba(14, 14, 18, 0.88) 0%,
+      rgba(14, 14, 18, 0.68) 20%,
+      rgba(14, 14, 18, 0.28) 38%,
+      rgba(14, 14, 18, 0.04) 54%,
+      transparent 68%,
+      transparent 100%);
 }
 
 .stackCard:hover .cardOverlay {
@@ -365,9 +361,13 @@
 
   .stackCard {
     height: auto;
-    aspect-ratio: 16 / 11;
-    min-height: 400px;
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
     border-radius: 24px;
+  }
+
+  .projectsStackList {
+    gap: 15px;
   }
 
   .cardBottomBar {

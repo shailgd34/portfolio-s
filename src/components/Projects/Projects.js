@@ -128,7 +128,7 @@ export default function Projects() {
       title: 'Seductive Seeker Luxury Discovery',
       category: 'Web Application',
       technologies: ['Figma', 'Discovery UI', 'Web App'],
-      image: '/seductive.png',
+      image: '/seductiveOne.png',
       link: 'https://www.figma.com/proto/NZc8NlQXXgQpO5VxYs73uN/Seductive-Seeker?node-id=59-1055',
       hasTopDot: true,
     },

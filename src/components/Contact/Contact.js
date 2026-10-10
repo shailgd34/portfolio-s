@@ -13,15 +13,17 @@ export default function Contact() {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(false);
+    setError(null);
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '6268f700-1c0b-410a-b28f-7f7243c2cbb4';
 
     try {
-      // Direct Web3Forms submission to shailashs79@gmail.com
+      // Direct Web3Forms submission
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -29,8 +31,7 @@ export default function Contact() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: '6268f700-1c0b-410a-b28f-7f7243c2cbb4',
-          to_email: 'shailashs79@gmail.com',
+          access_key: accessKey,
           from_name: formState.name || 'Portfolio Visitor',
           subject: `Portfolio Inquiry from ${formState.name || 'New Client'} (${formState.service || 'General'})`,
           name: formState.name,
@@ -44,12 +45,10 @@ export default function Contact() {
       if (result.success) {
         setSubmitted(true);
       } else {
-        // Fallback: still treat as submitted so user has positive experience or fallback to mailto
-        setSubmitted(true);
+        setError(result.message || 'Direct dispatch could not complete. Click below to send directly to shailashs79@gmail.com:');
       }
     } catch (err) {
-      // In case of offline/network block, show success with direct mailto
-      setSubmitted(true);
+      setError('Connection interrupted. Click below to send pre-filled message directly via email:');
     } finally {
       setLoading(false);
     }
@@ -200,6 +199,19 @@ export default function Contact() {
                     className={styles.textareaInput}
                   />
                 </div>
+
+                {/* Error Banner with 1-Click Direct Email Fallback */}
+                {error && (
+                  <div className={styles.errorBanner}>
+                    <p className={styles.errorMsg}>{error}</p>
+                    <a
+                      href={`mailto:shailashs79@gmail.com?subject=Portfolio Inquiry (${encodeURIComponent(formState.service || 'General')}) from ${encodeURIComponent(formState.name || 'New Client')}&body=${encodeURIComponent('Hi Shailash,\n\n' + formState.message + '\n\n---\nName: ' + formState.name + '\nEmail: ' + formState.email + '\nService: ' + formState.service)}`}
+                      className={styles.errorMailtoBtn}
+                    >
+                      Send Pre-filled Email to shailashs79@gmail.com ↗
+                    </a>
+                  </div>
+                )}
 
                 {/* Submit Row: Pill with green toggle switch + SUBMIT */}
                 <div className={styles.submitRow}>
