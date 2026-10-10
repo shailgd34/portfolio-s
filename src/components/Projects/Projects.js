@@ -1,219 +1,286 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowUpRight } from 'lucide-react';
 import styles from './Projects.module.css';
 
 export default function Projects() {
-  const containerRef = useRef(null);
-  const gridRef = useRef(null);
   const cardsRef = useRef([]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      // Stagger entry reveal of square project tiles
-      const items = gridRef.current?.children;
-      if (items) {
-        gsap.fromTo(items,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.08,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      }
-    }, containerRef);
+    const cards = cardsRef.current.filter(Boolean);
+    if (!cards.length) return;
 
-    return () => ctx.revert();
+    const ctx = gsap.context(() => {
+      cards.forEach((card, i) => {
+        // When nextCard scrolls up, card i scales down and goes behind with subtle dimming
+        if (i < cards.length - 1) {
+          const nextCard = cards[i + 1];
+
+          gsap.to(card, {
+            scale: 0.91,
+            filter: 'brightness(0.65)',
+            transformOrigin: 'center top',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: nextCard,
+              start: 'top bottom',
+              end: 'top 120px',
+              scrub: true,
+              invalidateOnRefresh: true,
+            }
+          });
+
+          // When a third card arrives, card i scales down further in the deck
+          if (i < cards.length - 2) {
+            const thirdCard = cards[i + 2];
+            gsap.to(card, {
+              scale: 0.84,
+              filter: 'brightness(0.42)',
+              transformOrigin: 'center top',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: thirdCard,
+                start: 'top bottom',
+                end: 'top 120px',
+                scrub: true,
+                invalidateOnRefresh: true,
+              }
+            });
+          }
+        }
+      });
+    });
+
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, []);
 
   const featuredProjects = [
     {
-      id: 'tugatrades',
-      title: 'TugaTrades',
-      category: 'FinTech Dashboard',
-      tags: ['Figma', 'FigJam', 'Prototyping'],
-      link: 'https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&starting-point-node-id=5085%3A2009&t=C61Tu6bpa8qkVllI-1',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(189,0,255,0.2) 100%)',
-      color: 'rgba(189, 0, 255, 0.18)',
-      image: '/tugatrades.png'
+      id: 'fresh-art-club',
+      title: 'Fresh Art Club Creative Portal',
+      category: 'Creative & Art',
+      technologies: ['Figma', 'WordPress', 'CSS3'],
+      image: '/portfolio/fresh art club/mainone.png',
+      link: 'https://freshartclub.com/',
+      hasTopDot: true,
     },
     {
-      id: 'equuschain',
-      title: 'Equus Chain',
-      category: 'Web3 Platform',
-      tags: ['React', 'Next.js', 'Tailwind'],
-      link: 'https://equuschain.io/',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(0,240,255,0.2) 100%)',
-      color: 'rgba(0, 240, 255, 0.18)',
-      image: '/equuschain.png'
+      id: 'esotek-corporation',
+      title: 'Esotek Corporation',
+      category: 'Corporate & Enterprise',
+      technologies: ['Figma', 'Adobe CC', 'Corporate UI'],
+      image: '/portfolio/Esotek Corporation/mainone.png',
+      link: 'https://darkorange-tarsier-721134.hostingersite.com/',
+      hasTopDot: false,
     },
     {
-      id: 'nzl-app',
-      title: 'NZL Mobile',
+      id: 'praize-productions',
+      title: 'Praize Productions',
+      category: 'Creative & Art',
+      technologies: ['Figma', 'Adobe CC', 'Media Design'],
+      image: '/portfolio/Praize Productions/mainone.png',
+      link: '/projects',
+      hasTopDot: true,
+    },
+    {
+      id: 'hireute',
+      title: 'HireUTE Vehicle Rental',
       category: 'Mobile Application',
-      tags: ['Figma', 'React Native', 'UX/UI'],
-      link: 'https://nzlapp.com/',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(245,197,66,0.2) 100%)',
-      color: 'rgba(245, 197, 66, 0.18)',
-      image: '/nzlmobile.png'
+      technologies: ['Figma', 'Mobile UI', 'Rental Platform'],
+      image: '/portfolio/HireUTE/mainone.png',
+      link: '/projects',
+      hasTopDot: false,
+    },
+    {
+      id: 'semrossi',
+      title: 'Semrossi Luxury Apparel',
+      category: 'E-Commerce & Luxury',
+      technologies: ['Figma', 'E-Commerce', 'Brand Identity'],
+      image: '/portfolio/Semrossi/mainone.png',
+      link: '/projects',
+      hasTopDot: true,
+    },
+    {
+      id: 'runner',
+      title: 'Runner On-Demand Dispatch',
+      category: 'Mobile Application',
+      technologies: ['Figma', 'Logistics UI', 'Mobile App'],
+      image: '/portfolio/Runner/mainone.png',
+      link: '/projects',
+      hasTopDot: false,
+    },
+    {
+      id: 'seductive-seeker',
+      title: 'Seductive Seeker Luxury Discovery',
+      category: 'Web Application',
+      technologies: ['Figma', 'Discovery UI', 'Web App'],
+      image: '/seductive.png',
+      link: 'https://www.figma.com/proto/NZc8NlQXXgQpO5VxYs73uN/Seductive-Seeker?node-id=59-1055',
+      hasTopDot: true,
+    },
+    {
+      id: '7sens',
+      title: '7Sens Luxury Brand Experience',
+      category: 'Creative Agency',
+      technologies: ['Figma', 'Next.js', 'React'],
+      image: '/portfolio/7Sens/mainone.png',
+      link: 'https://7sens-frontend.vercel.app/',
+      hasTopDot: false,
+    },
+    {
+      id: 'carat-club',
+      title: 'Carat Club Diamonds & Jewelry',
+      category: 'E-Commerce & Luxury',
+      technologies: ['Figma', '3D Config', 'React'],
+      image: '/portfolio/Carat Club/mainone.png',
+      link: 'https://carat-club.vercel.app/',
+      hasTopDot: true,
     },
     {
       id: 'crconi-digital',
-      title: 'Crconi Digital',
-      category: 'Creative Web',
-      tags: ['Next.js', 'GSAP', 'CSS Modules'],
+      title: 'Crconi Digital Agency',
+      category: 'Digital Agency',
+      technologies: ['Figma', 'GSAP', 'Next.js'],
+      image: '/portfolio/Crconi Digital/mainone.png',
       link: 'https://crconidigital.com/',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(5,80,255,0.2) 100%)',
-      color: 'rgba(5, 80, 255, 0.18)',
-      image: '/crconidigital.png'
+      hasTopDot: false,
     },
     {
-      id: 'neurokaizen',
-      title: 'NeuroKaizen',
-      category: 'SaaS Portal',
-      tags: ['React', 'Next.js', 'Tailwind'],
+      id: 'neuro-kaizen',
+      title: 'Neuro Kaizen AI SaaS Dashboard',
+      category: 'AI SaaS',
+      technologies: ['Figma', 'AI SaaS', 'React'],
+      image: '/portfolio/Neuro Kaizen/mainone.png',
       link: 'https://portal.neurokaizen.com/',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(0,255,102,0.2) 100%)',
-      color: 'rgba(0, 255, 102, 0.18)',
-      image: '/neurokaizen.png'
+      hasTopDot: true,
     },
     {
-      id: 'freshartclub',
-      title: 'Fresh Art Club',
-      category: 'Creative Portal',
-      tags: ['WordPress', 'WooCommerce', 'CSS3'],
-      link: 'https://freshartclub.com/',
-      bgGradient: 'linear-gradient(135deg, rgba(16,16,24,0) 0%, rgba(255,0,85,0.2) 100%)',
-      color: 'rgba(255, 0, 85, 0.18)',
-      image: '/freshartclub.png'
-    }
+      id: 'nzl-app',
+      title: 'NZL Reverse Bidding App',
+      category: 'Mobile App',
+      technologies: ['Figma', 'Mobile UI', 'iOS / Android'],
+      image: '/portfolio/Nzl App/mainone.png',
+      link: 'https://nzlapp.com/',
+      hasTopDot: false,
+    },
+    {
+      id: 'raptex',
+      title: 'Raptex Crypto Exchange',
+      category: 'FinTech',
+      technologies: ['Figma', 'FinTech UI', 'Exchange'],
+      image: '/portfolio/Raptex/mainone.png',
+      link: 'https://www.figma.com/proto/HYpQJy7lcTH1zoAusVB4Cx/Raptex-crypto-Exchange?node-id=1-4',
+      hasTopDot: true,
+    },
   ];
 
-  // Mouse tilt tracking
-  const handleMouseMove = (e, index) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const rotateX = -(e.clientY - centerY) * 0.05;
-    const rotateY = (e.clientX - centerX) * 0.05;
-
-    gsap.to(card, {
-      rotateX: rotateX,
-      rotateY: rotateY,
-      scale: 1.02,
-      duration: 0.4,
-      ease: 'power2.out'
-    });
-  };
-
-  const handleMouseLeave = (index) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-
-    gsap.to(card, {
-      rotateX: 0,
-      rotateY: 0,
-      scale: 1,
-      duration: 0.6,
-      ease: 'power2.out'
-    });
-  };
-
   return (
-    <section id="projects" className={styles.projectsSection} ref={containerRef}>
-      {/* Moving Mesh Background */}
-      <div className={styles.meshBg}></div>
-
+    <section id="projects" className={styles.projectsSection}>
       <div className="container">
-
-        {/* Simple descriptive header for SEO */}
-        <div className="section ">
-          <span className="section-subtitle">Work</span>
-          <h2 className="section-title">My Projects</h2>
-          <p>Explore a diverse range of projects across FinTech, Web3, and creative industries, showcasing modern design and robust development practices.</p>
-
+        
+        {/* Section Header matching user reference */}
+        <div className={styles.sectionHeader}>
+          <div className={styles.limePulseDot} aria-hidden="true" />
+          <h2 className={styles.sectionTitle}>FEATURED PROJECTS</h2>
+          <p className={styles.sectionSubtitle}>
+            These selected projects reflect my passion for blending strategy with creativity — solving real problems through thoughtful design and impactful storytelling.
+          </p>
         </div>
 
-        {/* 3-Column Square Tiles Grid */}
-        <div className={styles.projectsGrid} ref={gridRef}>
-          {featuredProjects.map((project, idx) => (
-            <div key={project.id} className={styles.cardFloatWrapper}>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                id={`featured-project-${project.id}`}
+        {/* Sticky Stacking Stack: Each subsequent card scrolls up and stacks ABOVE the previous card */}
+        <div className={styles.projectsStackList}>
+          {featuredProjects.map((project, idx) => {
+            const zIndex = 20 + idx;
+            const topOffset = `calc(88px + ${idx * 6}px)`;
+            const isExternal = project.link && project.link.startsWith('http');
+            const targetHref = isExternal ? project.link : (project.link && project.link !== '#' ? project.link : '/projects');
+
+            return (
+              <div
+                key={project.id}
                 ref={(el) => (cardsRef.current[idx] = el)}
-                className={styles.projectCard}
-                onMouseMove={(e) => handleMouseMove(e, idx)}
-                onMouseLeave={() => handleMouseLeave(idx)}
-                style={{ '--tech-color': project.color }}
-                data-cursor-text="LAUNCH"
+                className={styles.stackCard}
+                style={{
+                  top: topOffset,
+                  zIndex: zIndex,
+                }}
               >
-                {/* Hover spotlight glow */}
-                <div className={styles.cardGlow}></div>
+                {/* Full-Bleed Background Image */}
+                <Image
+                  src={encodeURI(project.image)}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1380px"
+                  priority={idx < 2}
+                  className={styles.cardBgImage}
+                />
 
-                {/* Backlight visual gradient overlay */}
-                <div
-                  className={styles.cardBg}
-                  style={{ background: project.bgGradient }}
-                >
-                  {project.image && (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className={styles.projectImage}
-                    />
-                  )}
-                </div>
+                {/* Gradient Overlay: Transparent on top for crystal clear mockup visibility, dark gradient on bottom for pill & button contrast */}
+                <div className={styles.cardOverlay} />
 
-                {/* Top Section: Category and launch icon */}
-                <div className={styles.cardHeader}>
-                  <span className={styles.categoryTag}>{project.category}</span>
-                  <ExternalLink size={14} className={styles.launchIcon} />
-                </div>
+                {/* Clickable Backdrop Cover for the card */}
+                <a
+                  href={targetHref}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className={styles.cardClickCover}
+                  aria-label={`View ${project.title}`}
+                  title={`View ${project.title}`}
+                />
 
-                {/* Centered Body Section: Giant title */}
-                <div className={styles.cardBody}>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
-                </div>
+                {/* Top Corner Dot (matching reference) */}
+                {project.hasTopDot && (
+                  <div className={styles.cardTopLeftDot} aria-hidden="true" />
+                )}
 
-                {/* Bottom Section: Technologies Row */}
-                <div className={styles.cardFooter}>
-                  {project.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className={styles.techTag}>
-                      {tag}
+                {/* Bottom Bar: Left = Category & Tech Pills | Right = Interactive Arrow Launch Button */}
+                <div className={styles.cardBottomBar}>
+                  <div className={styles.cardBottomLeft}>
+                    <span className={styles.categoryPill}>
+                      {project.category}
                     </span>
-                  ))}
+                    {project.technologies?.map((tech, tIdx) => (
+                      <span key={tIdx} className={styles.techPill}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={targetHref}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className={styles.cardCornerArrowBtn}
+                    aria-label={`Open ${project.title}`}
+                    title={`View ${project.title}`}
+                  >
+                    <ArrowUpRight size={22} className={styles.cornerArrowIcon} />
+                  </a>
                 </div>
 
-              </a>
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
-        {/* View All Projects CTA */}
-        <div className={styles.viewAllContainer}>
-          <Link href="/projects" className="btn btn-primary" data-cursor-text="ALL WORK">
-            View All 18 Projects <ArrowRight size={16} />
+        {/* Browse All Projects Action matching user screenshot */}
+        <div className={styles.viewAllFooter}>
+          <Link href="/projects" className={styles.browseAllBtn}>
+            BROWSE ALL PROJECTS
           </Link>
         </div>
 

@@ -1,0 +1,154 @@
+.servicesSection {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-main);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.18 !important;
+  padding-bottom: 0.18em !important;
+  display: inline-block;
+  overflow: visible !important;
+  text-transform: uppercase;
+}
+
+.sectionSubtitle {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.accordionItem {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemTitle {
+  font-family: var(--font-antonio), 'Antonio', sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.accordionItem:hover .itemTitle {
+  color: var(--accent-lime);
+}
+
+.chevronIcon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.accordionBody {
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.itemDesc {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+/* Right Column: 3D Rotated Workspace Card */
+.rightCol {
+  display: flex;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.workspaceCard {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 560px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  transform: rotateY(-12deg) rotateZ(-3deg) rotateX(4deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border-subtle);
+}
+
+.workspaceCard:hover {
+  transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg) scale(1.02);
+}
+
+.workspaceImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Small Lime Dot at lower-left of workspace card */
+.limeBadgeDot {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #A3E635;
+  box-shadow: 0 0 14px #A3E635;
+}
+
+@media (max-width: 900px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .workspaceCard {
+    transform: none;
+    max-width: 100%;
+    height: 400px;
+  }
+}

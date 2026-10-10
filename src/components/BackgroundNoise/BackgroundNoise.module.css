@@ -1,0 +1,20 @@
+.noiseOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none !important;
+  z-index: 0;
+  background-image: url('/noise.gif');
+  background-repeat: repeat;
+  background-size: 160px 160px;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  transform: translateZ(0);
+}
+
+:global([data-theme='light']) .noiseOverlay {
+  opacity: 0.065;
+  mix-blend-mode: multiply;
+}

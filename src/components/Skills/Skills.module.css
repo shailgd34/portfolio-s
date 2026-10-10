@@ -1,219 +1,463 @@
-.skillsSection {
+.techSection {
   position: relative;
-  background-color: var(--bg-primary);
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0 5rem 0; /* Spacing shifted to bottom */
-}
-
-/* Shifting moving mesh backdrop */
-.meshBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  background: 
-    radial-gradient(at 15% 25%, rgba(0, 240, 255, 0.03) 0px, transparent 50%),
-    radial-gradient(at 85% 75%, rgba(245, 197, 66, 0.02) 0px, transparent 50%),
-    radial-gradient(at 50% 5%, rgba(189, 0, 255, 0.02) 0px, transparent 50%);
-  background-size: 200% 200%;
-  animation: moveMesh 22s infinite alternate ease-in-out;
-}
-
-@keyframes moveMesh {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-/* Tic-tac-toe internal-only border grid layout (6 Columns) */
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0; /* Gap is 0 to align borders perfectly */
-  position: relative;
-  z-index: 2;
-  perspective: 1000px;
-  border: none; /* No outer border */
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.cardFloatWrapper {
-  display: contents;
-}
-
-/* Tic-tac-toe Cell */
-.skillCard {
+  padding: 8rem 0 9rem 0;
   background-color: transparent;
-  height: 120px; /* Compact height */
-  padding: 1rem;
+  overflow: hidden;
+}
+
+.meshGlow {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(163, 230, 53, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Section Header */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+.badgeTag {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem; /* Tighter spacing */
-  position: relative;
-  overflow: hidden;
-  
-  /* Tic-tac-toe border mappings */
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  border-left: none;
-  border-top: none;
-  
-  transition: background-color 0.4s cubic-bezier(0.19, 1, 0.22, 1), transform 0.1s ease-out;
-  transform-style: preserve-3d;
-  will-change: transform, background-color;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(163, 230, 53, 0.1);
+  border: 1px solid rgba(163, 230, 53, 0.25);
+  color: var(--accent-lime, #A3E635);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.sparkleIcon {
+  color: var(--accent-lime, #A3E635);
+}
+
+.sectionTitle {
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #FFFFFF);
+  line-height: 1.18 !important;
+  padding-bottom: 0.18em !important;
+  display: inline-block;
+  overflow: visible !important;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.sectionSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #A1A1AA);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* Filter Bar */
+.filterBar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #18181C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #A1A1AA;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Remove right border on the last column (column 6) */
-.cardFloatWrapper:nth-child(6n) .skillCard {
-  border-right: none;
+.filterBtn:hover {
+  background: #222228;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Remove bottom border on the last row (items 7 to 12) */
-.cardFloatWrapper:nth-child(n+7) .skillCard {
-  border-bottom: none;
+.activeFilter {
+  background: var(--accent-lime, #A3E635) !important;
+  color: #121214 !important;
+  border-color: var(--accent-lime, #A3E635) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(163, 230, 53, 0.35);
 }
 
-/* Lighten background on hover */
-.skillCard:hover {
-  background-color: rgba(255, 255, 255, 0.015);
+.filterCount {
+  font-size: 0.75rem;
+  opacity: 0.8;
 }
 
-/* Creative Shimmer Shine sweep */
-.skillCard::before {
-  content: '';
+/* Bento Grid */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 4rem;
+}
+
+.bentoCard {
+  position: relative;
+  background: #333333;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  cursor: default;
+}
+
+.bentoCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-lime, #A3E635);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 25px var(--glow-color, rgba(163, 230, 53, 0.15));
+}
+
+/* Mouse Flashlight Spotlight Beam */
+.spotlightOverlay {
   position: absolute;
-  top: 0;
-  left: -150%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent
-  );
-  transform: skewX(-25deg);
-  z-index: 2;
+  inset: 0;
   pointer-events: none;
-}
-
-.skillCard:hover::before {
-  animation: shine-sweep 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-@keyframes shine-sweep {
-  0% { left: -150%; }
-  100% { left: 150%; }
-}
-
-/* Hover glow backlight behind the logo */
-.techGlow {
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, var(--tech-color) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%) scale(0.6);
+  background: radial-gradient(400px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+      var(--glow-color, rgba(255, 255, 255, 0.12)),
+      transparent 70%);
   opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
-.skillCard:hover .techGlow {
-  opacity: 0.75;
-  transform: translate(-50%, -50%) scale(1.35);
+.bentoCard:hover .spotlightOverlay {
+  opacity: 1;
 }
 
-/* Logo icon pops in 3D */
-.logoWrapper {
-  width: 42px;
-  height: 42px;
+/* Card Header */
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.logoBox {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  transform: translateZ(20px);
-  filter: grayscale(0.15) contrast(0.95);
-  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), filter 0.3s ease;
+  padding: 10px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.skillCard:hover .logoWrapper {
-  transform: translateZ(35px) scale(1.1);
-  filter: grayscale(0) contrast(1.05);
+.bentoCard:hover .logoBox {
+  transform: scale(1.1) rotate(4deg);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-color, #A3E635);
 }
 
-.logoWrapper svg {
+.logoBox svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* Floating typography label */
-.skillName {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
+.tenureBadge {
+  font-size: 0.72rem;
   font-weight: 700;
+  color: var(--accent-lime, #A3E635);
+  background: rgba(163, 230, 53, 0.09);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(163, 230, 53, 0.2);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+}
+
+/* Card Info */
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.techName {
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #FFFFFF;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.levelTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #A1A1AA;
+  text-transform: uppercase;
   letter-spacing: 0.08em;
-  z-index: 1;
-  transform: translateZ(15px);
-  transition: color 0.3s ease, letter-spacing 0.3s ease;
-  text-align: center;
 }
 
-.skillCard:hover .skillName {
-  color: var(--text-primary);
-  letter-spacing: 0.12em;
+.techDesc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #8E8E93;
+  margin: 0;
 }
 
-@media (max-width: 992px) {
-  .skillsGrid {
-    grid-template-columns: repeat(3, 1fr);
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 2;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.meterInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.meterLabel {
+  color: #71717A;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.meterPercent {
+  color: var(--accent-lime, #A3E635);
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.meterTrack {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.meterFill {
+  height: 100%;
+  background: var(--accent-lime, #A3E635);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.6);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Marquee Banner */
+.marqueeBanner {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.25rem 0;
+  background: #333333;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  position: relative;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: marqueeScroll 28s linear infinite;
+  width: max-content;
+}
+
+.marqueeTrack span {
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #A1A1AA;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.marqueeTrack span:hover {
+  color: var(--accent-lime, #A3E635);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
   }
-  /* Re-align border removal for 3-column layout */
-  .cardFloatWrapper .skillCard {
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-  }
-  .cardFloatWrapper:nth-child(3n) .skillCard {
-    border-right: none;
-  }
-  .cardFloatWrapper:nth-child(n+10) .skillCard {
-    border-bottom: none;
+
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@media (max-width: 576px) {
-  .skillsGrid {
+/* Responsive */
+@media (max-width: 1100px) {
+  .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Re-align border removal for 2-column layout */
-  .cardFloatWrapper .skillCard {
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 700px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
   }
-  .cardFloatWrapper:nth-child(2n) .skillCard {
-    border-right: none;
+
+  .techSection {
+    padding: 5rem 0;
   }
-  .cardFloatWrapper:nth-child(n+11) .skillCard {
-    border-bottom: none;
-  }
-  .logoWrapper {
-    width: 44px;
-    height: 44px;
-  }
-  .skillName {
-    font-size: 0.8rem;
-  }
+}
+
+/* Light Mode Overrides */
+:global([data-theme='light']) .bentoCard {
+  background: #EEEEEE !important;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+:global([data-theme='light']) .techName {
+  color: #141416;
+}
+
+:global([data-theme='light']) .techDesc {
+  color: #555555;
+}
+
+:global([data-theme='light']) .levelTag {
+  color: #666666;
+}
+
+:global([data-theme='light']) .meterLabel {
+  color: #666666;
+}
+
+:global([data-theme='light']) .logoBox {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme='light']) .cardFooter {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme='light']) .meterTrack {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme='light']) .marqueeBanner {
+  background: #EEEEEE;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme='light']) .marqueeTrack span {
+  color: #333333;
+}
+
+:global([data-theme='light']) .filterBtn {
+  background: #EEEEEE;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #555555;
+}
+
+:global([data-theme='light']) .filterBtn:hover {
+  background: #E2E2E6;
+  color: #141416;
+}
+
+:global([data-theme='light']) .badgeTag {
+  background: rgba(88, 80, 236, 0.08);
+  border-color: rgba(88, 80, 236, 0.25);
+  color: #5850EC;
+}
+
+:global([data-theme='light']) .sparkleIcon {
+  color: #5850EC;
+}
+
+:global([data-theme='light']) .activeFilter {
+  background: #5850EC !important;
+  color: #FFFFFF !important;
+  border-color: #5850EC !important;
+  box-shadow: 0 4px 20px rgba(88, 80, 236, 0.35);
+}
+
+:global([data-theme='light']) .tenureBadge {
+  color: #5850EC;
+  background: rgba(88, 80, 236, 0.08);
+  border-color: rgba(88, 80, 236, 0.2);
+}
+
+:global([data-theme='light']) .bentoCard:hover {
+  border-color: #5850EC;
+  box-shadow: 0 16px 40px rgba(88, 80, 236, 0.1);
+}
+
+:global([data-theme='light']) .bentoCard:hover .logoBox {
+  border-color: #5850EC;
+}
+
+:global([data-theme='light']) .meterPercent {
+  color: #5850EC;
+}
+
+:global([data-theme='light']) .meterFill {
+  background: #5850EC;
+  box-shadow: 0 0 10px rgba(88, 80, 236, 0.5);
+}
+
+:global([data-theme='light']) .marqueeTrack span:hover {
+  color: #5850EC;
 }

@@ -1,0 +1,138 @@
+.faqSection {
+  padding: 6rem 0;
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.subHeaderTag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #5850EC;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #141416;
+  line-height: 1.18 !important;
+  padding-bottom: 0.18em !important;
+  display: inline-block;
+  overflow: visible !important;
+}
+
+.countBadge {
+  font-family: var(--font-antonio), 'Antonio', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8E8E93;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.faqCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.faqCard:hover {
+  border-color: rgba(88, 80, 236, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.faqOpen {
+  border-color: #5850EC;
+  box-shadow: 0 12px 30px rgba(88, 80, 236, 0.1);
+}
+
+.faqHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faqQuestion {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #141416;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.faqNum {
+  font-family: var(--font-antonio), 'Antonio', sans-serif;
+  font-size: 1.3rem;
+  color: #5850EC;
+}
+
+.toggleBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #F8F8FA;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #141416;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faqOpen .toggleBtn {
+  background: #5850EC;
+  color: #FFFFFF;
+  border-color: #5850EC;
+}
+
+.faqBody {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.faqAnswer {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #555555;
+}
+
+@media (max-width: 640px) {
+  .faqQuestion {
+    font-size: 1rem;
+  }
+}

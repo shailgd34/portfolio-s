@@ -1,0 +1,74 @@
+.fixedToggleWrapper {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 9999px;
+  background: rgba(18, 18, 22, 0.82);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .fixedToggleWrapper {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.themeToggleSwitch {
+  width: 44px;
+  height: 22px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.35s ease;
+  outline: none;
+}
+
+/* Light Mode Switch: Indigo purple pill */
+.switchLight {
+  background: #5850EC;
+}
+
+/* Dark Mode Switch: Neon lime green pill */
+.switchDark {
+  background: #A3E635;
+}
+
+.toggleDot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease;
+}
+
+.switchLight .toggleDot {
+  transform: translateX(0px);
+  background: #FFFFFF;
+}
+
+.switchDark .toggleDot {
+  transform: translateX(22px);
+  background: #121214;
+}
+
+.themeToggleSwitch:hover {
+  transform: scale(1.05);
+}
+
+.themeToggleSwitch:active {
+  transform: scale(0.95);
+}

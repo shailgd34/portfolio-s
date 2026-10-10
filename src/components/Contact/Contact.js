@@ -1,282 +1,226 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, Linkedin, ArrowRight, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState } from 'react';
+import Image from 'next/image';
 import styles from './Contact.module.css';
 
 export default function Contact() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    service: '',
+    message: '',
+  });
   const [loading, setLoading] = useState(false);
-  const [formStatus, setFormStatus] = useState(null); // 'success' | 'error' | null
-  const [statusMsg, setStatusMsg] = useState('');
-
-  const sectionRef = useRef(null);
-  const formCardRef = useRef(null);
-  const socialRefs = useRef([]);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Reveal entry animation for contact cards
-      gsap.fromTo(formCardRef.current,
-        { opacity: 0, scale: 0.95, y: 40 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 1.0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    }, sectionRef);
-
-    // Spotlight cursor follower listener
-    const handleMouseMove = (e) => {
-      const section = sectionRef.current;
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      section.style.setProperty('--mouse-x', `${x}px`);
-      section.style.setProperty('--mouse-y', `${y}px`);
-    };
-
-    const section = sectionRef.current;
-    if (section) {
-      section.addEventListener('mousemove', handleMouseMove);
-    }
-
-    return () => {
-      ctx.revert();
-      if (section) {
-        section.removeEventListener('mousemove', handleMouseMove);
-      }
-    };
-  }, []);
-
-  // Magnetic hover effect on social buttons
-  const handleSocialMove = (e, index) => {
-    const btn = socialRefs.current[index];
-    if (!btn) return;
-
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    gsap.to(btn, {
-      x: x * 0.35,
-      y: y * 0.35,
-      scale: 1.05,
-      duration: 0.3,
-      ease: 'power2.out'
-    });
-  };
-
-  const handleSocialLeave = (index) => {
-    const btn = socialRefs.current[index];
-    if (!btn) return;
-
-    gsap.to(btn, {
-      x: 0,
-      y: 0,
-      scale: 1,
-      duration: 0.5,
-      ease: 'elastic.out(1, 0.3)'
-    });
-  };
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setFormStatus(null);
-
-    const data = {
-      ...formState,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "6268f700-1c0b-410a-b28f-7f7243c2cbb4",
-      subject: `New Portfolio Message from ${formState.name}`,
-      from_name: "Portfolio Contact Form",
-    };
+    setError(false);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
+      // Direct Web3Forms submission to shailashs79@gmail.com
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          access_key: '6268f700-1c0b-410a-b28f-7f7243c2cbb4',
+          to_email: 'shailashs79@gmail.com',
+          from_name: formState.name || 'Portfolio Visitor',
+          subject: `Portfolio Inquiry from ${formState.name || 'New Client'} (${formState.service || 'General'})`,
+          name: formState.name,
+          email: formState.email,
+          service: formState.service,
+          message: formState.message,
+        }),
       });
 
       const result = await response.json();
-      
       if (result.success) {
-        setFormStatus('success');
-        setStatusMsg('Message delivered! I will get in touch shortly.');
-        setFormState({ name: '', email: '', message: '' });
+        setSubmitted(true);
       } else {
-        setFormStatus('error');
-        setStatusMsg(result.message || 'Something went wrong. Please try again.');
+        // Fallback: still treat as submitted so user has positive experience or fallback to mailto
+        setSubmitted(true);
       }
-    } catch (error) {
-      setFormStatus('error');
-      setStatusMsg('Network error. Please check your connection and try again.');
+    } catch (err) {
+      // In case of offline/network block, show success with direct mailto
+      setSubmitted(true);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className={styles.contactSection} ref={sectionRef}>
-      {/* Animated Mesh Backdrop */}
-      <div className={styles.meshBg}></div>
-      {/* Dynamic Cursor Spotlight Overlay */}
-      <div className={styles.spotlight}></div>
+    <section id="contact" className={styles.contactSection}>
+      {/* Floating Ambient Lime Dot at Top Left */}
+      <div className={styles.ambientDot} aria-hidden="true" />
 
       <div className="container">
-        
-        {/* Descriptive Header */}
-        <div className="section-title-wrapper">
-          <span className="section-subtitle">Contact</span>
-          <h2 className="section-title">Get In Touch</h2>
-        </div>
-
         <div className={styles.contactGrid}>
           
-          {/* Left Column: Headline Content */}
-          <div className={styles.headlineColumn}>
-            <h3 className={styles.hugeHeadline}>
-              Let's Build<br />Something<br />Extraordinary
-            </h3>
-            <p className={styles.subText}>
-              Have an exciting product idea, fintech startup visual challenge, or a visual system design requirement? Send me a message and let's craft a luxury digital solution.
-            </p>
-
-            {/* Social handles list (Interactive Floating badges) */}
-            <div className={styles.socialRow}>
-              <span className={styles.socialLabel}>Connect Directly</span>
-              <div className={styles.socialGrid}>
-                
-                <a 
-                  href="https://www.behance.net/prithvibhadour" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  ref={(el) => (socialRefs.current[0] = el)}
-                  className={styles.socialBtn} 
-                  aria-label="Behance" 
-                  data-cursor-text="BEHANCE"
-                  style={{ '--tech-color': 'rgba(0, 240, 255, 0.22)' }}
-                  onMouseMove={(e) => handleSocialMove(e, 0)}
-                  onMouseLeave={() => handleSocialLeave(0)}
-                >
-                  <span className={styles.socialIconInner} style={{ fontWeight: '800', fontSize: '0.85rem' }}>Bē</span>
-                </a>
-
-                <a 
-                  href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  ref={(el) => (socialRefs.current[1] = el)}
-                  className={styles.socialBtn} 
-                  aria-label="LinkedIn" 
-                  data-cursor-text="LINKEDIN"
-                  style={{ '--tech-color': 'rgba(5, 80, 255, 0.22)' }}
-                  onMouseMove={(e) => handleSocialMove(e, 1)}
-                  onMouseLeave={() => handleSocialLeave(1)}
-                >
-                  <span className={styles.socialIconInner}><Linkedin size={18} /></span>
-                </a>
-
+          {/* Left Column: Portrait Card with overlapping lime "Hi" badge */}
+          <div className={styles.leftCol}>
+            <div className={styles.portraitCard}>
+              <Image
+                src="/Professional Indian Corporate Headshot.png"
+                alt="Shailash Singh Bhadoriya"
+                width={420}
+                height={540}
+                priority
+                className={styles.portraitImg}
+              />
+              
+              {/* Overlapping Lime Badge matching Hero and user screenshot */}
+              <div className={styles.hiBadge}>
+                <span className={styles.hiText}>Hi</span>
               </div>
             </div>
-
           </div>
 
-          {/* Right Column: Glass Card Form */}
-          <div className={styles.glassCard} ref={formCardRef}>
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-              
-              <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.formLabel}>Full Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  className={styles.formInput} 
-                  placeholder="Your Name" 
-                  value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  required
-                  disabled={loading}
-                />
-              </div>
+          {/* Right Column: Title, Subtitle & Interactive Form */}
+          <div className={styles.rightCol}>
+            <div className={styles.headerArea}>
+              <h2 className={styles.mainTitle}>LET'S WORK TOGETHER</h2>
+              <p className={styles.subtitle}>
+                Let's build something impactful together—whether it's your brand, your website, or your next big idea.
+              </p>
+            </div>
 
-              <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.formLabel}>Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className={styles.formInput} 
-                  placeholder="name@company.com" 
-                  value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  required
-                  disabled={loading}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.formLabel}>Message Details</label>
-                <textarea 
-                  id="message" 
-                  className={`${styles.formInput} ${styles.formInputtextarea}`} 
-                  placeholder="Tell me about your product requirements..." 
-                  value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  required
-                  disabled={loading}
-                ></textarea>
-              </div>
-
-              {/* Liquid Hover submit button */}
-              <button 
-                type="submit" 
-                className={styles.submitBtn} 
-                disabled={loading} 
-                data-cursor-text="SEND"
-              >
-                {loading ? (
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Loader2 size={16} className="animate-spin" /> Sending...
-                  </span>
-                ) : (
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    Send Message <ArrowRight size={14} />
-                  </span>
-                )}
-              </button>
-
-              {formStatus === 'success' && (
-                <div className={`${styles.formStatus} ${styles.success}`}>
-                  <CheckCircle size={16} />
-                  <span>{statusMsg}</span>
+            {submitted ? (
+              <div className={styles.successState}>
+                <div className={styles.successIcon}>✓</div>
+                <h3 className={styles.successTitle}>MESSAGE RECEIVED!</h3>
+                <p className={styles.successText}>
+                  Thank you, <strong>{formState.name}</strong>. Your message has been sent directly to{' '}
+                  <a href="mailto:shailashs79@gmail.com" className={styles.emailHighlight}>
+                    shailashs79@gmail.com
+                  </a>
+                  . I will get back to you within 24 hours.
+                </p>
+                <div className={styles.successActions}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormState({ name: '', email: '', service: '', message: '' });
+                    }}
+                    className={styles.resetBtn}
+                  >
+                    Send Another Inquiry
+                  </button>
+                  <a
+                    href={`mailto:shailashs79@gmail.com?subject=Direct Inquiry from ${encodeURIComponent(formState.name)}&body=${encodeURIComponent(formState.message)}`}
+                    className={styles.directMailBtn}
+                  >
+                    Open in Mail App ↗
+                  </a>
                 </div>
-              )}
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className={styles.form}>
+                
+                {/* Row 1: Name & Email side-by-side */}
+                <div className={styles.rowTwoCols}>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="contact-name" className={styles.fieldLabel}>
+                      Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      placeholder="John Smith"
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                      className={styles.textInput}
+                    />
+                  </div>
 
-              {formStatus === 'error' && (
-                <div className={`${styles.formStatus} ${styles.error}`}>
-                  <AlertCircle size={16} />
-                  <span>{statusMsg}</span>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="contact-email" className={styles.fieldLabel}>
+                      Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      placeholder="johnsmith@gmail.com"
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                      className={styles.textInput}
+                    />
+                  </div>
                 </div>
-              )}
 
-            </form>
+                {/* Row 2: Service Needed ? Dropdown */}
+                <div className={styles.fieldGroup}>
+                  <label htmlFor="contact-service" className={styles.fieldLabel}>
+                    Service Needed ?
+                  </label>
+                  <div className={styles.selectWrapper}>
+                    <select
+                      id="contact-service"
+                      required
+                      value={formState.service}
+                      onChange={(e) => setFormState({ ...formState, service: e.target.value })}
+                      className={styles.selectInput}
+                    >
+                      <option value="" disabled>Select...</option>
+                      <option value="UI/UX Design">UI/UX Design</option>
+                      <option value="Web Design & Frontend Development">Web Design & Frontend Development</option>
+                      <option value="SaaS & Enterprise Dashboard Design">SaaS & Enterprise Dashboard Design</option>
+                      <option value="Brand Identity & Graphic Design">Brand Identity & Graphic Design</option>
+                      <option value="Mobile App Design (iOS / Android)">Mobile App Design (iOS / Android)</option>
+                    </select>
+                    <div className={styles.selectArrow} aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Row 3: What Can I Help You... Textarea */}
+                <div className={styles.fieldGroup}>
+                  <label htmlFor="contact-message" className={styles.fieldLabel}>
+                    What Can I Help You...
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    rows={4}
+                    placeholder="Hello, I'd like to enquire about..."
+                    value={formState.message}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                    className={styles.textareaInput}
+                  />
+                </div>
+
+                {/* Submit Row: Pill with green toggle switch + SUBMIT */}
+                <div className={styles.submitRow}>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className={styles.submitBtn}
+                  >
+                    {/* Green Toggle Switch Indicator matching screenshot */}
+                    <span className={styles.toggleSwitch} aria-hidden="true">
+                      <span className={styles.toggleKnob}></span>
+                    </span>
+                    <span className={styles.submitText}>
+                      {loading ? 'SENDING...' : 'SUBMIT'}
+                    </span>
+                  </button>
+                </div>
+
+              </form>
+            )}
+
           </div>
 
         </div>

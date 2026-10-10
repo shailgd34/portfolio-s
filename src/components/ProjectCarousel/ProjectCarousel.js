@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './ProjectCarousel.module.css';
 import { projectsData } from '@/data/projectsData';
 
@@ -88,7 +89,15 @@ export default function ProjectCarousel() {
       <div className={styles.carouselContainer} ref={containerRef}>
         {projectsData.map((proj) => (
           <Link href={proj.link} key={proj.id} className={styles.carouselCard} data-cursor-text="VIEW">
-            <img src={proj.image} alt={proj.title} className={styles.cardImage} />
+            {proj.image && (
+              <Image
+                src={encodeURI(proj.image)}
+                alt={proj.title || 'Project Preview'}
+                fill
+                sizes="(max-width: 768px) 85vw, (max-width: 1200px) 65vw, 55vw"
+                className={styles.cardImage}
+              />
+            )}
             <div className={styles.cardOverlay}>
               <h3 className={styles.cardTitle}>{proj.title}</h3>
               <span className={styles.cardTech}>{proj.tools}</span>

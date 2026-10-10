@@ -1,0 +1,28 @@
+.videoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.videoElement {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0.20;
+  mix-blend-mode: screen;
+  filter: contrast(140%) brightness(120%);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+:global([data-theme='light']) .videoElement {
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  filter: contrast(120%) brightness(95%);
+}

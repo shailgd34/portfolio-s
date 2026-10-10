@@ -206,19 +206,36 @@
 }
 
 @keyframes radar-wave {
-  0% { transform: scale(0.5); opacity: 1; }
-  100% { transform: scale(2.5); opacity: 0; }
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 @keyframes spin-ring {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 992px) {
-  .bioCard, .mapCard, .metricCard, .experienceCard {
+
+  .bioCard,
+  .mapCard,
+  .metricCard,
+  .experienceCard {
     grid-column: span 3;
   }
+
   .grid {
     grid-template-columns: 1fr;
   }

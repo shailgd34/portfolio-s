@@ -1,0 +1,198 @@
+/* Sticky Contact Button - Left Bottom Side */
+.stickyContactBtn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 99999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  background: rgba(23, 23, 27, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+:global([data-theme='light']) .stickyContactBtn {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #141416;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stickyContactBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: var(--accent-lime, #A3E635);
+  background: rgba(28, 28, 34, 0.95);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(163, 230, 53, 0.35);
+  color: var(--accent-lime, #A3E635);
+}
+
+:global([data-theme='light']) .stickyContactBtn:hover {
+  background: #FFFFFF;
+  border-color: var(--accent-lime-dark, #65A30D);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12), 0 0 15px rgba(132, 204, 22, 0.25);
+  color: #141416;
+}
+
+.pulseGreenDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-lime, #A3E635);
+  box-shadow: 0 0 10px var(--accent-lime, #A3E635);
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-lime, #A3E635);
+  transition: transform 0.2s ease;
+}
+
+:global([data-theme='light']) .contactIcon {
+  color: var(--accent-lime-dark, #65A30D);
+}
+
+.stickyContactBtn:hover .contactIcon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.contactLabel {
+  line-height: 1;
+}
+
+/* Animated Back To Top Button - Right Bottom Side */
+.backToTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(23, 23, 27, 0.85);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+:global([data-theme='light']) .backToTopBtn {
+  background: rgba(255, 255, 255, 0.85);
+  color: #141416;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(16px) scale(0.75);
+  pointer-events: none;
+}
+
+.backToTopBtn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55), 0 0 20px rgba(163, 230, 53, 0.4);
+}
+
+.backToTopBtn:hover .arrowIcon {
+  transform: translateY(-2px);
+  color: var(--accent-lime, #A3E635);
+}
+
+:global([data-theme='light']) .backToTopBtn:hover .arrowIcon {
+  color: var(--accent-lime-dark, #65A30D);
+}
+
+/* Circular Progress Ring */
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.progressRingBg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 2.5;
+}
+
+:global([data-theme='light']) .progressRingBg {
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.progressRingFill {
+  fill: none;
+  stroke: var(--accent-lime, #A3E635);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+:global([data-theme='light']) .progressRingFill {
+  stroke: var(--accent-lime-dark, #65A30D);
+}
+
+.arrowIcon {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .stickyContactBtn {
+    bottom: 1.25rem;
+    left: 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .backToTopBtn {
+    bottom: 1.25rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .progressRing {
+    width: 44px;
+    height: 44px;
+  }
+}
