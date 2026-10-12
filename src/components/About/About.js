@@ -56,7 +56,7 @@ export default function About() {
                   href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.socialLink}
+                  className={`${styles.socialLink} ${styles.socialLinkedin}`}
                   aria-label="LinkedIn"
                   title="LinkedIn Profile"
                 >
@@ -68,7 +68,7 @@ export default function About() {
                   href="https://www.behance.net/prithvibhadour"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.socialLink}
+                  className={`${styles.socialLink} ${styles.socialBehance}`}
                   aria-label="Behance"
                   title="Behance Portfolio"
                 >
@@ -78,7 +78,7 @@ export default function About() {
                 </a>
                 <a
                   href="mailto:shailashs79@gmail.com"
-                  className={styles.socialLink}
+                  className={`${styles.socialLink} ${styles.socialEmail}`}
                   aria-label="Email"
                   title="Send Email"
                 >

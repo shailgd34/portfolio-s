@@ -178,8 +178,8 @@
 }
 
 .socialLink {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -187,7 +187,7 @@
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-theme='light'] .socialLink {
@@ -195,17 +195,85 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-.socialLink:hover {
-  background: #A3E635;
-  color: #121214;
-  border-color: #A3E635;
-  transform: translateY(-2px);
+/* Behance Icon - Authentic Behance Blue (#1769FF) */
+.socialBehance {
+  color: #1769FF !important;
+  background: rgba(23, 105, 255, 0.08);
+  border-color: rgba(23, 105, 255, 0.25);
 }
 
-[data-theme='light'] .socialLink:hover {
-  background: #5850EC;
-  color: #FFFFFF;
-  border-color: #5850EC;
+.socialBehance:hover {
+  background: #1769FF !important;
+  color: #FFFFFF !important;
+  border-color: #1769FF !important;
+  box-shadow: 0 8px 24px rgba(23, 105, 255, 0.45);
+  transform: translateY(-3px) scale(1.08);
+}
+
+[data-theme='light'] .socialBehance {
+  background: rgba(23, 105, 255, 0.07);
+  border-color: rgba(23, 105, 255, 0.2);
+}
+
+[data-theme='light'] .socialBehance:hover {
+  background: #1769FF !important;
+  color: #FFFFFF !important;
+  border-color: #1769FF !important;
+  box-shadow: 0 8px 24px rgba(23, 105, 255, 0.35);
+}
+
+/* LinkedIn Icon - Authentic LinkedIn Blue (#0A66C2) */
+.socialLinkedin {
+  color: #0A66C2 !important;
+  background: rgba(10, 102, 194, 0.08);
+  border-color: rgba(10, 102, 194, 0.25);
+}
+
+.socialLinkedin:hover {
+  background: #0A66C2 !important;
+  color: #FFFFFF !important;
+  border-color: #0A66C2 !important;
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.45);
+  transform: translateY(-3px) scale(1.08);
+}
+
+[data-theme='light'] .socialLinkedin {
+  background: rgba(10, 102, 194, 0.07);
+  border-color: rgba(10, 102, 194, 0.2);
+}
+
+[data-theme='light'] .socialLinkedin:hover {
+  background: #0A66C2 !important;
+  color: #FFFFFF !important;
+  border-color: #0A66C2 !important;
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.35);
+}
+
+/* Email Icon - Vibrant Coral Red (#EA4335) */
+.socialEmail {
+  color: #EA4335 !important;
+  background: rgba(234, 67, 53, 0.08);
+  border-color: rgba(234, 67, 53, 0.25);
+}
+
+.socialEmail:hover {
+  background: #EA4335 !important;
+  color: #FFFFFF !important;
+  border-color: #EA4335 !important;
+  box-shadow: 0 8px 24px rgba(234, 67, 53, 0.45);
+  transform: translateY(-3px) scale(1.08);
+}
+
+[data-theme='light'] .socialEmail {
+  background: rgba(234, 67, 53, 0.07);
+  border-color: rgba(234, 67, 53, 0.2);
+}
+
+[data-theme='light'] .socialEmail:hover {
+  background: #EA4335 !important;
+  color: #FFFFFF !important;
+  border-color: #EA4335 !important;
+  box-shadow: 0 8px 24px rgba(234, 67, 53, 0.35);
 }
 
 .myStoryBtn {

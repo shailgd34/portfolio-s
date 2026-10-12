@@ -332,9 +332,9 @@ export default function Navbar({ activeSection = 'hero' }) {
                 shailashs79@gmail.com
               </a>
               <div className={styles.drawerSocials}>
-                <a href="https://linkedin.com/in/shailash-bhadoriya" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <span>•</span>
-                <a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a>
+                <a href="https://www.behance.net/prithvibhadour" target="_blank" rel="noopener noreferrer">Behance</a>
                 <span>•</span>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>

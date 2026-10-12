@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
 import styles from './Projects.module.css';
+import TechBadge from '@/components/TechBadge/TechBadge';
 
 export default function Projects() {
   const cardsRef = useRef([]);
@@ -19,13 +20,13 @@ export default function Projects() {
 
     const ctx = gsap.context(() => {
       cards.forEach((card, i) => {
-        // When nextCard scrolls up, card i scales down and goes behind with subtle dimming
+        // When nextCard scrolls up, card i scales down subtly in the deck while keeping 100% clear brightness
         if (i < cards.length - 1) {
           const nextCard = cards[i + 1];
 
           gsap.to(card, {
-            scale: 0.91,
-            filter: 'brightness(0.65)',
+            scale: 0.95,
+            filter: 'none',
             transformOrigin: 'center top',
             ease: 'none',
             scrollTrigger: {
@@ -41,8 +42,8 @@ export default function Projects() {
           if (i < cards.length - 2) {
             const thirdCard = cards[i + 2];
             gsap.to(card, {
-              scale: 0.84,
-              filter: 'brightness(0.42)',
+              scale: 0.90,
+              filter: 'none',
               transformOrigin: 'center top',
               ease: 'none',
               scrollTrigger: {
@@ -253,10 +254,8 @@ export default function Projects() {
                     <span className={styles.categoryPill}>
                       {project.category}
                     </span>
-                    {project.technologies?.map((tech, tIdx) => (
-                      <span key={tIdx} className={styles.techPill}>
-                        {tech}
-                      </span>
+                    {Array.from(new Set(project.technologies || [])).map((tech, tIdx) => (
+                      <TechBadge key={tIdx} name={tech} />
                     ))}
                   </div>
 

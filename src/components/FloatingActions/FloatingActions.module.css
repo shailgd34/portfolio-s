@@ -56,9 +56,20 @@
 }
 
 @keyframes pulseBeacon {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.35); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.8; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
 }
 
 .contactIcon {
@@ -195,4 +206,122 @@
     width: 44px;
     height: 44px;
   }
+
+  .stickyLinkedinBtn {
+    height: 38px;
+    padding: 0 10px;
+  }
+}
+
+/* ==========================================================================
+   Sticky LinkedIn Button - Right Center Side (Docked Side Tab)
+   ========================================================================== */
+.stickyLinkedinBtn {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99998;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 11px 0 13px;
+  border-radius: 9999px 0 0 9999px;
+  background: rgba(20, 20, 25, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: none;
+  color: #FFFFFF;
+  text-decoration: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+:global([data-theme='light']) .stickyLinkedinBtn {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #141416;
+  box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stickyLinkedinBtn:hover {
+  transform: translateY(-50%) translateX(-4px);
+  background: rgba(10, 102, 194, 0.18);
+  border-color: #0A66C2;
+  box-shadow: -6px 8px 25px rgba(10, 102, 194, 0.45);
+  padding: 0 16px 0 13px;
+}
+
+:global([data-theme='light']) .stickyLinkedinBtn:hover {
+  background: #FFFFFF;
+  border-color: #0A66C2;
+  box-shadow: -6px 8px 25px rgba(10, 102, 194, 0.25);
+}
+
+.linkedinIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0A66C2;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stickyLinkedinBtn:hover .linkedinIconWrapper {
+  transform: scale(1.1);
+}
+
+.linkedinSvg {
+  display: block;
+}
+
+.linkedinLabelWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.25s ease,
+    margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stickyLinkedinBtn:hover .linkedinLabelWrapper {
+  max-width: 100px;
+  opacity: 1;
+  margin-left: 8px;
+}
+
+.linkedinText {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+:global([data-theme='light']) .linkedinText {
+  color: #141416;
+}
+
+.stickyLinkedinBtn:hover .linkedinText {
+  color: #0A66C2;
+}
+
+.linkedinArrow {
+  color: #0A66C2;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stickyLinkedinBtn:hover .linkedinArrow {
+  transform: translate(1.5px, -1.5px);
 }

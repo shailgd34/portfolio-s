@@ -113,16 +113,14 @@
   transform: scale(1.02);
 }
 
-/* Gradient Overlay - Transparent top for pristine artwork visibility, rich dark scrim at bottom for badge & button contrast */
+/* Gradient Overlay - Confined to bottom edge for badge legibility while preserving 100% crystal clear mockup illumination */
 .cardOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top,
-      rgba(10, 10, 14, 0.94) 0%,
-      rgba(10, 10, 14, 0.76) 20%,
-      rgba(10, 10, 14, 0.35) 38%,
-      rgba(10, 10, 14, 0.05) 54%,
-      transparent 68%,
+      rgba(10, 10, 14, 0.78) 0%,
+      rgba(10, 10, 14, 0.35) 14%,
+      transparent 28%,
       transparent 100%);
   z-index: 3;
   pointer-events: none;
@@ -131,16 +129,14 @@
 
 :global([data-theme='light']) .cardOverlay {
   background: linear-gradient(to top,
-      rgba(14, 14, 18, 0.88) 0%,
-      rgba(14, 14, 18, 0.68) 20%,
-      rgba(14, 14, 18, 0.28) 38%,
-      rgba(14, 14, 18, 0.04) 54%,
-      transparent 68%,
+      rgba(14, 14, 18, 0.65) 0%,
+      rgba(14, 14, 18, 0.25) 14%,
+      transparent 28%,
       transparent 100%);
 }
 
 .stackCard:hover .cardOverlay {
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 /* Full clickable cover for intuitive navigation */

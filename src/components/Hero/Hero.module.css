@@ -76,6 +76,7 @@
     opacity: 0;
     transform: translateY(35px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -86,6 +87,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -142,7 +144,7 @@
   width: 0;
   min-width: 100%;
   max-width: 100%;
-  margin-top: 1.8rem;
+  margin-top: 0.3em;
   text-align: right;
   transition: color 0.3s ease;
 }
@@ -243,8 +245,13 @@
 }
 
 @keyframes floatBadge {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-6px) rotate(5deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-6px) rotate(5deg);
+  }
 }
 
 /* Light Mode: Indigo Circle */
@@ -298,13 +305,33 @@
 }
 
 @keyframes handShake {
-  0% { transform: rotate(0deg); }
-  15% { transform: rotate(18deg); }
-  30% { transform: rotate(-14deg); }
-  45% { transform: rotate(18deg); }
-  60% { transform: rotate(-10deg); }
-  75% { transform: rotate(12deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(18deg);
+  }
+
+  30% {
+    transform: rotate(-14deg);
+  }
+
+  45% {
+    transform: rotate(18deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(12deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Bottom Center Theme Toggle Switch */
@@ -356,6 +383,119 @@
   background: #121214;
 }
 
+/* Hero Action Link (View My Work) */
+.heroActionWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1.5rem;
+  align-self: flex-end;
+}
+
+/* Minimalist Hero Action - Transparent Text + Rotated Arrow Circle (No Background) */
+.heroTextAction {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.4rem 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Typography - Clean & Crisp (No Underline) */
+.actionText {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 0.3s ease;
+}
+
+/* Dark Mode Theme */
+.actionDark .actionText {
+  color: #FFFFFF;
+}
+
+.actionDark:hover .actionText {
+  color: var(--accent-lime, #A3E635);
+  letter-spacing: 0.08em;
+}
+
+/* Light Mode Theme */
+.actionLight .actionText {
+  color: #141416;
+}
+
+.actionLight:hover .actionText {
+  color: #5850EC;
+  letter-spacing: 0.08em;
+}
+
+/* Circle with Rotated Arrow */
+.arrowCircle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Circle */
+.actionDark .arrowCircle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: var(--accent-lime, #A3E635);
+}
+
+.actionDark:hover .arrowCircle {
+  background: var(--accent-lime, #A3E635);
+  border-color: var(--accent-lime, #A3E635);
+  color: #121214;
+  box-shadow: 0 0 25px rgba(163, 230, 53, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.08);
+}
+
+/* Light Mode Circle */
+.actionLight .arrowCircle {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  color: #5850EC;
+}
+
+.actionLight:hover .arrowCircle {
+  background: #5850EC;
+  border-color: #5850EC;
+  color: #FFFFFF;
+  box-shadow: 0 0 25px rgba(88, 80, 236, 0.4), 0 4px 15px rgba(88, 80, 236, 0.2);
+  transform: scale(1.08);
+}
+
+/* Rotated Diagonal Arrow inside the Circle */
+.rotatedArrow {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroTextAction:hover .rotatedArrow {
+  transform: translate(2px, -2px);
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .heroGrid {
@@ -376,6 +516,11 @@
     width: 100%;
     min-width: 0;
     max-width: 320px;
+  }
+
+  .heroActionWrapper {
+    justify-content: center;
+    align-self: center;
   }
 }
 

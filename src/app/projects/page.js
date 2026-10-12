@@ -3,13 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ExternalLink, Search, Sparkles, ChevronLeft, ChevronRight, X, Maximize2, Globe, Smartphone, BarChart3 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Search, Sparkles, ChevronLeft, ChevronRight, X, Maximize2, Globe, Smartphone, BarChart3, Layers, Palette } from 'lucide-react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import FloatingActions from '@/components/FloatingActions/FloatingActions';
 import ScrollTextEffect from '@/components/ScrollTextEffect/ScrollTextEffect';
 import styles from './projects.module.css';
 import { projectsData } from '@/data/projectsData';
+import TechBadge, { TechMoreBadge, getTechInfo } from '@/components/TechBadge/TechBadge';
 
 // 16 Extra Projects from public/extra project/
 const extraProjects = [
@@ -445,19 +446,89 @@ export default function ProjectsPage() {
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
+  // Filter tab definitions
+  const filterTabs = [
+    { id: 'all', label: 'All Projects', icon: <Layers size={14} /> },
+    { id: 'websites', label: 'Websites', icon: <Globe size={14} /> },
+    { id: 'mobile', label: 'Mobile Apps', icon: <Smartphone size={14} /> },
+    { id: 'figma', label: 'Figma', icon: getTechInfo('figma')?.svg },
+    { id: 'react', label: 'React', icon: getTechInfo('react')?.svg },
+    { id: 'next', label: 'Next.js', icon: getTechInfo('next.js')?.svg },
+    { id: 'wordpress', label: 'WordPress', icon: getTechInfo('wordpress')?.svg },
+    { id: 'ui-ux', label: 'UI/UX Design', icon: <Palette size={14} /> }
+  ];
+
   // Filter & Search logic
   const filteredProjects = projectsData.filter((p) => {
-    const matchesFilter =
-      filter === 'all' ||
-      p.category?.toLowerCase().includes(filter.toLowerCase()) ||
-      p.type?.toLowerCase().includes(filter.toLowerCase());
+    const cat = (p.category || '').toLowerCase();
+    const type = (p.type || '').toLowerCase();
+    const title = (p.title || p.name || '').toLowerCase();
+    const desc = (p.description || p.desc || '').toLowerCase();
+    const techs = Array.isArray(p.technology)
+      ? p.technology.map(t => String(t).toLowerCase())
+      : (typeof p.tools === 'string' ? p.tools.toLowerCase().split(',').map(s => s.trim()) : []);
 
+    let matchesFilter = true;
+
+    if (filter === 'all') {
+      matchesFilter = true;
+    } else if (filter === 'websites') {
+      matchesFilter =
+        cat.includes('web') ||
+        type.includes('web') ||
+        type.includes('wordpress') ||
+        techs.some(t => t.includes('web')) ||
+        Boolean(p.liveLink && !p.liveLink.includes('figma.com'));
+    } else if (filter === 'mobile') {
+      matchesFilter =
+        cat.includes('mobile') ||
+        type.includes('mobile') ||
+        techs.some(t => t.includes('mobile') || t.includes('react native') || t.includes('ios') || t.includes('android')) ||
+        title.includes('app');
+    } else if (filter === 'figma') {
+      matchesFilter =
+        techs.some(t => t.includes('figma') || t.includes('figjam')) ||
+        cat.includes('figma') ||
+        type.includes('figma') ||
+        Boolean(p.figmaLink) ||
+        Boolean(p.link && p.link.includes('figma.com'));
+    } else if (filter === 'react') {
+      matchesFilter =
+        techs.some(t => t.includes('react')) ||
+        cat.includes('react') ||
+        type.includes('react');
+    } else if (filter === 'next') {
+      matchesFilter =
+        techs.some(t => t.includes('next')) ||
+        cat.includes('next') ||
+        type.includes('next');
+    } else if (filter === 'wordpress') {
+      matchesFilter =
+        techs.some(t => t.includes('wordpress') || t.includes('woocommerce') || t.includes('php')) ||
+        cat.includes('wordpress') ||
+        type.includes('wordpress');
+    } else if (filter === 'ui-ux') {
+      matchesFilter =
+        techs.some(t => t.includes('ui') || t.includes('ux') || t.includes('prototyping') || t.includes('adobe')) ||
+        cat.includes('ui') ||
+        cat.includes('ux') ||
+        type.includes('ui') ||
+        type.includes('ux');
+    } else {
+      matchesFilter =
+        cat.includes(filter.toLowerCase()) ||
+        type.includes(filter.toLowerCase()) ||
+        techs.some(t => t.includes(filter.toLowerCase()));
+    }
+
+    const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
-      searchQuery === '' ||
-      p.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      p.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (Array.isArray(p.technology) && p.technology.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()))) ||
-      p.category?.toLowerCase().includes(searchQuery.toLowerCase());
+      q === '' ||
+      title.includes(q) ||
+      cat.includes(q) ||
+      type.includes(q) ||
+      desc.includes(q) ||
+      techs.some(t => t.includes(q));
 
     return matchesFilter && matchesSearch;
   });
@@ -523,21 +594,19 @@ export default function ProjectsPage() {
 
             {/* Category Filter Pills */}
             <div className={styles.filterPills}>
-              {[
-                { id: 'all', label: 'All Projects' },
-                { id: 'creative', label: 'Creative & Agency' },
-                { id: 'luxury', label: 'E-Commerce & Luxury' },
-                { id: 'fintech', label: 'FinTech & Trading' },
-                { id: 'web3', label: 'Web3 & AI' },
-                { id: 'mobile', label: 'Mobile Apps' }
-              ].map((tab) => (
+              {filterTabs.map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setFilter(tab.id)}
                   className={`${styles.filterBtn} ${filter === tab.id ? styles.filterBtnActive : ''}`}
                 >
-                  {tab.label}
+                  {tab.icon && (
+                    <span className={styles.filterBtnIcon}>
+                      {tab.icon}
+                    </span>
+                  )}
+                  <span>{tab.label}</span>
                 </button>
               ))}
             </div>
@@ -552,11 +621,26 @@ export default function ProjectsPage() {
           {/* Primary Projects Grid */}
           <div className={styles.projectsGrid}>
             {filteredProjects.map((project, idx) => {
-              const techs = Array.isArray(project.technology)
+              const rawTechs = Array.isArray(project.technology)
                 ? project.technology
                 : (typeof project.tools === 'string' ? project.tools.split(',').map(s => s.trim()) : ['Figma', 'UI/UX']);
-              const liveUrl = project.liveLink || project.link || project.figmaLink || '#';
-              const hasLive = liveUrl && liveUrl !== '#';
+              // Deduplicate technologies preserving order
+              const techs = Array.from(new Set(rawTechs.map(t => typeof t === 'string' ? t.trim() : t).filter(Boolean)));
+
+              // Determine Figma prototype link vs Live Website link
+              const figmaUrl = (project.figmaLink && project.figmaLink.trim() !== '')
+                ? project.figmaLink
+                : ((project.link && project.link.includes('figma.com'))
+                  ? project.link
+                  : ((project.liveLink && project.liveLink.includes('figma.com')) ? project.liveLink : null));
+
+              const liveWebUrl = (project.liveLink && !project.liveLink.includes('figma.com') && project.liveLink.startsWith('http'))
+                ? project.liveLink
+                : ((project.link && !project.link.includes('figma.com') && project.link.startsWith('http')) ? project.link : null);
+
+              const hasFigma = Boolean(figmaUrl);
+              const primaryUrl = figmaUrl || liveWebUrl || project.link || '#';
+              const hasLive = primaryUrl && primaryUrl !== '#';
 
               return (
                 <article key={project.id || idx} className={styles.projectCard}>
@@ -565,10 +649,28 @@ export default function ProjectsPage() {
                   <div className={styles.imageWrapper}>
                     <ProjectCardImage project={project} />
                     
-                    {/* Launch Pill on Top Right of Image */}
-                    {hasLive && (
+                    {/* Launch Pill on Top Right of Image: Show "View Figma Prototype" when Figma is available, else "Open Live" */}
+                    {hasFigma ? (
                       <a
-                        href={liveUrl}
+                        href={figmaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}
+                        aria-label={`View Figma Prototype for ${project.title}`}
+                      >
+                        <svg width="10" height="15" viewBox="0 0 38 57" fill="none" className={styles.figmaBtnIcon}>
+                          <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE" />
+                          <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83" />
+                          <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262" />
+                          <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E" />
+                          <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF" />
+                        </svg>
+                        <span>View Figma Prototype</span>
+                        <ExternalLink size={13} />
+                      </a>
+                    ) : liveWebUrl ? (
+                      <a
+                        href={liveWebUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.imageLaunchBtn}
@@ -577,7 +679,7 @@ export default function ProjectsPage() {
                         <span>Open Live</span>
                         <ExternalLink size={13} />
                       </a>
-                    )}
+                    ) : null}
 
                     <div className={styles.cardCategoryPill}>
                       {project.category}
@@ -594,27 +696,64 @@ export default function ProjectsPage() {
                       {project.description || project.desc || 'High-impact design execution with responsive architecture and user-tested workflows.'}
                     </p>
 
-                    {/* Tech Stack Pills */}
+                    {/* Tech Stack Real Brand Icons */}
                     <div className={styles.techStackRow}>
-                      {techs.slice(0, 4).map((tech, tIdx) => (
-                        <span key={tIdx} className={styles.techPill}>
-                          {tech}
-                        </span>
+                      {techs.slice(0, 5).map((tech, tIdx) => (
+                        <TechBadge key={tIdx} name={tech} />
                       ))}
-                      {techs.length > 4 && (
-                        <span className={styles.techMorePill}>+{techs.length - 4}</span>
+                      {techs.length > 5 && (
+                        <TechMoreBadge
+                          count={techs.length - 5}
+                          remainingNames={techs.slice(5)}
+                        />
                       )}
                     </div>
 
-                    {/* Card Footer Link */}
+                    {/* Card Footer Link: Change "Explore Project" to "View Figma" when Figma is available */}
                     <div className={styles.cardBottomBar}>
                       <span className={styles.roleText}>{project.role || 'Product Designer'}</span>
-                      {hasLive ? (
+                      {hasFigma && liveWebUrl ? (
+                        <div className={styles.multiLinksRow}>
+                          <a
+                            href={figmaUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`${styles.viewLink} ${styles.viewLinkFigma}`}
+                            aria-label={`View Figma Prototype for ${project.title}`}
+                          >
+                            <span>View Figma</span>
+                            <ExternalLink size={13} />
+                          </a>
+                          <span className={styles.linkDivider}>•</span>
+                          <a
+                            href={liveWebUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.viewLink}
+                            aria-label={`Explore Live Site for ${project.title}`}
+                          >
+                            <span>Explore Live</span>
+                            <ExternalLink size={13} />
+                          </a>
+                        </div>
+                      ) : hasFigma ? (
                         <a
-                          href={liveUrl}
+                          href={figmaUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${styles.viewLink} ${styles.viewLinkFigma}`}
+                          aria-label={`View Figma Prototype for ${project.title}`}
+                        >
+                          <span>View Figma</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      ) : liveWebUrl ? (
+                        <a
+                          href={liveWebUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={styles.viewLink}
+                          aria-label={`Explore Project for ${project.title}`}
                         >
                           <span>Explore Project</span>
                           <ExternalLink size={14} />
@@ -715,10 +854,8 @@ export default function ProjectsPage() {
                         <h3 className={styles.sliderCardTitle}>{item.title}</h3>
 
                         <div className={styles.sliderPillsRow}>
-                          {item.tools.map((tool, toolIdx) => (
-                            <span key={toolIdx} className={styles.sliderToolPill}>
-                              {tool}
-                            </span>
+                          {Array.from(new Set(item.tools || [])).map((tool, toolIdx) => (
+                            <TechBadge key={toolIdx} name={tool} compact />
                           ))}
                         </div>
                       </div>

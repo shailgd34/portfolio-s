@@ -165,12 +165,30 @@
   background: #18181C;
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #A1A1AA;
-  padding: 0.55rem 1.2rem;
+  padding: 0.52rem 1.15rem;
   border-radius: 9999px;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filterBtnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.filterBtnIcon svg {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 :global([data-theme='light']) .filterBtn {
@@ -182,7 +200,14 @@
 .filterBtn:hover {
   background: #222228;
   color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1.5px);
+}
+
+:global([data-theme='light']) .filterBtn:hover {
+  background: #F3F4F6;
+  color: #111827;
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 .filterBtnActive {
@@ -190,7 +215,7 @@
   color: #121214 !important;
   border-color: var(--accent-lime, #A3E635) !important;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(163, 230, 53, 0.3);
+  box-shadow: 0 4px 15px rgba(163, 230, 53, 0.35);
 }
 
 .resultsBar {
@@ -1143,8 +1168,9 @@
 .techStackRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.25rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
 }
 
 .techPill {
@@ -1203,6 +1229,65 @@
 
 .viewLink:hover {
   transform: translateX(3px);
+}
+
+/* Figma Link Variations */
+.figmaLaunchBtn {
+  background: rgba(22, 18, 28, 0.9);
+  border-color: rgba(162, 89, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.figmaLaunchBtn:hover {
+  background: #A259FF;
+  color: #FFFFFF;
+  border-color: #A259FF;
+  box-shadow: 0 4px 18px rgba(162, 89, 255, 0.45);
+}
+
+.figmaBtnIcon {
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: 0.15rem;
+}
+
+.viewLinkFigma {
+  color: #C084FC !important;
+}
+
+.viewLinkFigma:hover {
+  color: #E9D5FF !important;
+}
+
+:global([data-theme='light']) .viewLinkFigma {
+  color: #7C3AED !important;
+}
+
+:global([data-theme='light']) .viewLinkFigma:hover {
+  color: #5B21B6 !important;
+}
+
+:global([data-theme='light']) .figmaLaunchBtn {
+  background: rgba(245, 243, 255, 0.95);
+  border-color: rgba(124, 58, 237, 0.35);
+  color: #5B21B6;
+}
+
+:global([data-theme='light']) .figmaLaunchBtn:hover {
+  background: #7C3AED;
+  color: #FFFFFF;
+  border-color: #7C3AED;
+}
+
+.multiLinksRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.linkDivider {
+  color: #52525B;
+  font-size: 0.8rem;
 }
 
 .confidentialTag {

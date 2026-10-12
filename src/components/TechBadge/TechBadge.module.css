@@ -1,0 +1,148 @@
+.badgeWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+:global([data-theme='light']) .badge {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.badge:hover {
+  transform: translateY(-2.5px) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.09);
+  z-index: 10;
+}
+
+:global([data-theme='light']) .badge:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.iconSvg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.badge:hover .iconSvg {
+  transform: scale(1.05);
+}
+
+/* Floating Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #111215;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+:global([data-theme='light']) .tooltip {
+  background: #1F2937;
+  color: #F9FAFB;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: #111215 transparent transparent transparent;
+}
+
+:global([data-theme='light']) .tooltip::after {
+  border-color: #1F2937 transparent transparent transparent;
+}
+
+.badgeWrapper:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Compact size option */
+.badgeCompact {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+}
+
+.badgeCompact .iconSvg {
+  width: 16px;
+  height: 16px;
+}
+
+/* More count pill (e.g. +2) */
+.moreCountPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-lime, #A3E635);
+  background: rgba(163, 230, 53, 0.1);
+  border: 1px solid rgba(163, 230, 53, 0.25);
+  cursor: default;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+:global([data-theme='light']) .moreCountPill {
+  color: #5850EC;
+  background: rgba(88, 80, 236, 0.1);
+  border-color: rgba(88, 80, 236, 0.25);
+}
+
+.moreCountPill:hover {
+  transform: translateY(-2px);
+  background: rgba(163, 230, 53, 0.18);
+}

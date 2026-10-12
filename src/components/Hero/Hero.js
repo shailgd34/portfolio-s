@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import styles from './Hero.module.css';
 
 export default function Hero({ theme, toggleTheme }) {
@@ -76,15 +78,15 @@ export default function Hero({ theme, toggleTheme }) {
 
   return (
     <section id="hero" className={styles.heroSection} ref={heroRef}>
-      
+
       {/* Small Floating Ambient Dot at Top-Left */}
       <div className={`${styles.floatingDot} ${isDark ? styles.limeDot : styles.purpleDot}`}></div>
 
       <div className="container">
-        
+
         {/* Main 3-Column Hero Grid */}
         <div className={styles.heroGrid}>
-          
+
           {/* Left Column: Name Sub-heading + PRODUCT Title */}
           <motion.div
             className={styles.leftCol}
@@ -138,7 +140,7 @@ export default function Hero({ theme, toggleTheme }) {
                     priority
                     className={styles.portraitImg}
                   />
-                  
+
                   {/* Dynamic Auto-Animating Badge: Cycles between Hi and Vector Shaking Hand Icon */}
                   <div className={`${styles.badgeCircle} ${isDark ? styles.badgeLime : styles.badgePurple} ${!showBadge ? styles.badgeHidden : ''}`}>
                     <div className={`${styles.badgeContent} ${badgeState === 'hi' ? styles.activeState : styles.inactiveState}`}>
@@ -184,11 +186,31 @@ export default function Hero({ theme, toggleTheme }) {
             >
               I'm a Product Designer & Frontend Developer crafting intuitive digital experiences.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.0, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              className={styles.heroActionWrapper}
+            >
+              <Link
+                href="/projects"
+                className={`${styles.heroTextAction} ${isDark ? styles.actionDark : styles.actionLight}`}
+                data-cursor-text="PROJECTS"
+              >
+                <span className={styles.actionText}>View My Work</span>
+                <span className={styles.arrowCircle}>
+                  <ArrowUpRight size={17} strokeWidth={2.2} className={styles.rotatedArrow} />
+                </span>
+              </Link>
+            </motion.div>
           </motion.div>
 
         </div>
 
-       
+
 
       </div>
     </section>
