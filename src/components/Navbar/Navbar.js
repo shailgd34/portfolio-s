@@ -3,48 +3,76 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ChevronDown, X, ArrowUpRight } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { ChevronDown, ArrowUpRight } from 'lucide-react';
 import MegaMenu from '@/components/MegaMenu/MegaMenu';
 import styles from './Navbar.module.css';
 
 export default function Navbar({ activeSection = 'hero' }) {
-  // isFullMenu is true at top or when scrolling up; false when scrolling down into other sections
   const [isFullMenu, setIsFullMenu] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const megaMenuTimeout = useRef(null);
+  const router = useRouter();
   const pathname = usePathname();
   const isHomePage = pathname === '/' || pathname === '';
 
   const handleHomeClick = (e) => {
+    e.preventDefault();
     if (isHomePage) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof window !== 'undefined' && window.__lenis) {
+        window.__lenis.scrollTo(0, { duration: 1.3 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       if (window.history.pushState) {
         window.history.pushState(null, '', '/');
       }
+    } else {
+      router.push('/');
     }
+    setIsMobileMenuOpen(false);
+    setIsMegaMenuOpen(false);
+  };
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const cleanId = targetId.replace(/^#/, '');
+
+    if (isHomePage) {
+      const el = document.getElementById(cleanId);
+      if (el) {
+        if (typeof window !== 'undefined' && window.__lenis) {
+          window.__lenis.scrollTo(el, { offset: -30, duration: 1.25 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (window.history.pushState) {
+          window.history.pushState(null, '', `#${cleanId}`);
+        }
+      }
+    } else {
+      // Client-side SPA navigation without full browser reload
+      router.push(`/#${cleanId}`);
+    }
+    setIsMobileMenuOpen(false);
+    setIsMegaMenuOpen(false);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setScrolled(currentScrollY > 60);
 
       if (currentScrollY <= 80) {
-        // At top: always show full header with links
         setIsFullMenu(true);
       } else if (currentScrollY < lastScrollY.current - 4) {
-        // Scrolling UP in other sections: change from "Available for work" pill to full header with links!
         setIsFullMenu(true);
       } else if (currentScrollY > lastScrollY.current + 4) {
-        // Scrolling DOWN into other sections: change to "Available for work" pill!
         setIsFullMenu(false);
-        setIsMegaMenuOpen(false); // Close mega menu on scroll down
+        setIsMegaMenuOpen(false);
       }
 
       lastScrollY.current = currentScrollY;
@@ -54,7 +82,6 @@ export default function Navbar({ activeSection = 'hero' }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scrolling when mobile drawer is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -66,12 +93,10 @@ export default function Navbar({ activeSection = 'hero' }) {
     };
   }, [isMobileMenuOpen]);
 
-  // Close mobile drawer when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Handle Mega Menu Hover with smooth debouncing so user can move into dropdown
   const handleProjectsMouseEnter = () => {
     if (megaMenuTimeout.current) clearTimeout(megaMenuTimeout.current);
     setIsMegaMenuOpen(true);
@@ -96,122 +121,176 @@ export default function Navbar({ activeSection = 'hero' }) {
 
   return (
     <header className={styles.navHeader}>
-      <nav 
+      <nav
         className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''} ${!isFullMenu ? styles.compactNavbar : ''}`}
         onClick={() => {
           if (!isFullMenu) setIsFullMenu(true);
         }}
       >
-        {/* Left Avatar Thumbnail */}
-        <Link 
-          href="/" 
-          className={styles.brandLogo} 
-          aria-label="Home"
-          onClick={handleHomeClick}
-        >
-          <div className={styles.avatarWrapper}>
-            <Image
-              src="/Professional Indian Corporate Headshot.png"
-              alt="Sheelash Singh Bhadoriya"
-              width={36}
-              height={36}
-              className={styles.avatarImg}
-            />
-          </div>
-        </Link>
+        {/* Mobile Dedicated Bar (Always visible on screens <= 900px) */}
+        <div className={styles.mobileNavRow}>
+          <Link href="/" className={styles.mobileBrand} onClick={handleHomeClick}>
+            <div className={styles.mobileAvatarWrapper}>
+              <Image
+                src="/retro_close_portrait.jpg"
+                alt="Sheelash Singh Bhadoriya"
+                width={32}
+                height={32}
+                className={styles.avatarImg}
+              />
+            </div>
+            <div className={styles.mobileBrandMeta}>
+              <span className={styles.mobileBrandName}>SHEELASH SINGH</span>
+              <div className={styles.mobileStatusTag}>
+                <span className={styles.orangePulseDot} />
+                <span>PRODUCT DESIGNER</span>
+              </div>
+            </div>
+          </Link>
 
-        {/* Dynamic Nav: "Available for work" on scroll down, full links on scroll up */}
-        {!isFullMenu ? (
-          <div className={styles.scrolledStatusText}>
-            <span>Available for work</span>
-            <span className={styles.greenPulseDot} />
-          </div>
-        ) : (
-          <ul className={styles.navLinks}>
-            <li>
-              <Link 
-                href="/" 
-                className={`${styles.navLink} ${activeSection === 'hero' && isHomePage ? styles.active : ''}`}
-                onClick={handleHomeClick}
-              >
-                Home
+          {/* Mobile Hamburger Button */}
+          <button
+            type="button"
+            className={`${styles.hamburgerBtn} ${isMobileMenuOpen ? styles.hamburgerActive : ''}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen((prev) => !prev);
+            }}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className={styles.hamburgerBar} />
+            <span className={styles.hamburgerBar} />
+            <span className={styles.hamburgerBar} />
+          </button>
+        </div>
+
+        {/* Uncle Joe Top Row: Logo/Name + Live Availability + Location (Desktop) */}
+        {isFullMenu && (
+          <div className={styles.navTopRow}>
+            <div className={styles.logoComponent}>
+              <Link href="/" className={styles.brandLogo} onClick={handleHomeClick}>
+                <div className={styles.avatarWrapper}>
+                  <Image
+                    src="/retro_close_portrait.jpg"
+                    alt="Sheelash Singh Bhadoriya"
+                    width={26}
+                    height={26}
+                    className={styles.avatarImg}
+                  />
+                </div>
+                <span className={styles.brandNameText}>SHEELASH SINGH BHADORIYA</span>
               </Link>
-            </li>
-            <li>
-              <a 
-                href={isHomePage ? "#what-i-can-do" : "/#what-i-can-do"} 
-                className={`${styles.navLink} ${activeSection === 'what-i-can-do' ? styles.active : ''}`}
-              >
-                What I Do
-              </a>
-            </li>
-            <li 
-              className={styles.projectsNavItem}
+              <span className={styles.editionBadge}>EST. 2020</span>
+            </div>
+
+            <div className={styles.centerStatusBadge}>
+              <span className={styles.orangePulseDot} />
+              <span className={styles.statusText}>AVAILABLE FOR PROJECTS</span>
+            </div>
+
+            <div className={styles.locationText}>
+              INDORE, IN • REMOTE WORLDWIDE
+            </div>
+          </div>
+        )}
+
+        {/* Compact Mode Content when Scrolled Down (Desktop Only) */}
+        {!isFullMenu && (
+          <div className={styles.compactRow}>
+            <div className={styles.avatarWrapper}>
+              <Image
+                src="/retro_close_portrait.jpg"
+                alt="Sheelash Singh Bhadoriya"
+                width={28}
+                height={28}
+                className={styles.avatarImg}
+              />
+            </div>
+            <div className={styles.scrolledStatusText}>
+              <span className={styles.orangePulseDot} />
+              <span>AVAILABLE FOR WORK</span>
+            </div>
+            <span className={styles.expandPrompt}>[EXPAND MENU ▾]</span>
+          </div>
+        )}
+
+        {/* Uncle Joe Bottom Segmented Navigation Links (Desktop) */}
+        {isFullMenu && (
+          <div className={styles.navLinksRow}>
+            <Link
+              href="/"
+              className={`${styles.navCell} ${activeSection === 'hero' && isHomePage ? styles.activeCell : ''}`}
+              onClick={handleHomeClick}
+            >
+              <span className={styles.cellNum}>01</span>
+              <span>HOME</span>
+            </Link>
+
+            <Link
+              href="/#what-i-can-do"
+              className={`${styles.navCell} ${activeSection === 'what-i-can-do' ? styles.activeCell : ''}`}
+              onClick={(e) => handleNavClick(e, 'what-i-can-do')}
+            >
+              <span className={styles.cellNum}>02</span>
+              <span>WHAT I DO</span>
+            </Link>
+
+            <div
+              className={`${styles.navCell} ${styles.projectsCell} ${activeSection === 'projects' || isMegaMenuOpen ? styles.activeCell : ''}`}
               onMouseEnter={handleProjectsMouseEnter}
               onMouseLeave={handleProjectsMouseLeave}
+              onClick={(e) => {
+                if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                  e.preventDefault();
+                  setIsMegaMenuOpen(prev => !prev);
+                }
+              }}
             >
-              <a 
-                href={isHomePage ? "#projects" : "/#projects"} 
-                className={`${styles.navLink} ${activeSection === 'projects' || isMegaMenuOpen ? styles.active : ''}`}
-                onClick={(e) => {
-                  // Click toggles mega menu on touch devices
-                  if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-                    e.preventDefault();
-                    setIsMegaMenuOpen(prev => !prev);
-                  }
-                }}
+              <Link
+                href="/#projects"
+                className={styles.cellLink}
+                onClick={(e) => handleNavClick(e, 'projects')}
               >
-                <span>Projects</span>
-                <ChevronDown size={14} className={`${styles.navChevron} ${isMegaMenuOpen ? styles.navChevronActive : ''}`} />
-              </a>
-            </li>
-            <li>
-              <a 
-                href={isHomePage ? "#experience" : "/#experience"} 
-                className={`${styles.navLink} ${activeSection === 'experience' ? styles.active : ''}`}
-              >
-                Experience
-              </a>
-            </li>
-            <li>
-              <a 
-                href={isHomePage ? "#technology" : "/#technology"} 
-                className={`${styles.navLink} ${activeSection === 'technology' ? styles.active : ''}`}
-              >
-                Technology
-              </a>
-            </li>
-          </ul>
-        )}
+                <span className={styles.cellNum}>03</span>
+                <span>WORK (50+)</span>
+                <ChevronDown size={13} className={`${styles.navChevron} ${isMegaMenuOpen ? styles.navChevronActive : ''}`} />
+              </Link>
+            </div>
 
-        {/* Desktop Contact Pill Button (Hidden on Mobile) */}
-        {isFullMenu && (
-          <a 
-            href={isHomePage ? "#contact" : "/#contact"} 
-            className={styles.contactPillBtn}
-          >
-            Contact
-          </a>
-        )}
+            <Link
+              href="/#experience"
+              className={`${styles.navCell} ${activeSection === 'experience' ? styles.activeCell : ''}`}
+              onClick={(e) => handleNavClick(e, 'experience')}
+            >
+              <span className={styles.cellNum}>04</span>
+              <span>EXPERIENCE</span>
+            </Link>
 
-        {/* Modern Mobile Animated Hamburger Button (Shown only on Mobile) */}
-        <button
-          type="button"
-          className={`${styles.hamburgerBtn} ${isMobileMenuOpen ? styles.hamburgerActive : ''}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsMobileMenuOpen((prev) => !prev);
-          }}
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          <span className={styles.hamburgerBar} />
-          <span className={styles.hamburgerBar} />
-          <span className={styles.hamburgerBar} />
-        </button>
+            <Link
+              href="/#technology"
+              className={`${styles.navCell} ${activeSection === 'technology' ? styles.activeCell : ''}`}
+              onClick={(e) => handleNavClick(e, 'technology')}
+            >
+              <span className={styles.cellNum}>05</span>
+              <span>TECH</span>
+            </Link>
+
+            <a
+              href="https://wa.me/919516372235"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.navCell} ${styles.contactCell}`}
+              aria-label="Contact Sheelash on WhatsApp"
+            >
+              <span>CONTACT ME</span>
+              <ArrowUpRight size={14} className={styles.cellArrow} />
+            </a>
+          </div>
+        )}
       </nav>
 
-      {/* Projects Mega Menu Dropdown (Desktop) */}
+      {/* Projects Mega Menu Dropdown */}
       {isFullMenu && isMegaMenuOpen && (
         <div
           className={styles.megaMenuHolder}
@@ -222,16 +301,15 @@ export default function Navbar({ activeSection = 'hero' }) {
         </div>
       )}
 
-      {/* Modern Mobile Navigation Drawer / Overlay */}
-      <div 
+      {/* Mobile Drawer */}
+      <div
         className={`${styles.mobileDrawerOverlay} ${isMobileMenuOpen ? styles.mobileDrawerOpen : ''}`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
-        <div 
+        <div
           className={styles.mobileDrawer}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Drawer Top Header */}
           <div className={styles.drawerHeader}>
             <div className={styles.drawerBrand}>
               <div className={styles.drawerAvatarWrapper}>
@@ -244,87 +322,83 @@ export default function Navbar({ activeSection = 'hero' }) {
                 />
               </div>
               <div className={styles.drawerBrandInfo}>
-                <span className={styles.drawerName}>Shailash S.</span>
-                <span className={styles.drawerRole}>Product Designer</span>
+                <span className={styles.drawerName}>SHAILASH S.</span>
+                <span className={styles.drawerRole}>PRODUCT DESIGNER</span>
               </div>
             </div>
 
-            <button 
+            <button
               type="button"
               className={styles.drawerCloseBtn}
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Close menu"
             >
-              <X size={20} />
+              ✕
             </button>
           </div>
 
-          {/* Status Badge */}
           <div className={styles.drawerStatusBadge}>
-            <span className={styles.greenPulseDot} />
-            <span>Available for new projects</span>
+            <span className={styles.orangePulseDot} />
+            <span>AVAILABLE FOR WORK • 2026</span>
           </div>
 
-          {/* Navigation Links */}
           <nav className={styles.drawerNav}>
-            <Link 
+            <Link
               href="/"
-              className={`${styles.drawerNavLink} ${activeSection === 'hero' && isHomePage ? styles.drawerNavActive : ''}`}
-              onClick={(e) => {
-                handleHomeClick(e);
-                setIsMobileMenuOpen(false);
-              }}
+              className={`${styles.drawerNavLink} ${activeSection === 'hero' ? styles.drawerNavActive : ''}`}
+              onClick={handleHomeClick}
             >
               <span className={styles.drawerNavNumber}>01</span>
-              <span className={styles.drawerNavLabel}>Home</span>
+              <span className={styles.drawerNavLabel}>HOME</span>
             </Link>
 
-            <a 
-              href={isHomePage ? "#what-i-can-do" : "/#what-i-can-do"}
+            <Link
+              href="/#what-i-can-do"
               className={`${styles.drawerNavLink} ${activeSection === 'what-i-can-do' ? styles.drawerNavActive : ''}`}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, 'what-i-can-do')}
             >
               <span className={styles.drawerNavNumber}>02</span>
-              <span className={styles.drawerNavLabel}>What I Do</span>
-            </a>
+              <span className={styles.drawerNavLabel}>WHAT I DO</span>
+            </Link>
 
-            <a 
-              href={isHomePage ? "#projects" : "/#projects"}
+            <Link
+              href="/#projects"
               className={`${styles.drawerNavLink} ${activeSection === 'projects' ? styles.drawerNavActive : ''}`}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, 'projects')}
             >
               <span className={styles.drawerNavNumber}>03</span>
-              <span className={styles.drawerNavLabel}>Projects</span>
-            </a>
+              <span className={styles.drawerNavLabel}>WORK (50+)</span>
+            </Link>
 
-            <a 
-              href={isHomePage ? "#experience" : "/#experience"}
+            <Link
+              href="/#experience"
               className={`${styles.drawerNavLink} ${activeSection === 'experience' ? styles.drawerNavActive : ''}`}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, 'experience')}
             >
               <span className={styles.drawerNavNumber}>04</span>
-              <span className={styles.drawerNavLabel}>Experience</span>
-            </a>
+              <span className={styles.drawerNavLabel}>EXPERIENCE</span>
+            </Link>
 
-            <a 
-              href={isHomePage ? "#technology" : "/#technology"}
+            <Link
+              href="/#technology"
               className={`${styles.drawerNavLink} ${activeSection === 'technology' ? styles.drawerNavActive : ''}`}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, 'technology')}
             >
               <span className={styles.drawerNavNumber}>05</span>
-              <span className={styles.drawerNavLabel}>Technology</span>
-            </a>
+              <span className={styles.drawerNavLabel}>TECH</span>
+            </Link>
           </nav>
 
-          {/* Drawer Footer CTA */}
           <div className={styles.drawerFooter}>
-            <a 
-              href={isHomePage ? "#contact" : "/#contact"}
+            <a
+              href="https://wa.me/919516372235"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.drawerContactBtn}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <span>Contact Me</span>
-              <ArrowUpRight size={18} />
+              <span>WHATSAPP (+91 95163 72235)</span>
+              <ArrowUpRight size={16} />
             </a>
 
             <div className={styles.drawerMeta}>
@@ -332,11 +406,13 @@ export default function Navbar({ activeSection = 'hero' }) {
                 shailashs79@gmail.com
               </a>
               <div className={styles.drawerSocials}>
-                <a href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://wa.me/919516372235" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
                 <span>•</span>
-                <a href="https://www.behance.net/prithvibhadour" target="_blank" rel="noopener noreferrer">Behance</a>
+                <a href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
                 <span>•</span>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.behance.net/prithvibhadour" target="_blank" rel="noopener noreferrer">BEHANCE</a>
+                <span>•</span>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB</a>
               </div>
             </div>
           </div>

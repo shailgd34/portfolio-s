@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import styles from './Hero.module.css';
 
 export default function Hero({ theme, toggleTheme }) {
@@ -17,7 +17,7 @@ export default function Hero({ theme, toggleTheme }) {
   const [showBadge, setShowBadge] = useState(true);
 
   // Dynamic Image for Card (Headshot -> Workspace setup on scroll flip)
-  const [cardImg, setCardImg] = useState('/Professional Indian Corporate Headshot.png');
+  const [cardImg, setCardImg] = useState('/designer_retro_portrait.png');
 
   // Screen width state for responsive checks
   const [isMobile, setIsMobile] = useState(false);
@@ -41,31 +41,47 @@ export default function Hero({ theme, toggleTheme }) {
   const { scrollY } = useScroll();
 
   // Desktop transforms (Hero -> Section 2 What I Can Do -> Section 3 About Me)
-  const desktopY = useTransform(scrollY, [0, 650, 1500], [0, 560, 1460]);
-  const desktopX = useTransform(scrollY, [0, 650, 1500], [0, 345, 345]);
+  // Calibrated so the animated portrait sits comfortably higher alongside
+  // Section 2 ("WHAT I CAN DO FOR YOU") and Section 3 ("ABOUT ME") without sliding too far down
+  const desktopY = useTransform(
+    scrollY,
+    [0, 600, 1100, 1750],
+    [0, 620, 800, 1760]
+  );
+  const desktopX = useTransform(
+    scrollY,
+    [0, 600, 1100, 1750],
+    [0, 350, 350, 350]
+  );
 
-  // Mobile fallback transforms
-  const mobileY = useTransform(scrollY, [0, 500, 1200], [0, 480, 1100]);
+  // Mobile fallback transforms (positioned higher as well)
+  const mobileY = useTransform(scrollY, [0, 500, 1400], [0, 480, 1180]);
 
   // 3D rotations & scale
   const rotateY = useTransform(
     scrollY,
-    [0, 320, 650, 1050, 1500],
+    [0, 320, 650, 1150, 1850],
     [0, 90, 180, 270, 360]
   );
-  const rotateZ = useTransform(scrollY, [0, 650, 1500], [0, -2, 2]);
-  const scale = useTransform(scrollY, [0, 650, 1500], [1, 0.95, 0.98]);
+  const rotateZ = useTransform(
+    scrollY,
+    [0, 650, 1150, 1850],
+    [0, -2, -2, 2]
+  );
+  const scale = useTransform(
+    scrollY,
+    [0, 650, 1150, 1850],
+    [1, 0.95, 0.95, 0.98]
+  );
 
   // Mid-flip image swap and badge visibility tracking
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    // Flip to workspace mockup in Section 2, flip back to hero headshot in Section 3
-    if (latest >= 320 && latest <= 1050) {
-      setCardImg('/workspace_mockup.jpg');
+    if (latest >= 320 && latest <= 1150) {
+      setCardImg('/designer_retro_portrait.png');
     } else {
-      setCardImg('/Professional Indian Corporate Headshot.png');
+      setCardImg('/designer_retro_portrait.png');
     }
 
-    // Hide badge icon when leaving hero section
     if (latest > 100) {
       setShowBadge(false);
     } else {
@@ -73,33 +89,30 @@ export default function Hero({ theme, toggleTheme }) {
     }
   });
 
-  // Scroll-driven text dimming (100% at top, smoothly dims to 20% on scroll)
-  const heroTextOpacity = useTransform(scrollY, [0, 350], [1, 0.2]);
+  // Desktop-only gentle fade when exiting hero into section 2
+  const heroTextOpacity = useTransform(scrollY, [450, 950], [1, 0.1]);
 
   return (
     <section id="hero" className={styles.heroSection} ref={heroRef}>
-
-      {/* Small Floating Ambient Dot at Top-Left */}
-      <div className={`${styles.floatingDot} ${isDark ? styles.limeDot : styles.purpleDot}`}></div>
-
       <div className="container">
-
         {/* Main 3-Column Hero Grid */}
         <div className={styles.heroGrid}>
 
-          {/* Left Column: Name Sub-heading + PRODUCT Title */}
+          {/* Left Column: Kicker Tag + PRODUCT Title */}
           <motion.div
             className={styles.leftCol}
-            style={{ opacity: heroTextOpacity }}
+            style={{ opacity: isMobile ? 1 : heroTextOpacity }}
           >
-            <motion.span
-              initial={{ opacity: 0, x: 100 }}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              className={styles.nameSubheading}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className={styles.kickerTag}
             >
-              SHAILASH SINGH BHADORIYA
-            </motion.span>
+              <span className={styles.kickerDot} />
+              <span>EST. 2020 • SENIOR PRODUCT DESIGNER</span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, x: -60, filter: 'blur(10px)' }}
               animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
@@ -109,15 +122,24 @@ export default function Hero({ theme, toggleTheme }) {
             >
               PRODUCT
             </motion.h1>
+
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.25 }}
+              className={styles.leftSubKicker}
+            >
+              SHEELASH SINGH BHADORIYA
+            </motion.span>
           </motion.div>
 
-          {/* Center Column: Portrait Card + Dynamic Badge */}
+          {/* Center Column: Portrait Card + Uncle Joe Retro Sticker Stamp */}
           <div className={styles.centerCol}>
             <motion.div
               className={styles.portraitEntranceWrapper}
-              initial={{ opacity: 0, scale: 0.75, rotate: -360 }}
+              initial={{ opacity: 0, scale: 0.8, rotate: -180 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className={styles.portraitCardContainer}>
                 <motion.div
@@ -125,7 +147,7 @@ export default function Hero({ theme, toggleTheme }) {
                   className={styles.portraitCard}
                   style={{
                     x: isMobile ? 0 : desktopX,
-                    y: isMobile ? mobileY : desktopY,
+                    y: isMobile ? 0 : desktopY,
                     rotateY: rotateY,
                     rotateZ: isMobile ? 0 : rotateZ,
                     scale: scale,
@@ -141,22 +163,12 @@ export default function Hero({ theme, toggleTheme }) {
                     className={styles.portraitImg}
                   />
 
-                  {/* Dynamic Auto-Animating Badge: Cycles between Hi and Vector Shaking Hand Icon */}
-                  <div className={`${styles.badgeCircle} ${isDark ? styles.badgeLime : styles.badgePurple} ${!showBadge ? styles.badgeHidden : ''}`}>
-                    <div className={`${styles.badgeContent} ${badgeState === 'hi' ? styles.activeState : styles.inactiveState}`}>
-                      <span className={styles.hiText}>Hi</span>
-                    </div>
-                    <div className={`${styles.badgeContent} ${badgeState === 'handshake' ? styles.activeState : styles.inactiveState}`}>
-                      <svg
-                        width="42"
-                        height="42"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className={styles.shakingHandIcon}
-                        aria-label="Waving hand"
-                      >
-                        <path d="M12.5 2C11.67 2 11 2.67 11 3.5V9.5H10V2.5C10 1.67 9.33 1 8.5 1C7.67 1 7 1.67 7 2.5V9.5H6V4.5C6 3.67 5.33 3 4.5 3C3.67 3 3 3.67 3 4.5V13C3 17.42 6.58 21 11 21C15.42 21 19 17.42 19 13V7.5C19 6.67 18.33 6 17.5 6C16.67 6 16 6.67 16 7.5V9.5H15V3.5C15 2.67 14.33 2 13.5 2H12.5Z" />
-                      </svg>
+                  {/* Uncle Joe Tilted Sticker Stamp Badge */}
+                  <div className={`${styles.retroStickerBadge} ${!showBadge ? styles.badgeHidden : ''}`}>
+                    <div className={styles.stickerInner}>
+                      <span className={styles.stickerStar}>★</span>
+                      <span className={styles.stickerText}>VERIFIED EXPERT</span>
+                      <span className={styles.stickerSub}>UI/UX & CODE</span>
                     </div>
                   </div>
                 </motion.div>
@@ -164,10 +176,10 @@ export default function Hero({ theme, toggleTheme }) {
             </motion.div>
           </div>
 
-          {/* Right Column: DESIGNER Title + Subtext */}
+          {/* Right Column: DESIGNER Title + Subtext + Uncle Joe Brutalist Buttons */}
           <motion.div
             className={styles.rightCol}
-            style={{ opacity: heroTextOpacity }}
+            style={{ opacity: isMobile ? 1 : heroTextOpacity }}
           >
             <motion.h1
               initial={{ opacity: 0, x: 60, filter: 'blur(10px)' }}
@@ -178,40 +190,62 @@ export default function Hero({ theme, toggleTheme }) {
             >
               DESIGNER
             </motion.h1>
+
             <motion.p
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className={styles.heroBioText}
             >
-              I'm a Product Designer & Frontend Developer crafting intuitive digital experiences.
+              Crafting intuitive SaaS platforms, enterprise design systems & high-performance web applications with precision.
             </motion.p>
 
+            {/* Uncle Joe Solid Brutalist Action Buttons */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.0, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className={styles.heroActionWrapper}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className={styles.heroActionGroup}
             >
               <Link
-                href="/projects"
-                className={`${styles.heroTextAction} ${isDark ? styles.actionDark : styles.actionLight}`}
-                data-cursor-text="PROJECTS"
+                href="/#projects"
+                className={styles.primaryRetroBtn}
+                data-magnetic="true"
+                onClick={(e) => {
+                  if (typeof window !== 'undefined') {
+                    const el = document.getElementById('projects');
+                    if (el && window.__lenis) {
+                      e.preventDefault();
+                      window.__lenis.scrollTo(el, { offset: -30, duration: 1.3 });
+                      if (window.history.pushState) window.history.pushState(null, '', '#projects');
+                    }
+                  }
+                }}
               >
-                <span className={styles.actionText}>View My Work</span>
-                <span className={styles.arrowCircle}>
-                  <ArrowUpRight size={17} strokeWidth={2.2} className={styles.rotatedArrow} />
-                </span>
+                <span>VIEW WORK (50+)</span>
+                <ArrowUpRight size={16} strokeWidth={2.5} />
               </Link>
+              <a
+                href="#contact"
+                className={styles.secondaryRetroBtn}
+                data-magnetic="true"
+                onClick={(e) => {
+                  if (typeof window !== 'undefined') {
+                    const el = document.getElementById('contact');
+                    if (el && window.__lenis) {
+                      e.preventDefault();
+                      window.__lenis.scrollTo(el, { offset: -30, duration: 1.3 });
+                      if (window.history.pushState) window.history.pushState(null, '', '#contact');
+                    }
+                  }
+                }}
+              >
+                <span>GET IN TOUCH</span>
+              </a>
             </motion.div>
           </motion.div>
 
         </div>
-
-
-
       </div>
     </section>
   );

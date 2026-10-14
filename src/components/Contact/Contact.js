@@ -58,19 +58,19 @@ export default function Contact() {
 
       <div className="container">
         <div className={styles.contactGrid}>
-          
+
           {/* Left Column: Portrait Card with overlapping lime "Hi" badge */}
           <div className={styles.leftCol}>
             <div className={styles.portraitCard}>
               <Image
-                src="/Professional Indian Corporate Headshot.png"
-                alt="Shailash Singh Bhadoriya"
+                src="/designer_retro_portrait.png"
+                alt="Sheelash Singh Bhadoriya"
                 width={420}
                 height={540}
                 priority
                 className={styles.portraitImg}
               />
-              
+
               {/* Overlapping Lime Badge matching Hero and user screenshot */}
               <div className={styles.hiBadge}>
                 <span className={styles.hiText}>Hi</span>
@@ -81,6 +81,10 @@ export default function Contact() {
           {/* Right Column: Title, Subtitle & Interactive Form */}
           <div className={styles.rightCol}>
             <div className={styles.headerArea}>
+              <div className={styles.categorySubheading}>
+                <span className={styles.subheadingDash}>[ 07 / INITIATE ]</span>
+                <span>• START A CONVERSATION</span>
+              </div>
               <h2 className={styles.mainTitle}>LET'S WORK TOGETHER</h2>
               <p className={styles.subtitle}>
                 Let's build something impactful together—whether it's your brand, your website, or your next big idea.
@@ -119,7 +123,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
-                
+
                 {/* Row 1: Name & Email side-by-side */}
                 <div className={styles.rowTwoCols}>
                   <div className={styles.fieldGroup}>

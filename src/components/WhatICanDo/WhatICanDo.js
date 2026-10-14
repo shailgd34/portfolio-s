@@ -67,9 +67,13 @@ export default function WhatICanDo() {
             
             {/* Header Title & Subtitle */}
             <div className={styles.header}>
+              <div className={styles.categorySubheading}>
+                <span className={styles.subheadingDash}>[ 02 / CAPABILITIES ]</span>
+                <span>• MADE WITH PASSION</span>
+              </div>
               <h2 className={styles.sectionTitle}>WHAT I CAN DO FOR YOU</h2>
               <p className={styles.sectionSubtitle}>
-                As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
+                As a digital designer & frontend engineer, I craft intuitive platforms that connect deeply, scale reliably, and elevate brand value.
               </p>
             </div>
 

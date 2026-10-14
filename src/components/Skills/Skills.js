@@ -1,33 +1,32 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { Layers, Sparkles, Code2, Palette, Cpu } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Layers, Palette, Code2, Cpu, Sparkles } from 'lucide-react';
 import styles from './Skills.module.css';
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const containerRef = useRef(null);
-  const cardsRef = useRef([]);
+  const [hoveredId, setHoveredId] = useState(null);
 
   const categories = [
-    { id: 'all', label: 'All Technologies', count: 12, icon: <Layers size={14} /> },
-    { id: 'design', label: 'UI/UX & Design', count: 4, icon: <Palette size={14} /> },
-    { id: 'frontend', label: 'Frontend Architecture', count: 6, icon: <Code2 size={14} /> },
-    { id: 'platforms', label: 'Platforms & CMS', count: 2, icon: <Cpu size={14} /> },
+    { id: 'all', label: 'ALL TOOLS', icon: <Layers size={14} /> },
+    { id: 'design', label: 'UI/UX DESIGN', icon: <Palette size={14} /> },
+    { id: 'frontend', label: 'FRONTEND CODE', icon: <Code2 size={14} /> },
+    { id: 'platforms', label: 'PLATFORMS & CMS', icon: <Cpu size={14} /> },
   ];
 
   const technologies = [
-    // Design
     {
       id: 'figma',
       name: 'Figma',
       category: 'design',
-      level: 'Mastery',
-      tenure: '6+ Years Exp',
-      percent: 98,
-      color: '#F24E1E',
-      glow: 'rgba(242, 78, 30, 0.25)',
-      description: 'Design systems, auto-layout, component variants & rapid prototyping.',
+      tag: 'UI/UX DESIGN',
+      tenure: '4+ YRS',
+      status: 'PRIMARY',
+      description: 'Design systems, component architectures, responsive auto-layouts, and clickable high-fidelity prototypes.',
+      highlights: ['Design Systems', 'Auto Layout', 'Dev Handoff'],
+      brandGlow: 'rgba(162, 89, 255, 0.35)',
       logo: (
         <svg viewBox="0 0 100 150">
           <path d="M25 37.5a25 25 0 0 1 25-25h25v50H50a25 25 0 0 1-25-25z" fill="#F24E1E"/>
@@ -42,22 +41,16 @@ export default function Skills() {
       id: 'nextjs',
       name: 'Next.js 14',
       category: 'frontend',
-      level: 'Advanced',
-      tenure: '4+ Years Exp',
-      percent: 94,
-      color: '#FFFFFF',
-      glow: 'rgba(255, 255, 255, 0.22)',
-      description: 'App Router, SSR, SSG, dynamic routing, Vercel deployments & SEO.',
+      tag: 'WEB FRAMEWORK',
+      tenure: '3+ YRS',
+      status: 'PRODUCTION',
+      description: 'Production web applications leveraging App Router, React Server Components, SSR/SSG, and fast edge routing.',
+      highlights: ['App Router', 'Server Actions', 'SSR / SSG'],
+      brandGlow: 'rgba(255, 255, 255, 0.3)',
       logo: (
         <svg viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="45" fill="black" stroke="#ffffff" strokeWidth="2"/>
-          <path d="M28 70 V 30 H 38 L 65 67 V 30 H 73 V 70 H 63 L 36 33 V 70 Z" fill="url(#nextGlnsb3)"/>
-          <defs>
-            <linearGradient id="nextGlnsb3" x1="50" y1="30" x2="68" y2="70" gradientUnits="userSpaceOnUse">
-              <stop stopColor="white"/>
-              <stop offset="1" stopColor="white" stopOpacity="0"/>
-            </linearGradient>
-          </defs>
+          <circle cx="50" cy="50" r="45" fill="black" stroke="#ffffff" strokeWidth="2.5"/>
+          <path d="M28 70 V 30 H 38 L 65 67 V 30 H 73 V 70 H 63 L 36 33 V 70 Z" fill="white"/>
         </svg>
       )
     },
@@ -65,12 +58,12 @@ export default function Skills() {
       id: 'react',
       name: 'React.js',
       category: 'frontend',
-      level: 'Advanced',
-      tenure: '4+ Years Exp',
-      percent: 95,
-      color: '#61DAFB',
-      glow: 'rgba(97, 218, 251, 0.25)',
-      description: 'Component architecture, custom hooks, state management & Framer Motion.',
+      tag: 'UI LIBRARY',
+      tenure: '4+ YRS',
+      status: 'CORE ENGINE',
+      description: 'Modular component hierarchies, customized React hooks, reactive state workflows, and Virtual DOM rendering.',
+      highlights: ['Custom Hooks', 'State Management', 'Virtual DOM'],
+      brandGlow: 'rgba(97, 218, 251, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
           <ellipse cx="50" cy="50" rx="8" ry="22" fill="none" stroke="#61dafb" strokeWidth="5" transform="rotate(30 50 50)" />
@@ -81,18 +74,35 @@ export default function Skills() {
       )
     },
     {
+      id: 'typescript',
+      name: 'TypeScript',
+      category: 'frontend',
+      tag: 'TYPED SYSTEM',
+      tenure: '3+ YRS',
+      status: 'STRICT MODE',
+      description: 'Robust static typing, complex interface contracts, reusable generics, and zero-runtime-overhead safety.',
+      highlights: ['Strict Typing', 'Generics', 'Interface Contracts'],
+      brandGlow: 'rgba(49, 120, 198, 0.35)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="#3178C6"/>
+          <text x="75" y="80" fill="#FFFFFF" fontSize="38" fontWeight="bold" textAnchor="end" fontFamily="sans-serif">TS</text>
+        </svg>
+      )
+    },
+    {
       id: 'javascript',
       name: 'JavaScript',
       category: 'frontend',
-      level: 'Advanced',
-      tenure: '5+ Years Exp',
-      percent: 92,
-      color: '#F7DF1E',
-      glow: 'rgba(247, 223, 30, 0.25)',
-      description: 'Modern ES6+, async workflows, DOM APIs, event engines & animations.',
+      tag: 'SCRIPTING',
+      tenure: '5+ YRS',
+      status: 'ESNEXT',
+      description: 'Mastery of ES6+ features, asynchronous event loops, DOM performance optimization, and modern browser APIs.',
+      highlights: ['Async / Await', 'DOM API', 'Event Loop'],
+      brandGlow: 'rgba(247, 223, 30, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
-          <rect width="100" height="100" fill="#F7DF1E" rx="10"/>
+          <rect width="100" height="100" fill="#F7DF1E"/>
           <text x="75" y="80" fill="#000000" fontSize="38" fontWeight="bold" textAnchor="end" fontFamily="sans-serif">JS</text>
         </svg>
       )
@@ -101,12 +111,12 @@ export default function Skills() {
       id: 'tailwind',
       name: 'Tailwind CSS',
       category: 'frontend',
-      level: 'Expert',
-      tenure: '4+ Years Exp',
-      percent: 96,
-      color: '#38BDF8',
-      glow: 'rgba(56, 189, 248, 0.25)',
-      description: 'Utility-first styling, design system tokens, responsive utilities & JIT.',
+      tag: 'UTILITY STYLING',
+      tenure: '3+ YRS',
+      status: 'PRODUCTION',
+      description: 'Rapid interface development with utility classes, bespoke design systems, and responsive token architectures.',
+      highlights: ['Utility Classes', 'JIT Engine', 'Custom Theme'],
+      brandGlow: 'rgba(56, 189, 248, 0.35)',
       logo: (
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12.001 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" fill="#38bdf8"/>
@@ -114,15 +124,49 @@ export default function Skills() {
       )
     },
     {
+      id: 'framer-motion',
+      name: 'Framer Motion',
+      category: 'frontend',
+      tag: 'PHYSICS MOTION',
+      tenure: '3+ YRS',
+      status: 'INTERACTIVE',
+      description: 'Fluid spring physics, declarative layout transitions, orchestrations, and interactive drag gestures.',
+      highlights: ['Spring Physics', 'Layout Transitions', 'Gestures'],
+      brandGlow: 'rgba(255, 0, 85, 0.35)',
+      logo: (
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" fill="#ff0055"/>
+        </svg>
+      )
+    },
+    {
+      id: 'gsap',
+      name: 'GSAP',
+      category: 'frontend',
+      tag: 'CINEMATIC MOTION',
+      tenure: '2+ YRS',
+      status: 'HARDWARE ACCEL',
+      description: 'High-performance timelines, synchronized ScrollTrigger orchestrations, and complex SVG morphing.',
+      highlights: ['ScrollTrigger', 'Complex Timelines', 'SVG Morphing'],
+      brandGlow: 'rgba(10, 228, 72, 0.35)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="#0E100F"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#0AE448" strokeWidth="4"/>
+          <text x="50" y="58" fill="#0AE448" fontSize="24" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">GSAP</text>
+        </svg>
+      )
+    },
+    {
       id: 'html-css',
       name: 'HTML5 & CSS3',
       category: 'frontend',
-      level: 'Mastery',
-      tenure: '6+ Years Exp',
-      percent: 99,
-      color: '#EF652A',
-      glow: 'rgba(239, 101, 42, 0.25)',
-      description: 'Semantic HTML, CSS Modules, Flexbox/Grid layouts, keyframe animations.',
+      tag: 'CORE FOUNDATION',
+      tenure: '5+ YRS',
+      status: 'STANDARDS',
+      description: 'Semantic document hierarchy, fluid CSS Grid/Flexbox layouts, responsive design, and WCAG accessibility standards.',
+      highlights: ['Semantic HTML5', 'CSS Grid & Flex', 'Web Accessibility'],
+      brandGlow: 'rgba(227, 79, 38, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
           <path d="M15 15 L22 80 L50 88 L78 80 L85 15 Z" fill="#E34F26"/>
@@ -136,16 +180,16 @@ export default function Skills() {
       id: 'photoshop',
       name: 'Photoshop',
       category: 'design',
-      level: 'Expert',
-      tenure: '6+ Years Exp',
-      percent: 94,
-      color: '#31A8FF',
-      glow: 'rgba(49, 168, 255, 0.25)',
-      description: 'Creative mockups, raster editing, brand key visuals & asset mastering.',
+      tag: 'RASTER GRAPHICS',
+      tenure: '4+ YRS',
+      status: 'CREATIVE',
+      description: 'High-end asset manipulation, photo retouching, creative composite hero visuals, and background textures.',
+      highlights: ['Compositing', 'Photo Retouching', 'Asset Prep'],
+      brandGlow: 'rgba(49, 168, 255, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
-          <rect width="100" height="100" fill="#001829" rx="10"/>
-          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#31A8FF" strokeWidth="4" rx="8"/>
+          <rect width="100" height="100" fill="#001829"/>
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#31A8FF" strokeWidth="4"/>
           <text x="50" y="64" fill="#31A8FF" fontSize="42" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">Ps</text>
         </svg>
       )
@@ -154,16 +198,16 @@ export default function Skills() {
       id: 'illustrator',
       name: 'Illustrator',
       category: 'design',
-      level: 'Expert',
-      tenure: '5+ Years Exp',
-      percent: 90,
-      color: '#FF9A00',
-      glow: 'rgba(255, 154, 0, 0.25)',
-      description: 'Vector illustration, custom icon sets, typography & SVG export workflows.',
+      tag: 'VECTOR GRAPHICS',
+      tenure: '4+ YRS',
+      status: 'CREATIVE',
+      description: 'Scalable brand identity assets, custom vector iconography, illustrations, and web-optimized SVGs.',
+      highlights: ['Iconography', 'Vector Art', 'SVG Optimization'],
+      brandGlow: 'rgba(255, 154, 0, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
-          <rect width="100" height="100" fill="#330000" rx="10"/>
-          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF9A00" strokeWidth="4" rx="8"/>
+          <rect width="100" height="100" fill="#330000"/>
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF9A00" strokeWidth="4"/>
           <text x="50" y="64" fill="#FF9A00" fontSize="42" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">Ai</text>
         </svg>
       )
@@ -172,16 +216,16 @@ export default function Skills() {
       id: 'adobe-xd',
       name: 'Adobe XD',
       category: 'design',
-      level: 'Proficient',
-      tenure: '5+ Years Exp',
-      percent: 88,
-      color: '#FF61F6',
-      glow: 'rgba(255, 97, 246, 0.25)',
-      description: 'Interactive wireframing, transitions, voice prototyping & design handoffs.',
+      tag: 'PROTOTYPING',
+      tenure: '3+ YRS',
+      status: 'WIREFRAMING',
+      description: 'Rapid user journey wireframing, transition mockups, stakeholder presentations, and screen flow maps.',
+      highlights: ['Wireframing', 'User Journeys', 'Interactive Flows'],
+      brandGlow: 'rgba(255, 97, 246, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
-          <rect width="100" height="100" fill="#2E001F" rx="10"/>
-          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF61F6" strokeWidth="4" rx="8"/>
+          <rect width="100" height="100" fill="#2E001F"/>
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="#FF61F6" strokeWidth="4"/>
           <text x="50" y="64" fill="#FF61F6" fontSize="42" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">Xd</text>
         </svg>
       )
@@ -190,12 +234,12 @@ export default function Skills() {
       id: 'wordpress',
       name: 'WordPress',
       category: 'platforms',
-      level: 'Proficient',
-      tenure: '4+ Years Exp',
-      percent: 86,
-      color: '#21759B',
-      glow: 'rgba(33, 117, 155, 0.25)',
-      description: 'Custom theme design, Gutenberg block styling, WooCommerce & Elementor.',
+      tag: 'CONTENT MANAGEMENT',
+      tenure: '4+ YRS',
+      status: 'FULL STACK',
+      description: 'Bespoke theme architectures, advanced ACF Pro custom fields, WooCommerce stores, and headless setups.',
+      highlights: ['Custom Themes', 'ACF Pro', 'Headless Setup'],
+      brandGlow: 'rgba(33, 117, 155, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="44" fill="#21759B"/>
@@ -205,32 +249,15 @@ export default function Skills() {
       )
     },
     {
-      id: 'bootstrap',
-      name: 'Bootstrap',
-      category: 'platforms',
-      level: 'Proficient',
-      tenure: '5+ Years Exp',
-      percent: 90,
-      color: '#7952CC',
-      glow: 'rgba(121, 82, 204, 0.25)',
-      description: 'Grid systems, modal dialogs, enterprise layout utilities & rapid scaffolding.',
-      logo: (
-        <svg viewBox="0 0 100 100">
-          <rect width="100" height="100" fill="#563d7c" rx="20"/>
-          <text x="50" y="72" fill="#ffffff" fontSize="65" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">B</text>
-        </svg>
-      )
-    },
-    {
-      id: 'css3',
+      id: 'css-modules',
       name: 'CSS Modules',
       category: 'frontend',
-      level: 'Mastery',
-      tenure: '5+ Years Exp',
-      percent: 97,
-      color: '#1572B6',
-      glow: 'rgba(21, 114, 182, 0.25)',
-      description: 'Scoped CSS architecture, zero specificity conflicts & responsive design.',
+      tag: 'SCOPED STYLING',
+      tenure: '4+ YRS',
+      status: 'ORGANIZED',
+      description: 'Zero namespace collisions, scoped component styling, maintainable design systems, and tight CSS-to-code cohesion.',
+      highlights: ['Scoped Classes', 'Zero Collision', 'Modular Design'],
+      brandGlow: 'rgba(21, 114, 182, 0.35)',
       logo: (
         <svg viewBox="0 0 100 100">
           <path d="M15 15 L22 80 L50 88 L78 80 L85 15 Z" fill="#1572B6"/>
@@ -239,125 +266,159 @@ export default function Skills() {
           <path d="M50 35 H67 L66 45 H50 V55 H65 L63 70 L50 74 V22 Z" fill="#EAEAEA" opacity="0.9"/>
         </svg>
       )
+    },
+    {
+      id: 'nodejs',
+      name: 'Node.js',
+      category: 'frontend',
+      tag: 'RUNTIME ENGINE',
+      tenure: '3+ YRS',
+      status: 'BACKEND',
+      description: 'Backend microservices, REST API routes, build automation scripts, and NPM package ecosystem tooling.',
+      highlights: ['REST APIs', 'NPM Tooling', 'Server Scripts'],
+      brandGlow: 'rgba(95, 160, 78, 0.35)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <polygon points="50,15 85,35 85,75 50,95 15,75 15,35" fill="#333333" stroke="#5FA04E" strokeWidth="4"/>
+          <text x="50" y="60" fill="#5FA04E" fontSize="28" fontWeight="800" textAnchor="middle" fontFamily="sans-serif">JS</text>
+        </svg>
+      )
+    },
+    {
+      id: 'git',
+      name: 'Git & GitHub',
+      category: 'platforms',
+      tag: 'VERSION CONTROL',
+      tenure: '4+ YRS',
+      status: 'DEVOPS',
+      description: 'Git flow branching strategies, peer pull request reviews, automated CI/CD pipelines, and project releases.',
+      highlights: ['Branch Strategies', 'Pull Requests', 'CI/CD Pipelines'],
+      brandGlow: 'rgba(240, 80, 50, 0.35)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="44" fill="#1F2328"/>
+          <path d="M50 20 A30 30 0 0 0 40.5 78.5 C42 78.8 42.5 77.8 42.5 77 V71.8 C34.2 73.6 32.4 67.8 32.4 67.8 C31 64.3 29 63.4 29 63.4 C26.3 61.5 29.2 61.6 29.2 61.6 C32.2 61.8 33.8 64.7 33.8 64.7 C36.4 69.2 40.7 68 42.3 67.2 C42.6 65.3 43.4 64 44.2 63.2 C37.5 62.5 30.5 59.8 30.5 48.2 C30.5 44.9 31.7 42.2 33.6 40.1 C33.3 39.3 32.3 36.2 33.9 32.1 C33.9 32.1 36.4 31.3 42.2 35.2 A28.5 28.5 0 0 1 57.2 35.2 C63 31.3 65.5 32.1 65.5 32.1 C67.1 36.2 66.1 39.3 65.8 40.1 C67.7 42.2 68.9 44.9 68.9 48.2 C68.9 59.9 61.8 62.4 55.1 63.2 C56.2 64.1 57.1 65.9 57.1 68.7 V77 C57.1 77.8 57.6 78.8 59.2 78.5 A30 30 0 0 0 50 20 Z" fill="#FFFFFF"/>
+        </svg>
+      )
     }
   ];
 
-  // Filtered list
   const filteredTechs = activeCategory === 'all'
     ? technologies
     : technologies.filter(t => t.category === activeCategory);
 
-  // Dynamic Mouse Spotlight Handler
-  const handleMouseMove = (e, index) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
-  };
-
   return (
-    <section id="technology" className={styles.techSection} ref={containerRef}>
-      
-      {/* Dynamic Animated Mesh & Particles */}
-      <div className={styles.meshGlow} />
-
+    <section id="technology" className={styles.techSection}>
       <div className="container">
         
         {/* Section Header */}
         <div className={styles.sectionHeader}>
-          <div className={styles.headerLeft}>
-            <div className={styles.badgeTag}>
-              <Sparkles size={14} className={styles.sparkleIcon} />
-              <span>CORE TECHNICAL ARSENAL</span>
+          <div className={styles.headerTopRow}>
+            
+            <div className={styles.headerLeft}>
+              <div className={styles.categorySubheading}>
+                <span className={styles.subheadingDash}>[ 05 / ARSENAL ]</span>
+                <span>• TECHNICAL SPECIFICATIONS</span>
+              </div>
+              <h2 className={styles.sectionTitle}>
+                TECHNOLOGY & <span className={styles.limeHighlight}>SYSTEMS</span>
+              </h2>
+              <p className={styles.sectionSubtitle}>
+                A curated collection of modern technologies, creative tools, and engineering frameworks.
+              </p>
             </div>
-            <h2 className={styles.sectionTitle}>
-              TECHNOLOGY STACK
-            </h2>
+
+            {/* Total Count Badge */}
+            <div className={styles.totalBadge}>
+              <Sparkles size={16} className={styles.sparkleIcon} />
+              <span className={styles.totalCountNumber}>{technologies.length}</span>
+              <span className={styles.totalCountLabel}>PRODUCTION TOOLS</span>
+            </div>
+
           </div>
-          <p className={styles.sectionSubtitle}>
-            A curated synthesis of modern design platforms and frontend frameworks utilized to engineer world-class, responsive digital products.
-          </p>
+
+          {/* Filter Categories */}
+          <div className={styles.filterConsole}>
+            {categories.map((cat) => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`${styles.filterBtn} ${isActive ? styles.activeFilterBtn : ''}`}
+                >
+                  <span className={styles.filterIcon}>{cat.icon}</span>
+                  <span className={styles.filterLabel}>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Interactive Filter Pills */}
-        <div className={styles.filterBar}>
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              type="button"
-              className={`${styles.filterBtn} ${activeCategory === cat.id ? styles.activeFilter : ''}`}
-              onClick={() => setActiveCategory(cat.id)}
-            >
-              {cat.icon}
-              <span>{cat.label}</span>
-              <span className={styles.filterCount}>({cat.count})</span>
-            </button>
-          ))}
-        </div>
+        {/* ====================================================================
+            RETRO BRUTALIST TECHNOLOGY MATRIX
+            ==================================================================== */}
+        <motion.div 
+          layout 
+          className={styles.cinematicTechGrid}
+        >
+          <AnimatePresence>
+            {filteredTechs.map((tech, idx) => {
+              return (
+                <motion.div
+                  key={tech.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ 
+                    duration: 0.35, 
+                    delay: idx * 0.02, 
+                    ease: [0.16, 1, 0.3, 1] 
+                  }}
+                  className={styles.techTileCard}
+                  aria-label={`${tech.name} - ${tech.tag}`}
+                >
+                  {/* Top Docket Bar */}
+                  <div className={styles.tileHeaderBar}>
+                    <span className={styles.tileIndex}>
+                      [ {idx + 1 < 10 ? `0${idx + 1}` : idx + 1} ]
+                    </span>
+                    <span className={styles.tileTenure}>
+                      {tech.tenure}
+                    </span>
+                  </div>
 
-        {/* Advanced Interactive Bento Grid */}
-        <div className={styles.bentoGrid}>
-          {filteredTechs.map((tech, idx) => (
-            <div
-              key={tech.id}
-              ref={(el) => (cardsRef.current[idx] = el)}
-              className={styles.bentoCard}
-              onMouseMove={(e) => handleMouseMove(e, idx)}
-              style={{
-                '--glow-color': tech.glow,
-                '--accent-color': tech.color,
-              }}
-            >
-              {/* Radial Flashlight Spotlight Beam */}
-              <div className={styles.spotlightOverlay} />
+                  {/* Center SVG Logo */}
+                  <div className={styles.tileLogoWrapper}>
+                    {tech.logo}
+                  </div>
 
-              {/* Card Top Row: Logo & Tenure Badge */}
-              <div className={styles.cardHeaderRow}>
-                <div className={styles.logoBox}>
-                  {tech.logo}
-                </div>
-                <div className={styles.tenureBadge}>
-                  {tech.tenure}
-                </div>
-              </div>
+                  {/* Bottom Tech Details */}
+                  <div className={styles.tileDetails}>
+                    <h3 className={styles.tileName}>
+                      {tech.name}
+                    </h3>
+                    <span className={styles.tileCategoryTag}>
+                      {tech.tag}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
 
-              {/* Card Content */}
-              <div className={styles.cardInfo}>
-                <div className={styles.nameRow}>
-                  <h3 className={styles.techName}>{tech.name}</h3>
-                  <span className={styles.levelTag}>{tech.level}</span>
-                </div>
-                
-                <p className={styles.techDesc}>{tech.description}</p>
-              </div>
-
-            </div>
-          ))}
-        </div>
-
-        {/* Infinite Competencies Marquee Banner */}
+        {/* Cinematic Endless Ticker Marquee */}
         <div className={styles.marqueeBanner}>
           <div className={styles.marqueeTrack}>
-            <span>✦ DESIGN SYSTEMS ARCHITECTURE</span>
-            <span>✦ RAPID FIGMA PROTOTYPING</span>
-            <span>✦ NEXT.JS 14 APP ROUTER</span>
-            <span>✦ GSAP MICRO-INTERACTIONS</span>
-            <span>✦ PIXEL-PERFECT UI/UX</span>
-            <span>✦ RESPONSIVE CSS MODULES</span>
-            <span>✦ USER RESEARCH & HEURISTICS</span>
-            <span>✦ ACCESSIBLE WCAG DESIGN</span>
-            {/* Repeat for seamless infinite loop */}
-            <span>✦ DESIGN SYSTEMS ARCHITECTURE</span>
-            <span>✦ RAPID FIGMA PROTOTYPING</span>
-            <span>✦ NEXT.JS 14 APP ROUTER</span>
-            <span>✦ GSAP MICRO-INTERACTIONS</span>
-            <span>✦ PIXEL-PERFECT UI/UX</span>
-            <span>✦ RESPONSIVE CSS MODULES</span>
-            <span>✦ USER RESEARCH & HEURISTICS</span>
-            <span>✦ ACCESSIBLE WCAG DESIGN</span>
+            {technologies.concat(technologies).map((t, i) => (
+              <div key={i} className={styles.marqueeItem}>
+                <span className={styles.marqueeName}>{t.name}</span>
+                <span className={styles.marqueeStar}>✦</span>
+              </div>
+            ))}
           </div>
         </div>
 

@@ -1,0 +1,690 @@
+/* ==========================================================================
+   INTERACTIVE LIVE TERMINAL & AVAILABILITY DOCKET
+   Editorial Retro Brutalist Terminal with Live Indian Time & Recent Deploys
+   ========================================================================== */
+
+.terminalSection {
+  position: relative;
+  padding: 1.5rem 0 2.5rem 0;
+  background: transparent;
+}
+
+.terminalWindow {
+  background: #F4ECE1;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 6px 6px 0px #181512 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   TITLEBAR & TRAFFIC LIGHTS
+   ========================================================================== */
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: #181512;
+  color: #F4ECE1;
+  border-bottom: 2px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.trafficLights {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trafficDot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #181512;
+  border-radius: 0 !important;
+}
+
+.trafficDot:nth-child(1) { background: #FF5F56; }
+.trafficDot:nth-child(2) { background: #FFBD2E; }
+.trafficDot:nth-child(3) { background: #27C93F; }
+
+.terminalTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #F4ECE1;
+  text-transform: uppercase;
+}
+
+.termIcon {
+  color: #FF6B35;
+}
+
+.liveClockBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.12);
+  padding: 0.25rem 0.65rem;
+  border: 1px solid #FF6B35;
+  letter-spacing: 0.06em;
+}
+
+/* ==========================================================================
+   TELEMETRY STATUS BAR
+   ========================================================================== */
+.telemetryBar {
+  display: flex;
+  align-items: center;
+  background: #EAE1D3;
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1.5px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.74rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.telemetryItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.telemetryLabel {
+  color: #7C7267;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.telemetryVal {
+  color: #181512;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.telemetryDivider {
+  color: rgba(24, 21, 18, 0.2);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background: #27C93F;
+  border: 1px solid #181512;
+  border-radius: 0 !important;
+  animation: pulseGreen 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.orangeIcon {
+  color: #FF6B35;
+}
+
+/* ==========================================================================
+   COMMAND TABS
+   ========================================================================== */
+.commandTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #181512;
+  border-bottom: 2px solid #181512;
+}
+
+.cmdTab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: #181512;
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-right: 1.5px solid rgba(244, 236, 225, 0.15);
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cmdTab:last-child {
+  border-right: none;
+}
+
+.cmdTab:hover {
+  background: #25201A;
+  color: #FF6B35;
+}
+
+.cmdTabActive {
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  font-weight: 900;
+}
+
+.tabBadge {
+  font-size: 0.62rem;
+  padding: 0.15rem 0.45rem;
+  background: #181512;
+  color: #FF6B35;
+  border-radius: 0 !important;
+}
+
+.cmdTabActive .tabBadge {
+  background: #181512;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   TERMINAL BODY & PANES
+   ========================================================================== */
+.terminalBody {
+  padding: 1.5rem;
+  background: #F4ECE1;
+  min-height: 280px;
+}
+
+.paneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed rgba(24, 21, 18, 0.2);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.paneTitleGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.promptArrow {
+  color: #FF6B35;
+}
+
+.promptCmd {
+  color: #181512;
+  letter-spacing: 0.04em;
+}
+
+.exploreAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #FF6B35;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
+}
+
+.exploreAllLink:hover {
+  background: #FF6B35;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   TAB 1: DEPLOYS GRID (RECENT PROJECTS SHOWCASE)
+   ========================================================================== */
+.deploysGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.15rem;
+}
+
+.deployCard {
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0px #181512 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deployCard:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #181512 !important;
+  border-color: #FF6B35;
+}
+
+.deployImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+  background: #181512;
+  border-bottom: 1.5px solid #181512;
+}
+
+.deployImg {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.deployCard:hover .deployImg {
+  transform: scale(1.06);
+}
+
+.deployOverlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(24, 21, 18, 0.06),
+    rgba(24, 21, 18, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.deployTag {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  background: #FF6B35;
+  color: #FFFFFF;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid #181512;
+  z-index: 3;
+}
+
+.deployMeta {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.deployTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.deployLog {
+  color: #FF6B35;
+}
+
+.deployCat {
+  color: #4A433C;
+}
+
+.deployTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #181512 !important;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.deployImpact {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  color: #4A433C;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.deployActions {
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(24, 21, 18, 0.2);
+}
+
+.deployLaunchBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  background: #181512;
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border: 1px solid #181512;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.deployLaunchBtn:hover {
+  background: #FF6B35;
+  color: #181512;
+  border-color: #181512;
+}
+
+/* ==========================================================================
+   TAB 2: CAPABILITIES & SPECS
+   ========================================================================== */
+.docketSpecsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.specBox {
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  box-shadow: 3px 3px 0px #181512 !important;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.specLabel {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.08em;
+}
+
+.specHeading {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #181512;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.specBody {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  color: #4A433C;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.specList {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #181512;
+}
+
+.techPillCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.techPillCloud span {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.25rem 0.55rem;
+  background: #F4ECE1;
+  color: #181512;
+  border: 1px solid #181512;
+}
+
+.statsDocketRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.statCell {
+  padding: 0.6rem 0.4rem;
+  background: #F4ECE1;
+  border: 1px solid #181512;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statNum {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #FF6B35;
+  line-height: 1;
+}
+
+.statName {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #4A433C;
+}
+
+/* ==========================================================================
+   TAB 3: CONTACT & DISPATCH
+   ========================================================================== */
+.contactCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.contactBox {
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  box-shadow: 3px 3px 0px #181512 !important;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contactDocketTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.08em;
+}
+
+.contactBoxTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #181512;
+  margin: 0;
+}
+
+.contactBoxDesc {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  color: #4A433C;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.contactActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FF6B35;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border: 1.5px solid #181512;
+  box-shadow: 2px 2px 0px #181512 !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+  margin-top: 0.4rem;
+}
+
+.contactActionBtn:hover {
+  background: #181512;
+  color: #FFFFFF;
+  transform: translate(1px, 1px);
+}
+
+.emailActionRow {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.emailActionRow .contactActionBtn {
+  flex: 1;
+  margin-top: 0;
+}
+
+.copyEmailBtn {
+  padding: 0 1rem;
+  background: #F4ECE1;
+  border: 1.5px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #181512;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #181512 !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.copyEmailBtn:hover {
+  background: #FF6B35;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   CONSOLE FOOTER
+   ========================================================================== */
+.consoleFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  background: #181512;
+  color: #F4ECE1;
+  border-top: 2px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.74rem;
+}
+
+.consolePrompt {
+  color: #27C93F;
+  font-weight: 800;
+}
+
+.consoleText {
+  color: #EAE1D3;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.blinkingCursor {
+  color: #FF6B35;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .deploysGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .docketSpecsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .commandTabs {
+    grid-template-columns: 1fr;
+  }
+
+  .cmdTab {
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 236, 225, 0.15);
+  }
+
+  .deploysGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCardsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .titlebar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .telemetryBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .telemetryDivider {
+    display: none;
+  }
+}

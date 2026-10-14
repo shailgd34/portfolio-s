@@ -1,76 +1,93 @@
-:root {
-  --font-antonio: var(--font-heading), 'Antonio', 'Arial Narrow', sans-serif;
-  --font-inter: var(--font-body), 'Inter', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Antonio:wght@400;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-  --bg-main: #121214;
-  --bg-card: #333333;
-  --bg-dark: #0A0A0C;
-  --bg-pill: rgba(255, 255, 255, 0.08);
-  --bg-indigo: #5850EC;
+:root {
+  --font-heading: 'Azeret Mono', monospace;
+  --font-retro: 'Azeret Mono', monospace;
+  --font-retro-serif: 'Fraunces', Georgia, serif;
+  --font-mono: 'Azeret Mono', monospace;
+  --font-body: 'Azeret Mono', 'Manrope', monospace, sans-serif;
+  --font-antonio: 'Azeret Mono', monospace;
+  --font-epilogue: 'Azeret Mono', monospace;
+  --font-manrope: 'Azeret Mono', monospace;
+  --font-inter: 'Azeret Mono', monospace;
+
+  /* VINTAGE AGED PARCHMENT & RETRO BURNT ORANGE PALETTE */
+  --bg-main: #F4ECE1;
+  --bg-card: #EAE1D3;
+  --bg-dark: #181512;
+  --bg-pill: rgba(24, 21, 18, 0.08);
+  --bg-parchment: #F4ECE1;
+  --bg-parchment-warm: #EFE6D8;
   
-  --text-primary: #FFFFFF;
-  --text-secondary: #A1A1AA;
-  --text-muted: #71717A;
-  --text-light: #FFFFFF;
+  --text-primary: #181512;
+  --text-secondary: #4A433C;
+  --text-muted: #7C7267;
+  --text-light: #F4ECE1;
   
-  --accent-lime: #A3E635;
-  --accent-lime-dark: #84CC16;
-  --accent-indigo: #5850EC;
-  --accent-purple: #7C3AED;
+  /* Retro Burnt Orange (#FF6B35) & Terracotta Accent System */
+  --accent-orange: #FF6B35;
+  --accent-orange-dark: #E05315;
+  --accent-orange-light: #FF8A5B;
+  --accent-lime: #FF6B35; /* Backward compatibility override */
+  --accent-lime-dark: #E05315;
+  --accent-primary: #FF6B35;
+  --accent-secondary: #E05315;
   
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-dark: rgba(255, 255, 255, 0.15);
+  --border-subtle: rgba(24, 21, 18, 0.12);
+  --border-dark: rgba(24, 21, 18, 0.22);
+  --border-color: rgba(24, 21, 18, 0.14);
   
   --bg-primary: var(--bg-main);
-  --border-color: var(--border-subtle);
-  --accent-primary: var(--accent-lime);
-  --accent-secondary: var(--accent-lime);
-  --bg-glass: rgba(255, 255, 255, 0.04);
+  --bg-glass: rgba(244, 236, 225, 0.88);
   --blur-glass: 16px;
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
   --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 32px;
-  --radius-pill: 9999px;
+  --radius-sm: 0px !important;
+  --radius-md: 0px !important;
+  --radius-lg: 0px !important;
+  --radius-pill: 0px !important;
   
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Global Zero Border-Radius & Zero Drop-Shadow Across Whole Website */
+.card,
+[class*="Card"],
+[class*="card"],
+button,
+input,
+textarea,
+select {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
 [data-theme='light'] {
-  --bg-main: #F6F6F9;
-  --bg-card: #EEEEEE;
-  --bg-dark: #141416;
-  --bg-pill: rgba(0, 0, 0, 0.06);
-  --bg-indigo: #5850EC;
+  --bg-main: #F4ECE1;
+  --bg-card: #EAE1D3;
+  --bg-dark: #181512;
+  --bg-pill: rgba(24, 21, 18, 0.08);
   
-  --text-primary: #141416;
-  --text-secondary: #555555;
-  --text-muted: #7E7E86;
-  --text-light: #FFFFFF;
+  --text-primary: #181512;
+  --text-secondary: #4A433C;
+  --text-muted: #7C7267;
+  --text-light: #F4ECE1;
   
-  --accent-lime: #5850EC;
-  --accent-lime-dark: #4338CA;
-  --accent-indigo: #5850EC;
-  --accent-blue: #5850EC;
-  --accent-purple: #7C3AED;
+  --accent-orange: #FF6B35;
+  --accent-orange-dark: #E05315;
+  --accent-lime: #FF6B35;
+  --accent-lime-dark: #E05315;
+  --accent-primary: #FF6B35;
+  --accent-secondary: #E05315;
   
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-dark: rgba(0, 0, 0, 0.12);
-  
-  --bg-primary: #FFFFFF;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --accent-primary: #5850EC;
-  --accent-secondary: #5850EC;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --blur-glass: 16px;
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.09);
+  --border-subtle: rgba(24, 21, 18, 0.12);
+  --border-dark: rgba(24, 21, 18, 0.22);
+  --border-color: rgba(24, 21, 18, 0.14);
+  --bg-glass: rgba(244, 236, 225, 0.92);
 }
 
 *,
@@ -87,6 +104,56 @@ html {
   color-scheme: dark light;
   min-height: 100vh;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M2 2v18l5-5 4 8 3-1.5-4-8h6L2 2z' fill='%23181512' stroke='%23FFFFFF' stroke-width='1.5' stroke-linejoin='miter'/%3E%3Crect x='5' y='5' width='2' height='2' fill='%23FF6B35'/%3E%3C/svg%3E") 2 2, auto !important;
+}
+
+body {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Authentic Retro Pixel Cursors for interactive and text elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+label,
+summary,
+[class*="Card"],
+[class*="card"],
+[class*="Btn"],
+[class*="btn"],
+[class*="Pill"],
+[class*="pill"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M9 2v12h2V7h2V5h2V3h2v13h2v-5h2v9h-2v2h-2v2h-6v-2H9v-2H7V8h2V2z' fill='%23FFFFFF' stroke='%23181512' stroke-width='1.5' stroke-linejoin='miter'/%3E%3Crect x='11' y='18' width='6' height='3' fill='%23FF6B35'/%3E%3C/svg%3E") 9 2, pointer !important;
+}
+
+/* Ensure inner elements of buttons and links inherit the pointer cursor cleanly */
+a *,
+button *,
+[role="button"] *,
+[class*="Btn"] *,
+[class*="btn"] * {
+  cursor: inherit !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M8 4h8M12 4v16M8 20h8' stroke='%23181512' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E") 12 12, text !important;
 }
 
 html.lenis, html.lenis body {
@@ -106,29 +173,41 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
+body,
+p,
+span,
+a,
+button,
+input,
+textarea,
+select,
+li,
+label {
+  font-family: var(--font-body);
+}
+
 body {
   min-height: 100vh;
   width: 100%;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  font-family: var(--font-inter);
+  background-color: var(--bg-main, #F4ECE1);
+  color: var(--text-primary, #181512);
+  font-family: var(--font-body);
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Light Mode Meshed Gradient Background Across Whole Body */
+/* Warm Tactile Parchment Paper Gradient Background Across Whole Body */
+body,
 [data-theme='light'] body {
   background: 
-    radial-gradient(at 0% 0%, rgba(88, 80, 236, 0.12) 0px, transparent 48%),
-    radial-gradient(at 100% 0%, rgba(124, 58, 237, 0.10) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(88, 80, 236, 0.10) 0px, transparent 48%),
-    radial-gradient(at 0% 100%, rgba(67, 56, 202, 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.90) 0px, transparent 100%),
-    #F4F4F7;
+    radial-gradient(at 15% 15%, rgba(255, 107, 53, 0.04) 0px, transparent 45%),
+    radial-gradient(at 85% 85%, rgba(224, 83, 21, 0.035) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(244, 236, 225, 0.98) 0px, transparent 100%),
+    #F4ECE1;
   background-attachment: fixed;
-  color: var(--text-primary);
+  color: var(--text-primary, #181512);
 }
 
 main {
@@ -136,7 +215,7 @@ main {
   z-index: 2;
 }
 
-/* MANDATORY ANTONIO HEADING RULE WITH TEXT OPACITY GRADIENT FROM STARTING TO END - ZERO CROPPING */
+/* ANTONIO HEADING RULE FOR ALL HEADINGS AND DISPLAY TITLES ACROSS WHOLE WEBSITE */
 h1, h2, h3, h4, h5, h6,
 .font-display,
 .giantTitle,
@@ -150,51 +229,47 @@ h1, h2, h3, h4, h5, h6,
 .brandName,
 .roleTitle,
 .techName,
-.mainTitle {
-  font-family: var(--font-antonio) !important;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, var(--text-primary, #FFFFFF) 15%, rgba(255, 255, 255, 0.45) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.18 !important;
-  padding-bottom: 0.16em !important;
-  display: inline-block;
-  overflow: visible !important;
+.mainTitle,
+.dossierTitle,
+.editorialTitle,
+.activeTechTitle,
+.rowTechTitle,
+.heroTitle {
+  font-family: var(--font-heading), 'Azeret Mono', 'Space Mono', monospace !important;
 }
 
-[data-theme='light'] h1,
-[data-theme='light'] h2,
-[data-theme='light'] h3,
-[data-theme='light'] h4,
-[data-theme='light'] h5,
-[data-theme='light'] h6,
-[data-theme='light'] .font-display,
-[data-theme='light'] .giantTitle,
-[data-theme='light'] .nameSubheading,
+/* High-contrast solid ink black headings across the whole website */
+.gradient-heading,
+.sectionTitle,
+[class*="sectionTitle"],
+.archiveTitle,
+[class*="archiveTitle"],
+.galleryTitle,
+[class*="galleryTitle"] {
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+  display: block;
+}
+
+[data-theme='light'] .gradient-heading,
 [data-theme='light'] .sectionTitle,
-[data-theme='light'] .itemTitle,
-[data-theme='light'] .projectTitle,
-[data-theme='light'] .serviceTitle,
-[data-theme='light'] .formTitle,
-[data-theme='light'] .faqQuestion,
-[data-theme='light'] .brandName,
-[data-theme='light'] .roleTitle,
-[data-theme='light'] .techName,
-[data-theme='light'] .mainTitle {
-  background: linear-gradient(180deg, #141416 15%, rgba(20, 20, 22, 0.45) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.18 !important;
-  padding-bottom: 0.16em !important;
-  display: inline-block;
-  overflow: visible !important;
+[data-theme='light'] [class*="sectionTitle"] {
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+  display: block;
 }
 
 ::selection {
-  background-color: var(--accent-lime);
-  color: #121214;
+  background-color: #FF6B35;
+  color: #FFFFFF;
 }
 
 /* Container */
@@ -211,6 +286,12 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 /* Typography Utilities */
 .font-display {
   font-family: var(--font-antonio) !important;
@@ -221,47 +302,47 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-inter);
 }
 
-/* Indigo Button */
+/* Retro Burnt Orange Button */
 .btn-indigo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   padding: 0.85rem 1.75rem;
-  background: var(--accent-indigo);
+  background: #FF6B35;
   color: #FFFFFF;
-  border-radius: var(--radius-pill);
+  border-radius: 0 !important;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 4px 20px rgba(88, 80, 236, 0.25);
+  box-shadow: none !important;
 }
 
 .btn-indigo:hover {
   transform: translateY(-2px);
-  background: #4B44DC;
-  box-shadow: 0 8px 25px rgba(88, 80, 236, 0.4);
+  background: #181512;
 }
 
-/* Dark Pill Button */
+/* Dark Button */
 .btn-dark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--text-primary);
-  color: var(--bg-main);
-  border-radius: var(--radius-pill);
+  background: #181512;
+  color: #F4ECE1;
+  border-radius: 0 !important;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: var(--transition);
+  box-shadow: none !important;
 }
 
 .btn-dark:hover {
@@ -270,12 +351,83 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================================
-   Scroll-driven Text Faded Effect (0 to 100 opacity top-to-bottom entrance)
+   Cinematic Scroll Animation Engine
    ========================================================================== */
+
+/* Reading progress bar fixed at the very top */
+.cinematic-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #FF6B35;
+  z-index: 100000;
+  transform-origin: left center;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+  transition: width 0.05s linear;
+}
+
+/* 1. Cinematic Fade Up (Cards, Sections, Blocks) */
+.cinematic-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.cinematic-reveal.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* 2. Cinematic Card Scale & Tilt Reveal */
+.cinematic-card-reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.cinematic-card-reveal.in-view {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* 3. Universal Heading Visibility - Never hidden, clipped or transparent */
+.cinematic-title-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  visibility: visible !important;
+}
+
+.cinematic-title-reveal.in-view {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: none !important;
+  visibility: visible !important;
+}
+
+/* 4. Cinematic Line / Border Draw */
+.cinematic-border-draw {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.cinematic-border-draw.in-view {
+  transform: scaleX(1) !important;
+}
+
+/* Scroll-driven Text Faded Effect (Upgraded to smooth bottom-to-top cinematic glide) */
 .scroll-fade-text {
   opacity: 0;
-  transform: translateY(-22px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -284,12 +436,27 @@ h1, h2, h3, h4, h5, h6,
   transform: translateY(0) !important;
 }
 
-/* Stagger delays for cascading top-to-bottom reveals within sections */
-.delay-1 { transition-delay: 0.08s; }
-.delay-2 { transition-delay: 0.16s; }
-.delay-3 { transition-delay: 0.24s; }
-.delay-4 { transition-delay: 0.32s; }
-.delay-5 { transition-delay: 0.40s; }
+/* Stagger delays for cascading reveals */
+.delay-1 { transition-delay: 0.06s !important; }
+.delay-2 { transition-delay: 0.12s !important; }
+.delay-3 { transition-delay: 0.18s !important; }
+.delay-4 { transition-delay: 0.24s !important; }
+.delay-5 { transition-delay: 0.30s !important; }
+.delay-6 { transition-delay: 0.36s !important; }
+
+/* Ensure Hero & Archive Header content is immediately revealed on initial load with smooth entry */
+#hero .cinematic-reveal,
+#hero .scroll-fade-text,
+#hero .cinematic-card-reveal,
+#hero .cinematic-title-reveal,
+header .cinematic-title-reveal,
+.archiveTitle,
+h1.archiveTitle,
+[class*="archiveTitle"] {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+}
 
 /* Global Section Title Helper */
 .section-title-wrapper {

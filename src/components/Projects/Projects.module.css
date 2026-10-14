@@ -1,403 +1,1196 @@
+/* =========================================================
+   EDITORIAL RETRO BRUTALIST SHOWCASE: PROJECTS SECTION
+   Uncle Joe Style 2-Column Grid (Burnt Orange #FF6B35 & Parchment)
+   Strictly Zero Border-Radius, Zero Drop-Shadow
+   Native 1280x800 Aspect Ratio with Dynamic Filtering
+   ========================================================= */
+
 .projectsSection {
-  padding: 6.5rem 0 5rem 0;
   position: relative;
-  background-color: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6.5rem 0 6rem 0;
+  background: transparent !important;
+  background-color: transparent !important;
   z-index: 10;
+  overflow: hidden;
+  border-top: 1.5px solid #181512;
 }
 
-/* Header Area */
-.sectionHeader {
-  margin-bottom: 4rem;
+/* =========================================================
+   HEADER CONTAINER
+   ========================================================= */
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  margin-bottom: 4.5rem;
   position: relative;
-  max-width: 800px;
+  z-index: 1;
 }
 
-.limePulseDot {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #A3E635;
-  box-shadow: 0 0 16px rgba(163, 230, 53, 0.9);
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  animation: pulseGlow 2.4s ease-in-out infinite;
+.headerTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
-@keyframes pulseGlow {
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 720px;
+}
 
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
+.categorySubheading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FF6B35;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
 
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-    box-shadow: 0 0 24px rgba(163, 230, 53, 1);
-  }
+.subheadingDash {
+  font-weight: 800;
+  color: #181512;
 }
 
 .sectionTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
-  font-size: clamp(2.8rem, 6vw, 4.6rem);
-  font-weight: 700;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
+  line-height: 1.14 !important;
   letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  line-height: 1.18 !important;
-  padding-bottom: 0.18em !important;
-  display: inline-block;
-  overflow: visible !important;
-  margin-bottom: 1.25rem;
+  margin: 0 0 0.85rem 0 !important;
+  padding: 0 !important;
+  text-transform: uppercase !important;
+  display: block !important;
+  text-align: left;
+}
+
+.limeHighlight {
+  color: #FF6B35 !important;
+  -webkit-text-fill-color: #FF6B35 !important;
+  background: none !important;
+  font-family: inherit !important;
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter), sans-serif;
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
-  color: var(--text-secondary);
-  line-height: 1.65;
-  font-weight: 400;
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  color: #4A433C;
+  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
 }
 
-/* Sticky Stacking Cards Container - Same width as other sections (full container) */
-.projectsStackList {
-  position: relative;
+/* Header Right: Total Badge & Archive Link */
+.headerRight {
   display: flex;
-  flex-direction: column;
-  gap: 16vh;
-  padding-bottom: 6rem;
-  z-index: 10;
-  width: 100%;
-  max-width: 100%;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* Individual Stacking Card - Full width matching other sections, no heavy shadow */
-.stackCard {
-  position: sticky;
-  width: 100%;
-  max-width: 100%;
-  height: 85vh;
-  min-height: 500px;
-  max-height: 680px;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: none;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background: #333333;
-  transform-origin: center top;
-  will-change: transform;
-  transition: border-color 0.3s ease;
+.totalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.3rem;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0px #181512 !important;
+  background: #F4ECE1;
 }
 
-:global([data-theme='light']) .stackCard {
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: none;
+.sparkleIcon {
+  color: #FF6B35;
 }
 
-.stackCard:hover {
-  border-color: rgba(163, 230, 53, 0.35);
+.totalCountNumber {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #181512;
+  line-height: 1;
 }
 
-/* Full Presentation Mockup Image */
-.cardBgImage {
-  object-fit: cover;
-  object-position: center;
-  position: relative;
-  z-index: 2;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+.totalCountLabel {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #6B6258;
+  text-transform: uppercase;
 }
 
-.stackCard:hover .cardBgImage {
-  transform: scale(1.02);
+.viewArchiveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.4rem;
+  background: #181512 !important;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  color: #F4ECE1 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-/* Gradient Overlay - Confined to bottom edge for badge legibility while preserving 100% crystal clear mockup illumination */
-.cardOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-      rgba(10, 10, 14, 0.78) 0%,
-      rgba(10, 10, 14, 0.35) 14%,
-      transparent 28%,
-      transparent 100%);
-  z-index: 3;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
+.viewArchiveBtn:hover {
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
 }
 
-:global([data-theme='light']) .cardOverlay {
-  background: linear-gradient(to top,
-      rgba(14, 14, 18, 0.65) 0%,
-      rgba(14, 14, 18, 0.25) 14%,
-      transparent 28%,
-      transparent 100%);
+.arrowIcon {
+  transition: transform 0.2s ease;
 }
 
-.stackCard:hover .cardOverlay {
+.viewArchiveBtn:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+/* Category Filter Console - Uncle Joe Brutalist Tabs */
+.filterConsole {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #F4ECE1;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0px #181512 !important;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.filterBtn:hover {
+  background: #EAE1D3;
+  color: #FF6B35;
+  border-color: #181512;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #181512 !important;
+}
+
+.activeFilterBtn {
+  background: #FF6B35 !important;
+  border-color: #181512 !important;
+  color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #181512 !important;
+}
+
+.filterBtnName {
+  font-family: inherit;
+}
+
+.filterBtnCount {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.72rem;
+  font-weight: 800;
   opacity: 0.85;
 }
 
-/* Full clickable cover for intuitive navigation */
-.cardClickCover {
+.activeFilterBtn .filterBtnCount {
+  opacity: 1;
+  color: #181512;
+}
+
+/* =========================================================
+   PRIMARY 2-COLUMN EDITORIAL PROJECTS GRID
+   Strictly 2 Columns on Desktop with Uncle Joe High-Impact Presence
+   ========================================================= */
+.editorialGrid,
+.projectsGrid,
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 4rem 3rem;
+  margin-bottom: 5.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .editorialGrid,
+  .projectsGrid,
+  .projectGrid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem;
+  }
+}
+
+/* =========================================================
+   RETRO BRUTALIST PROJECT DOSSIER CARD
+   ========================================================= */
+.editorialCard,
+.projectCard {
+  background: #EAE1D3;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease;
+  box-shadow: 4px 4px 0px #181512 !important;
+  position: relative;
+  width: 100%;
+}
+
+.editorialCard:hover,
+.projectCard:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px #181512 !important;
+  border-color: #181512;
+}
+
+/* Card Header Docket Bar */
+.cardHeaderBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.25rem;
+  background: #181512;
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cardIndexNumber {
+  color: #FF6B35;
+}
+
+.cardCategoryPill {
+  color: #F4ECE1;
+  background: rgba(244, 236, 225, 0.12);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(244, 236, 225, 0.25);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.cardStatusBadge {
+  color: #FF6B35;
+  font-size: 0.66rem;
+}
+
+/* =========================================================
+   IMAGE FRAME (16:10 / 1280x800 Aspect Ratio)
+   ========================================================= */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #EFE6D8;
+  overflow: hidden;
+  border-bottom: 2px solid #181512;
+  cursor: pointer;
+}
+
+.cardImg {
+  object-fit: cover;
+  filter: contrast(105%) saturate(88%) brightness(96%) sepia(10%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+}
+
+.projectCard:hover .cardImg,
+.imageWrapper:hover .cardImg {
+  transform: scale(1.05);
+  filter: contrast(100%) saturate(100%) brightness(100%) sepia(0%);
+}
+
+/* Vintage Film Scanline & Parchment Harmonizer Overlay */
+.filmOverlay {
   position: absolute;
   inset: 0;
-  z-index: 4;
-  cursor: pointer;
+  background: 
+    linear-gradient(
+      180deg,
+      rgba(244, 236, 225, 0.14) 0%,
+      rgba(24, 21, 18, 0.08) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(24, 21, 18, 0.05) 0px,
+      rgba(24, 21, 18, 0.05) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  pointer-events: none;
+  opacity: 0.55;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.projectCard:hover .filmOverlay,
+.imageWrapper:hover .filmOverlay {
+  opacity: 0.1;
+}
+
+/* Top Right Badge on Image */
+.imageLaunchBtn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #181512;
+  border: 1.5px solid #181512;
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0px #181512 !important;
   text-decoration: none;
+  z-index: 4;
+  text-transform: uppercase;
 }
 
-/* Top Left Ambient Dot */
-.cardTopLeftDot {
+.figmaLaunchBtn {
+  background: #181512;
+  color: #F4ECE1;
+}
+
+.figmaBtnIcon {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Center Hover Action: Quick Preview Prompt */
+.centerHoverAction {
   position: absolute;
-  top: 1.75rem;
-  left: 2rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #A3E635;
-  box-shadow: 0 0 16px rgba(163, 230, 53, 0.9);
-  z-index: 6;
-}
-
-:global([data-theme='light']) .limePulseDot,
-:global([data-theme='light']) .cardTopLeftDot {
-  background: #5850EC;
-  box-shadow: 0 0 16px rgba(88, 80, 236, 0.85);
-}
-
-/* Bottom Information Bar - Category + Technologies on Bottom-Left, Arrow Button on Bottom-Right */
-.cardBottomBar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
+  background: rgba(24, 21, 18, 0.45);
+  backdrop-filter: blur(3px);
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 2.25rem 2.5rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
   z-index: 5;
   pointer-events: none;
-  gap: 1.5rem;
 }
 
-.cardBottomLeft {
+.projectCard:hover .centerHoverAction {
+  opacity: 1;
+}
+
+.quickPreviewHoverBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: #FF6B35;
+  border: 2px solid #181512;
+  color: #FFFFFF;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0px #181512 !important;
+  transform: translateY(6px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.projectCard:hover .quickPreviewHoverBtn {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   CARD DETAILS DOSSIER BLOCK
+   ========================================================= */
+.cardDetails {
+  padding: 1.75rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.85rem;
+  background: #F4ECE1;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.projectCardTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem) !important;
+  font-weight: 800 !important;
+  color: #181512 !important;
+  margin: 0 !important;
+  line-height: 1.15 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.projectCard:hover .projectCardTitle {
+  color: #FF6B35 !important;
+}
+
+.roleTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #7C7267;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.projectDescription {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #4A433C;
+  margin: 0;
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Tech Stack Row */
+.techStackRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.65rem;
-  pointer-events: auto;
-  max-width: calc(100% - 75px);
+  gap: 0.5rem;
+  margin-top: 0.35rem;
 }
 
-/* Category Pill */
-.categoryPill {
-  display: inline-flex;
-  align-items: center;
-  background: #A3E635;
-  color: #121214;
-  padding: 0.45rem 1.15rem;
-  border-radius: 9999px;
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
-  flex-shrink: 0;
-}
-
-:global([data-theme='light']) .categoryPill {
-  background: #5850EC;
-  color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(88, 80, 236, 0.35);
-}
-
-/* Technologies Pills (e.g. Figma, Next.js, React) */
-.techPill {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(18, 18, 22, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #FFFFFF;
-  padding: 0.42rem 0.95rem;
-  border-radius: 9999px;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  flex-shrink: 0;
-}
-
-.techPill:hover {
-  border-color: rgba(163, 230, 53, 0.6);
-  transform: translateY(-2px);
-  color: #A3E635;
-}
-
-:global([data-theme='light']) .techPill {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(0, 0, 0, 0.12);
-  color: #141416;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-:global([data-theme='light']) .techPill:hover {
-  border-color: #5850EC;
-  color: #5850EC;
-}
-
-/* Bottom Right Corner Round Arrow Launch Button */
-.cardCornerArrowBtn {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #A3E635;
-  color: #121214;
+/* Direct Action Buttons Below Project */
+.cardActionsRow {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid #181512;
+  margin-top: auto;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.viewProjectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.45rem;
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none !important;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45), 0 0 20px rgba(163, 230, 53, 0.4);
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.28s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  pointer-events: auto;
-  flex-shrink: 0;
-  z-index: 6;
 }
 
-.cardCornerArrowBtn:hover {
-  transform: scale(1.15);
-  background: #84CC16;
-  box-shadow: 0 8px 30px rgba(163, 230, 53, 0.7);
-  text-decoration: none !important;
+.viewProjectBtn:hover {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
 }
 
-:global([data-theme='light']) .cardCornerArrowBtn {
-  background: #5850EC;
-  color: #FFFFFF;
-  box-shadow: 0 6px 22px rgba(88, 80, 236, 0.35);
+.viewProjectBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
 }
 
-:global([data-theme='light']) .cardCornerArrowBtn:hover {
-  background: #4338CA;
-  box-shadow: 0 8px 30px rgba(88, 80, 236, 0.65);
+.viewProjectIcon {
+  transition: transform 0.2s ease;
 }
 
-.cornerArrowIcon {
-  transition: transform 0.25s ease;
-}
-
-.cardCornerArrowBtn:hover .cornerArrowIcon {
+.viewProjectBtn:hover .viewProjectIcon {
   transform: translate(2px, -2px);
 }
 
-/* Browse All Projects Action Footer */
-.viewAllFooter {
-  display: flex;
-  justify-content: center;
+.cardDetailsBtn {
+  display: inline-flex;
   align-items: center;
-  margin-top: 0rem;
-  padding-top: 0rem;
+  gap: 0.45rem;
+  padding: 0.75rem 1.25rem;
+  background: #EAE1D3 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-.browseAllBtn {
+.cardDetailsBtn:hover {
+  background: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
+}
+
+.cardDetailsBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
+/* =========================================================
+   BOTTOM REPOSITORY ARCHIVE CALLOUT BANNER
+   ========================================================= */
+.bottomArchiveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.25rem 2.5rem;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 6px 6px 0px #181512 !important;
+  background: #EAE1D3;
+  flex-wrap: wrap;
+  margin-top: 3.5rem;
+}
+
+.archiveTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.archivePrompt {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #181512;
+  text-transform: uppercase;
+}
+
+.archiveCount {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.84rem;
+  color: #4A433C;
+}
+
+.bottomArchiveCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.85rem;
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.bottomArchiveCta:hover {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #181512 !important;
+}
+
+.bottomArchiveCta:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================= */
+@media (max-width: 960px) {
+  .editorialGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .cardHeroic,
+  .cardColumn {
+    grid-column: span 1;
+  }
+
+  .bottomArchiveBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .projectsSection {
+    padding: 4.5rem 0;
+  }
+
+  .headerContainer {
+    margin-bottom: 3rem;
+  }
+
+  .projectHeadline {
+    font-size: 1.25rem;
+  }
+
+  .clientLine {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MODERN RETRO BRUTALIST PROJECT POPUP MODAL
+   ========================================================= */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(24, 21, 18, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  animation: modalBackdropFadeIn 0.22s ease-out;
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #F4ECE1;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 10px 10px 0px #181512 !important;
+  display: flex;
+  flex-direction: column;
+  animation: modalPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Header Bar */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.95rem 1.6rem;
+  background: #EAE1D3;
+  border-bottom: 2px solid #181512;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modalHeaderLeft {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.modalDot {
+  color: #FF6B35;
+  font-size: 0.9rem;
+}
+
+.modalKicker {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #181512;
+}
+
+.modalCloseBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  background: #181512;
+  color: #F4ECE1;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.modalCloseBtn:hover {
+  background: #FF6B35;
+  color: #181512;
+  border-color: #181512;
+  transform: translate(-1px, -1px);
+}
+
+/* Modal Body Grid */
+.modalBody {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2.25rem;
+  padding: 2.25rem;
+}
+
+/* Visual Left Pane */
+.modalVisualPane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modalImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1280 / 800;
+  border: 1.5px solid #181512;
+  background: #EAE1D3;
+  overflow: hidden;
+}
+
+.modalImg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block;
+}
+
+.modalStatusBadge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  background: #FF6B35;
+  color: #181512;
+  border: 1.5px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.modalMetaBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.modalMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem;
+  background: #EAE1D3;
+  border: 1px solid #181512;
+}
+
+.modalMetaLabel {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #7C7267;
+  text-transform: uppercase;
+}
+
+.modalMetaValue {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #181512;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Details Right Pane */
+.modalInfoPane {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.modalTopBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.modalCategoryTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.12);
+  border: 1px solid #FF6B35;
+  padding: 0.25rem 0.65rem;
+}
+
+.modalStatusPill {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #181512;
+  background: #EAE1D3;
+  border: 1px solid #181512;
+  padding: 0.25rem 0.65rem;
+}
+
+.modalTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #181512;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.modalSection {
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.modalSectionTitle {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7C7267;
+  margin: 0 0 0.45rem 0;
+}
+
+.modalDescription {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #4A433C;
+  font-weight: 500;
+  margin: 0;
+}
+
+.modalTechPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.modalTechTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  background: #EAE1D3;
+  border: 1px solid #181512;
+  color: #181512;
+}
+
+/* Modal Action Group */
+.modalActionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.modalPrimaryActionBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #A3E635;
-  color: #A3E635;
-  background: transparent;
-  font-family: var(--font-antonio), 'Antonio', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 9999px;
-  padding: 0.85rem 2.8rem;
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 15px rgba(163, 230, 53, 0.15);
+  transition: all 0.2s ease;
 }
 
-.browseAllBtn:hover {
-  background: #A3E635;
-  color: #121214;
-  box-shadow: 0 0 30px rgba(163, 230, 53, 0.5);
-  transform: translateY(-2px);
+.modalPrimaryActionBtn:hover {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px #181512 !important;
 }
 
-:global([data-theme='light']) .browseAllBtn {
-  border-color: #5850EC;
-  color: #5850EC;
-  box-shadow: 0 0 15px rgba(88, 80, 236, 0.15);
+.modalSecondaryActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  background: #EAE1D3;
+  color: #181512;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-:global([data-theme='light']) .browseAllBtn:hover {
-  background: #5850EC;
-  color: #FFFFFF;
-  box-shadow: 0 0 30px rgba(88, 80, 236, 0.4);
+.modalSecondaryActionBtn:hover {
+  background: #F4ECE1;
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px #181512 !important;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 768px) {
+.modalDismissBtn {
+  background: transparent;
+  color: #7C7267;
+  border: 1px dashed rgba(24, 21, 18, 0.35);
+  padding: 0.6rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalDismissBtn:hover {
+  color: #181512;
+  border-color: #181512;
+}
+
+/* =========================================================
+   COMPREHENSIVE RESPONSIVENESS (ALL DEVICES)
+   ========================================================= */
+@media (max-width: 1024px) {
   .projectsSection {
-    padding: 4.5rem 0 3rem 0;
+    padding: 5rem 0;
   }
 
-  .sectionHeader {
-    margin-bottom: 2.5rem;
+  .headerContainer {
+    margin-bottom: 3rem;
   }
 
-  .stackCard {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    min-height: 250px;
-    border-radius: 24px;
+  .editorialGrid,
+  .projectsGrid,
+  .projectGrid {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem;
   }
 
-  .projectsStackList {
-    gap: 15px;
+  .headerTopRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
 
-  .cardBottomBar {
-    padding: 1.25rem 1.4rem;
-    gap: 0.85rem;
+  .headerRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 860px) {
+  .modalBody {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem;
   }
 
-  .cardBottomLeft {
+  .modalContent {
+    max-height: 94vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .projectsSection {
+    padding: 3.5rem 0;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
+  }
+
+  .cardActionsRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .viewProjectBtn,
+  .cardDetailsBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filterConsole {
     gap: 0.45rem;
-    max-width: calc(100% - 60px);
   }
 
-  .categoryPill {
+  .filterBtn {
+    padding: 0.5rem 0.85rem;
     font-size: 0.72rem;
-    padding: 0.35rem 0.85rem;
   }
 
-  .techPill {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.75rem;
+  .titleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
   }
 
-  .cardCornerArrowBtn {
-    width: 44px;
-    height: 44px;
+  .imageWrapper {
+    aspect-ratio: 16 / 10;
   }
 
-  .cardTopLeftDot {
-    top: 1.25rem;
-    left: 1.25rem;
+  .modalBody {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1rem;
   }
 
-  .browseAllBtn {
-    font-size: 1.1rem;
-    padding: 0.75rem 2.2rem;
+  .modalContent {
+    max-height: 94vh;
+    margin: 0.75rem;
+  }
+
+  .modalActionsRow {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .modalPrimaryActionBtn,
+  .modalSecondaryActionBtn {
+    width: 100%;
+    justify-content: center;
   }
 }

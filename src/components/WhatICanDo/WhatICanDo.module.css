@@ -4,7 +4,6 @@
   background: transparent;
   overflow: visible !important;
   z-index: 10;
-  transition: background-color 0.3s ease;
 }
 
 .sectionGrid {
@@ -27,7 +26,7 @@
 @keyframes sectionFadeUp {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   100% {
@@ -42,86 +41,102 @@
   animation: sectionFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.sectionTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+.categorySubheading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #FF6B35;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.subheadingDash {
+  font-weight: 800;
+  color: #181512;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
   margin-bottom: 0.8rem;
   text-align: left;
-  transition: color 0.3s ease;
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter), sans-serif;
-  font-size: clamp(0.9rem, 1.1vw, 1.02rem);
-  line-height: 1.55;
-  color: var(--text-secondary);
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  color: #4A433C;
   max-width: 520px;
   text-align: left;
-  transition: color 0.3s ease;
 }
 
-/* Accordion Container */
+/* Accordion Container - Uncle Joe Grid Lines */
 .accordionContainer {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1.5px solid #181512;
   position: relative;
   margin-top: 1.5rem;
   width: 100%;
   animation: sectionFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
-[data-theme='light'] .accordionContainer {
-  border-top-color: rgba(0, 0, 0, 0.12);
-}
-
 .accordionItem {
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.3s ease;
+  border-bottom: 1.5px solid #181512;
+  transition: all 0.25s ease;
   cursor: pointer;
   width: 100%;
-}
-
-[data-theme='light'] .accordionItem {
-  border-bottom-color: rgba(0, 0, 0, 0.12);
 }
 
 .accordionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.15rem 0;
+  padding: 1.35rem 0;
   user-select: none;
 }
 
 .itemTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif;
-  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(1.35rem, 2.3vw, 1.95rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--text-primary);
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: #181512;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.75rem;
+}
+
+.itemNum {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #FF6B35;
 }
 
 .itemOpen .itemTitle,
 .accordionItem:hover .itemTitle {
-  color: #A3E635;
+  color: #FF6B35;
   transform: translateX(4px);
-}
-
-[data-theme='light'] .itemOpen .itemTitle,
-[data-theme='light'] .accordionItem:hover .itemTitle {
-  color: #5850EC;
 }
 
 .chevronWrap {
@@ -133,8 +148,8 @@
 }
 
 .chevronIcon {
-  color: var(--text-primary);
-  transition: transform 0.3s ease, color 0.3s ease;
+  color: #181512;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .chevronRotated {
@@ -143,18 +158,13 @@
 
 .itemOpen .chevronIcon,
 .accordionItem:hover .chevronIcon {
-  color: #A3E635;
-}
-
-[data-theme='light'] .itemOpen .chevronIcon,
-[data-theme='light'] .accordionItem:hover .chevronIcon {
-  color: #5850EC;
+  color: #FF6B35;
 }
 
 .accordionBody {
   padding-bottom: 1.6rem;
   padding-left: 0.2rem;
-  animation: slideDown 0.35s ease forwards;
+  animation: slideDown 0.3s ease forwards;
 }
 
 @keyframes slideDown {
@@ -182,27 +192,23 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-body), 'Manrope', sans-serif !important;
   font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--text-primary);
+  font-weight: 600;
+  color: #181512;
 }
 
 .checkIcon {
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  border: 1.8px solid #A3E635;
-  color: #A3E635;
+  border-radius: 0 !important;
+  border: 1.5px solid #181512;
+  color: #181512;
+  background: #FF6B35;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-[data-theme='light'] .checkIcon {
-  border-color: #5850EC;
-  color: #5850EC;
 }
 
 /* Small On-Hover Tilted Floating Real Image Thumbnail */
@@ -212,25 +218,26 @@
   top: -15px;
   width: 280px;
   height: 170px;
-  border-radius: 16px;
+  border-radius: 0 !important;
   overflow: hidden;
   z-index: 50;
   pointer-events: none;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transform: rotate(-8deg);
-  animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: none !important;
+  border: 1.5px solid #181512;
+  background: #EAE1D3;
+  transform: rotate(-5deg);
+  animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes popIn {
   from {
     opacity: 0;
-    transform: rotate(-8deg) scale(0.85) translateY(10px);
+    transform: rotate(-5deg) scale(0.9) translateY(8px);
   }
 
   to {
     opacity: 1;
-    transform: rotate(-8deg) scale(1) translateY(0);
+    transform: rotate(-5deg) scale(1) translateY(0);
   }
 }
 
@@ -260,9 +267,11 @@
 .backupCard {
   width: 100%;
   height: 100%;
-  border-radius: 32px;
+  border-radius: 0 !important;
   overflow: hidden;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: none !important;
+  border: 1.5px solid rgba(24, 21, 18, 0.18);
+  background: #EAE1D3;
   opacity: 0;
 }
 
@@ -270,7 +279,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 32px;
+  border-radius: 0 !important;
 }
 
 /* Mobile & Tablet Responsiveness */

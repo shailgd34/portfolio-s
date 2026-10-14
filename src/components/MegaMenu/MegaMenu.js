@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, Grid } from 'lucide-react';
-import Counter from '@/components/Counter/Counter';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import styles from './MegaMenu.module.css';
 
 export default function MegaMenu({ onClose }) {
   const showcaseProjects = [
     {
       id: '7sens',
+      log: 'LOG // 01',
       title: '7Sens Luxury Brand',
       category: 'Creative Agency',
       image: '/portfolio/7Sens/mainone.png',
@@ -18,16 +18,18 @@ export default function MegaMenu({ onClose }) {
     },
     {
       id: 'carat-club',
+      log: 'LOG // 02',
       title: 'Carat Club 3D Luxury',
-      category: 'E-Commerce',
+      category: 'E-Commerce 3D',
       image: '/portfolio/Carat Club/mainone.png',
       link: 'https://carat-club.vercel.app/',
       isExternal: true
     },
     {
       id: 'neuro-kaizen',
+      log: 'LOG // 03',
       title: 'NeuroKaizen AI Portal',
-      category: 'AI SaaS',
+      category: 'AI SaaS Platform',
       image: '/portfolio/Neuro Kaizen/mainone.png',
       link: 'https://portal.neurokaizen.com/',
       isExternal: true
@@ -42,15 +44,17 @@ export default function MegaMenu({ onClose }) {
     >
       <div className={styles.megaMenuContainer}>
         
-        {/* Top Header of Mega Menu */}
+        {/* Editorial Retro Header Docket */}
         <div className={styles.megaMenuHeader}>
-          <div className={styles.headerTitleGroup}>
-            <div className={styles.sparkleBadge}>
-              <Sparkles size={16} />
+          <div className={styles.headerLeftGroup}>
+            <div className={styles.headerBadge}>
+              <span className={styles.orangePulseDot} />
+              <span>[ ARCHIVE CATALOG // SELECT DOSSIERS ]</span>
             </div>
-            <div className={styles.titleColumn}>
-              <h4 className={styles.headerTitle}>PROJECTS SHOWCASE</h4>
-              <span className={styles.headerSubtitle}>Curated Design & Engineering Case Studies</span>
+            <div className={styles.headerMetaRow}>
+              <span className={styles.headerTitle}>CURATED CASE STUDIES</span>
+              <span className={styles.headerDivider}>•</span>
+              <span className={styles.headerSubtitle}>ENTERPRISE SAAS, FINTECH & DESIGN SYSTEMS</span>
             </div>
           </div>
 
@@ -59,12 +63,12 @@ export default function MegaMenu({ onClose }) {
             className={styles.viewAllDirectoryLink}
             onClick={onClose}
           >
-            <span>View All Directory</span>
-            <ArrowRight size={14} />
+            <span>OPEN COMPLETE ARCHIVE [50+]</span>
+            <ArrowUpRight size={14} className={styles.headerLinkArrow} />
           </Link>
         </div>
 
-        {/* 4 Equal Cards Grid: 3 Showcase Projects + 1 "See All" Equal Card */}
+        {/* 4 Cards Grid: 3 Editorial Case Studies + 1 Brutalist Archive Ledger */}
         <div className={styles.projectsGrid}>
           {showcaseProjects.map((item) => (
             <a
@@ -75,23 +79,32 @@ export default function MegaMenu({ onClose }) {
               className={styles.projectCard}
               onClick={onClose}
             >
+              {/* Card Docket Bar */}
+              <div className={styles.cardDocketBar}>
+                <span className={styles.cardLogNum}>[{item.log}]</span>
+                <span className={styles.categoryPill}>{item.category}</span>
+              </div>
+
+              {/* Card Visual Frame with Vintage Scanline */}
               <div className={styles.imageBox}>
                 <Image
                   src={encodeURI(item.image)}
                   alt={item.title}
                   fill
-                  sizes="240px"
+                  sizes="260px"
                   className={styles.thumbImg}
                 />
-                <span className={styles.categoryTag}>{item.category}</span>
+                <div className={styles.filmOverlay} />
+                <span className={styles.liveTag}>LIVE PROD ↗</span>
               </div>
 
+              {/* Card Content Docket */}
               <div className={styles.cardContent}>
                 <h5 className={styles.cardTitle}>{item.title}</h5>
 
                 <div className={styles.cardFooter}>
                   <span className={styles.viewProjectText}>
-                    Launch Project
+                    EXPLORE CASE STUDY
                   </span>
                   <div className={styles.cardArrowIcon}>
                     ↗
@@ -101,34 +114,45 @@ export default function MegaMenu({ onClose }) {
             </a>
           ))}
 
-          {/* Equal 4th Card: "SEE ALL PROJECTS" */}
+          {/* Eye-Catching Inverted Brutalist Master Directory Card */}
           <Link
             href="/projects"
             className={styles.seeAllCard}
             onClick={onClose}
           >
+            {/* Header Docket Bar */}
             <div className={styles.seeAllTopRow}>
-              <div className={styles.seeAllCountBadgeGroup}>
-                <span className={styles.seeAllCountBadge}>
-                  <Counter end={18} suffix="+" />
-                </span>
-                <span className={styles.seeAllCountLabel}>ALL WORKS</span>
-              </div>
-              <div className={styles.seeAllIconCircle}>
-                <Grid size={16} />
-              </div>
+              <span className={styles.seeAllDocketTag}>[ MASTER ARCHIVE ]</span>
+              <span className={styles.seeAllStatusPill}>
+                <span className={styles.orangePulseDot} />
+                <span>50+ ENTRIES</span>
+              </span>
             </div>
 
+            {/* Center Content */}
             <div className={styles.seeAllCenter}>
-              <h5 className={styles.seeAllTitle}>ALL PROJECTS</h5>
+              <div className={styles.seeAllCountRow}>
+                <span className={styles.seeAllBigNum}>50</span>
+                <span className={styles.seeAllPlus}>+</span>
+                <span className={styles.seeAllBadgeTag}>FULL ACCESS</span>
+              </div>
+              <h5 className={styles.seeAllTitle}>COMPLETE DIRECTORY</h5>
               <p className={styles.seeAllDesc}>
-                Explore full directory of client apps, SaaS platforms & private archive mockups.
+                Enterprise SaaS, FinTech dashboards, mobile apps & Figma design systems.
               </p>
+
+              {/* Editorial Telemetry Micro-List */}
+              <div className={styles.seeAllBreakdown}>
+                <span className={styles.breakdownItem}>⚡ 24+ SaaS Platforms</span>
+                <span className={styles.breakdownItem}>📱 16+ Mobile Apps</span>
+                <span className={styles.breakdownItem}>🎨 12+ Figma Systems</span>
+              </div>
             </div>
 
+            {/* High-Impact Action Button */}
             <div className={styles.seeAllActionPill}>
-              <span>All Projects</span>
-              <ArrowRight size={13} />
+              <span>EXPLORE ALL 50+ WORKS</span>
+              <ArrowRight size={14} className={styles.actionArrow} />
             </div>
           </Link>
         </div>

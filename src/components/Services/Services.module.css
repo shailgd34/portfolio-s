@@ -19,7 +19,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
   font-size: clamp(3rem, 5.5vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -60,7 +60,7 @@
 }
 
 .itemTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -128,16 +128,16 @@
   display: block;
 }
 
-/* Small Lime Dot at lower-left of workspace card */
+/* Small Dot at lower-left of workspace card */
 .limeBadgeDot {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #A3E635;
-  box-shadow: 0 0 14px #A3E635;
+  width: 12px;
+  height: 12px;
+  border-radius: 0 !important;
+  background: #FF6B35;
+  box-shadow: none !important;
 }
 
 @media (max-width: 900px) {

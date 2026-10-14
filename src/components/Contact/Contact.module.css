@@ -9,17 +9,17 @@
   position: absolute;
   top: 3.5rem;
   left: 3rem;
-  width: 14px;
-  height: 14px;
-  background-color: var(--accent-lime, #A3E635);
-  border-radius: 50%;
-  box-shadow: 0 0 20px 4px rgba(163, 230, 53, 0.65);
+  width: 12px;
+  height: 12px;
+  background-color: #FF6B35;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   pointer-events: none;
 }
 
 .contactGrid {
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
+  grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: center;
 }
@@ -34,9 +34,11 @@
 .portraitCard {
   position: relative;
   width: 100%;
-  max-width: 380px;
-  border-radius: 32px;
-  background: #1C1C20;
+  max-width: 500px;
+  border-radius: 0 !important;
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  box-shadow: none !important;
 }
 
 .portraitImg {
@@ -45,40 +47,40 @@
   aspect-ratio: 4 / 5.2;
   object-fit: cover;
   object-position: top center;
-  border-radius: 32px;
+  border-radius: 0 !important;
   display: block;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: none !important;
 }
 
-/* Overlapping Lime Badge */
+/* Overlapping Burnt Orange Badge - Uncle Joe Sticker Stamp */
 .hiBadge {
   position: absolute;
-  bottom: -22px;
-  left: -22px;
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  background-color: var(--accent-lime, #A3E635);
+  bottom: -20px;
+  left: -20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 0 !important;
+  background-color: #FF6B35;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(163, 230, 53, 0.4);
+  box-shadow: none !important;
   z-index: 10;
-  border: 4px solid var(--bg-main, #121214);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid #181512;
+  transform: rotate(-6deg);
+  transition: transform 0.2s ease;
 }
 
 .hiBadge:hover {
-  transform: scale(1.08) rotate(5deg);
+  transform: rotate(0deg) scale(1.05);
 }
 
 .hiText {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
   font-size: 2.2rem;
-  font-weight: 700;
-  color: #121214;
-  text-transform: none;
+  font-weight: 800;
+  color: #181512;
+  text-transform: uppercase;
   line-height: 1;
 }
 
@@ -92,28 +94,52 @@
   margin-bottom: 2.5rem;
 }
 
+.categorySubheading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FF6B35;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.subheadingDash {
+  font-weight: 800;
+  color: #181512;
+}
+
 .mainTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
   font-size: clamp(2.8rem, 5.5vw, 4.4rem);
-  font-weight: 700;
-  line-height: 1.18 !important;
-  padding-bottom: 0.18em !important;
+  font-weight: 800;
+  line-height: 1.15 !important;
   display: inline-block;
   overflow: visible !important;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--text-primary, #FFFFFF);
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
   margin-bottom: 1.25rem;
 }
 
 .subtitle {
+  font-family: var(--font-body), 'Manrope', sans-serif;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: var(--text-secondary, #A1A1AA);
+  color: #4A433C;
   max-width: 560px;
 }
 
-/* Form Styles matching reference */
+/* Form Styles - Uncle Joe Publication Form */
 .form {
   display: flex;
   flex-direction: column;
@@ -135,36 +161,40 @@
 }
 
 .fieldLabel {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--accent-lime, #A3E635);
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #181512;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .textInput,
 .textareaInput {
   width: 100%;
   padding: 0.95rem 1.25rem;
-  background-color: #242428;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  color: #FFFFFF;
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  font-size: 0.95rem;
+  background-color: #F4ECE1;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.88rem;
+  font-weight: 600;
   outline: none;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .textInput::placeholder,
 .textareaInput::placeholder {
-  color: #71717A;
+  color: #8C8276;
 }
 
 .textInput:focus,
 .textareaInput:focus {
-  border-color: var(--accent-lime, #A3E635);
-  box-shadow: 0 0 16px rgba(163, 230, 53, 0.2);
-  background-color: #28282E;
+  border-color: #FF6B35;
+  background-color: #EAE1D3;
+  box-shadow: none !important;
 }
 
 .selectWrapper {
@@ -175,27 +205,29 @@
 .selectInput {
   width: 100%;
   padding: 0.95rem 2.8rem 0.95rem 1.25rem;
-  background-color: #242428;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  color: #FFFFFF;
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  font-size: 0.95rem;
+  background-color: #F4ECE1;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.88rem;
+  font-weight: 600;
   outline: none;
   appearance: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .selectInput:focus {
-  border-color: var(--accent-lime, #A3E635);
-  box-shadow: 0 0 16px rgba(163, 230, 53, 0.2);
-  background-color: #28282E;
+  border-color: #FF6B35;
+  background-color: #EAE1D3;
+  box-shadow: none !important;
 }
 
 .selectInput option {
-  background-color: #1A1A1E;
-  color: #FFFFFF;
+  background-color: #F4ECE1;
+  color: #181512;
   padding: 0.5rem;
 }
 
@@ -205,7 +237,7 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-  color: #A1A1AA;
+  color: #181512;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,7 +248,7 @@
   min-height: 130px;
 }
 
-/* Submit Row */
+/* Submit Row - Uncle Joe Brutalist Button */
 .submitRow {
   margin-top: 0.5rem;
 }
@@ -225,102 +257,126 @@
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  background-color: #1A1A1E;
-  border: 1.5px solid var(--accent-lime, #A3E635);
-  border-radius: 9999px;
-  padding: 0.65rem 1.85rem 0.65rem 0.75rem;
+  background-color: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  padding: 0.85rem 2.2rem 0.85rem 1.25rem;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(163, 230, 53, 0.15);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 4px 4px 0px #181512 !important;
 }
 
 .submitBtn:hover {
-  background-color: #242428;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(163, 230, 53, 0.3);
+  background-color: #FF6B35 !important;
+  border-color: #181512 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
 }
 
 .submitBtn:active {
-  transform: translateY(0);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
 }
 
-/* Toggle Switch matching user screenshot */
+/* Toggle Switch matching button */
 .toggleSwitch {
-  width: 44px;
-  height: 24px;
-  border-radius: 9999px;
-  background-color: var(--accent-lime, #A3E635);
+  width: 38px;
+  height: 22px;
+  border-radius: 0 !important;
+  background-color: #F4ECE1;
+  border: 1.5px solid #181512;
   position: relative;
   display: flex;
   align-items: center;
-  padding: 2px 3px;
-  transition: background-color 0.2s ease;
+  padding: 2px;
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover .toggleSwitch {
+  background-color: #181512 !important;
+  border-color: #181512 !important;
 }
 
 .toggleKnob {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #121214;
+  width: 14px;
+  height: 14px;
+  border-radius: 0 !important;
+  background-color: #FF6B35;
   margin-left: auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.submitBtn:hover .toggleKnob {
+  background-color: #F4ECE1 !important;
 }
 
 .submitText {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--accent-lime, #A3E635);
-  text-transform: uppercase;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  transition: color 0.2s ease;
+}
+
+.submitBtn:hover .submitText {
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
 }
 
 /* Success State */
 .successState {
-  background: #1C1C20;
-  border: 1px solid rgba(163, 230, 53, 0.3);
-  border-radius: 24px;
+  background: #EAE1D3;
+  border: 1.5px solid #FF6B35;
+  border-radius: 0 !important;
   padding: 3rem 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: none !important;
 }
 
 .successIcon {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
-  background: var(--accent-lime, #A3E635);
-  color: #121214;
+  border-radius: 0 !important;
+  background: #FF6B35;
+  color: #FFFFFF;
   font-size: 1.8rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(163, 230, 53, 0.5);
+  box-shadow: none !important;
 }
 
 .successTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
   font-size: 2.2rem;
-  color: #FFFFFF;
+  font-weight: 800;
+  color: #181512;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .successText {
-  color: #A1A1AA;
+  color: #4A433C;
   font-size: 1rem;
   max-width: 440px;
   line-height: 1.6;
 }
 
 .emailHighlight {
-  color: var(--accent-lime, #A3E635);
+  color: #FF6B35;
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .successActions {
@@ -333,34 +389,38 @@
 
 .resetBtn {
   background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 9999px;
+  color: #181512;
+  border: 1.5px solid rgba(24, 21, 18, 0.25);
+  border-radius: 0 !important;
   padding: 0.65rem 1.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: 'Manrope', var(--font-body), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .resetBtn:hover {
-  border-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.05);
+  border-color: #181512;
+  background: rgba(24, 21, 18, 0.05);
 }
 
 .directMailBtn {
-  background: var(--accent-lime, #A3E635);
-  color: #121214;
-  border-radius: 9999px;
+  background: #FF6B35;
+  color: #FFFFFF;
+  border-radius: 0 !important;
   padding: 0.65rem 1.4rem;
-  font-size: 0.9rem;
+  font-family: 'Manrope', var(--font-body), sans-serif;
+  font-size: 0.88rem;
   font-weight: 700;
+  text-transform: uppercase;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .directMailBtn:hover {
-  box-shadow: 0 0 20px rgba(163, 230, 53, 0.4);
+  background: #181512;
   transform: translateY(-2px);
 }
 
@@ -377,8 +437,8 @@
   .hiBadge {
     bottom: -15px;
     left: -15px;
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
   }
 
   .hiText {
@@ -398,40 +458,43 @@
 
 /* Light Mode Overrides */
 :global([data-theme='light']) .mainTitle {
-  color: #141416;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
 }
 
 :global([data-theme='light']) .subtitle {
-  color: #555555;
+  color: #4A433C;
 }
 
 :global([data-theme='light']) .textInput,
 :global([data-theme='light']) .textareaInput,
 :global([data-theme='light']) .selectInput {
-  background: #FFFFFF;
-  border-color: rgba(0, 0, 0, 0.12);
-  color: #141416;
+  background: rgba(24, 21, 18, 0.04);
+  border-color: rgba(24, 21, 18, 0.16);
+  color: #181512;
 }
 
 :global([data-theme='light']) .textInput::placeholder,
 :global([data-theme='light']) .textareaInput::placeholder {
-  color: #8E8E93;
+  color: #7A7268;
 }
 
 :global([data-theme='light']) .selectInput option {
-  background: #FFFFFF;
-  color: #141416;
+  background: #F4ECE1;
+  color: #181512;
 }
 
 :global([data-theme='light']) .ambientDot {
-  background-color: #5850EC;
-  box-shadow: 0 0 20px 4px rgba(88, 80, 236, 0.65);
+  background-color: #FF6B35;
 }
 
 :global([data-theme='light']) .hiBadge {
-  background-color: #5850EC;
-  border-color: #FFFFFF;
-  box-shadow: 0 10px 30px rgba(88, 80, 236, 0.35);
+  background-color: #FF6B35;
+  border-color: #F4ECE1;
 }
 
 :global([data-theme='light']) .hiText {
@@ -439,83 +502,100 @@
 }
 
 :global([data-theme='light']) .fieldLabel {
-  color: #5850EC;
+  color: #FF6B35;
 }
 
 :global([data-theme='light']) .textInput:focus,
 :global([data-theme='light']) .textareaInput:focus,
 :global([data-theme='light']) .selectInput:focus {
-  border-color: #5850EC;
-  box-shadow: 0 0 16px rgba(88, 80, 236, 0.2);
+  border-color: #FF6B35;
+  background-color: #EAE1D3;
 }
 
 :global([data-theme='light']) .submitBtn {
-  background: #FFFFFF;
-  border-color: #5850EC;
-  box-shadow: 0 4px 20px rgba(88, 80, 236, 0.12);
+  background: #181512 !important;
+  border-color: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
 }
 
 :global([data-theme='light']) .submitBtn:hover {
-  background: #F4F7FF;
-  box-shadow: 0 8px 25px rgba(88, 80, 236, 0.25);
+  background: #FF6B35 !important;
+  border-color: #181512 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
 }
 
 :global([data-theme='light']) .toggleSwitch {
-  background-color: #5850EC;
+  background-color: #F4ECE1;
+  border-color: #181512;
+}
+
+:global([data-theme='light']) .submitBtn:hover .toggleSwitch {
+  background-color: #181512 !important;
+  border-color: #181512 !important;
 }
 
 :global([data-theme='light']) .toggleKnob {
-  background-color: #FFFFFF;
+  background-color: #FF6B35;
+}
+
+:global([data-theme='light']) .submitBtn:hover .toggleKnob {
+  background-color: #F4ECE1 !important;
 }
 
 :global([data-theme='light']) .submitText {
-  color: #5850EC;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+}
+
+:global([data-theme='light']) .submitBtn:hover .submitText {
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
 }
 
 :global([data-theme='light']) .successState {
-  background: #FFFFFF;
-  border-color: rgba(88, 80, 236, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  background: #EAE1D3;
+  border-color: #FF6B35;
 }
 
 :global([data-theme='light']) .successIcon {
-  background: #5850EC;
+  background: #FF6B35;
   color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(88, 80, 236, 0.45);
 }
 
 :global([data-theme='light']) .emailHighlight {
-  color: #5850EC;
+  color: #FF6B35;
 }
 
 :global([data-theme='light']) .directMailBtn {
-  background: #5850EC;
+  background: #FF6B35;
   color: #FFFFFF;
 }
 
 :global([data-theme='light']) .directMailBtn:hover {
-  background: #4338CA;
-  box-shadow: 0 0 20px rgba(88, 80, 236, 0.4);
+  background: #181512;
 }
 
 :global([data-theme='light']) .successTitle {
-  color: #141416;
+  color: #181512;
 }
 
 :global([data-theme='light']) .resetBtn {
-  color: #141416;
-  border-color: rgba(0, 0, 0, 0.2);
+  color: #181512;
+  border-color: rgba(24, 21, 18, 0.25);
 }
 
 :global([data-theme='light']) .resetBtn:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(24, 21, 18, 0.05);
 }
 
 /* Error Banner with 1-Click Fallback */
 .errorBanner {
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.25);
-  border-radius: 16px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1.5px solid #FF6B35;
+  border-radius: 0 !important;
   padding: 1rem 1.25rem;
   margin: 1rem 0;
   display: flex;
@@ -524,9 +604,9 @@
 }
 
 .errorMsg {
-  color: #F87171;
+  color: #181512;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
   margin: 0;
 }
@@ -536,9 +616,9 @@
   align-items: center;
   justify-content: center;
   padding: 0.65rem 1.25rem;
-  background: #EF4444;
+  background: #FF6B35;
   color: #FFFFFF;
-  border-radius: 9999px;
+  border-radius: 0 !important;
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -547,15 +627,15 @@
 }
 
 .errorMailtoBtn:hover {
-  background: #DC2626;
+  background: #181512;
   transform: translateY(-1px);
 }
 
 :global([data-theme='light']) .errorBanner {
-  background: rgba(239, 68, 68, 0.06);
-  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(255, 107, 53, 0.1);
+  border-color: #FF6B35;
 }
 
 :global([data-theme='light']) .errorMsg {
-  color: #DC2626;
+  color: #181512;
 }

@@ -30,26 +30,29 @@ export default function FloatingActions() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    if (typeof window !== 'undefined' && window.__lenis) {
+      window.__lenis.scrollTo(0, { duration: 1.3 });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const scrollToContact = (e) => {
     e.preventDefault();
     const contactEl = document.getElementById('contact');
     if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
+      if (typeof window !== 'undefined' && window.__lenis) {
+        window.__lenis.scrollTo(contactEl, { offset: -30, duration: 1.3 });
+      } else {
+        contactEl.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       window.location.hash = '#contact';
     }
   };
-
-  // Circular progress SVG values
-  const radius = 20;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
 
   return (
     <>
@@ -82,40 +85,34 @@ export default function FloatingActions() {
         title="Get in touch"
       >
         <span className={styles.pulseGreenDot} aria-hidden="true" />
-        <span className={styles.contactIcon}>
-          <MessageSquare size={15} />
-        </span>
+
         <span className={styles.contactLabel}>LET'S TALK</span>
       </a>
 
-      {/* Animated Back To Top Button at Right Bottom Side */}
+      {/* Interactive Retro Brutalist Back To Top Stamp (Non-Circular) */}
       <button
         type="button"
         onClick={scrollToTop}
         className={`${styles.backToTopBtn} ${showTopBtn ? styles.visible : styles.hidden}`}
         aria-label="Back to top of page"
-        title="Back to top"
+        title="Scroll back to top"
       >
-        {/* Circular Scroll Progress Ring */}
-        <svg className={styles.progressRing} width="48" height="48" viewBox="0 0 48 48">
-          <circle
-            className={styles.progressRingBg}
-            cx="24"
-            cy="24"
-            r={radius}
-          />
-          <circle
-            className={styles.progressRingFill}
-            cx="24"
-            cy="24"
-            r={radius}
-            strokeDasharray={circumference}
-            strokeDashoffset={strokeDashoffset}
-          />
-        </svg>
+        <div className={styles.topBtnHeader}>
+          <ArrowUp size={14} className={styles.arrowIcon} strokeWidth={2.8} />
+          <span className={styles.topBtnLabel}>TOP</span>
+        </div>
 
-        {/* Animated Arrow Icon */}
-        <ArrowUp size={18} className={styles.arrowIcon} />
+        <span className={styles.topBtnPercent}>
+          [{Math.round(scrollProgress)}%]
+        </span>
+
+        {/* Retro Analog Gauge Track */}
+        <div className={styles.gaugeTrack}>
+          <div
+            className={styles.gaugeFill}
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
       </button>
     </>
   );

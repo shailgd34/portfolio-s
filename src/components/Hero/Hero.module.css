@@ -1,7 +1,7 @@
 .heroSection {
   min-height: 100vh;
-  padding-top: 7rem;
-  padding-bottom: 3rem;
+  padding-top: 8.5rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,42 +10,13 @@
   z-index: 50;
 }
 
-
-
-/* Floating Ambient Dot on Top Left */
-.floatingDot {
-  position: absolute;
-  top: 18%;
-  left: 20%;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: all 0.4s ease;
-}
-
-.purpleDot {
-  background: #5850EC;
-  box-shadow: 0 0 15px rgba(88, 80, 236, 0.6);
-}
-
-.limeDot {
-  background: #A3E635;
-  box-shadow: 0 0 15px rgba(163, 230, 53, 0.8);
-}
-
-[data-theme='light'] .limeDot {
-  background: #5850EC;
-  box-shadow: 0 0 15px rgba(88, 80, 236, 0.8);
-}
-
 .heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3.5rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
   position: relative;
   width: 100%;
 }
@@ -57,7 +28,7 @@
   text-align: right;
   width: 100%;
   min-width: 0;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 .rightCol {
@@ -68,85 +39,84 @@
   width: max-content;
   max-width: 100%;
   min-width: 0;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
-@keyframes textRevealUp {
-  0% {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.nameSubheading {
-  font-family: var(--font-antonio), 'Antonio', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+/* Uncle Joe Style Monospaced Kicker Tag */
+.kickerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-  user-select: none;
-  white-space: nowrap;
-  transition: color 0.3s ease;
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1.5px solid #FF6B35;
+  border-radius: 0 !important;
+  margin-bottom: 0.9rem;
+  line-height: 1;
+}
+
+.kickerDot {
+  width: 6px;
+  height: 6px;
+  background: #FF6B35;
+  border-radius: 0 !important;
+}
+
+.leftSubKicker {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4A433C;
+  margin-top: 0.6rem;
 }
 
 .giantTitle {
-  font-family: var(--font-antonio), 'Antonio', sans-serif !important;
-  font-size: clamp(3.2rem, 6.8vw, 7.8rem);
-  font-weight: 700;
-  line-height: 1.15 !important;
-  letter-spacing: -0.01em;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: clamp(3.2rem, 6vw, 8.2rem);
+  font-weight: 800;
+  line-height: 1.02 !important;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
   display: inline-block;
-  padding-bottom: 0.15em;
-  padding-top: 0.05em;
+  padding-bottom: 0.05em;
   overflow: visible !important;
-  background: linear-gradient(180deg, #FFFFFF 25%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 0.35) 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
 }
 
 [data-theme='light'] .giantTitle {
-  background: linear-gradient(180deg, #141416 25%, rgba(20, 20, 22, 0.7) 70%, rgba(20, 20, 22, 0.35) 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  background: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip-path: none !important;
 }
 
 .heroBioText {
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #4A433C;
   width: 0;
   min-width: 100%;
-  max-width: 100%;
-  margin-top: 0.3em;
-  text-align: right;
-  transition: color 0.3s ease;
+  max-width: 360px;
+  margin-top: 0.5rem;
+  text-align: left;
 }
 
 .centerCol {
@@ -177,10 +147,11 @@
   position: relative;
   width: 320px;
   height: 450px;
-  border-radius: 32px;
+  border-radius: 0 !important;
   overflow: visible;
-  background: #EAEAEA;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  background: #EAE1D3;
+  border: 2px solid #181512;
+  box-shadow: none !important;
   transform-style: preserve-3d;
   transform-origin: center center;
   will-change: transform;
@@ -188,316 +159,172 @@
   opacity: 1;
 }
 
-[data-theme='dark'] .portraitCard {
-  background: #222222;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
 .portraitImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 32px;
+  border-radius: 0 !important;
   display: block;
 }
 
-.badgeCircle {
+/* =========================================================
+   UNCLE JOE TILTED RETRO STICKER STAMP BADGE
+   ========================================================= */
+.retroStickerBadge {
   position: absolute;
-  bottom: -20px;
-  left: -25px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  bottom: -22px;
+  left: -22px;
+  background: #FF6B35;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  padding: 0.65rem 0.95rem;
+  transform: rotate(-6deg);
   z-index: 10;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
-  animation: floatBadge 3.5s ease-in-out infinite alternate;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  user-select: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.retroStickerBadge:hover {
+  transform: rotate(0deg) scale(1.06);
 }
 
 .badgeHidden {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
-  transform: scale(0.3) !important;
+  transform: scale(0.3) rotate(-15deg) !important;
 }
 
-.badgeContent {
-  position: absolute;
+.stickerInner {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  gap: 0.15rem;
+  text-align: center;
 }
 
-.activeState {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-  pointer-events: auto;
-}
-
-.inactiveState {
-  opacity: 0;
-  transform: scale(0.3) rotate(-25deg);
-  pointer-events: none;
-}
-
-@keyframes floatBadge {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  100% {
-    transform: translateY(-6px) rotate(5deg);
-  }
-}
-
-/* Light Mode: Indigo Circle */
-.badgePurple {
-  background: #5850EC;
-  box-shadow: 0 10px 30px rgba(88, 80, 236, 0.4);
-}
-
-.handEmoji {
-  font-size: 2.4rem;
+.stickerStar {
+  color: #FFFFFF;
+  font-size: 0.95rem;
   line-height: 1;
-  display: inline-block;
 }
 
-/* Dark Mode: Neon Lime Circle */
-.badgeLime {
-  background: #A3E635;
-  box-shadow: 0 10px 30px rgba(163, 230, 53, 0.5);
-}
-
-.hiText {
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.badgeLime .hiText {
-  color: #121214;
-}
-
-.badgePurple .hiText {
-  color: #FFFFFF;
-}
-
-.shakingHandIcon {
-  width: 44px;
-  height: 44px;
-  display: block;
-  transform-origin: 50% 90%;
-  animation: handShake 1.6s ease-in-out infinite;
-}
-
-.badgeLime .shakingHandIcon {
-  color: #121214;
-}
-
-.badgePurple .shakingHandIcon {
-  color: #FFFFFF;
-}
-
-@keyframes handShake {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  15% {
-    transform: rotate(18deg);
-  }
-
-  30% {
-    transform: rotate(-14deg);
-  }
-
-  45% {
-    transform: rotate(18deg);
-  }
-
-  60% {
-    transform: rotate(-10deg);
-  }
-
-  75% {
-    transform: rotate(12deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-/* Bottom Center Theme Toggle Switch */
-.bottomToggleWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.themeToggleSwitch {
-  width: 56px;
-  height: 28px;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  padding: 3px;
-  transition: background-color 0.35s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Light Mode Switch: Indigo pill with dot on left */
-.switchLight {
-  background: #5850EC;
-}
-
-/* Dark Mode Switch: Lime green pill with dot on right */
-.switchDark {
-  background: #A3E635;
-}
-
-.toggleDot {
-  display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease;
-}
-
-.switchLight .toggleDot {
-  transform: translateX(0px);
-  background: #FFFFFF;
-}
-
-.switchDark .toggleDot {
-  transform: translateX(28px);
-  background: #121214;
-}
-
-/* Hero Action Link (View My Work) */
-.heroActionWrapper {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 1.5rem;
-  align-self: flex-end;
-}
-
-/* Minimalist Hero Action - Transparent Text + Rotated Arrow Circle (No Background) */
-.heroTextAction {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.4rem 0;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
-}
-
-/* Typography - Clean & Crisp (No Underline) */
-.actionText {
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+.stickerText {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 1;
-  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              letter-spacing 0.3s ease;
-}
-
-/* Dark Mode Theme */
-.actionDark .actionText {
   color: #FFFFFF;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.actionDark:hover .actionText {
-  color: var(--accent-lime, #A3E635);
-  letter-spacing: 0.08em;
+.stickerSub {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #181512;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-/* Light Mode Theme */
-.actionLight .actionText {
-  color: #141416;
+/* =========================================================
+   UNCLE JOE SOLID BRUTALIST BUTTONS
+   ========================================================= */
+.heroActionGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
 }
 
-.actionLight:hover .actionText {
-  color: #5850EC;
-  letter-spacing: 0.08em;
-}
-
-/* Circle with Rotated Arrow */
-.arrowCircle {
+.primaryRetroBtn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  text-decoration: none !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-/* Dark Mode Circle */
-.actionDark .arrowCircle {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  color: var(--accent-lime, #A3E635);
+.primaryRetroBtn:hover {
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
 }
 
-.actionDark:hover .arrowCircle {
-  background: var(--accent-lime, #A3E635);
-  border-color: var(--accent-lime, #A3E635);
-  color: #121214;
-  box-shadow: 0 0 25px rgba(163, 230, 53, 0.5), 0 4px 15px rgba(0, 0, 0, 0.4);
-  transform: scale(1.08);
+.primaryRetroBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
 }
 
-/* Light Mode Circle */
-.actionLight .arrowCircle {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1.5px solid rgba(0, 0, 0, 0.18);
-  color: #5850EC;
+.secondaryRetroBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.65rem;
+  background: #EAE1D3 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  text-decoration: none !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-.actionLight:hover .arrowCircle {
-  background: #5850EC;
-  border-color: #5850EC;
-  color: #FFFFFF;
-  box-shadow: 0 0 25px rgba(88, 80, 236, 0.4), 0 4px 15px rgba(88, 80, 236, 0.2);
-  transform: scale(1.08);
+.secondaryRetroBtn:hover {
+  background: #F4ECE1 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border-color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512 !important;
 }
 
-/* Rotated Diagonal Arrow inside the Circle */
-.rotatedArrow {
-  display: block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.secondaryRetroBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
 }
 
-.heroTextAction:hover .rotatedArrow {
-  transform: translate(2px, -2px);
-}
-
-/* Responsive Breakpoints */
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
 @media (max-width: 1024px) {
+  .heroSection {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
   .heroGrid {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -509,48 +336,76 @@
   .rightCol {
     align-items: center;
     text-align: center;
+    width: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .giantTitle {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .heroBioText {
     text-align: center;
-    width: 100%;
-    min-width: 0;
-    max-width: 320px;
+    max-width: 440px;
+    margin: 0 auto 1.5rem auto;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
-  .heroActionWrapper {
+  .heroActionGroup {
     justify-content: center;
-    align-self: center;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 
 @media (max-width: 640px) {
   .heroSection {
-    padding-top: 6rem;
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .portraitCard {
-    width: 260px;
-    height: 360px;
-  }
-
-  .badgeCircle {
-    width: 76px;
-    height: 76px;
-    bottom: -15px;
-    left: -15px;
-  }
-
-  .hiText {
-    font-size: 1.5rem;
-  }
-
-  .shakingHandIcon {
-    width: 36px;
-    height: 36px;
+    width: min(280px, 80vw);
+    height: min(390px, 112vw);
   }
 
   .giantTitle {
-    font-size: 3.2rem;
+    font-size: clamp(2.4rem, 10.5vw, 3.2rem) !important;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .heroBioText {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .heroActionGroup {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    gap: 0.75rem;
+  }
+
+  .primaryRetroBtn,
+  .secondaryRetroBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .portraitCard {
+    width: 240px;
+    height: 330px;
+  }
+
+  .giantTitle {
+    font-size: 2.2rem !important;
   }
 }

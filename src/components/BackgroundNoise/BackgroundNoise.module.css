@@ -8,13 +8,13 @@
   z-index: 0;
   background-image: url('/noise.gif');
   background-repeat: repeat;
-  background-size: 160px 160px;
-  opacity: 0.18;
-  mix-blend-mode: screen;
+  background-size: 140px 140px;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
   transform: translateZ(0);
 }
 
 :global([data-theme='light']) .noiseOverlay {
-  opacity: 0.065;
+  opacity: 0.16;
   mix-blend-mode: multiply;
 }

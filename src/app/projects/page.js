@@ -3,7 +3,23 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ExternalLink, Search, Sparkles, ChevronLeft, ChevronRight, X, Maximize2, Globe, Smartphone, BarChart3, Layers, Palette } from 'lucide-react';
+import {
+  ArrowLeft,
+  ExternalLink,
+  Search,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  Maximize2,
+  Globe,
+  Smartphone,
+  BarChart3,
+  Layers,
+  Palette,
+  Eye,
+  ArrowUpRight
+} from 'lucide-react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import FloatingActions from '@/components/FloatingActions/FloatingActions';
@@ -144,37 +160,27 @@ const extraProjects = [
   }
 ];
 
-// Intelligent Category Detection for Missing / Fallback Project Images
+// Fallback project placeholders
 function getProjectType(project) {
   const cat = (project.category || '').toLowerCase();
   const type = (project.type || '').toLowerCase();
   const tools = Array.isArray(project.technology)
     ? project.technology.join(' ').toLowerCase()
     : (project.tools ? (Array.isArray(project.tools) ? project.tools.join(' ') : project.tools) : '').toLowerCase();
-  const live = project.liveLink || (project.link && project.link.startsWith('http') && !project.link.includes('figma.com'));
   const isFigmaTarget = project.figmaLink || (project.link && project.link.includes('figma.com')) || type.includes('figma');
 
-  // Mobile App (when not purely a standalone Figma prototype)
   if ((cat.includes('mobile') || type.includes('mobile app') || tools.includes('mobile ui')) && !isFigmaTarget) {
     return 'mobile';
   }
-
-  // Figma Prototype or Design System
   if (isFigmaTarget || tools.includes('figjam') || cat.includes('brand') || cat.includes('logo')) {
     return 'figma';
   }
-
-  // Mobile App that uses Figma
   if (cat.includes('mobile') || type.includes('mobile')) {
     return 'mobile';
   }
-
-  // FinTech / SaaS / Trading Dashboard
   if (cat.includes('fintech') || type.includes('dashboard') || type.includes('trading') || cat.includes('saas')) {
     return 'dashboard';
   }
-
-  // Default: Website / Web App / WordPress
   return 'website';
 }
 
@@ -187,7 +193,7 @@ function ProjectPlaceholder({ project }) {
       try {
         const url = new URL(project.liveLink);
         return url.hostname;
-      } catch (e) {}
+      } catch (e) { }
     }
     const slug = cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '');
     return `${slug || 'design'}.com`;
@@ -197,7 +203,6 @@ function ProjectPlaceholder({ project }) {
     return (
       <div className={`${styles.placeholderBox} ${styles.placeholderFigma}`} aria-label={`Figma design preview for ${cleanTitle}`}>
         <div className={styles.figmaCanvasGrid} />
-
         <div className={styles.figmaFrameHeader}>
           <div className={styles.figmaFrameName}>
             <span className={styles.figmaHash}>#</span>
@@ -205,34 +210,23 @@ function ProjectPlaceholder({ project }) {
             <span className={styles.figmaZoomPill}>100%</span>
           </div>
           <div className={styles.figmaBadge}>
-            <svg width="10" height="10" viewBox="0 0 38 57" fill="none">
-              <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
-              <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
-              <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
-              <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
-              <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
-            </svg>
             <span>FIGMA PROTOTYPE</span>
           </div>
         </div>
-
         <div className={styles.figmaArtboard}>
           <div className={`${styles.figmaHandle} ${styles.handleTL}`} />
           <div className={`${styles.figmaHandle} ${styles.handleTR}`} />
           <div className={`${styles.figmaHandle} ${styles.handleBL}`} />
           <div className={`${styles.figmaHandle} ${styles.handleBR}`} />
-
           <div className={styles.figmaWireframe}>
             <div className={styles.figmaWireNav}>
               <div className={styles.wireLogo} />
               <div className={styles.wirePill} />
               <div className={styles.wirePill} />
             </div>
-
             <div className={styles.figmaWireBody}>
               <div className={styles.wireBar1} />
               <div className={styles.wireBar2} />
-
               <div className={styles.vectorNodesRow}>
                 <svg className={styles.bezierSvg} viewBox="0 0 160 40" fill="none">
                   <path d="M 10 30 C 40 10, 80 35, 120 15 C 135 7, 150 20, 155 25" stroke="#A259FF" strokeWidth="2" strokeDasharray="3 3" />
@@ -241,7 +235,6 @@ function ProjectPlaceholder({ project }) {
                   <circle cx="120" cy="15" r="3.5" fill="#FFFFFF" stroke="#1ABCFE" strokeWidth="2" />
                 </svg>
               </div>
-
               <div className={styles.wireCardRow}>
                 <div className={styles.wireCardBox} />
                 <div className={styles.wireCardBox} />
@@ -249,10 +242,9 @@ function ProjectPlaceholder({ project }) {
             </div>
           </div>
         </div>
-
         <div className={styles.placeholderBottomPill}>
           <span className={styles.layerDot} />
-          <span>FIGMA DESIGN SYSTEM</span>
+          <span>FIGMA SYSTEM</span>
         </div>
       </div>
     );
@@ -268,17 +260,9 @@ function ProjectPlaceholder({ project }) {
           <div className={styles.phoneScreen}>
             <div className={styles.phoneStatusBar}>
               <span className={styles.phoneTime}>9:41</span>
-              <div className={styles.phoneIcons}>
-                <span className={styles.phoneSignal}>●●●</span>
-                <span className={styles.phoneBattery} />
-              </div>
+              <span>●●●</span>
             </div>
-
             <div className={styles.phoneContent}>
-              <div className={styles.phoneAppHeader}>
-                <div className={styles.appHeaderDot} />
-                <div className={styles.appHeaderLine} />
-              </div>
               <div className={styles.phoneHeroBanner}>
                 <div className={styles.phoneHeroText1} />
                 <div className={styles.phoneHeroText2} />
@@ -288,7 +272,6 @@ function ProjectPlaceholder({ project }) {
                 <div className={styles.phoneTile} />
               </div>
             </div>
-
             <div className={styles.phoneTabBar}>
               <span className={`${styles.tabDot} ${styles.tabDotActive}`} />
               <span className={styles.tabDot} />
@@ -296,10 +279,9 @@ function ProjectPlaceholder({ project }) {
             </div>
           </div>
         </div>
-
         <div className={styles.placeholderBottomPill}>
           <Smartphone size={11} />
-          <span>MOBILE APP UI CONCEPT</span>
+          <span>MOBILE APP UI</span>
         </div>
       </div>
     );
@@ -308,52 +290,39 @@ function ProjectPlaceholder({ project }) {
   if (type === 'dashboard') {
     return (
       <div className={`${styles.placeholderBox} ${styles.placeholderDashboard}`} aria-label={`SaaS Dashboard preview for ${cleanTitle}`}>
-        <div className={styles.dashboardChrome}>
-          <div className={styles.dashMetricGroup}>
-            <div className={styles.dashMetricCard}>
-              <span className={styles.dashMetricLabel}>METRIC INDEX</span>
-              <span className={styles.dashMetricVal}>+38.4%</span>
-            </div>
-            <div className={styles.dashMetricCard}>
-              <span className={styles.dashMetricLabel}>ACTIVE USERS</span>
-              <span className={styles.dashMetricVal}>14.2K</span>
-            </div>
+        <div className={styles.dashMetricGroup}>
+          <div className={styles.dashMetricCard}>
+            <span className={styles.dashMetricLabel}>METRIC INDEX</span>
+            <span className={styles.dashMetricVal}>+38.4%</span>
           </div>
-
-          <div className={styles.dashChartWrapper}>
-            <svg viewBox="0 0 240 70" className={styles.dashChartSvg} preserveAspectRatio="none">
-              <defs>
-                <linearGradient id={`chartGrad-${project.id || 'dash'}`} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#A3E635" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#A3E635" stopOpacity="0.0" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 0 55 Q 35 45, 60 25 T 120 35 T 180 15 T 240 8 L 240 70 L 0 70 Z"
-                fill={`url(#chartGrad-${project.id || 'dash'})`}
-              />
-              <path
-                d="M 0 55 Q 35 45, 60 25 T 120 35 T 180 15 T 240 8"
-                fill="none"
-                stroke="#A3E635"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-              <circle cx="180" cy="15" r="4" fill="#FFFFFF" stroke="#A3E635" strokeWidth="2.5" />
-              <circle cx="240" cy="8" r="4" fill="#FFFFFF" stroke="#A3E635" strokeWidth="2.5" />
-            </svg>
+          <div className={styles.dashMetricCard}>
+            <span className={styles.dashMetricLabel}>ACTIVE USERS</span>
+            <span className={styles.dashMetricVal}>14.2K</span>
           </div>
         </div>
-
+        <div className={styles.dashChartWrapper}>
+          <svg viewBox="0 0 240 70" className={styles.dashChartSvg} preserveAspectRatio="none">
+            <path
+              d="M 0 55 Q 35 45, 60 25 T 120 35 T 180 15 T 240 8 L 240 70 L 0 70 Z"
+              fill="rgba(255, 107, 53, 0.2)"
+            />
+            <path
+              d="M 0 55 Q 35 45, 60 25 T 120 35 T 180 15 T 240 8"
+              fill="none"
+              stroke="#FF6B35"
+              strokeWidth="2.5"
+            />
+          </svg>
+        </div>
         <div className={styles.placeholderBottomPill}>
           <BarChart3 size={11} />
-          <span>SAAS & ANALYTICS DASHBOARD</span>
+          <span>SAAS DASHBOARD</span>
         </div>
       </div>
     );
   }
 
-  // Default: Website / Web App Placeholder
+  // Default Website
   return (
     <div className={`${styles.placeholderBox} ${styles.placeholderWebsite}`} aria-label={`Website preview for ${cleanTitle}`}>
       <div className={styles.browserHeader}>
@@ -368,17 +337,14 @@ function ProjectPlaceholder({ project }) {
         </div>
         <div className={styles.browserRefreshBtn}>⟳</div>
       </div>
-
       <div className={styles.browserViewport}>
         <div className={styles.webNavSkeleton}>
           <div className={styles.webNavLogo} />
           <div className={styles.webNavLinks}>
             <span className={styles.webNavLinkPill} />
             <span className={styles.webNavLinkPill} />
-            <span className={styles.webNavLinkPill} />
           </div>
         </div>
-
         <div className={styles.webHeroSkeleton}>
           <div className={styles.webHeroText1} />
           <div className={styles.webHeroText2} />
@@ -386,17 +352,10 @@ function ProjectPlaceholder({ project }) {
             <span>VISIT SITE</span>
           </div>
         </div>
-
-        <div className={styles.webCardsRow}>
-          <div className={styles.webCardBox} />
-          <div className={styles.webCardBox} />
-          <div className={styles.webCardBox} />
-        </div>
       </div>
-
       <div className={styles.placeholderBottomPill}>
         <Globe size={11} />
-        <span>RESPONSIVE WEB EXPERIENCE</span>
+        <span>WEB PLATFORM</span>
       </div>
     </div>
   );
@@ -415,7 +374,7 @@ function ProjectCardImage({ project, className, sizes }) {
       src={encodeURI(project.image)}
       alt={project.title || project.name || 'Project'}
       fill
-      sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+      sizes={sizes || "(max-width: 900px) 100vw, 50vw"}
       className={`${className || styles.cardImg} ${isLoaded ? styles.imgLoaded : styles.imgLoading}`}
       onLoad={() => setIsLoaded(true)}
       onError={() => setHasError(true)}
@@ -427,7 +386,10 @@ export default function ProjectsPage() {
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [theme, setTheme] = useState('dark');
-  
+
+  // Interactive Dossier Modal state
+  const [selectedProject, setSelectedProject] = useState(null);
+
   // Slider state for extra projects
   const [activeSlide, setActiveSlide] = useState(0);
   const [lightboxImg, setLightboxImg] = useState(null);
@@ -435,9 +397,21 @@ export default function ProjectsPage() {
 
   // Sync theme
   useEffect(() => {
-    document.title = 'Projects Archive & Gallery — Shailash Singh Bhadoriya';
+    document.title = 'Complete Project Archives (50+) — Sheelash Singh Bhadoriya';
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     setTheme(currentTheme);
+  }, []);
+
+  // Keyboard shortcut: close modals on ESC
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedProject(null);
+        setLightboxImg(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const toggleTheme = () => {
@@ -448,13 +422,13 @@ export default function ProjectsPage() {
 
   // Filter tab definitions
   const filterTabs = [
-    { id: 'all', label: 'All Projects', icon: <Layers size={14} /> },
-    { id: 'websites', label: 'Websites', icon: <Globe size={14} /> },
+    { id: 'all', label: 'All Projects [50+]', icon: <Layers size={14} /> },
     { id: 'mobile', label: 'Mobile Apps', icon: <Smartphone size={14} /> },
-    { id: 'figma', label: 'Figma', icon: getTechInfo('figma')?.svg },
-    { id: 'react', label: 'React', icon: getTechInfo('react')?.svg },
-    { id: 'next', label: 'Next.js', icon: getTechInfo('next.js')?.svg },
-    { id: 'wordpress', label: 'WordPress', icon: getTechInfo('wordpress')?.svg },
+    { id: 'fintech', label: 'Fintech & SaaS', icon: <BarChart3 size={14} /> },
+    { id: 'websites', label: 'Web & Platforms', icon: <Globe size={14} /> },
+    { id: 'figma', label: 'Figma Prototypes', icon: getTechInfo('figma')?.svg },
+    { id: 'react', label: 'React & Next.js', icon: getTechInfo('react')?.svg },
+    { id: 'wordpress', label: 'WordPress / CMS', icon: getTechInfo('wordpress')?.svg },
     { id: 'ui-ux', label: 'UI/UX Design', icon: <Palette size={14} /> }
   ];
 
@@ -472,6 +446,21 @@ export default function ProjectsPage() {
 
     if (filter === 'all') {
       matchesFilter = true;
+    } else if (filter === 'mobile') {
+      matchesFilter =
+        cat.includes('mobile') ||
+        type.includes('mobile') ||
+        techs.some(t => t.includes('mobile') || t.includes('react native') || t.includes('ios') || t.includes('android')) ||
+        title.includes('app');
+    } else if (filter === 'fintech') {
+      matchesFilter =
+        cat.includes('fintech') ||
+        type.includes('dashboard') ||
+        type.includes('trading') ||
+        type.includes('crypto') ||
+        cat.includes('saas') ||
+        desc.includes('trading') ||
+        desc.includes('finance');
     } else if (filter === 'websites') {
       matchesFilter =
         cat.includes('web') ||
@@ -479,12 +468,6 @@ export default function ProjectsPage() {
         type.includes('wordpress') ||
         techs.some(t => t.includes('web')) ||
         Boolean(p.liveLink && !p.liveLink.includes('figma.com'));
-    } else if (filter === 'mobile') {
-      matchesFilter =
-        cat.includes('mobile') ||
-        type.includes('mobile') ||
-        techs.some(t => t.includes('mobile') || t.includes('react native') || t.includes('ios') || t.includes('android')) ||
-        title.includes('app');
     } else if (filter === 'figma') {
       matchesFilter =
         techs.some(t => t.includes('figma') || t.includes('figjam')) ||
@@ -494,14 +477,9 @@ export default function ProjectsPage() {
         Boolean(p.link && p.link.includes('figma.com'));
     } else if (filter === 'react') {
       matchesFilter =
-        techs.some(t => t.includes('react')) ||
+        techs.some(t => t.includes('react') || t.includes('next')) ||
         cat.includes('react') ||
         type.includes('react');
-    } else if (filter === 'next') {
-      matchesFilter =
-        techs.some(t => t.includes('next')) ||
-        cat.includes('next') ||
-        type.includes('next');
     } else if (filter === 'wordpress') {
       matchesFilter =
         techs.some(t => t.includes('wordpress') || t.includes('woocommerce') || t.includes('php')) ||
@@ -514,11 +492,6 @@ export default function ProjectsPage() {
         cat.includes('ux') ||
         type.includes('ui') ||
         type.includes('ux');
-    } else {
-      matchesFilter =
-        cat.includes(filter.toLowerCase()) ||
-        type.includes(filter.toLowerCase()) ||
-        techs.some(t => t.includes(filter.toLowerCase()));
     }
 
     const q = searchQuery.toLowerCase().trim();
@@ -547,50 +520,30 @@ export default function ProjectsPage() {
       <Navbar theme={theme} toggleTheme={toggleTheme} activeSection="projects" />
 
       <main className={styles.archiveWrapper}>
-        <div className={styles.meshGlow} />
-
         <div className="container">
-          
-          {/* Back link */}
-          <Link href="/" className={styles.backBtn}>
-            <ArrowLeft size={16} /> <span>Return to Home</span>
-          </Link>
 
-          {/* Header Block */}
-          <header className={styles.headerBlock}>
-            <div className={styles.badgeTag}>
-              <Sparkles size={14} className={styles.sparkleIcon} />
-              <span>COMPLETE DESIGN DIRECTORY</span>
-            </div>
-            <h1 className={styles.archiveTitle}>ALL PROJECTS</h1>
-            <p className={styles.archiveDesc}>
-              A curated collection of client products, SaaS dashboards, Web3 platforms, mobile applications, and high-impact digital experiences engineered by Shailash Singh Bhadoriya.
-            </p>
-          </header>
+          {/* Header Area with Return to Home aligned right on flex-top */}
+          <div className={styles.headerTopFlex}>
+            <header className={styles.headerBlock}>
+              <div className={styles.badgeTag}>
+                <Sparkles size={14} className={styles.sparkleIcon} />
+                <span>[ 04 / ARCHIVE CATALOG ] • ALL CLIENT & PROPRIETARY WORKS</span>
+              </div>
+              <h1 className={styles.archiveTitle}>COMPLETE ARCHIVES</h1>
+              <p className={styles.archiveDesc}>
+                A comprehensive showcase of 50+ enterprise SaaS platforms, FinTech dashboards, mobile applications, and high-impact design systems engineered by Sheelash Singh Bhadoriya.
+              </p>
+            </header>
+
+            <Link href="/" className={styles.backBtn}>
+              <ArrowLeft size={14} /> <span>RETURN TO HOME</span>
+            </Link>
+          </div>
 
           {/* Search & Filter Toolbar */}
           <div className={styles.toolbar}>
-            
-            {/* Search Input */}
-            <div className={styles.searchBox}>
-              <Search size={16} className={styles.searchIcon} />
-              <input
-                type="text"
-                placeholder="Search by project name or technology (e.g. Next.js, Figma, React)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={styles.searchInput}
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className={styles.clearSearchBtn}
-                >
-                  ✕
-                </button>
-              )}
-            </div>
+
+
 
             {/* Category Filter Pills */}
             <div className={styles.filterPills}>
@@ -613,21 +566,20 @@ export default function ProjectsPage() {
 
           </div>
 
-          {/* Projects Results Count */}
+          {/* Projects Results Count Bar */}
           <div className={styles.resultsBar}>
-            <span>Showing <strong>{filteredProjects.length}</strong> Projects</span>
+            <span>SHOWING <strong>{filteredProjects.length}</strong> ACTIVE CASE STUDIES</span>
+            <span>GRID MODE: 2 IN A ROW // EDITORIAL VIEW</span>
           </div>
 
-          {/* Primary Projects Grid */}
+          {/* Primary 2-Column Projects Grid */}
           <div className={styles.projectsGrid}>
             {filteredProjects.map((project, idx) => {
               const rawTechs = Array.isArray(project.technology)
                 ? project.technology
                 : (typeof project.tools === 'string' ? project.tools.split(',').map(s => s.trim()) : ['Figma', 'UI/UX']);
-              // Deduplicate technologies preserving order
               const techs = Array.from(new Set(rawTechs.map(t => typeof t === 'string' ? t.trim() : t).filter(Boolean)));
 
-              // Determine Figma prototype link vs Live Website link
               const figmaUrl = (project.figmaLink && project.figmaLink.trim() !== '')
                 ? project.figmaLink
                 : ((project.link && project.link.includes('figma.com'))
@@ -639,25 +591,39 @@ export default function ProjectsPage() {
                 : ((project.link && !project.link.includes('figma.com') && project.link.startsWith('http')) ? project.link : null);
 
               const hasFigma = Boolean(figmaUrl);
-              const primaryUrl = figmaUrl || liveWebUrl || project.link || '#';
-              const hasLive = primaryUrl && primaryUrl !== '#';
 
               return (
                 <article key={project.id || idx} className={styles.projectCard}>
-                  
-                  {/* Card Image Area */}
-                  <div className={styles.imageWrapper}>
+
+                  {/* Card Header Docket Bar */}
+                  <div className={styles.cardHeaderBar}>
+                    <span className={styles.cardIndexNumber}>
+                      [ {idx < 9 ? `0${idx + 1}` : idx + 1} / {filteredProjects.length < 10 ? `0${filteredProjects.length}` : filteredProjects.length} ]
+                    </span>
+                    <span className={styles.cardCategoryPill}>
+                      {project.category || 'Digital Product'}
+                    </span>
+                    <span className={styles.cardStatusBadge}>
+                      {project.isFeatured ? '★ FEATURED' : 'ARCHIVE'}
+                    </span>
+                  </div>
+
+                  {/* Cinematic Visual Frame (16:10 Ratio) */}
+                  <div
+                    className={styles.imageWrapper}
+                    onClick={() => setSelectedProject(project)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Preview details for ${project.title || project.name}`}
+                  >
                     <ProjectCardImage project={project} />
-                    
-                    {/* Launch Pill on Top Right of Image: Show "View Figma Prototype" when Figma is available, else "Open Live" */}
+
+                    {/* Vintage Scanline Film Overlay */}
+                    <div className={styles.filmOverlay} />
+
+                    {/* Top Right Launch Tag */}
                     {hasFigma ? (
-                      <a
-                        href={figmaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}
-                        aria-label={`View Figma Prototype for ${project.title}`}
-                      >
+                      <span className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}>
                         <svg width="10" height="15" viewBox="0 0 38 57" fill="none" className={styles.figmaBtnIcon}>
                           <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE" />
                           <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83" />
@@ -665,38 +631,42 @@ export default function ProjectsPage() {
                           <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E" />
                           <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF" />
                         </svg>
-                        <span>View Figma Prototype</span>
-                        <ExternalLink size={13} />
-                      </a>
+                        <span>FIGMA PROTOTYPE ↗</span>
+                      </span>
                     ) : liveWebUrl ? (
-                      <a
-                        href={liveWebUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.imageLaunchBtn}
-                        aria-label={`Open ${project.title}`}
-                      >
-                        <span>Open Live</span>
-                        <ExternalLink size={13} />
-                      </a>
+                      <span className={styles.imageLaunchBtn}>
+                        <span>LIVE PRODUCT ↗</span>
+                      </span>
                     ) : null}
 
-                    <div className={styles.cardCategoryPill}>
-                      {project.category}
+                    {/* Center Hover Action: Quick Preview Prompt */}
+                    <div className={styles.centerHoverAction}>
+                      <span className={styles.quickPreviewHoverBtn}>
+                        <Maximize2 size={14} />
+                        <span>PREVIEW DOSSIER 👁️</span>
+                      </span>
                     </div>
                   </div>
 
-                  {/* Card Details */}
+                  {/* Card Details Docket */}
                   <div className={styles.cardDetails}>
-                    <h2 className={styles.projectCardTitle}>
-                      {project.title || project.name}
-                    </h2>
+                    <div className={styles.titleRow}>
+                      <h2
+                        className={styles.projectCardTitle}
+                        onClick={() => setSelectedProject(project)}
+                      >
+                        {project.title || project.name}
+                      </h2>
+                      <span className={styles.roleTag}>
+                        {project.role || 'Product Designer'}
+                      </span>
+                    </div>
 
                     <p className={styles.projectDescription}>
                       {project.description || project.desc || 'High-impact design execution with responsive architecture and user-tested workflows.'}
                     </p>
 
-                    {/* Tech Stack Real Brand Icons */}
+                    {/* Tech Stack Pills */}
                     <div className={styles.techStackRow}>
                       {techs.slice(0, 5).map((tech, tIdx) => (
                         <TechBadge key={tIdx} name={tech} />
@@ -709,58 +679,44 @@ export default function ProjectsPage() {
                       )}
                     </div>
 
-                    {/* Card Footer Link: Change "Explore Project" to "View Figma" when Figma is available */}
-                    <div className={styles.cardBottomBar}>
-                      <span className={styles.roleText}>{project.role || 'Product Designer'}</span>
-                      {hasFigma && liveWebUrl ? (
-                        <div className={styles.multiLinksRow}>
-                          <a
-                            href={figmaUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${styles.viewLink} ${styles.viewLinkFigma}`}
-                            aria-label={`View Figma Prototype for ${project.title}`}
-                          >
-                            <span>View Figma</span>
-                            <ExternalLink size={13} />
-                          </a>
-                          <span className={styles.linkDivider}>•</span>
-                          <a
-                            href={liveWebUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.viewLink}
-                            aria-label={`Explore Live Site for ${project.title}`}
-                          >
-                            <span>Explore Live</span>
-                            <ExternalLink size={13} />
-                          </a>
-                        </div>
-                      ) : hasFigma ? (
+                    {/* Direct Links Below Project: Consistent Brutalist Buttons */}
+                    <div className={styles.cardActionsRow}>
+                      {hasFigma ? (
                         <a
                           href={figmaUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`${styles.viewLink} ${styles.viewLinkFigma}`}
-                          aria-label={`View Figma Prototype for ${project.title}`}
+                          className={styles.viewProjectBtn}
+                          aria-label={`View Figma Prototype for ${project.title || project.name}`}
+                          onClick={(e) => e.stopPropagation()}
                         >
-                          <span>View Figma</span>
-                          <ExternalLink size={14} />
+                          <span>VIEW FIGMA PROTOTYPE</span>
+                          <ArrowUpRight size={14} className={styles.viewProjectIcon} />
                         </a>
                       ) : liveWebUrl ? (
                         <a
                           href={liveWebUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={styles.viewLink}
-                          aria-label={`Explore Project for ${project.title}`}
+                          className={styles.viewProjectBtn}
+                          aria-label={`View live project for ${project.title || project.name}`}
+                          onClick={(e) => e.stopPropagation()}
                         >
-                          <span>Explore Project</span>
-                          <ExternalLink size={14} />
+                          <span>VIEW LIVE PROJECT</span>
+                          <ArrowUpRight size={14} className={styles.viewProjectIcon} />
                         </a>
                       ) : (
-                        <span className={styles.confidentialTag}>Client Confidential</span>
+                        <span className={styles.confidentialTag}>[ CLIENT CONFIDENTIAL ]</span>
                       )}
+
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className={styles.cardDetailsBtn}
+                        aria-label={`Open details modal for ${project.title || project.name}`}
+                      >
+                        <span>DETAILS</span>
+                      </button>
                     </div>
                   </div>
 
@@ -769,121 +725,125 @@ export default function ProjectsPage() {
             })}
           </div>
 
-          {/* ==============================================================
-             EXTRA PROJECTS CREATIVE SLIDER GALLERY
-             ============================================================== */}
-          <section className={styles.extraGallerySection}>
-            <div className={styles.galleryHeader}>
-              <div className={styles.galleryHeaderLeft}>
-                <div className={styles.badgeTag}>
-                  <Sparkles size={14} className={styles.sparkleIcon} />
-                  <span>CREATIVE VAULT & EXPLORATIONS</span>
-                </div>
-                <h2 className={styles.galleryTitle}>
-                  EXTRA PROJECTS & MOCKUPS GALLERY
-                </h2>
-                <p className={styles.gallerySubtitle}>
-                  Specialized concepts, booking applications, brand marks, and PropTech SaaS experiments from the private archive.
-                </p>
-              </div>
-
-              {/* Slider Controls */}
-              <div className={styles.sliderControls}>
-                <div className={styles.slideCounter}>
-                  <span className={styles.counterCurrent}>0{activeSlide + 1}</span>
-                  <span className={styles.counterDivider}>/</span>
-                  <span className={styles.counterTotal}>{extraProjects.length < 10 ? `0${extraProjects.length}` : extraProjects.length}</span>
-                </div>
-
-                <div className={styles.arrowGroup}>
-                  <button
-                    type="button"
-                    onClick={prevSlide}
-                    className={styles.arrowBtn}
-                    aria-label="Previous Project"
-                  >
-                    <ChevronLeft size={20} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={nextSlide}
-                    className={styles.arrowBtn}
-                    aria-label="Next Project"
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Creative Horizontal Slider Carousel */}
-            <div className={styles.sliderViewport}>
-              <div
-                ref={sliderTrackRef}
-                className={styles.sliderTrack}
-                style={{
-                  transform: `translateX(-${activeSlide * 340}px)`
-                }}
-              >
-                {extraProjects.map((item, idx) => {
-                  const isActive = idx === activeSlide;
-
-                  return (
-                    <div
-                      key={item.id}
-                      className={`${styles.sliderCard} ${isActive ? styles.activeCard : ''}`}
-                      onClick={() => setLightboxImg(item)}
-                    >
-                      <div className={styles.sliderImgWrapper}>
-                        <ProjectCardImage
-                          project={item}
-                          className={styles.sliderCardImg}
-                          sizes="360px"
-                        />
-
-                        <div className={styles.zoomHoverOverlay}>
-                          <Maximize2 size={24} className={styles.zoomIcon} />
-                          <span>View Mockup</span>
-                        </div>
-
-                        <span className={styles.sliderTagBadge}>{item.tag}</span>
-                      </div>
-
-                      <div className={styles.sliderCardInfo}>
-                        <span className={styles.sliderCategory}>{item.category}</span>
-                        <h3 className={styles.sliderCardTitle}>{item.title}</h3>
-
-                        <div className={styles.sliderPillsRow}>
-                          {Array.from(new Set(item.tools || [])).map((tool, toolIdx) => (
-                            <TechBadge key={toolIdx} name={tool} compact />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Slider Dots Navigation */}
-            <div className={styles.sliderDots}>
-              {extraProjects.map((_, dotIdx) => (
-                <button
-                  key={dotIdx}
-                  type="button"
-                  onClick={() => setActiveSlide(dotIdx)}
-                  className={`${styles.sliderDot} ${dotIdx === activeSlide ? styles.activeDot : ''}`}
-                  aria-label={`Go to slide ${dotIdx + 1}`}
-                />
-              ))}
-            </div>
-
-          </section>
+          
+          
 
         </div>
       </main>
 
-      {/* Lightbox Modal for Full-Res Image Zoom */}
+      {/* ==============================================================
+         CINEMATIC RETRO DOSSIER MODAL POPUP
+         ============================================================== */}
+      {selectedProject && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSelectedProject(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Top Bar */}
+            <div className={styles.modalHeader}>
+              <span className={styles.modalTitleText}>
+                [ PROJECT DOSSIER // DECLASSIFIED RECORD ]
+              </span>
+              <button
+                type="button"
+                className={styles.closeModalBtn}
+                onClick={() => setSelectedProject(null)}
+                aria-label="Close Dossier"
+              >
+                CLOSE [ESC] ✕
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className={styles.modalBody}>
+              {/* Full-width Image Frame */}
+              <div className={styles.modalImageContainer}>
+                <ProjectCardImage project={selectedProject} className={styles.modalImage} />
+              </div>
+
+              {/* Project Meta Dossier */}
+              <div className={styles.modalMetaDocket}>
+                <div className={styles.modalHeaderMeta}>
+                  <div>
+                    <span className={styles.modalCategoryTag}>
+                      {selectedProject.category || 'Digital Product'}
+                    </span>
+                    <h3 className={styles.modalProjectTitle}>
+                      {selectedProject.title || selectedProject.name}
+                    </h3>
+                  </div>
+                  <div className={styles.modalRoleRow}>
+                    <span>ROLE: <strong>{selectedProject.role || 'Product Designer'}</strong></span>
+                    <span>YEAR: <strong>2024 - 2026</strong></span>
+                  </div>
+                </div>
+
+                <p className={styles.modalDescText}>
+                  {selectedProject.description || selectedProject.desc || 'High-impact design execution with responsive architecture, user-tested workflows, and bespoke UI engineering.'}
+                </p>
+
+                {/* Full Tech Stack Grid */}
+                <div>
+                  <h4 className={styles.modalTechTitle}>[ TECHNOLOGIES & TOOLCHAIN ]</h4>
+                  <div className={styles.techStackRow}>
+                    {(Array.isArray(selectedProject.technology)
+                      ? selectedProject.technology
+                      : (typeof selectedProject.tools === 'string' ? selectedProject.tools.split(',') : ['Figma', 'UI/UX'])
+                    ).map((t, i) => (
+                      <TechBadge key={i} name={typeof t === 'string' ? t.trim() : t} />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Modal Action Links */}
+                <div className={styles.modalActionsRow}>
+                  {selectedProject.figmaLink ? (
+                    <a
+                      href={selectedProject.figmaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.viewProjectBtn}
+                    >
+                      <span>VIEW FIGMA PROTOTYPE</span>
+                      <ArrowUpRight size={14} className={styles.viewProjectIcon} />
+                    </a>
+                  ) : null}
+
+                  {selectedProject.liveLink && !selectedProject.liveLink.includes('figma.com') ? (
+                    <a
+                      href={selectedProject.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.viewProjectBtn}
+                    >
+                      <span>VIEW LIVE PROJECT</span>
+                      <ArrowUpRight size={14} className={styles.viewProjectIcon} />
+                    </a>
+                  ) : null}
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProject(null)}
+                    className={styles.cardDetailsBtn}
+                  >
+                    <span>RETURN TO ARCHIVE</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox Modal for Extra Projects Mockup Zoom */}
       {lightboxImg && (
         <div className={styles.lightboxOverlay} onClick={() => setLightboxImg(null)}>
           <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
@@ -893,7 +853,7 @@ export default function ProjectsPage() {
               onClick={() => setLightboxImg(null)}
               aria-label="Close Preview"
             >
-              <X size={22} />
+              <X size={20} />
             </button>
 
             <div className={styles.lightboxImgBox}>

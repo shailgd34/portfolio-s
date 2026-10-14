@@ -1,0 +1,85 @@
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1.5px solid rgba(24, 21, 18, 0.2);
+  border-bottom: 1.5px solid rgba(24, 21, 18, 0.2);
+  padding: 0.9rem 0;
+  position: relative;
+  user-select: none;
+  z-index: 10;
+  display: flex;
+}
+
+.variantOrange {
+  background: #FF6B35;
+  color: #181512;
+  border-color: #181512;
+}
+
+.variantDark {
+  background: #181512;
+  color: #F4ECE1;
+  border-color: #181512;
+}
+
+.variantParchment {
+  background: #EAE1D3;
+  color: #181512;
+  border-color: rgba(24, 21, 18, 0.18);
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  white-space: nowrap;
+  animation: scrollMarquee 28s linear infinite;
+}
+
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.marqueeGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.marqueeItem {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.starIcon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.variantOrange .starIcon {
+  color: #FFFFFF;
+}
+
+.variantDark .starIcon {
+  color: #FF6B35;
+}
+
+.variantParchment .starIcon {
+  color: #FF6B35;
+}

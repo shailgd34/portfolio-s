@@ -912,10 +912,10 @@ export function getTechInfo(rawName) {
   return {
     name: String(rawName).trim(),
     displayName: String(rawName).trim(),
-    color: '#A3E635',
+    color: '#FF6B35',
     svg: (
       <svg viewBox="0 0 24 24" fill="none">
-        <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" fill="#A3E635" fillOpacity="0.4" stroke="#A3E635" strokeWidth="1.8" />
+        <polygon points="12,2 15,9 22,12 15,15 12,22 9,15 2,12 9,9" fill="#FF6B35" fillOpacity="0.4" stroke="#FF6B35" strokeWidth="1.8" />
       </svg>
     )
   };
