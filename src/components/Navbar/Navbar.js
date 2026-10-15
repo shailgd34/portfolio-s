@@ -315,7 +315,7 @@ export default function Navbar({ activeSection = 'hero' }) {
             <div className={styles.drawerBrand}>
               <div className={styles.drawerAvatarWrapper}>
                 <Image
-                  src="/Professional Indian Corporate Headshot.png"
+                  src="/retro_close_portrait.jpg"
                   alt="Sheelash Singh Bhadoriya"
                   width={34}
                   height={34}
@@ -323,7 +323,7 @@ export default function Navbar({ activeSection = 'hero' }) {
                 />
               </div>
               <div className={styles.drawerBrandInfo}>
-                <span className={styles.drawerName}>SHAILASH S.</span>
+                <span className={styles.drawerName}>SHEELASH S.</span>
                 <span className={styles.drawerRole}>PRODUCT DESIGNER</span>
               </div>
             </div>

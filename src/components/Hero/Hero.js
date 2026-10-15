@@ -249,6 +249,10 @@ export default function Hero({ theme, toggleTheme }) {
               DESIGNER
             </motion.h1>
 
+            <span className={styles.mobileSubKicker}>
+              SHEELASH SINGH BHADORIYA
+            </span>
+
             <motion.p
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}

@@ -298,6 +298,10 @@
   box-shadow: 1px 1px 0px #181512 !important;
 }
 
+.escKeyHelp {
+  display: inline;
+}
+
 /* ==========================================================================
    4. BIG CINEMATIC ALBUM STAGE & 3D PERSPECTIVE IMAGE FRAME
    ========================================================================== */
@@ -802,7 +806,45 @@
   }
 
   .minimalTopBar {
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 0.85rem;
+    gap: 0.5rem;
+  }
+
+  /* Keep top bar clean and uncluttered on mobile */
+  .statusBadge {
+    display: none !important;
+  }
+
+  .topStampBadge {
+    display: none !important;
+  }
+
+  .topTotalCounter {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #181512;
+    background: #EAE1D3;
+    padding: 0.22rem 0.55rem;
+    border: 1px solid #181512;
+    letter-spacing: 0.08em;
+  }
+
+  .escKeyHelp {
+    display: none !important;
+  }
+
+  .coordBadge {
+    display: none !important;
+  }
+
+  .closeBtn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.7rem;
+    gap: 0.25rem;
+  }
+
+  .iconActionBtn {
+    padding: 0.35rem 0.55rem;
   }
 
   .btnLabelDesktop {

@@ -259,7 +259,8 @@ export default function ProjectShowcase() {
                 aria-label="Close visual gallery"
                 title="Close Album (Esc)"
               >
-                <span>CLOSE [ESC]</span>
+                <span>CLOSE</span>
+                <span className={styles.escKeyHelp}> [ESC]</span>
                 <X size={14} />
               </button>
             </div>

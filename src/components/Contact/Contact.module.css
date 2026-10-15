@@ -95,9 +95,10 @@
 }
 
 .categorySubheading {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem 0.6rem;
   font-family: var(--font-mono), 'Azeret Mono', monospace !important;
   font-size: 0.78rem;
   font-weight: 800;
@@ -105,7 +106,7 @@
   text-transform: uppercase;
   color: #FF6B35;
   margin-bottom: 0.75rem;
-  line-height: 1;
+  line-height: 1.35;
 }
 
 .subheadingDash {
