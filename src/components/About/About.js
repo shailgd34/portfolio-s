@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { LINKEDIN_URL, openLinkedIn } from '@/utils/linkedin';
 import styles from './About.module.css';
 
 export default function About() {
@@ -57,7 +58,8 @@ export default function About() {
             <div className={styles.actionRow}>
               <div className={styles.socialIcons}>
                 <a
-                  href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/"
+                  href={LINKEDIN_URL}
+                  onClick={openLinkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${styles.socialLink} ${styles.socialLinkedin}`}

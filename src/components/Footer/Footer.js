@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import RetroMarquee from '@/components/RetroMarquee/RetroMarquee';
+import { LINKEDIN_URL, openLinkedIn } from '@/utils/linkedin';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -163,7 +164,13 @@ export default function Footer() {
             <span className={styles.colTitle}>[ CONNECT ]</span>
             <ul className={styles.linkList}>
               <li>
-                <a href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={LINKEDIN_URL}
+                  onClick={openLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Connect on LinkedIn"
+                >
                   LINKEDIN ↗
                 </a>
               </li>

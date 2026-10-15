@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, ArrowUpRight } from 'lucide-react';
 import MegaMenu from '@/components/MegaMenu/MegaMenu';
+import { LINKEDIN_URL, openLinkedIn } from '@/utils/linkedin';
 import styles from './Navbar.module.css';
 
 export default function Navbar({ activeSection = 'hero' }) {
@@ -408,7 +409,15 @@ export default function Navbar({ activeSection = 'hero' }) {
               <div className={styles.drawerSocials}>
                 <a href="https://wa.me/919516372235" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
                 <span>•</span>
-                <a href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                <a
+                  href={LINKEDIN_URL}
+                  onClick={openLinkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                >
+                  LINKEDIN
+                </a>
                 <span>•</span>
                 <a href="https://www.behance.net/prithvibhadour" target="_blank" rel="noopener noreferrer">BEHANCE</a>
                 <span>•</span>

@@ -146,6 +146,7 @@
   align-items: center;
   transform-origin: top center;
   animation: lanyardHangSway 6.5s ease-in-out infinite;
+  margin-top: -12px;
 }
 
 @keyframes lanyardHangSway {
@@ -163,7 +164,7 @@
 /* Woven Lanyard Ribbon Strap */
 .lanyardStrap {
   width: 32px;
-  height: 62px;
+  height: 72px;
   background: #181512;
   border-left: 2.5px dashed #FF6B35;
   border-right: 2.5px dashed #FF6B35;
@@ -173,7 +174,7 @@
   justify-content: center;
   box-shadow: 2px 2px 0px rgba(24, 21, 18, 0.25);
   z-index: 5;
-  margin-top: -30px;
+  margin-top: -44px;
 }
 
 .lanyardStitching {
@@ -195,15 +196,15 @@
   user-select: none;
 }
 
-/* Metallic Swivel Clasp Hardware */
+/* Metallic Swivel Clasp Hardware - Elevated to Upper Side */
 .lanyardHardware {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   z-index: 6;
-  margin-top: -2px;
-  margin-bottom: -10px;
+  margin-top: -4px;
+  margin-bottom: -2px;
 }
 
 .lanyardRing {
@@ -225,12 +226,25 @@
 }
 
 .lanyardClipHook {
-  width: 10px;
-  height: 12px;
+  width: 11px;
+  height: 13px;
   background: #52525B;
   border: 1.5px solid #181512;
-  border-radius: 0 0 3px 3px;
+  border-radius: 2px 2px 4px 4px;
   margin-top: -2px;
+  position: relative;
+}
+
+.lanyardClipHook::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  background: #181512;
+  border-radius: 1px;
 }
 
 .portraitCardContainer {

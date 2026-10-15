@@ -13,22 +13,17 @@ export default function Hero({ theme, toggleTheme }) {
   const cardRef = useRef(null);
 
   // Dynamic Image for Card (Headshot -> Workspace setup on scroll flip)
-  const [cardImg, setCardImg] = useState('/designer_retro_portrait.png');
+  const [cardImg, setCardImg] = useState('/profile.png');
 
   // Screen width state for responsive checks
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setBadgeState((prev) => (prev === 'hi' ? 'handshake' : 'hi'));
-    }, 2800);
-
     const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
     return () => {
-      clearInterval(timer);
       window.removeEventListener('resize', checkMobile);
     };
   }, []);
@@ -73,9 +68,9 @@ export default function Hero({ theme, toggleTheme }) {
   // Mid-flip image swap tracking
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (latest >= 320 && latest <= 1150) {
-      setCardImg('/designer_retro_portrait.png');
+      setCardImg('/profile.png');
     } else {
-      setCardImg('/designer_retro_portrait.png');
+      setCardImg('/profile.png');
     }
   });
 
