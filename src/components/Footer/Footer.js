@@ -193,11 +193,29 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar without duplicate Back to Top */}
+        {/* Bottom Bar with Mobile & Desktop Back to Top */}
         <div className={styles.bottomBar}>
           <p className={styles.copyrightText}>
             © {new Date().getFullYear()} SHEELASH SINGH BHADORIYA • EST. 2020 • INDORE, INDIA (UTC+5:30)
           </p>
+
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.__lenis) {
+                window.__lenis.scrollTo(0, { duration: 1.2 });
+              } else if (typeof window !== 'undefined') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className={styles.footerBackToTop}
+            aria-label="Back to top of page"
+            title="Scroll back to top"
+          >
+            <span>BACK TO TOP</span>
+            <span className={styles.footerBackToTopArrow}>↑</span>
+          </button>
+
           <span className={styles.systemTag}>
             [ PROPRIETARY PORTFOLIO // ALL RIGHTS RESERVED ]
           </span>

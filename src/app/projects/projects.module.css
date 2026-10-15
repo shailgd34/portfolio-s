@@ -215,9 +215,9 @@
   align-items: center;
   gap: 0.45rem;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.18s ease,
-              color 0.18s ease;
+    box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.18s ease,
+    color 0.18s ease;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   box-shadow: 3px 3px 0px #181512 !important;
@@ -293,8 +293,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease;
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease;
   box-shadow: 4px 4px 0px #181512 !important;
   position: relative;
 }
@@ -357,8 +357,8 @@
   object-fit: cover;
   filter: contrast(105%) saturate(88%) brightness(96%) sepia(10%);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.3s ease;
+    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
 }
 
 .projectCard:hover .cardImg,
@@ -371,19 +371,15 @@
 .filmOverlay {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(
-      180deg,
+  background:
+    linear-gradient(180deg,
       rgba(244, 236, 225, 0.14) 0%,
-      rgba(24, 21, 18, 0.08) 100%
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(24, 21, 18, 0.08) 100%),
+    repeating-linear-gradient(0deg,
       rgba(24, 21, 18, 0.05) 0px,
       rgba(24, 21, 18, 0.05) 1px,
       transparent 1px,
-      transparent 3px
-    );
+      transparent 3px);
   pointer-events: none;
   opacity: 0.55;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -656,6 +652,7 @@
     opacity: 0;
     transform: scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -1251,9 +1248,17 @@
   display: inline-block;
 }
 
-.trafficDotRed { background: #FF6B35; }
-.trafficDotYellow { background: #FFBD2E; }
-.trafficDotGreen { background: #27C93F; }
+.trafficDotRed {
+  background: #FF6B35;
+}
+
+.trafficDotYellow {
+  background: #FFBD2E;
+}
+
+.trafficDotGreen {
+  background: #27C93F;
+}
 
 .browserAddressBar {
   flex: 1;
@@ -1269,7 +1274,10 @@
   border: 1px solid rgba(244, 236, 225, 0.2);
 }
 
-.addressLock { font-size: 0.65rem; }
+.addressLock {
+  font-size: 0.65rem;
+}
+
 .addressUrl {
   font-size: 0.64rem;
   font-family: monospace;
@@ -1279,7 +1287,10 @@
   text-overflow: ellipsis;
 }
 
-.browserRefreshBtn { font-size: 0.75rem; color: #F4ECE1; }
+.browserRefreshBtn {
+  font-size: 0.75rem;
+  color: #F4ECE1;
+}
 
 .browserViewport {
   flex: 1;
@@ -1305,7 +1316,11 @@
   border-radius: 0 !important;
 }
 
-.webNavLinks { display: flex; gap: 6px; }
+.webNavLinks {
+  display: flex;
+  gap: 6px;
+}
+
 .webNavLinkPill {
   width: 22px;
   height: 6px;
@@ -1445,8 +1460,17 @@
   gap: 3px;
 }
 
-.phoneHeroText1 { width: 70%; height: 6px; background: #FFFFFF; }
-.phoneHeroText2 { width: 45%; height: 4px; background: rgba(255, 255, 255, 0.7); }
+.phoneHeroText1 {
+  width: 70%;
+  height: 6px;
+  background: #FFFFFF;
+}
+
+.phoneHeroText2 {
+  width: 45%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.7);
+}
 
 .phoneGrid {
   display: grid;
@@ -1468,8 +1492,15 @@
   border-top: 1px solid rgba(244, 236, 225, 0.12);
 }
 
-.tabDot { width: 6px; height: 6px; background: #7C7267; }
-.tabDotActive { background: #FF6B35; }
+.tabDot {
+  width: 6px;
+  height: 6px;
+  background: #7C7267;
+}
+
+.tabDotActive {
+  background: #FF6B35;
+}
 
 /* Dashboard Placeholder */
 .placeholderDashboard {
@@ -1520,7 +1551,10 @@
   align-items: flex-end;
 }
 
-.dashChartSvg { width: 100%; height: 100%; }
+.dashChartSvg {
+  width: 100%;
+  height: 100%;
+}
 
 /* Figma Placeholder */
 .placeholderFigma {
@@ -1557,7 +1591,11 @@
   color: #F4ECE1;
 }
 
-.figmaHash { color: #A259FF; font-weight: 800; }
+.figmaHash {
+  color: #A259FF;
+  font-weight: 800;
+}
+
 .figmaZoomPill {
   font-size: 0.6rem;
   background: rgba(244, 236, 225, 0.12);
@@ -1599,18 +1637,70 @@
   z-index: 4;
 }
 
-.handleTL { top: -4px; left: -4px; }
-.handleTR { top: -4px; right: -4px; }
-.handleBL { bottom: -4px; left: -4px; }
-.handleBR { bottom: -4px; right: -4px; }
+.handleTL {
+  top: -4px;
+  left: -4px;
+}
 
-.figmaWireframe { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-.figmaWireNav { display: flex; align-items: center; gap: 6px; }
-.wireLogo { width: 12px; height: 12px; background: #FF7262; }
-.wirePill { width: 18px; height: 5px; background: rgba(255, 255, 255, 0.2); }
-.figmaWireBody { flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
-.wireBar1 { width: 60%; height: 8px; background: #0ACF83; }
-.wireBar2 { width: 40%; height: 6px; background: rgba(255, 255, 255, 0.2); }
+.handleTR {
+  top: -4px;
+  right: -4px;
+}
+
+.handleBL {
+  bottom: -4px;
+  left: -4px;
+}
+
+.handleBR {
+  bottom: -4px;
+  right: -4px;
+}
+
+.figmaWireframe {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.figmaWireNav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wireLogo {
+  width: 12px;
+  height: 12px;
+  background: #FF7262;
+}
+
+.wirePill {
+  width: 18px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.figmaWireBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wireBar1 {
+  width: 60%;
+  height: 8px;
+  background: #0ACF83;
+}
+
+.wireBar2 {
+  width: 40%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .vectorNodesRow {
   height: 36px;
   display: flex;
@@ -1619,9 +1709,21 @@
   background: rgba(0, 0, 0, 0.25);
   margin: 0.2rem 0;
 }
-.bezierSvg { width: 85%; }
-.wireCardRow { display: flex; gap: 6px; }
-.wireCardBox { flex: 1; height: 26px; background: rgba(255, 255, 255, 0.08); }
+
+.bezierSvg {
+  width: 85%;
+}
+
+.wireCardRow {
+  display: flex;
+  gap: 6px;
+}
+
+.wireCardBox {
+  flex: 1;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.08);
+}
 
 .layerDot {
   width: 6px;
@@ -1629,8 +1731,14 @@
   background: #A259FF;
 }
 
-.imgLoading { opacity: 0; }
-.imgLoaded { opacity: 1; transition: opacity 0.4s ease; }
+.imgLoading {
+  opacity: 0;
+}
+
+.imgLoaded {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
 
 /* ==========================================================================
    EXTRA PROJECTS CREATIVE VAULT GALLERY STYLES
@@ -1716,7 +1824,7 @@
 
   .headerTopFlex {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     gap: 0.75rem;
@@ -1778,4 +1886,673 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ==========================================================================
+   RETRO BRAND IDENTITIES & LOGOMARK SHOWCASE
+   ========================================================================== */
+
+.logosSection {
+  margin-top: 5.5rem;
+  padding-top: 4rem;
+  border-top: 2.5px dashed #181512;
+  position: relative;
+}
+
+.logosHeaderBar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.logosHeaderLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.logosHeaderTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FF6B35;
+  text-transform: uppercase;
+}
+
+.logosTitle {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #181512;
+  margin: 0;
+  line-height: 1.05;
+}
+
+.carouselArrows {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.carouselArrowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #FFFDF9;
+  border: 2px solid #181512;
+  box-shadow: 3px 3px 0px #181512;
+  color: #181512;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.carouselArrowBtn:hover {
+  background: #FF6B35;
+  color: #181512;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #181512;
+}
+
+.carouselArrowBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512;
+}
+
+/* ==========================================================================
+   FLOATING RETRO LOGO CAROUSEL
+   ========================================================================== */
+
+.logoCarouselViewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1.5rem 0.5rem 3rem 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+.logoCarouselViewport::-webkit-scrollbar {
+  display: none;
+}
+
+.logoCarouselViewport:active {
+  cursor: grabbing;
+}
+
+.logoCarouselTrack {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: logoMarqueeScroll 38s linear infinite;
+  will-change: transform;
+}
+
+.carouselPaused {
+  animation-play-state: paused !important;
+}
+
+@keyframes logoMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carouselItem {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carouselItem:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+/* Individual Shaped Logo Badge - Clean Vintage Pedestal */
+.logoBadge {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 2px solid #181512;
+  box-shadow: 4px 4px 0px #181512;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
+  padding: 1.25rem;
+}
+
+.carouselItem:hover .logoBadge {
+  box-shadow: 7px 7px 0px #181512;
+  border-color: #FF6B35;
+}
+
+.badgeLogoWrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeLogoImg {
+  max-width: 85%;
+  max-height: 85%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+.carouselItem:hover .badgeLogoImg {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   ELEGANT VINTAGE BORDER-RADIUS SILHOUETTES (NO CLIPPING ARTIFACTS)
+   ========================================================================== */
+
+/* 1. Chamfer / Soft Octagon */
+.shape_chamfer {
+  border-radius: 22px;
+  outline: 1.5px solid rgba(24, 21, 18, 0.12);
+  outline-offset: -6px;
+}
+
+/* 2. Arch: Heritage Tombstone Arch */
+.shape_arch {
+  border-radius: 46px 46px 12px 12px;
+}
+
+/* 3. Notched: Angled diagonal curve */
+.shape_notched {
+  border-radius: 26px 8px 26px 8px;
+}
+
+/* 4. Stadium: Elongated capsule */
+.shape_stadium {
+  border-radius: 9999px;
+}
+
+/* 5. Pill: Round capsule */
+.shape_pill {
+  border-radius: 9999px;
+}
+
+/* 6. CutCorner: Smooth organic leaf diagonal */
+.shape_cutCorner {
+  border-radius: 32px 8px 32px 8px;
+}
+
+/* 7. Polaroid: Instant print with bottom lip */
+.shape_polaroid {
+  border-radius: 12px;
+  border-bottom: 12px solid #181512;
+}
+
+/* 8. Skew / Slanted badge */
+.shape_skew {
+  border-radius: 22px;
+}
+
+/* 9. Circle: Round token medallion */
+.shape_circle {
+  border-radius: 50%;
+}
+
+/* 10. Hex: Rounded shield */
+.shape_hex {
+  border-radius: 14px 14px 42px 42px;
+}
+
+/* 11. Ticket: Cinema stub with dashed inner perimeter */
+.shape_ticket {
+  border-radius: 16px;
+  outline: 1.5px dashed rgba(24, 21, 18, 0.22);
+  outline-offset: -6px;
+}
+
+/* 12. Leaf: Botanical curve */
+.shape_leaf {
+  border-radius: 42px 8px 42px 8px;
+}
+
+/* 13. Cassette: Classic rounded rectangle */
+.shape_cassette {
+  border-radius: 16px 16px 28px 28px;
+}
+
+/* 14. Bubble: Playful rounded bubble */
+.shape_bubble {
+  border-radius: 36px 36px 36px 8px;
+}
+
+/* 15. Archival: Double perimeter framed */
+.shape_archival {
+  border-radius: 10px;
+  outline: 2px solid #181512;
+  outline-offset: -6px;
+}
+
+/* 16. Stamp: Postage stamp perforated edge */
+.shape_stamp {
+  border-radius: 14px;
+  border: 2px dashed #181512;
+  box-shadow: 4px 4px 0px #181512, inset 0 0 0 4px rgba(24, 21, 18, 0.04);
+}
+
+
+
+/* ==========================================================================
+   RETRO LOGOMARK DOSSIER MODAL
+   ========================================================================== */
+
+.logoModalContent {
+  background: #F4ECE1;
+  border: 3px solid #181512;
+  box-shadow: 10px 10px 0px #181512;
+  width: min(1040px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.logoModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #181512;
+  color: #F4ECE1;
+  border-bottom: 2.5px solid #181512;
+}
+
+.logoModalHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modalDossierTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.1em;
+}
+
+.modalYearTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+
+.logoModalNavActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoNavBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: rgba(244, 236, 225, 0.12);
+  color: #F4ECE1;
+  border: 1px solid rgba(244, 236, 225, 0.3);
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.logoNavBtn:hover {
+  background: #FF6B35;
+  color: #181512;
+  border-color: #FF6B35;
+}
+
+.closeModalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #FF6B35;
+  color: #181512;
+  border: 1.5px solid #181512;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.closeModalBtn:hover {
+  transform: rotate(90deg);
+}
+
+.logoModalBody {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (max-width: 900px) {
+  .logoModalBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+.logoModalCanvasCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.surfaceSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.surfaceLabel {
+  letter-spacing: 0.08em;
+  color: #181512;
+  margin-right: 0.25rem;
+}
+
+.surfaceBtn {
+  border: 1.5px solid #181512;
+  background: #FFFFFF;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 0px #181512;
+  transition: all 0.15s ease;
+}
+
+.surfaceBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0px #181512;
+}
+
+.surfaceBtnActive {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  box-shadow: 0px 0px 0px #181512 !important;
+  transform: translate(1px, 1px) !important;
+}
+
+.logoModalCanvas {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border: 2.5px solid #181512;
+  box-shadow: 5px 5px 0px #181512;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+}
+
+.canvasDark {
+  background: #110E0C;
+}
+
+.canvasLight {
+  background: #FAF7F2;
+}
+
+.canvasBrand {
+  transition: background-color 0.25s ease;
+}
+
+.canvasGridLines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(128, 128, 128, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.modalLogoImgWrap {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalLargeLogoImg {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
+}
+
+.canvasWatermark {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: rgba(128, 128, 128, 0.55);
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+
+.logoModalInfoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalIdentityHeader {
+  margin-bottom: 1.25rem;
+}
+
+.modalMetaTagRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modalCategoryBadge {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: #181512;
+  color: #F4ECE1;
+  padding: 0.2rem 0.55rem;
+}
+
+.modalShapeBadge {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  border: 1.5px solid #181512;
+  background: #FFFFFF;
+  color: #181512;
+  padding: 0.18rem 0.5rem;
+}
+
+.modalLogoTitle {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #181512;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.modalClientName {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FF6B35;
+}
+
+.modalSectionBox {
+  margin-bottom: 1.25rem;
+}
+
+.modalSectionHeading {
+  display: block;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #181512;
+  margin-bottom: 0.45rem;
+}
+
+.modalConceptText {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #332E27;
+}
+
+.modalDeliverablesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.modalDeliverablePill {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #181512;
+}
+
+.modalSpecTable {
+  margin-top: 1.25rem;
+  border-top: 1.5px solid #181512;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.modalSpecRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.modalSpecKey {
+  font-weight: 800;
+  color: #6B6255;
+  letter-spacing: 0.05em;
+}
+
+.modalSpecVal {
+  font-weight: 700;
+  color: #181512;
+}
+
+.modalPaletteSwatches {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.modalSwatch {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: #FFFFFF;
+  border: 1px solid #181512;
+  padding: 0.15rem 0.35rem;
+}
+
+.swatchDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.swatchHex {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #181512;
+}
+
+.modalFooterActions {
+  margin-top: 1.75rem;
+}
+
+.modalDownloadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: #FF6B35;
+  color: #181512;
+  border: 2px solid #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1rem;
+  box-shadow: 4px 4px 0px #181512;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.modalDownloadBtn:hover {
+  background: #181512;
+  color: #F4ECE1;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512;
 }

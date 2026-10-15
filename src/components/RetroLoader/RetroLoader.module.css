@@ -1,0 +1,465 @@
+/* ==========================================================================
+   AUTHENTIC 1970s/80s VINTAGE ANALOG CASSETTE LOADER
+   Light Aged Parchment Palette (#F4ECE1, #EAE1D3, #FF6B35, #181512)
+   Featuring spinning tape reels, mechanical odometer counter, C-60 chrome
+   labeling, and tactile analog playback telemetry.
+   ========================================================================== */
+
+.vintageLoaderOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999;
+  background-color: #F4ECE1;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  box-sizing: border-box;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.vintageLoaderOverlay.exiting {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* Subtle Vintage Paper Noise */
+.paperTexture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/noise.gif');
+  background-repeat: repeat;
+  background-size: 140px 140px;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   TOP EDITORIAL HEADER
+   ========================================================================== */
+.loaderTopBar {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #181512;
+  padding-bottom: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.topBarBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tapeIconBadge {
+  background: #FF6B35;
+  color: #181512;
+  padding: 2px 7px;
+  font-weight: 900;
+  border: 1px solid #181512;
+  border-radius: 0 !important;
+}
+
+.playbackStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #4A433C;
+}
+
+.playLed {
+  width: 8px;
+  height: 8px;
+  background: #FF6B35;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.8);
+  animation: ledPulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes ledPulse {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.15); }
+}
+
+/* ==========================================================================
+   CENTERSTAGE: THE VINTAGE CASSETTE TAPE
+   ========================================================================== */
+.centerStage {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.cassetteBody {
+  width: 100%;
+  max-width: 460px;
+  background: #EAE1D3;
+  border: 2px solid #181512;
+  box-shadow: 6px 6px 0px #181512 !important;
+  border-radius: 0 !important;
+  position: relative;
+  padding: 1rem 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-sizing: border-box;
+}
+
+/* Screw heads in 4 corners */
+.cornerScrew {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: rgba(24, 21, 18, 0.4);
+  font-size: 0.65rem;
+  font-weight: 900;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screwTL { top: 6px; left: 6px; }
+.screwTR { top: 6px; right: 6px; }
+.screwBL { bottom: 6px; left: 6px; }
+.screwBR { bottom: 6px; right: 6px; }
+
+/* ==========================================================================
+   CASSETTE RETRO LABEL (BURNT ORANGE & CREAM)
+   ========================================================================== */
+.cassetteLabel {
+  background: #FF6B35;
+  border: 1.5px solid #181512;
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.labelTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #181512;
+  border-bottom: 1px solid rgba(24, 21, 18, 0.3);
+  padding-bottom: 0.25rem;
+  letter-spacing: 0.08em;
+}
+
+.labelSideA {
+  background: #181512;
+  color: #F4ECE1;
+  padding: 1px 6px;
+  font-weight: 900;
+}
+
+.labelTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #181512;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0.15rem 0 0;
+  line-height: 1.1;
+}
+
+.labelSub {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(24, 21, 18, 0.85);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   TRANSPARENT TAPE WINDOW WITH SPINNING SPOOLS
+   ========================================================================== */
+.tapeWindowFrame {
+  background: #181512;
+  border: 1.5px solid #181512;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Center ruler markings */
+.rulerMarkings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rulerTicks {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.tick {
+  width: 1px;
+  height: 6px;
+  background: rgba(244, 236, 225, 0.35);
+}
+
+.tickMajor {
+  height: 10px;
+  background: #FF6B35;
+}
+
+.odometerBox {
+  background: #000000;
+  border: 1px solid rgba(244, 236, 225, 0.3);
+  padding: 1px 5px;
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.15em;
+}
+
+/* Spinning Spools */
+.spoolAssembly {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.tapeReelSvg {
+  width: 100%;
+  height: 100%;
+  animation: reelSpin 1.4s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes reelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Magnetic Tape Ribbon connecting between spools */
+.tapeRibbon {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  right: 20%;
+  height: 14px;
+  background: #38281D;
+  transform: translateY(-50%);
+  border-top: 1px solid rgba(255, 107, 53, 0.3);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+  z-index: 1;
+}
+
+/* ==========================================================
+   BOTTOM TAPE RECESS / TRAPEZOID HEAD AREA
+   ========================================================== */
+.tapeRecess {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(24, 21, 18, 0.2);
+  padding-top: 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #4A433C;
+}
+
+.tapeHoles {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.pencilHole {
+  width: 12px;
+  height: 12px;
+  background: #181512;
+  border-radius: 50%;
+  border: 1px solid rgba(24, 21, 18, 0.3);
+}
+
+.formatTag {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   PROGRESS BAR & RETRO TELEMETRY BELOW CASSETTE
+   ========================================================================== */
+.telemetryDocket {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 460px;
+}
+
+.trackHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #181512;
+}
+
+.tapeMeterTrack {
+  width: 100%;
+  height: 7px;
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 2px 2px 0px #181512 !important;
+}
+
+.tapeMeterFill {
+  height: 100%;
+  background: #FF6B35;
+  transition: width 0.08s linear;
+}
+
+.trackSubText {
+  font-size: 0.65rem;
+  color: #7C7267;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   BOTTOM FOOTER & SKIP BUTTON
+   ========================================================================== */
+.loaderBottomBar {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid #181512;
+  padding-top: 0.65rem;
+  font-size: 0.7rem;
+  color: #4A433C;
+}
+
+.systemBadge {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.skipBtn {
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #181512 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  border-radius: 0 !important;
+}
+
+.skipBtn:hover {
+  background: #FF6B35;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
+/* Global instant suppression on repeat visits */
+:global(html.retro-loader-done) .vintageLoaderOverlay {
+  display: none !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 520px) {
+  .vintageLoaderOverlay {
+    padding: 1.25rem 1rem;
+  }
+
+  .cassetteBody {
+    padding: 0.75rem 0.85rem;
+    gap: 0.65rem;
+  }
+
+  .labelTitle {
+    font-size: 0.95rem;
+  }
+
+  .spoolAssembly {
+    width: 52px;
+    height: 52px;
+  }
+
+  .rulerTicks {
+    display: none;
+  }
+
+  .systemBadge {
+    display: none;
+  }
+
+  .loaderBottomBar {
+    justify-content: center;
+  }
+}

@@ -133,7 +133,104 @@
   align-items: center;
   position: relative;
   will-change: transform, opacity;
-  transform-origin: center center;
+  transform-origin: top center;
+}
+
+/* =========================================================
+   IDENTITY CARD HANGING STYLE MOCKUP ASSEMBLY
+   ========================================================= */
+.idCardHangerAssembly {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: lanyardHangSway 6.5s ease-in-out infinite;
+}
+
+@keyframes lanyardHangSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-1.2deg);
+  }
+  75% {
+    transform: rotate(1.2deg);
+  }
+}
+
+/* Woven Lanyard Ribbon Strap */
+.lanyardStrap {
+  width: 32px;
+  height: 62px;
+  background: #181512;
+  border-left: 2.5px dashed #FF6B35;
+  border-right: 2.5px dashed #FF6B35;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0px rgba(24, 21, 18, 0.25);
+  z-index: 5;
+  margin-top: -30px;
+}
+
+.lanyardStitching {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dotted rgba(255, 255, 255, 0.2);
+}
+
+.lanyardBrandText {
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #F4ECE1;
+  opacity: 0.9;
+  user-select: none;
+}
+
+/* Metallic Swivel Clasp Hardware */
+.lanyardHardware {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 6;
+  margin-top: -2px;
+  margin-bottom: -10px;
+}
+
+.lanyardRing {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #71717A;
+  border-radius: 50%;
+  background: #27272A;
+  box-shadow: 1px 1px 0px #181512;
+}
+
+.lanyardClasp {
+  width: 14px;
+  height: 18px;
+  background: linear-gradient(135deg, #E4E4E7 0%, #71717A 50%, #3F3F46 100%);
+  border: 1.5px solid #181512;
+  border-radius: 3px;
+  margin-top: -4px;
+}
+
+.lanyardClipHook {
+  width: 10px;
+  height: 12px;
+  background: #52525B;
+  border: 1.5px solid #181512;
+  border-radius: 0 0 3px 3px;
+  margin-top: -2px;
 }
 
 .portraitCardContainer {
@@ -143,20 +240,166 @@
   align-items: center;
 }
 
-.portraitCard {
+/* The Laminated Physical Identity Card Pass */
+.idCardMockup {
   position: relative;
-  width: 320px;
-  height: 450px;
-  border-radius: 0 !important;
-  overflow: visible;
-  background: #EAE1D3;
-  border: 2px solid #181512;
-  box-shadow: none !important;
+  width: 285px;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  border: 2px solid #181512 !important;
+  box-shadow: 5px 5px 0px #181512 !important;
+  padding: 9px 12px 11px 12px;
+  display: flex;
+  flex-direction: column;
   transform-style: preserve-3d;
-  transform-origin: center center;
+  transform-origin: top center;
   will-change: transform;
   z-index: 100;
   opacity: 1;
+  overflow: visible !important;
+}
+
+/* Oval Punched Lanyard Slot */
+.idPunchSlot {
+  width: 48px;
+  height: 11px;
+  background: #EAE1D3;
+  border: 1.5px solid #181512;
+  border-radius: 9999px;
+  margin: 0 auto 8px auto;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idSlotHole {
+  display: block;
+}
+
+/* ID Pass Header Bar */
+.idCardHeaderBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2px 7px 2px;
+  border-bottom: 1.5px solid rgba(24, 21, 18, 0.14);
+  margin-bottom: 8px;
+}
+
+.idChipGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.idGoldenChip {
+  width: 18px;
+  height: 14px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 60%, #92400E 100%);
+  border: 1px solid #181512;
+  border-radius: 2px;
+  position: relative;
+}
+
+.idGoldenChip::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed rgba(24, 21, 18, 0.6);
+}
+
+.idPassCode {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #181512;
+}
+
+.idStatusDotGroup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.idStatusDot {
+  width: 7px;
+  height: 7px;
+  background: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.idStatusLabel {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #10B981;
+  letter-spacing: 0.06em;
+}
+
+/* Framed Portrait Photo Container */
+.idPhotoContainer {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  background: #181512;
+  border: 1.5px solid #181512;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.photoBracket {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #FF6B35;
+  border-style: solid;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bracketTL {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.bracketTR {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.bracketBL {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.bracketBR {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+.photoFilmOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/noise.gif');
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .portraitImg {
@@ -166,6 +409,79 @@
   object-position: top center;
   border-radius: 0 !important;
   display: block;
+}
+
+/* ID Card Bottom Metadata & Barcode Docket */
+.idCardFooterDocket {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-top: 7px;
+  padding: 0 1px;
+}
+
+.idNameTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+}
+
+.idHolderName {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #181512;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.idHolderRole {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.06em;
+}
+
+.idBarcodeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(24, 21, 18, 0.18);
+  margin-top: 1px;
+}
+
+.idBarcodeBars {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  height: 18px;
+}
+
+.idBarcodeBars span {
+  background: #181512;
+  display: inline-block;
+  height: 100%;
+}
+
+.idSerialText {
+  font-family: var(--font-mono), 'Space Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #71717A;
+}
+
+/* Clear Acrylic Sheen Reflection */
+.idAcrylicSheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.08) 100%);
+  pointer-events: none;
+  border-radius: 14px;
 }
 
 /* =========================================================

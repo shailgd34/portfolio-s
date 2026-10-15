@@ -136,15 +136,17 @@
 }
 
 .visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
 }
 
 .hidden {
-  opacity: 0;
-  transform: translateY(16px);
-  pointer-events: none;
+  opacity: 0 !important;
+  transform: translateY(16px) !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* Hover State - Tactile lift and shift */
@@ -256,18 +258,20 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .stickyContactBtn {
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     left: 1rem;
     padding: 0.65rem 1rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .backToTopBtn {
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     right: 1rem;
     min-width: 58px;
     padding: 6px 8px 5px;
     box-shadow: 3px 3px 0px #181512 !important;
+    display: flex !important;
+    z-index: 999999 !important;
   }
 
   .topBtnLabel {
@@ -277,131 +281,17 @@
   .topBtnPercent {
     font-size: 0.7rem;
   }
-
-  .stickyLinkedinBtn {
-    height: 38px;
-    padding: 0 10px;
-  }
 }
 
-/* ==========================================================================
-   Sticky LinkedIn Button - Right Center Side (Docked Side Tab)
-   ========================================================================== */
-.stickyLinkedinBtn {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 99998;
-  display: inline-flex;
-  align-items: center;
-  height: 44px;
-  padding: 0 11px 0 13px;
-  border-radius: 0 !important;
-  background: #F4ECE1;
-  border: 1.5px solid rgba(24, 21, 18, 0.2);
-  border-right: none;
-  color: #181512;
-  text-decoration: none;
-  box-shadow: none !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    padding 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  overflow: hidden;
-}
-
-:global([data-theme='light']) .stickyLinkedinBtn {
-  background: #F4ECE1;
-  border-color: rgba(24, 21, 18, 0.2);
-  color: #181512;
-  box-shadow: none !important;
-}
-
-.stickyLinkedinBtn:hover {
-  transform: translateY(-50%) translateX(-4px);
-  background: #EAE1D3;
-  border-color: #0A66C2;
-  padding: 0 16px 0 13px;
-}
-
-:global([data-theme='light']) .stickyLinkedinBtn:hover {
-  background: #EAE1D3;
-  border-color: #0A66C2;
-}
-
-.linkedinIconWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0A66C2;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stickyLinkedinBtn:hover .linkedinIconWrapper {
-  transform: scale(1.1);
-}
-
-.linkedinSvg {
-  display: block;
-}
-
-.linkedinLabelWrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  max-width: 0;
-  opacity: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.25s ease,
-    margin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stickyLinkedinBtn:hover .linkedinLabelWrapper {
-  max-width: 100px;
-  opacity: 1;
-  margin-left: 8px;
-}
-
-.linkedinText {
-  font-family: var(--font-body), 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: #181512;
-  line-height: 1;
-}
-
-:global([data-theme='light']) .linkedinText {
-  color: #181512;
-}
-
-.stickyLinkedinBtn:hover .linkedinText {
-  color: #0A66C2;
-}
-
-.linkedinArrow {
-  color: #0A66C2;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stickyLinkedinBtn:hover .linkedinArrow {
-  transform: translate(1.5px, -1.5px);
-}
-
-/* =========================================================
-   RESPONSIVE BREAKPOINTS (ALL DEVICES)
-   ========================================================= */
 @media (max-width: 640px) {
   .backToTopBtn {
-    bottom: 1.15rem;
+    bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
     right: 1.15rem;
     min-width: 54px;
     padding: 6px 8px 5px;
     box-shadow: 3px 3px 0px #181512 !important;
+    display: flex !important;
+    z-index: 999999 !important;
   }
 
   .topBtnLabel {
@@ -413,16 +303,11 @@
   }
 
   .stickyContactBtn {
-    bottom: 1.15rem;
+    bottom: calc(1.15rem + env(safe-area-inset-bottom, 0px));
     left: 1.15rem;
     padding: 0.55rem 0.85rem;
     font-size: 0.74rem;
     box-shadow: 3px 3px 0px #181512 !important;
-  }
-
-  .stickyLinkedinBtn {
-    transform: translateY(-50%) scale(0.85);
-    transform-origin: right center;
-    box-shadow: -2px 2px 0px #181512 !important;
+    z-index: 999999 !important;
   }
 }

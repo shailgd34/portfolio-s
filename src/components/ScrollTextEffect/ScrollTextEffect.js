@@ -112,8 +112,8 @@ export default function ScrollTextEffect() {
         }
       });
 
-      // D. Interactive 3D Tilt Micro-Interaction on Project & Editorial Cards
-      const interactiveCards = document.querySelectorAll('.editorialCard, .projectCard, .sliderCard');
+      // D. Interactive 3D Tilt Micro-Interaction on Editorial & Slider Cards (Project gallery cards remain steady without tilt)
+      const interactiveCards = document.querySelectorAll('.editorialCard, .sliderCard');
 
       interactiveCards.forEach((card) => {
         if (card.dataset.tiltInitialized) return;

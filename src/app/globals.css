@@ -483,3 +483,10 @@ h1.archiveTitle,
   line-height: 0.95;
   text-transform: uppercase;
 }
+
+/* Instant suppression of retro loader for repeat visits in the same session */
+html.retro-loader-done [class*="vintageLoaderOverlay"],
+html.retro-loader-done [class*="loaderOverlay"],
+html.retro-loader-done [class*="minimalLoader"] {
+  display: none !important;
+}

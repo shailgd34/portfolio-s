@@ -122,34 +122,33 @@ export default function MegaMenu({ onClose }) {
           >
             {/* Header Docket Bar */}
             <div className={styles.seeAllTopRow}>
-              <span className={styles.seeAllDocketTag}>[ MASTER ARCHIVE ]</span>
+              <span className={styles.seeAllDocketTag}>[ ARCHIVE // 04 ]</span>
               <span className={styles.seeAllStatusPill}>
                 <span className={styles.orangePulseDot} />
-                <span>50+ ENTRIES</span>
+                <span>50+ WORKS</span>
               </span>
             </div>
 
-            {/* Center Content */}
+            {/* Center Content: Clean Title + Description */}
             <div className={styles.seeAllCenter}>
-              <div className={styles.seeAllCountRow}>
-                <span className={styles.seeAllBigNum}>50</span>
-                <span className={styles.seeAllPlus}>+</span>
-                <span className={styles.seeAllBadgeTag}>FULL ACCESS</span>
-              </div>
-              <h5 className={styles.seeAllTitle}>COMPLETE DIRECTORY</h5>
+              <span className={styles.retroRefTag}>DIRECT ACCESS // 2026</span>
+              <h5 className={styles.seeAllTitle}>COMPLETE ARCHIVE</h5>
               <p className={styles.seeAllDesc}>
-                Enterprise SaaS, FinTech dashboards, mobile apps & Figma design systems.
+                Enterprise SaaS platforms, FinTech dashboards, mobile apps, and Figma design systems.
               </p>
 
-              {/* Editorial Telemetry Micro-List */}
-              <div className={styles.seeAllBreakdown}>
-                <span className={styles.breakdownItem}>⚡ 24+ SaaS Platforms</span>
-                <span className={styles.breakdownItem}>📱 16+ Mobile Apps</span>
-                <span className={styles.breakdownItem}>🎨 12+ Figma Systems</span>
+              {/* Authentic Retro Archival Barcode Accent */}
+              <div className={styles.retroBarcodeWrapper} aria-hidden="true">
+                <div className={styles.barcodeLines}>
+                  {[3, 1, 4, 2, 1, 5, 2, 3, 1, 4, 2, 5, 1, 3, 2, 4, 1, 3, 2, 5, 1, 4, 2].map((w, i) => (
+                    <span key={i} style={{ width: `${w}px` }} />
+                  ))}
+                </div>
+                <span className={styles.barcodeText}>CODE: ARCHIVE-50-INDEX</span>
               </div>
             </div>
 
-            {/* High-Impact Action Button */}
+            {/* High-Impact Retro Action Button */}
             <div className={styles.seeAllActionPill}>
               <span>EXPLORE ALL 50+ WORKS</span>
               <ArrowRight size={14} className={styles.actionArrow} />

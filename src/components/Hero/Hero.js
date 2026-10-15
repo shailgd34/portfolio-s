@@ -12,10 +12,6 @@ export default function Hero({ theme, toggleTheme }) {
   const heroRef = useRef(null);
   const cardRef = useRef(null);
 
-  // Auto cycle badge icon between 'hi' and 'handshake'
-  const [badgeState, setBadgeState] = useState('hi');
-  const [showBadge, setShowBadge] = useState(true);
-
   // Dynamic Image for Card (Headshot -> Workspace setup on scroll flip)
   const [cardImg, setCardImg] = useState('/designer_retro_portrait.png');
 
@@ -74,18 +70,12 @@ export default function Hero({ theme, toggleTheme }) {
     [1, 0.95, 0.95, 0.98]
   );
 
-  // Mid-flip image swap and badge visibility tracking
+  // Mid-flip image swap tracking
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (latest >= 320 && latest <= 1150) {
       setCardImg('/designer_retro_portrait.png');
     } else {
       setCardImg('/designer_retro_portrait.png');
-    }
-
-    if (latest > 100) {
-      setShowBadge(false);
-    } else {
-      setShowBadge(true);
     }
   });
 
@@ -133,7 +123,7 @@ export default function Hero({ theme, toggleTheme }) {
             </motion.span>
           </motion.div>
 
-          {/* Center Column: Portrait Card + Uncle Joe Retro Sticker Stamp */}
+          {/* Center Column: Identity Card Hanging Style Mockup */}
           <div className={styles.centerCol}>
             <motion.div
               className={styles.portraitEntranceWrapper}
@@ -141,37 +131,110 @@ export default function Hero({ theme, toggleTheme }) {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className={styles.portraitCardContainer}>
-                <motion.div
-                  ref={cardRef}
-                  className={styles.portraitCard}
-                  style={{
-                    x: isMobile ? 0 : desktopX,
-                    y: isMobile ? 0 : desktopY,
-                    rotateY: rotateY,
-                    rotateZ: isMobile ? 0 : rotateZ,
-                    scale: scale,
-                    transformStyle: 'preserve-3d',
-                  }}
-                >
-                  <Image
-                    src={cardImg}
-                    alt="Sheelash Singh Bhadoriya"
-                    width={380}
-                    height={500}
-                    priority
-                    className={styles.portraitImg}
-                  />
+              <div className={styles.idCardHangerAssembly}>
+                {/* Woven Lanyard Ribbon Hanging from Top */}
+                <div className={styles.lanyardStrap} aria-hidden="true">
+                  <div className={styles.lanyardStitching} />
+                  <span className={styles.lanyardBrandText}>SSB • 2026 • PASS</span>
+                </div>
 
-                  {/* Uncle Joe Tilted Sticker Stamp Badge */}
-                  <div className={`${styles.retroStickerBadge} ${!showBadge ? styles.badgeHidden : ''}`}>
-                    <div className={styles.stickerInner}>
-                      <span className={styles.stickerStar}>★</span>
-                      <span className={styles.stickerText}>VERIFIED EXPERT</span>
-                      <span className={styles.stickerSub}>UI/UX & CODE</span>
+                {/* Metallic Hardware: Swivel Ring & Clasp Clip */}
+                <div className={styles.lanyardHardware} aria-hidden="true">
+                  <div className={styles.lanyardRing} />
+                  <div className={styles.lanyardClasp} />
+                  <div className={styles.lanyardClipHook} />
+                </div>
+
+                <div className={styles.portraitCardContainer}>
+                  <motion.div
+                    ref={cardRef}
+                    className={`${styles.portraitCard} ${styles.idCardMockup}`}
+                    style={{
+                      x: isMobile ? 0 : desktopX,
+                      y: isMobile ? 0 : desktopY,
+                      rotateY: rotateY,
+                      rotateZ: isMobile ? 0 : rotateZ,
+                      scale: scale,
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
+                    {/* Top Lanyard Punch Slot */}
+                    <div className={styles.idPunchSlot}>
+                      <span className={styles.idSlotHole} />
                     </div>
-                  </div>
-                </motion.div>
+
+                    {/* ID Pass Header Bar */}
+                    <div className={styles.idCardHeaderBar}>
+                      <div className={styles.idChipGroup}>
+                        <div className={styles.idGoldenChip} />
+                        <span className={styles.idPassCode}>PASS // 04-SSB</span>
+                      </div>
+                      <div className={styles.idStatusDotGroup}>
+                        <span className={styles.idStatusDot} />
+                        <span className={styles.idStatusLabel}>LEVEL-5</span>
+                      </div>
+                    </div>
+
+                    {/* Portrait Photo Frame with Registration Corners */}
+                    <div className={styles.idPhotoContainer}>
+                      <Image
+                        src={cardImg}
+                        alt="Sheelash Singh Bhadoriya"
+                        width={380}
+                        height={500}
+                        priority
+                        className={styles.portraitImg}
+                      />
+                      <span className={`${styles.photoBracket} ${styles.bracketTL}`} />
+                      <span className={`${styles.photoBracket} ${styles.bracketTR}`} />
+                      <span className={`${styles.photoBracket} ${styles.bracketBL}`} />
+                      <span className={`${styles.photoBracket} ${styles.bracketBR}`} />
+                      <div className={styles.photoFilmOverlay} />
+                    </div>
+
+                    {/* ID Card Bottom Metadata & Barcode Docket */}
+                    <div className={styles.idCardFooterDocket}>
+                      <div className={styles.idNameTitleGroup}>
+                        <h3 className={styles.idHolderName}>SHEELASH S. BHADORIYA</h3>
+                        <span className={styles.idHolderRole}>SR. PRODUCT DESIGNER & UI ARCHITECT</span>
+                      </div>
+
+                      {/* Barcode & Security Watermark */}
+                      <div className={styles.idBarcodeRow}>
+                        <div className={styles.idBarcodeBars} aria-hidden="true">
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 3 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 4 }} />
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 3 }} />
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 4 }} />
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 3 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 4 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 2 }} />
+                          <span style={{ width: 3 }} />
+                          <span style={{ width: 1 }} />
+                          <span style={{ width: 4 }} />
+                          <span style={{ width: 2 }} />
+                        </div>
+                        <span className={styles.idSerialText}>*SSB-99201-PASS*</span>
+                      </div>
+                    </div>
+
+
+                    {/* Clear Acrylic Laminate Sheen Layer */}
+                    <div className={styles.idAcrylicSheen} />
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -208,7 +271,7 @@ export default function Hero({ theme, toggleTheme }) {
               className={styles.heroActionGroup}
             >
               <Link
-                href="/#projects"
+                href="/projects"
                 className={styles.primaryRetroBtn}
                 data-magnetic="true"
                 onClick={(e) => {

@@ -10,11 +10,19 @@ export default function FloatingActions() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      // Robust multi-source scroll calculation for mobile touch, desktop, and Lenis virtual scroll
+      const lenisScroll = typeof window !== 'undefined' && window.__lenis?.scroll;
+      const nativeScroll = typeof window !== 'undefined'
+        ? (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0)
+        : 0;
+      const scrollY = typeof lenisScroll === 'number' ? lenisScroll : nativeScroll;
 
-      // Show back-to-top after scrolling down 320px
-      setShowTopBtn(scrollY > 320);
+      const totalHeight = typeof document !== 'undefined'
+        ? (document.documentElement.scrollHeight - window.innerHeight)
+        : 0;
+
+      // Show back-to-top after scrolling down 120px (accessible on all mobile screens)
+      setShowTopBtn(scrollY > 120);
 
       // Calculate scroll progress percentage (0 to 100)
       if (totalHeight > 0) {
@@ -23,16 +31,43 @@ export default function FloatingActions() {
       }
     };
 
+    // 1. Native scroll, touchmove and resize listeners
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    // 2. Lenis smooth scroll listener (vital for mobile touch & momentum scroll)
+    let unsubLenis = null;
+    if (window.__lenis) {
+      unsubLenis = window.__lenis.on('scroll', handleScroll);
+    } else {
+      const checkInterval = setInterval(() => {
+        if (window.__lenis) {
+          unsubLenis = window.__lenis.on('scroll', handleScroll);
+          clearInterval(checkInterval);
+        }
+      }, 100);
+      setTimeout(() => clearInterval(checkInterval), 2500);
+    }
+
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      if (typeof unsubLenis === 'function') {
+        unsubLenis();
+      } else if (window.__lenis?.off) {
+        window.__lenis.off('scroll', handleScroll);
+      }
+    };
   }, []);
 
   const scrollToTop = () => {
     if (typeof window !== 'undefined' && window.__lenis) {
-      window.__lenis.scrollTo(0, { duration: 1.3 });
-    } else {
+      window.__lenis.scrollTo(0, { duration: 1.2 });
+    } else if (typeof window !== 'undefined') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
@@ -56,25 +91,7 @@ export default function FloatingActions() {
 
   return (
     <>
-      {/* Sticky LinkedIn Tab at Right Center Side */}
-      <a
-        href="https://www.linkedin.com/in/shailash-singh-bhadoriya-5a941818b/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.stickyLinkedinBtn}
-        aria-label="Connect with Shailash on LinkedIn"
-        title="Connect on LinkedIn"
-      >
-        <span className={styles.linkedinIconWrapper}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className={styles.linkedinSvg} aria-hidden="true">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
-          </svg>
-        </span>
-        <span className={styles.linkedinLabelWrapper}>
-          <span className={styles.linkedinText}>LinkedIn</span>
-          <ArrowUpRight size={13} className={styles.linkedinArrow} />
-        </span>
-      </a>
+
 
       {/* Sticky Contact Button at Left Bottom Side */}
       <a

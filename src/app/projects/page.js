@@ -26,6 +26,7 @@ import FloatingActions from '@/components/FloatingActions/FloatingActions';
 import ScrollTextEffect from '@/components/ScrollTextEffect/ScrollTextEffect';
 import styles from './projects.module.css';
 import { projectsData } from '@/data/projectsData';
+import { logosData } from '@/data/logosData';
 import TechBadge, { TechMoreBadge, getTechInfo } from '@/components/TechBadge/TechBadge';
 
 // 16 Extra Projects from public/extra project/
@@ -390,6 +391,23 @@ export default function ProjectsPage() {
   // Interactive Dossier Modal state
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // Logo Showcase & Carousel state
+  const [logoCategoryFilter, setLogoCategoryFilter] = useState('all');
+  const [selectedLogo, setSelectedLogo] = useState(null);
+  const [logoModalSurface, setLogoModalSurface] = useState('dark');
+  const logoCarouselRef = useRef(null);
+  const [isLogoCarouselPaused, setIsLogoCarouselPaused] = useState(false);
+
+  const toggleLogoCarouselPause = () => {
+    setIsLogoCarouselPaused((prev) => !prev);
+  };
+
+  const scrollLogoCarousel = (direction) => {
+    if (!logoCarouselRef.current) return;
+    const scrollAmount = direction === 'left' ? -340 : 340;
+    logoCarouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
   // Slider state for extra projects
   const [activeSlide, setActiveSlide] = useState(0);
   const [lightboxImg, setLightboxImg] = useState(null);
@@ -402,17 +420,36 @@ export default function ProjectsPage() {
     setTheme(currentTheme);
   }, []);
 
-  // Keyboard shortcut: close modals on ESC
+  const handlePrevLogo = () => {
+    if (!selectedLogo) return;
+    const currentIndex = logosData.findIndex((l) => l.id === selectedLogo.id);
+    const prevIndex = (currentIndex - 1 + logosData.length) % logosData.length;
+    setSelectedLogo(logosData[prevIndex]);
+  };
+
+  const handleNextLogo = () => {
+    if (!selectedLogo) return;
+    const currentIndex = logosData.findIndex((l) => l.id === selectedLogo.id);
+    const nextIndex = (currentIndex + 1) % logosData.length;
+    setSelectedLogo(logosData[nextIndex]);
+  };
+
+  // Keyboard shortcut: close modals on ESC & navigate logos
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setSelectedProject(null);
         setLightboxImg(null);
+        setSelectedLogo(null);
+      }
+      if (selectedLogo) {
+        if (e.key === 'ArrowLeft') handlePrevLogo();
+        if (e.key === 'ArrowRight') handleNextLogo();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [selectedLogo]);
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
@@ -504,6 +541,26 @@ export default function ProjectsPage() {
       techs.some(t => t.includes(q));
 
     return matchesFilter && matchesSearch;
+  });
+
+  // Logo Showcase filter definitions
+  const logoFilterTabs = [
+    { id: 'all', label: 'All Marks [17]', count: '17' },
+    { id: 'tech', label: 'FinTech & Tech [4]', count: '04' },
+    { id: 'culinary', label: 'Culinary & Dining [2]', count: '02' },
+    { id: 'luxury', label: 'Luxury & Art [3]', count: '03' },
+    { id: 'creative', label: 'Creative & Media [4]', count: '04' },
+    { id: 'business', label: 'Advisory & Fleet [4]', count: '04' }
+  ];
+
+  const filteredLogos = logosData.filter((item) => {
+    if (logoCategoryFilter === 'all') return true;
+    if (logoCategoryFilter === 'tech') return ['Fintech & Trading', 'Enterprise Tech', 'Hardware & Energy', 'Photography & Media'].includes(item.category);
+    if (logoCategoryFilter === 'culinary') return ['Hospitality & Food', 'Culinary & Dining'].includes(item.category);
+    if (logoCategoryFilter === 'luxury') return ['Luxury & Art', 'Lifestyle & Luxury', 'Commodities & Trading'].includes(item.category);
+    if (logoCategoryFilter === 'creative') return ['Creative Arts', 'Music & Entertainment', 'Media & Communication', 'Design & Community'].includes(item.category);
+    if (logoCategoryFilter === 'business') return ['Venture Capital', 'Logistics & Fleet', 'Business Advisory', 'Community & Healthcare'].includes(item.category);
+    return true;
   });
 
   // Slider navigation
@@ -725,8 +782,77 @@ export default function ProjectsPage() {
             })}
           </div>
 
-          
-          
+          {/* ==============================================================
+             BRAND IDENTITIES & LOGOMARKS (CLEAN RETRO CAROUSEL)
+             ============================================================== */}
+          <section className={styles.logosSection} id="brand-logos">
+            {/* Minimalist Section Header */}
+            <div className={styles.logosHeaderBar}>
+              <div className={styles.logosHeaderLeft}>
+                <span className={styles.logosHeaderTag}>[ LOGOMARKS ]</span>
+                <h2 className={styles.logosTitle}>BRAND IDENTITIES</h2>
+              </div>
+              <div className={styles.carouselArrows}>
+                <button
+                  type="button"
+                  className={styles.carouselArrowBtn}
+                  onClick={() => scrollLogoCarousel('left')}
+                  aria-label="Previous logos"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  className={styles.carouselArrowBtn}
+                  onClick={() => scrollLogoCarousel('right')}
+                  aria-label="Next logos"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Seamless Floating Infinite Carousel */}
+            <div
+              className={styles.logoCarouselViewport}
+              ref={logoCarouselRef}
+              onMouseEnter={() => setIsLogoCarouselPaused(true)}
+              onMouseLeave={() => setIsLogoCarouselPaused(false)}
+            >
+              <div
+                className={`${styles.logoCarouselTrack} ${isLogoCarouselPaused ? styles.carouselPaused : ''}`}
+              >
+                {[...logosData, ...logosData].map((item, idx) => {
+                  const shapeClass = styles[`shape_${item.shape}`] || styles.shape_chamfer;
+                  return (
+                    <div
+                      key={`${item.id}-${idx}`}
+                      className={styles.carouselItem}
+                      onClick={() => {
+                        setSelectedLogo(item);
+                        setLogoModalSurface(item.bgColor === '#FFFFFF' || item.bgColor.startsWith('#FFF') ? 'light' : 'dark');
+                      }}
+                      title={item.title}
+                    >
+                      <div
+                        className={`${styles.logoBadge} ${shapeClass}`}
+                      >
+                        <div className={styles.badgeLogoWrap}>
+                          <Image
+                            src={encodeURI(item.image)}
+                            alt={item.title}
+                            width={180}
+                            height={180}
+                            className={styles.badgeLogoImg}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
 
         </div>
       </main>
@@ -872,6 +998,207 @@ export default function ProjectsPage() {
                 <h4 className={styles.lightboxTitle}>{lightboxImg.title}</h4>
               </div>
               <span className={styles.lightboxTag}>{lightboxImg.tag}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ==============================================================
+         RETRO LOGOMARK DOSSIER MODAL
+         ============================================================== */}
+      {selectedLogo && (
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSelectedLogo(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className={styles.logoModalContent}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              '--modal-accent': selectedLogo.accentColor,
+              '--modal-border': selectedLogo.borderColor,
+            }}
+          >
+            {/* Top Modal Header */}
+            <div className={styles.logoModalHeader}>
+              <div className={styles.logoModalHeaderLeft}>
+                <span className={styles.modalDossierTag}>
+                  [ LOGOMARK DOSSIER // {selectedLogo.id.toUpperCase()} ]
+                </span>
+                <span className={styles.modalYearTag}>YEAR {selectedLogo.year}</span>
+              </div>
+
+              {/* Prev / Next & Close */}
+              <div className={styles.logoModalNavActions}>
+                <button
+                  type="button"
+                  className={styles.logoNavBtn}
+                  onClick={handlePrevLogo}
+                  title="Previous Logo (Left Arrow)"
+                >
+                  <ChevronLeft size={16} /> PREV
+                </button>
+                <button
+                  type="button"
+                  className={styles.logoNavBtn}
+                  onClick={handleNextLogo}
+                  title="Next Logo (Right Arrow)"
+                >
+                  NEXT <ChevronRight size={16} />
+                </button>
+                <button
+                  type="button"
+                  className={styles.closeModalBtn}
+                  onClick={() => setSelectedLogo(null)}
+                  aria-label="Close Dossier"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body: Split 2 columns */}
+            <div className={styles.logoModalBody}>
+              {/* Left Column: Huge Preview with Canvas Background Toggle */}
+              <div className={styles.logoModalCanvasCol}>
+                {/* Surface Switcher */}
+                <div className={styles.surfaceSwitcher}>
+                  <span className={styles.surfaceLabel}>SURFACE:</span>
+                  <button
+                    type="button"
+                    className={`${styles.surfaceBtn} ${logoModalSurface === 'dark' ? styles.surfaceBtnActive : ''}`}
+                    onClick={() => setLogoModalSurface('dark')}
+                  >
+                    DARK
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.surfaceBtn} ${logoModalSurface === 'light' ? styles.surfaceBtnActive : ''}`}
+                    onClick={() => setLogoModalSurface('light')}
+                  >
+                    LIGHT
+                  </button>
+                  <button
+                    type="button"
+                    className={`${styles.surfaceBtn} ${logoModalSurface === 'brand' ? styles.surfaceBtnActive : ''}`}
+                    onClick={() => setLogoModalSurface('brand')}
+                  >
+                    BRAND COLOR
+                  </button>
+                </div>
+
+                {/* Canvas Area */}
+                <div
+                  className={`${styles.logoModalCanvas} ${
+                    logoModalSurface === 'dark'
+                      ? styles.canvasDark
+                      : logoModalSurface === 'light'
+                      ? styles.canvasLight
+                      : styles.canvasBrand
+                  }`}
+                  style={
+                    logoModalSurface === 'brand'
+                      ? { backgroundColor: selectedLogo.bgColor }
+                      : {}
+                  }
+                >
+                  {/* Subtle retro alignment grid lines */}
+                  <div className={styles.canvasGridLines} />
+                  
+                  {/* Large Logo */}
+                  <div className={styles.modalLogoImgWrap}>
+                    <Image
+                      src={encodeURI(selectedLogo.image)}
+                      alt={selectedLogo.title}
+                      width={650}
+                      height={450}
+                      className={styles.modalLargeLogoImg}
+                      priority
+                    />
+                  </div>
+
+                  <div className={styles.canvasWatermark}>
+                    <span>{selectedLogo.shape.toUpperCase()} GEOMETRY • {selectedLogo.industry.toUpperCase()}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Specifications & Identity Brief */}
+              <div className={styles.logoModalInfoCol}>
+                <div className={styles.modalIdentityHeader}>
+                  <div className={styles.modalMetaTagRow}>
+                    <span className={styles.modalCategoryBadge}>
+                      {selectedLogo.category}
+                    </span>
+                    <span className={styles.modalShapeBadge}>
+                      SHAPE: {selectedLogo.shape.toUpperCase()}
+                    </span>
+                  </div>
+                  <h2 className={styles.modalLogoTitle}>{selectedLogo.title}</h2>
+                  <p className={styles.modalClientName}>{selectedLogo.client}</p>
+                </div>
+
+                {/* Design Narrative */}
+                <div className={styles.modalSectionBox}>
+                  <span className={styles.modalSectionHeading}>[ DESIGN CONCEPT & GEOMETRY ]</span>
+                  <p className={styles.modalConceptText}>{selectedLogo.desc}</p>
+                </div>
+
+                {/* Deliverables Suite */}
+                <div className={styles.modalSectionBox}>
+                  <span className={styles.modalSectionHeading}>[ DELIVERABLES & ASSETS ]</span>
+                  <div className={styles.modalDeliverablesList}>
+                    {selectedLogo.deliverables?.map((deliv, i) => (
+                      <span key={i} className={styles.modalDeliverablePill}>
+                        • {deliv}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Spec Table */}
+                <div className={styles.modalSpecTable}>
+                  <div className={styles.modalSpecRow}>
+                    <span className={styles.modalSpecKey}>INDUSTRY</span>
+                    <span className={styles.modalSpecVal}>{selectedLogo.industry}</span>
+                  </div>
+                  <div className={styles.modalSpecRow}>
+                    <span className={styles.modalSpecKey}>YEAR</span>
+                    <span className={styles.modalSpecVal}>{selectedLogo.year}</span>
+                  </div>
+                  <div className={styles.modalSpecRow}>
+                    <span className={styles.modalSpecKey}>PALETTE</span>
+                    <div className={styles.modalPaletteSwatches}>
+                      {[
+                        selectedLogo.bgColor,
+                        selectedLogo.borderColor,
+                        selectedLogo.accentColor,
+                        selectedLogo.textColor
+                      ].filter(Boolean).map((hex, hIdx) => (
+                        <div key={hIdx} className={styles.modalSwatch} title={hex}>
+                          <span className={styles.swatchDot} style={{ background: hex }} />
+                          <span className={styles.swatchHex}>{hex}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Action */}
+                <div className={styles.modalFooterActions}>
+                  <a
+                    href={encodeURI(selectedLogo.image)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.modalDownloadBtn}
+                  >
+                    <span>OPEN ORIGINAL ASSET</span>
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
