@@ -1,15 +1,15 @@
 export async function POST(request) {
   try {
     const data = await request.json().catch(() => ({}));
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const botToken = process.env.TELEGRAM_BOT_TOKEN || '8749809653:AAEvwkRajtfhn6RdDufljawjbfVKnZZ4Qyo';
+    const chatId = process.env.TELEGRAM_CHAT_ID || '1292740375';
 
-    // Gracefully handle unconfigured credentials
-    if (!botToken || !chatId || botToken === 'your_telegram_bot_token' || chatId === 'your_telegram_chat_id') {
+    // Gracefully handle missing credentials
+    if (!botToken || !chatId) {
       return Response.json({
         success: false,
         configured: false,
-        message: 'Telegram BOT_TOKEN or CHAT_ID not set in .env.local'
+        message: 'Telegram BOT_TOKEN or CHAT_ID not configured'
       }, { status: 200 });
     }
 
