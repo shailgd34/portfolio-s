@@ -88,11 +88,16 @@ export default function ProjectCarousel() {
       
       <div className={styles.carouselContainer} ref={containerRef}>
         {projectsData.map((proj) => (
-          <Link href={proj.link} key={proj.id} className={styles.carouselCard} data-cursor-text="VIEW">
+          <Link
+            href={proj.slug ? `/projects/${proj.slug}` : (proj.link || '/projects')}
+            key={proj.id}
+            className={styles.carouselCard}
+            data-cursor-text="CASE STUDY"
+          >
             {proj.image && (
               <Image
                 src={encodeURI(proj.image)}
-                alt={proj.title || 'Project Preview'}
+                alt={proj.title || 'Project Case Study'}
                 fill
                 sizes="(max-width: 768px) 85vw, (max-width: 1200px) 65vw, 55vw"
                 className={styles.cardImage}

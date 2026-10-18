@@ -26,9 +26,10 @@ export default function About() {
             </div>
             <h2 className={styles.sectionTitle}>ABOUT ME</h2>
 
-            <p className={styles.bioText}>
-              Hi, I'm Sheelash — a Senior Product Designer & Frontend Developer with 6+ years of experience designing and building SaaS platforms, enterprise dashboards, fintech products, and high-performance web applications.
+            <p className={styles.bioText} style={{ marginBottom: '1.25rem' }}>
+              I am a Senior Product Designer with 6+ years of experience turning complex challenges into intuitive, high-impact digital products. My core focus is on B2B SaaS platforms, enterprise workflows, and fintech ecosystems where usability directly drives adoption and business outcomes.
             </p>
+
 
             {/* 3 Green Stats */}
             <div className={styles.statsGrid}>

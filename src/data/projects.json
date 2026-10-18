@@ -1,5 +1,39 @@
 [
   {
+    "id": "neuro-kaizen",
+    "name": "Neuro Kaizen",
+    "title": "Neuro Kaizen",
+    "category": "Fintech & SaaS",
+    "filterCategory": "FINTECH & SAAS",
+    "type": "B2B SaaS Dashboard & Assessment Engine",
+    "technology": ["Figma", "Design Systems", "React", "Next.js", "Data Visualization", "Hotjar"],
+    "link": "https://portal.neurokaizen.com/",
+    "figmaLink": "https://www.figma.com/proto/R1iGpN1hLDj7hpgVvo1xWb/neuro-kaizen?node-id=10-887",
+    "liveLink": "https://portal.neurokaizen.com/",
+    "image": "/portfolio/Neuro Kaizen/mainone.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead Product Designer",
+    "description": "AI-driven cognitive performance SaaS. Solved cognitive tracking fatigue by designing 6-domain radial telemetry, weekly habit check-ins, and a tokenized design system."
+  },
+  {
+    "id": "tuga-trades",
+    "name": "TugaTrades",
+    "title": "TugaTrades",
+    "category": "Fintech & SaaS",
+    "filterCategory": "FINTECH & SAAS",
+    "type": "Trading Platform & Analytics Dashboard",
+    "technology": ["Figma", "Data Architecture", "React", "Chart.js", "Design System"],
+    "link": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
+    "figmaLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
+    "liveLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
+    "image": "/tugatraders.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead Product Designer",
+    "description": "High-density multi-asset trading platform. Eliminated visual clutter and order latency for active traders through modular customizable charts and 1-click execution UX."
+  },
+  {
     "id": "7sens ",
     "name": "7Sens",
     "title": "7Sens",
@@ -18,18 +52,18 @@
   {
     "id": "fresh-art-club",
     "name": "fresh art club",
-    "title": "fresh art club",
-    "category": "Creative & WordPress",
-    "type": "WordPress & E-Commerce Portal",
-    "technology": ["WordPress", "WooCommerce", "CSS3", "Figma"],
+    "title": "Fresh Art Club",
+    "category": "React & Fullstack Web App",
+    "type": "React & Node.js Enterprise Platform (2+ Yrs Active)",
+    "technology": ["React", "Node.js", "Express", "Next.js", "MongoDB", "Figma", "Stripe API"],
     "link": "https://freshartclub.com/",
     "figmaLink": "https://www.figma.com/proto/wJ9rztO00EHFXWbOJrTDJE/Fresh-Art-Club-Design?node-id=2241-8905",
     "liveLink": "https://freshartclub.com/",
     "image": "/portfolio/fresh art club/mainone.png",
     "isFeatured": true,
     "featureTag": "top",
-    "role": "UX/UI Designer & WordPress Developer",
-    "description": "Vibrant artistic portal showcasing curated digital creations and exhibitions."
+    "role": "Lead Product Designer & Fullstack Engineer",
+    "description": "Massive 2+ year ongoing React & Node.js fine art digital ecosystem, connecting global artists, galleries, and collectors with custom auction & marketplace infrastructure."
   },
   {
     "id": "GMKC Logistics Website",
@@ -438,22 +472,6 @@
     "featureTag": "top",
     "role": "UX/UI Designer & WordPress Developer",
     "description": "Strategic business management and corporate financial advisory firm."
-  },
-  {
-    "id": "neuro-kaizen",
-    "name": "Neuro Kaizen",
-    "title": "Neuro Kaizen",
-    "category": "Web3 & AI",
-    "type": "SaaS Portal & Web App",
-    "technology": ["React", "Next.js", "Tailwind CSS", "Figma"],
-    "link": "https://portal.neurokaizen.com/",
-    "figmaLink": "https://www.figma.com/proto/R1iGpN1hLDj7hpgVvo1xWb/neuro-kaizen?node-id=10-887",
-    "liveLink": "https://portal.neurokaizen.com/",
-    "image": "/portfolio/Neuro Kaizen/mainone.png",
-    "isFeatured": true,
-    "featureTag": "top",
-    "role": "UX/UI Designer",
-    "description": "AI-powered cognitive productivity portal for high-performance optimization."
   },
   {
     "id": "nzl-app",

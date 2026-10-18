@@ -1,7 +1,9 @@
 import projectsJson from './projects.json';
+import { slugify } from './caseStudiesData';
 
 export const projectsData = projectsJson.map(p => ({
   id: p.id,
+  slug: slugify(p.slug || p.id || p.name || p.title),
   title: p.title || p.name,
   name: p.name || p.title,
   category: p.category,

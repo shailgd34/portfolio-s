@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers, Palette, Code2, Cpu, Sparkles } from 'lucide-react';
+import { Layers, Palette, Code2, Cpu, Sparkles, Compass } from 'lucide-react';
 import styles from './Skills.module.css';
 
 export default function Skills() {
@@ -11,12 +11,86 @@ export default function Skills() {
 
   const categories = [
     { id: 'all', label: 'ALL TOOLS', icon: <Layers size={14} /> },
+    { id: 'research', label: 'UX RESEARCH & USABILITY', icon: <Compass size={14} /> },
     { id: 'design', label: 'UI/UX DESIGN', icon: <Palette size={14} /> },
     { id: 'frontend', label: 'FRONTEND CODE', icon: <Code2 size={14} /> },
     { id: 'platforms', label: 'PLATFORMS & CMS', icon: <Cpu size={14} /> },
   ];
 
   const technologies = [
+    {
+      id: 'figjam',
+      name: 'FigJam',
+      category: 'research',
+      tag: 'JOURNEYS & FLOWS',
+      tenure: '4+ YRS',
+      status: 'CORE TOOL',
+      description: 'End-to-end user journey mapping, design sprint alignment, affinity diagram clustering, and service blueprints.',
+      highlights: ['Journey Maps', 'Affinity Diagrams', 'Sprints'],
+      brandGlow: 'rgba(162, 89, 255, 0.4)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="14" fill="#A259FF"/>
+          <circle cx="36" cy="50" r="14" fill="#0ACF83"/>
+          <circle cx="64" cy="50" r="14" fill="#1ABCFE"/>
+        </svg>
+      )
+    },
+    {
+      id: 'hotjar',
+      name: 'Hotjar',
+      category: 'research',
+      tag: 'BEHAVIORAL ANALYTICS',
+      tenure: '3+ YRS',
+      status: 'USER TESTING',
+      description: 'Click attention heatmaps, scroll-depth drop-off tracking, rage-click diagnostics, and live session recording audits.',
+      highlights: ['Click Heatmaps', 'Session Recordings', 'Drop-off Funnels'],
+      brandGlow: 'rgba(255, 60, 56, 0.4)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="14" fill="#1C1814"/>
+          <path d="M50 20 C65 35 75 55 70 70 C65 85 45 85 35 75 C25 65 35 45 50 20 Z" fill="#FF3C38"/>
+          <circle cx="50" cy="62" r="10" fill="#FFAA00"/>
+        </svg>
+      )
+    },
+    {
+      id: 'miro',
+      name: 'Miro',
+      category: 'research',
+      tag: 'INFO ARCHITECTURE',
+      tenure: '4+ YRS',
+      status: 'STRATEGY',
+      description: 'Open & closed card sorting, multi-tier sitemaps, stakeholder alignment workshops, and empathy mapping.',
+      highlights: ['Card Sorting', 'Sitemaps', 'Empathy Maps'],
+      brandGlow: 'rgba(255, 212, 0, 0.4)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="14" fill="#050038"/>
+          <polygon points="35,30 50,70 30,70" fill="#FFD02F"/>
+          <polygon points="50,30 65,70 45,70" fill="#FFD02F"/>
+          <polygon points="65,30 80,70 60,70" fill="#FFD02F"/>
+        </svg>
+      )
+    },
+    {
+      id: 'typeform-maze',
+      name: 'Typeform & Maze',
+      category: 'research',
+      tag: 'USABILITY TESTING',
+      tenure: '3+ YRS',
+      status: 'EVALUATION',
+      description: 'Unmoderated remote prototype testing, 5-second brand tests, quantitative surveys, and System Usability Scale (SUS) tracking.',
+      highlights: ['SUS Benchmarks', '5-Sec Tests', 'User Surveys'],
+      brandGlow: 'rgba(0, 207, 131, 0.4)',
+      logo: (
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" rx="14" fill="#262627"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#0ACF83" strokeWidth="8"/>
+          <circle cx="50" cy="50" r="12" fill="#0ACF83"/>
+        </svg>
+      )
+    },
     {
       id: 'figma',
       name: 'Figma',

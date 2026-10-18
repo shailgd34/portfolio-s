@@ -224,7 +224,7 @@ export default function Navbar({ activeSection = 'hero' }) {
               className={`${styles.navCell} ${activeSection === 'hero' && isHomePage ? styles.activeCell : ''}`}
               onClick={handleHomeClick}
             >
-              <span className={styles.cellNum}>01</span>
+              {/* <span className={styles.cellNum}>01</span> */}
               <span>HOME</span>
             </Link>
 
@@ -233,7 +233,7 @@ export default function Navbar({ activeSection = 'hero' }) {
               className={`${styles.navCell} ${activeSection === 'what-i-can-do' ? styles.activeCell : ''}`}
               onClick={(e) => handleNavClick(e, 'what-i-can-do')}
             >
-              <span className={styles.cellNum}>02</span>
+              {/* <span className={styles.cellNum}>02</span> */}
               <span>WHAT I DO</span>
             </Link>
 
@@ -253,7 +253,7 @@ export default function Navbar({ activeSection = 'hero' }) {
                 className={styles.cellLink}
                 onClick={(e) => handleNavClick(e, 'projects')}
               >
-                <span className={styles.cellNum}>03</span>
+                {/* <span className={styles.cellNum}>03</span> */}
                 <span>WORK (50+)</span>
                 <ChevronDown size={13} className={`${styles.navChevron} ${isMegaMenuOpen ? styles.navChevronActive : ''}`} />
               </Link>
@@ -264,7 +264,7 @@ export default function Navbar({ activeSection = 'hero' }) {
               className={`${styles.navCell} ${activeSection === 'experience' ? styles.activeCell : ''}`}
               onClick={(e) => handleNavClick(e, 'experience')}
             >
-              <span className={styles.cellNum}>04</span>
+              {/* <span className={styles.cellNum}>04</span> */}
               <span>EXPERIENCE</span>
             </Link>
 

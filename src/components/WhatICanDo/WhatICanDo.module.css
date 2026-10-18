@@ -212,44 +212,30 @@
   flex-shrink: 0;
 }
 
-/* Small On-Hover Tilted Floating Real Image Thumbnail */
-.hoverFloatingThumbnail {
-  position: absolute;
-  left: 42%;
-  top: -15px;
-  width: 280px;
-  height: 170px;
-  border-radius: 0 !important;
-  overflow: hidden;
-  z-index: 50;
-  pointer-events: none;
-  box-shadow: none !important;
-  border: 1.5px solid #181512;
-  background: #EAE1D3;
-  transform: rotate(-5deg);
-  animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.serviceTagDocket {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: #181512;
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  border: 1px solid #181512;
 }
 
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: rotate(-5deg) scale(0.9) translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: rotate(-5deg) scale(1) translateY(0);
-  }
+.serviceTagLabel {
+  color: #FF6B35;
 }
 
-.thumbnailImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.serviceTagText {
+  color: #F4ECE1;
 }
 
-/* Right Column: Destination Landing Area */
+/* Right Column: Destination Landing Area for the Scroll-Flipping Hero Card */
 .rightColTargetArea {
   width: 100%;
   min-height: 480px;
@@ -288,10 +274,6 @@
   .sectionGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .hoverFloatingThumbnail {
-    display: none;
   }
 
   .rightColTargetArea {

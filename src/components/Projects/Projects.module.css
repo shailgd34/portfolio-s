@@ -239,32 +239,1604 @@
 }
 
 /* =========================================================
-   PRIMARY 2-COLUMN EDITORIAL PROJECTS GRID
-   Strictly 2 Columns on Desktop with Uncle Joe High-Impact Presence
+   NEWSPAPER BROADSHEET CONTAINER
+   Framed vintage newsprint paper sheet with crisp ink borders
+   and registration corner marks (+).
    ========================================================= */
-.editorialGrid,
-.projectsGrid,
-.projectGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 4rem 3rem;
-  margin-bottom: 5.5rem;
-  width: 100%;
+.newspaperBroadsheet {
+  background: #FAF5EB;
+  background-image: radial-gradient(rgba(24, 21, 18, 0.05) 0.8px, transparent 0.8px);
+  background-size: 7px 7px;
+  border: 2px solid #181512;
+  box-shadow: 6px 6px 0px #181512;
+  padding: 2.25rem 2rem 2.5rem 2rem;
   position: relative;
-  z-index: 1;
+  margin-bottom: 2.5rem;
 }
 
-@media (max-width: 900px) {
-  .editorialGrid,
-  .projectsGrid,
-  .projectGrid {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem;
+@media (max-width: 768px) {
+  .newspaperBroadsheet {
+    padding: 1.25rem 0.95rem;
+    box-shadow: 4px 4px 0px #181512;
+  }
+}
+
+/* Corner Registration Crosshairs */
+.cornerCross {
+  position: absolute;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #181512;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cornerTL {
+  top: 6px;
+  left: 9px;
+}
+
+.cornerTR {
+  top: 6px;
+  right: 9px;
+}
+
+.cornerBL {
+  bottom: 6px;
+  left: 9px;
+}
+
+.cornerBR {
+  bottom: 6px;
+  right: 9px;
+}
+
+/* =========================================================
+   NEWSPAPER / EDITORIAL RUNNING HEADER BAR
+   ========================================================= */
+.newspaperRunningHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.25rem 0.25rem 0.75rem 0.25rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #181512;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.runningHeaderLeft {
+  color: #181512;
+}
+
+.runningHeaderCenter {
+  color: #7C7267;
+}
+
+.runningHeaderRight {
+  color: #FF6B35;
+}
+
+.newspaperRuleDouble {
+  border-top: 3.5px double #181512;
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   TOP EDITORIAL SECTION: 2-COLUMN GRID (LEFT TEXT + RIGHT PROJECT)
+   ========================================================= */
+.editorialTopGrid {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-bottom: 2.25rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .editorialTopGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.selectedWorkCol {
+  background: #FAF4E8;
+  background-image: radial-gradient(rgba(24, 21, 18, 0.05) 0.8px, transparent 0.8px);
+  background-size: 7px 7px;
+  border: 2px solid #181512;
+  box-shadow: 4px 4px 0px #181512;
+  padding: 1.75rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.35rem;
+  height: 100%;
+}
+
+.selectedWorkTitleGroup {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.selectedWorkDisplayTitle {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: clamp(1.9rem, 2.3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #181512;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+.selectedWorkOrangeSlash {
+  width: 90px;
+  height: 7px;
+  background: #FF6B35;
+  border: 1px solid #181512;
+  box-shadow: 2px 2px 0px #181512;
+  transform: rotate(-1.5deg);
+  margin-top: 8px;
+}
+
+.selectedWorkManifesto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-top: 1.5px dashed rgba(24, 21, 18, 0.25);
+  border-bottom: 1.5px dashed rgba(24, 21, 18, 0.25);
+  padding: 1rem 0;
+}
+
+.selectedWorkSubhead {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: #181512;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.selectedWorkParagraph {
+  font-family: var(--font-body), 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #4A433C;
+  margin: 0;
+}
+
+.selectedWorkStampBox {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.wireframeGlobeStamp {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.wireframeSphereSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.rubberStampImpact {
+  border: 1.5px solid #FF6B35;
+  background: rgba(255, 107, 53, 0.12);
+  padding: 0.35rem 0.55rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: #FF6B35;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+.selectedWorkAllProjectsBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #181512 !important;
+  color: #FAF4E8 !important;
+  border: 2px solid #181512 !important;
+  box-shadow: 4px 4px 0px #FF6B35 !important;
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.selectedWorkAllProjectsBtn:hover {
+  background: #FF6B35 !important;
+  color: #181512 !important;
+  border-color: #181512 !important;
+  box-shadow: 6px 6px 0px #181512 !important;
+  transform: translate(-2px, -2px);
+}
+
+.selectedWorkAllProjectsBtn:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0px #181512 !important;
+}
+
+/* =========================================================
+   RIGHT SIDE FEATURED HERO COLUMN (1 PROJECT OF CURRENT BATCH)
+   ========================================================= */
+.featuredHeroCol {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.featuredHeroCard {
+  background: #141311;
+  border: 2px solid #181512;
+  box-shadow: 5px 5px 0px #181512;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.featuredHeroCard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #181512;
+}
+
+.featuredHeroHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #201E1A;
+  border-bottom: 2px solid #181512;
+  padding: 0.7rem 1.4rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 6;
+}
+
+.heroDocketPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heroDocketNumber {
+  color: #FF6B35;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.heroDocketLabel {
+  color: #F4ECE1;
+  font-size: 0.68rem;
+}
+
+.heroCarouselControls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.heroNavBtn {
+  background: #141311;
+  border: 1px solid #FF6B35;
+  color: #FF6B35;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.heroNavBtn:hover {
+  background: #FF6B35;
+  color: #141311;
+}
+
+.heroPagingCounter {
+  color: #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.heroCategoryTag {
+  color: #C4BBB0;
+  font-size: 0.68rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* 10-second subtle timer bar at bottom of docket */
+.heroTimerTrack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: rgba(255, 107, 53, 0.25);
+  overflow: hidden;
+}
+
+.heroTimerBar {
+  height: 100%;
+  width: 0%;
+  background: #FF6B35;
+  animation: heroTimerAnimation 10s linear infinite;
+}
+
+.heroTimerPaused {
+  animation-play-state: paused;
+}
+
+@keyframes heroTimerAnimation {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* FULL-BLEED IMAGE FRAME WITH BOTTOM OVERLAY */
+.heroFullBleedFrame {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 480px;
+  background: #100E0C;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .heroFullBleedFrame {
+    min-height: 380px;
+  }
+}
+
+.heroImgBackdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroFullImg {
+  object-fit: cover;
+  object-position: center 25%;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featuredHeroCard:hover .heroFullImg {
+  transform: scale(1.025);
+}
+
+.heroImgFading {
+  opacity: 0.15;
+  transform: scale(0.985);
+}
+
+/* Taped Quote Note Pinned at Top-Left */
+.tapedPaperScrapQuote {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #FFFDF9;
+  border: 1.5px solid #181512;
+  box-shadow: 3px 3px 0px #181512;
+  padding: 0.45rem 0.85rem;
+  transform: rotate(-2.5deg);
+  z-index: 5;
+  max-width: 240px;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.paperTapeTop {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 12px;
+  background: rgba(226, 203, 160, 0.85);
+  border: 1px dashed rgba(24, 21, 18, 0.3);
+}
+
+.quoteText {
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  color: #181512;
+  margin: 0;
+  font-weight: 900;
+}
+
+/* Corner Etching */
+.heroEtchingDeco {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.etchingSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   TEXT ON OVERLAY ON IMAGE BOTTOM SIDE
+   Strictly at bottom with zero obstruction of center mockup
+   No description text as requested by user
+   ========================================================= */
+.heroBottomOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(16, 14, 12, 0.6) 20%,
+      rgba(18, 16, 13, 0.92) 55%,
+      rgba(20, 18, 15, 0.98) 100%);
+  padding: 3.5rem 2rem 1.6rem 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  z-index: 5;
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+@media (max-width: 860px) {
+  .heroBottomOverlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2.5rem 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+.heroOverlayFading {
+  opacity: 0.15;
+  transform: translateY(4px);
+}
+
+.heroOverlayLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.heroProjectName {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #FF6B35 !important;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.05;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.heroRoleLabel {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #EFE7DC;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.heroTechRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+.heroOverlayRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .heroOverlayRight {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+.heroLivePlate {
+  background: #181512;
+  color: #FF6B35;
+  border: 1.5px solid #FF6B35;
+  box-shadow: 3.5px 3.5px 0px #FF6B35;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.heroActionBtnsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .heroActionBtnsRow {
+    width: 100%;
   }
 }
 
 /* =========================================================
-   RETRO BRUTALIST PROJECT DOSSIER CARD
+   BOTTOM ROW: 3 EDITORIAL PROJECT CARDS (02, 03, 04)
+   Formatted to match User's Image 2 specification
+   ========================================================= */
+.editorialBottomCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 990px) {
+  .editorialBottomCardsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.editorialBottomCard {
+  background: #FAF4E8;
+  background-image: radial-gradient(rgba(24, 21, 18, 0.05) 0.8px, transparent 0.8px);
+  background-size: 7px 7px;
+  border: 2px solid #181512;
+  box-shadow: 4px 4px 0px #181512;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.editorialBottomCard:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #181512;
+}
+
+.cardHeaderDocket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #201E1A;
+  color: #F4ECE1;
+  padding: 0.55rem 0.95rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1.5px solid #181512;
+}
+
+.docketNumberPill {
+  color: #FF6B35;
+}
+
+.docketCategoryPill {
+  color: #C4BBB0;
+}
+
+.bottomCardCollagedFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #EFE6D8;
+  border-bottom: 2px solid #181512;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+}
+
+.bottomCardLaptopWrap {
+  position: relative;
+  width: 92%;
+  height: 92%;
+  background: #000000;
+  border: 1.5px solid #181512;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.bottomCardImg {
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+  height: 100%;
+}
+
+.tapedCardQuote {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  background: #FFFDF9;
+  border: 1.2px solid #181512;
+  box-shadow: 2px 2px 0px #181512;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-syne), 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: #181512;
+  transform: rotate(-3deg);
+  z-index: 4;
+  max-width: 135px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.tapedCardTape {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 10px;
+  background: rgba(226, 203, 160, 0.85);
+  border: 1px dashed rgba(24, 21, 18, 0.3);
+}
+
+.buildingEtchingDeco,
+.statueEtchingDeco,
+.pawPrintsDeco,
+.starDoodleDeco {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.miniEtchingSvg {
+  width: 55px;
+  height: 55px;
+}
+
+/* =========================================================
+   BOTTOM CARD DETAILS - USER'S IMAGE 2 SPECIFICATION
+   ========================================================= */
+.bottomCardDetails {
+  padding: 1.45rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex: 1;
+  background: #FAF4E8;
+}
+
+/* Title in Vibrant Orange */
+.bottomCardTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #FF6B35 !important;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* Monospace / Typewriter Description - strictly 2 lines */
+.bottomCardDesc {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #4A433C;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.45em * 2);
+  height: calc(1.45em * 2);
+  max-height: calc(1.45em * 2);
+}
+
+/* Role Label */
+.bottomCardRole {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #7C7267;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+/* Tech Badges Row */
+.bottomCardTechRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin: 0.15rem 0 0.5rem 0;
+}
+
+/* Action Container with Floating Plate Badge */
+.bottomCardActionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.bottomCardPlateWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bottomCardLivePlate {
+  background: #181512;
+  color: #FF6B35;
+  border: 1.5px solid #FF6B35;
+  box-shadow: 3.5px 3.5px 0px #FF6B35;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.28rem 0.65rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+/* Dual Action Buttons Row */
+.bottomCardActionsRow {
+  display: flex;
+  align-items: stretch;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.primaryActionBtn {
+  background: #FF6B35 !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #181512 !important;
+  box-shadow: 3.5px 3.5px 0px #181512 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.65rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex: 1;
+  transition: all 0.16s ease;
+  white-space: nowrap;
+}
+
+.primaryActionBtn:hover {
+  background: #E85520 !important;
+  color: #FFFFFF !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #181512 !important;
+}
+
+.secondaryActionBtn {
+  background: #EDE5D8 !important;
+  color: #181512 !important;
+  border: 1.5px solid #181512 !important;
+  box-shadow: 3.5px 3.5px 0px #181512 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.65rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 0.16s ease;
+  white-space: nowrap;
+}
+
+.secondaryActionBtn:hover {
+  background: #FF6B35 !important;
+  color: #FFFFFF !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #181512 !important;
+}
+
+/* =========================================================
+   LOOKING FOR MORE CASE STUDIES? BANNER BAR
+   ========================================================= */
+.bottomArchiveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2.75rem;
+  padding: 1.35rem 1.85rem;
+  background: #181512;
+  color: #F4ECE1;
+  border: 2px solid #181512;
+  box-shadow: 5px 5px 0px #FF6B35;
+}
+
+@media (max-width: 768px) {
+  .bottomArchiveBar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+}
+
+.archiveTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.archivePrompt {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FF6B35;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.archiveCount {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.82rem;
+  color: #D6C8B8;
+  line-height: 1.45;
+}
+
+.bottomArchiveCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  background: #FF6B35;
+  color: #181512 !important;
+  border: 1.5px solid #181512;
+  box-shadow: 3px 3px 0px #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.bottomArchiveCta:hover {
+  background: #F4ECE1;
+  color: #181512 !important;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #FF6B35;
+}
+
+.subListActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #181512;
+  color: #F4ECE1 !important;
+  border: 1.5px solid #181512;
+  box-shadow: 2.5px 2.5px 0px #181512;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.subListActionBtn:hover {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4px 4px 0px #181512 !important;
+}
+
+.subListActionBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
+.subListActionIcon {
+  transition: transform 0.2s ease;
+}
+
+.subListActionBtn:hover .subListActionIcon {
+  transform: translateX(2px);
+}
+
+
+
+/* =========================================================
+   VINTAGE RISOGRAPH PROJECT IMAGE TREATMENT (PROJECT IMAGES ONLY)
+   Strictly applied to project cards, preserving hero clarity
+   ========================================================= */
+.vintageImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.vintageCardImg {
+  object-fit: cover;
+  filter: sepia(0.14) contrast(1.08) brightness(0.96) saturate(0.88);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.leadProjectCard:hover .vintageCardImg,
+.subProjectListItem:hover .vintageCardImg,
+.subProjectCard:hover .vintageCardImg,
+.carouselCard:hover .vintageCardImg,
+.vintageImgWrapper:hover .vintageCardImg {
+  transform: scale(1.05);
+  filter: sepia(0) contrast(1.02) brightness(1) saturate(1.04);
+}
+
+/* Halftone Micro-Dot Pattern Overlay */
+.halftoneOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(24, 21, 18, 0.68) 0.85px, transparent 0.85px);
+  background-size: 3.5px 3.5px;
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.35s ease;
+}
+
+.leadProjectCard:hover .halftoneOverlay,
+.subProjectListItem:hover .halftoneOverlay,
+.subProjectCard:hover .halftoneOverlay,
+.carouselCard:hover .halftoneOverlay,
+.vintageImgWrapper:hover .halftoneOverlay {
+  opacity: 0.05;
+}
+
+/* Aged Parchment Wash Layer */
+.parchmentWash {
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 236, 225, 0.26);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.35s ease;
+}
+
+.leadProjectCard:hover .parchmentWash,
+.subProjectListItem:hover .parchmentWash,
+.subProjectCard:hover .parchmentWash,
+.carouselCard:hover .parchmentWash,
+.vintageImgWrapper:hover .parchmentWash {
+  opacity: 0.06;
+}
+
+/* Subtle 35mm Film Grain Texture */
+.filmGrainOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/noise.gif');
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Registration Corner Brackets */
+.photoBracket {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-color: #FF6B35;
+  border-style: solid;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.bracketTL {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.bracketTR {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.bracketBL {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.bracketBR {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Technical Plate Docket */
+.plateDocket {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #181512;
+  background: rgba(244, 236, 225, 0.94);
+  border: 1px solid #181512;
+  padding: 2px 6px;
+  z-index: 4;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   EDITORIAL BANNER STRIP (Like Reference Image News Banner)
+   ========================================================= */
+.editorialBannerStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem 2rem;
+  background: #181512;
+  border: 2px solid #181512;
+  box-shadow: 6px 6px 0px #FF6B35;
+  color: #F4ECE1;
+  margin: 3.5rem 0 4.5rem 0;
+  flex-wrap: wrap;
+}
+
+.bannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.bannerBadge {
+  background: #FF6B35;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.bannerText {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #F4ECE1;
+  letter-spacing: 0.04em;
+}
+
+.bannerCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  background: #F4ECE1;
+  color: #181512;
+  border: 1.5px solid #F4ECE1;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bannerCtaBtn:hover {
+  background: #FF6B35;
+  color: #181512;
+  border-color: #FF6B35;
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px #FFFFFF;
+}
+
+/* =========================================================
+   TOP PROJECTS CAROUSEL SECTION: 3 IN A ROW & AUTO SCROLL 1 AT A TIME
+   ========================================================= */
+.carouselSection {
+  margin-top: 1rem;
+  margin-bottom: 4.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.carouselHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+  margin-bottom: 2.25rem;
+  width: 100%;
+}
+
+.carouselTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-width: 680px;
+  flex: 1;
+}
+
+.carouselKicker {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FF6B35;
+  text-transform: uppercase;
+}
+
+.carouselHeading {
+  font-family: var(--font-heading), 'Azeret Mono', monospace;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #181512;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.carouselSubtitle {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.92rem;
+  color: #5A524A;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Carousel Tactile Controls: Pinned to Top-Right */
+.carouselControls {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 860px) {
+  .carouselHeaderRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .carouselTitleGroup {
+    max-width: 100%;
+  }
+
+  .carouselControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.carouselCounter {
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #181512;
+  background: #EAE1D3;
+  border: 2px solid #181512;
+  padding: 0.6rem 1.05rem;
+  box-shadow: 3.5px 3.5px 0px #181512;
+  letter-spacing: 0.08em;
+}
+
+.carouselNavBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #F4ECE1;
+  border: 2px solid #181512;
+  color: #181512;
+  font-family: var(--font-mono), 'Azeret Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 3.5px 3.5px 0px #181512;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carouselNavBtn:hover:not(:disabled) {
+  background: #FF6B35;
+  color: #FFFFFF;
+  border-color: #181512;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #181512;
+}
+
+.carouselNavBtn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512;
+}
+
+.carouselNavBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Carousel Track & Cards: Strictly 3 In A Row on Desktop */
+.carouselTrackWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0.35rem 0.35rem 0.85rem 0.35rem;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  transform: translateX(calc(-1 * var(--active-index, 0) * ((100% + 1.5rem) / 3)));
+}
+
+@media (max-width: 1024px) {
+  .carouselTrack {
+    transform: translateX(calc(-1 * var(--active-index, 0) * ((100% + 1.5rem) / 2)));
+  }
+}
+
+@media (max-width: 640px) {
+  .carouselTrack {
+    gap: 1rem;
+    transform: translateX(calc(-1 * var(--active-index, 0) * (100% + 1rem)));
+  }
+}
+
+.carouselCard {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  max-width: calc((100% - 3rem) / 3);
+  box-sizing: border-box;
+  background: #EAE1D3;
+  border: 2px solid #181512;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0px #181512 !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 1024px) {
+  .carouselCard {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+    max-width: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .carouselCard {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.carouselCard:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #181512 !important;
+}
+
+.carouselImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #EFE6D8;
+  overflow: hidden;
+  border-bottom: 2px solid #181512;
+  cursor: pointer;
+}
+
+.carouselImageWrapper .vintageCardImg {
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselCardDetails {
+  padding: 1.25rem 1.45rem 1.45rem 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+  background: #F4ECE1;
+}
+
+.carouselCardTitle {
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+  color: #181512 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.carouselCard:hover .carouselCardTitle {
+  color: #FF6B35 !important;
+}
+
+.carouselCardDesc {
+  font-family: var(--font-body), 'Azeret Mono', monospace;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #5A524A;
+  margin: 0;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.5em;
+}
+
+/* Meta Row: Role Tag & Tech Badges */
+.carouselMetaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.carouselRoleTag {
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #7C7267;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.carouselTechGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Dedicated Action Row: Tactile Button */
+.carouselActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-top: 0.95rem;
+  border-top: 1.5px solid rgba(24, 21, 18, 0.14);
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.carouselActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.05rem;
+  background: #FF6B35 !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border: 1.5px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0px #181512 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.carouselActionBtn:hover {
+  background: #181512 !important;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 5px 5px 0px #181512 !important;
+}
+
+.carouselActionBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
+.carouselActionIcon {
+  transition: transform 0.2s ease;
+}
+
+.carouselActionBtn:hover .carouselActionIcon {
+  transform: translateX(3px);
+}
+
+.carouselSecondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.85rem;
+  background: #EAE1D3 !important;
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  border: 1.5px solid #181512 !important;
+  border-radius: 0 !important;
+  box-shadow: 2.5px 2.5px 0px #181512 !important;
+  font-family: var(--font-mono), 'Azeret Mono', monospace !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.carouselSecondaryBtn:hover {
+  background: #F4ECE1 !important;
+  border-color: #181512 !important;
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: 4px 4px 0px #181512 !important;
+}
+
+.carouselDotsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.carouselDot {
+  width: 24px;
+  height: 4px;
+  background: #181512;
+  opacity: 0.25;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.carouselDotActive {
+  background: #FF6B35;
+  opacity: 1;
+  width: 44px;
+}
+
+/* =========================================================
+   RETRO BRUTALIST PROJECT DOSSIER CARD (LEGACY & MODAL COMPAT)
    ========================================================= */
 .editorialCard,
 .projectCard {
@@ -275,8 +1847,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease;
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease;
   box-shadow: 4px 4px 0px #181512 !important;
   position: relative;
   width: 100%;
@@ -341,8 +1913,8 @@
   object-fit: cover;
   filter: contrast(105%) saturate(88%) brightness(96%) sepia(10%);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.3s ease;
+    filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
 }
 
 .projectCard:hover .cardImg,
@@ -355,19 +1927,15 @@
 .filmOverlay {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(
-      180deg,
+  background:
+    linear-gradient(180deg,
       rgba(244, 236, 225, 0.14) 0%,
-      rgba(24, 21, 18, 0.08) 100%
-    ),
-    repeating-linear-gradient(
-      0deg,
+      rgba(24, 21, 18, 0.08) 100%),
+    repeating-linear-gradient(0deg,
       rgba(24, 21, 18, 0.05) 0px,
       rgba(24, 21, 18, 0.05) 1px,
       transparent 1px,
-      transparent 3px
-    );
+      transparent 3px);
   pointer-events: none;
   opacity: 0.55;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -742,6 +2310,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -767,6 +2336,7 @@
     opacity: 0;
     transform: translateY(22px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);

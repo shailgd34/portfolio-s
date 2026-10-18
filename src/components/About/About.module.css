@@ -113,11 +113,10 @@
 
 .bioText {
   font-family: var(--font-body), 'Manrope', sans-serif;
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-size: clamp(1rem, 1.25vw, 1.05rem);
   line-height: 1.65;
   color: #4A433C;
-  max-width: 520px;
-  margin-bottom: 2.5rem;
+  
 }
 
 /* Stats Row - Uncle Joe Bordered Box Grid */

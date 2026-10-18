@@ -58,12 +58,18 @@ export default function Cursor() {
 
     // Target tracking for Preview Lens
     const handleTargetOver = (e) => {
+      // If hovering over text content, description, or detail fields, don't obstruct reading with the badge
+      if (e.target.closest('p, h1, h2, h3, h4, [class*="Details"], [class*="Desc"], [class*="bottomCardDesc"], [class*="bottomCardRole"], [class*="bottomCardTitle"]')) {
+        setLensState((prev) => (prev.visible ? { ...prev, visible: false } : prev));
+        return;
+      }
+
       const target = e.target.closest(
         'article, [class*="projectCard"], [class*="imageWrapper"], [class*="deployCard"], [class*="modalImageContainer"]'
       );
 
       if (target) {
-        let label = '[ 👁️ VIEW PROJECT ↗ ]';
+        let label = '[ 📖 EXPLORE CASE STUDY ↗ ]';
         if (target.textContent.includes('FIGMA') || target.querySelector('[class*="figma"]')) {
           label = '[ FIGMA PROTOTYPE ↗ ]';
         } else if (target.textContent.includes('LIVE') || target.querySelector('[class*="liveTag"]')) {

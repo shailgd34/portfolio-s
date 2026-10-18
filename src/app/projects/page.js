@@ -18,7 +18,12 @@ import {
   Layers,
   Palette,
   Eye,
-  ArrowUpRight
+  ArrowUpRight,
+  ArrowRight,
+  LayoutGrid,
+  List,
+  Terminal,
+  CheckCircle2
 } from 'lucide-react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -27,6 +32,7 @@ import ScrollTextEffect from '@/components/ScrollTextEffect/ScrollTextEffect';
 import styles from './projects.module.css';
 import { projectsData } from '@/data/projectsData';
 import { logosData } from '@/data/logosData';
+import { slugify } from '@/data/caseStudiesData';
 import TechBadge, { TechMoreBadge, getTechInfo } from '@/components/TechBadge/TechBadge';
 
 // 16 Extra Projects from public/extra project/
@@ -362,7 +368,7 @@ function ProjectPlaceholder({ project }) {
   );
 }
 
-function ProjectCardImage({ project, className, sizes }) {
+function ProjectCardImage({ project, className, sizes, plateNum = '01' }) {
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -370,26 +376,47 @@ function ProjectCardImage({ project, className, sizes }) {
     return <ProjectPlaceholder project={project} />;
   }
 
+  const pType = getProjectType(project);
+  const isMobileApp = pType === 'mobile';
+
   return (
-    <Image
-      src={encodeURI(project.image)}
-      alt={project.title || project.name || 'Project'}
-      fill
-      sizes={sizes || "(max-width: 900px) 100vw, 50vw"}
-      className={`${className || styles.cardImg} ${isLoaded ? styles.imgLoaded : styles.imgLoading}`}
-      onLoad={() => setIsLoaded(true)}
-      onError={() => setHasError(true)}
-    />
+    <div className={styles.vintageImgWrapper}>
+      <Image
+        src={encodeURI(project.image)}
+        alt={project.title || project.name || 'Project'}
+        fill
+        sizes={sizes || "(max-width: 900px) 100vw, 50vw"}
+        className={`${className || (isMobileApp ? styles.vintageCardImgContain : styles.vintageCardImg)} ${isLoaded ? styles.imgLoaded : styles.imgLoading}`}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
+      />
+
+      {/* Halftone Micro-Dot Pattern Overlay */}
+      <div className={styles.halftoneOverlay} aria-hidden="true" />
+
+      {/* Aged Parchment Wash Layer */}
+      <div className={styles.parchmentWash} aria-hidden="true" />
+
+      {/* Film Grain Texture */}
+      <div className={styles.filmGrainOverlay} aria-hidden="true" />
+
+      {/* Registration Corner Brackets */}
+      <span className={`${styles.photoBracket} ${styles.bracketTL}`} aria-hidden="true" />
+      <span className={`${styles.photoBracket} ${styles.bracketTR}`} aria-hidden="true" />
+      <span className={`${styles.photoBracket} ${styles.bracketBL}`} aria-hidden="true" />
+      <span className={`${styles.photoBracket} ${styles.bracketBR}`} aria-hidden="true" />
+
+      {/* Technical Plate Docket */}
+      <span className={styles.plateDocket}>PLATE {plateNum} // 1280×800</span>
+    </div>
   );
 }
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [gridCols, setGridCols] = useState(3);
   const [theme, setTheme] = useState('dark');
-
-  // Interactive Dossier Modal state
-  const [selectedProject, setSelectedProject] = useState(null);
 
   // Logo Showcase & Carousel state
   const [logoCategoryFilter, setLogoCategoryFilter] = useState('all');
@@ -410,7 +437,6 @@ export default function ProjectsPage() {
 
   // Slider state for extra projects
   const [activeSlide, setActiveSlide] = useState(0);
-  const [lightboxImg, setLightboxImg] = useState(null);
   const sliderTrackRef = useRef(null);
 
   // Sync theme
@@ -438,8 +464,6 @@ export default function ProjectsPage() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        setSelectedProject(null);
-        setLightboxImg(null);
         setSelectedLogo(null);
       }
       if (selectedLogo) {
@@ -599,8 +623,27 @@ export default function ProjectsPage() {
 
           {/* Search & Filter Toolbar */}
           <div className={styles.toolbar}>
-
-
+            {/* Real-time Search Box */}
+            <div className={styles.searchBox}>
+              <Search size={18} className={styles.searchIcon} />
+              <input
+                type="text"
+                placeholder="SEARCH 50+ CASE STUDIES BY TECH, KEYWORD, OR DOMAIN..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={styles.searchInput}
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className={styles.clearSearchBtn}
+                  aria-label="Clear search query"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
 
             {/* Category Filter Pills */}
             <div className={styles.filterPills}>
@@ -620,199 +663,244 @@ export default function ProjectsPage() {
                 </button>
               ))}
             </div>
-
           </div>
 
-          {/* Projects Results Count Bar */}
+          {/* Projects Results Count Bar with View Mode Toggle */}
           <div className={styles.resultsBar}>
-            <span>SHOWING <strong>{filteredProjects.length}</strong> ACTIVE CASE STUDIES</span>
-            <span>GRID MODE: 2 IN A ROW // EDITORIAL VIEW</span>
-          </div>
+            <div className={styles.resultsInfo}>
+              <span className={styles.resultsTag}>[ 04 / ACTIVE ARCHIVES ]</span>
+              <span>SHOWING <strong>{filteredProjects.length}</strong> ACTIVE CASE STUDIES</span>
+            </div>
 
-          {/* Primary 2-Column Projects Grid */}
-          <div className={styles.projectsGrid}>
-            {filteredProjects.map((project, idx) => {
-              const rawTechs = Array.isArray(project.technology)
-                ? project.technology
-                : (typeof project.tools === 'string' ? project.tools.split(',').map(s => s.trim()) : ['Figma', 'UI/UX']);
-              const techs = Array.from(new Set(rawTechs.map(t => typeof t === 'string' ? t.trim() : t).filter(Boolean)));
-
-              const figmaUrl = (project.figmaLink && project.figmaLink.trim() !== '')
-                ? project.figmaLink
-                : ((project.link && project.link.includes('figma.com'))
-                  ? project.link
-                  : ((project.liveLink && project.liveLink.includes('figma.com')) ? project.liveLink : null));
-
-              const liveWebUrl = (project.liveLink && !project.liveLink.includes('figma.com') && project.liveLink.startsWith('http'))
-                ? project.liveLink
-                : ((project.link && !project.link.includes('figma.com') && project.link.startsWith('http')) ? project.link : null);
-
-              const hasFigma = Boolean(figmaUrl);
-
-              return (
-                <article key={project.id || idx} className={styles.projectCard}>
-
-                  {/* Card Header Docket Bar */}
-                  <div className={styles.cardHeaderBar}>
-                    <span className={styles.cardIndexNumber}>
-                      [ {idx < 9 ? `0${idx + 1}` : idx + 1} / {filteredProjects.length < 10 ? `0${filteredProjects.length}` : filteredProjects.length} ]
-                    </span>
-                    <span className={styles.cardCategoryPill}>
-                      {project.category || 'Digital Product'}
-                    </span>
-                    <span className={styles.cardStatusBadge}>
-                      {project.isFeatured ? '★ FEATURED' : 'ARCHIVE'}
-                    </span>
-                  </div>
-
-                  {/* Cinematic Visual Frame (16:10 Ratio) */}
-                  <div
-                    className={styles.imageWrapper}
-                    onClick={() => setSelectedProject(project)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Preview details for ${project.title || project.name}`}
-                  >
-                    <ProjectCardImage project={project} />
-
-                    {/* Vintage Scanline Film Overlay */}
-                    <div className={styles.filmOverlay} />
-
-                    {/* Top Right Launch Tag */}
-                    {hasFigma ? (
-                      <span className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}>
-                        <svg width="10" height="15" viewBox="0 0 38 57" fill="none" className={styles.figmaBtnIcon}>
-                          <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE" />
-                          <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83" />
-                          <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#FF7262" />
-                          <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#F24E1E" />
-                          <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#A259FF" />
-                        </svg>
-                        <span>FIGMA PROTOTYPE ↗</span>
-                      </span>
-                    ) : liveWebUrl ? (
-                      <span className={styles.imageLaunchBtn}>
-                        <span>LIVE PRODUCT ↗</span>
-                      </span>
-                    ) : null}
-
-                    {/* Center Hover Action: Quick Preview Prompt */}
-                    <div className={styles.centerHoverAction}>
-                      <span className={styles.quickPreviewHoverBtn}>
-                        <Maximize2 size={14} />
-                        <span>PREVIEW DOSSIER 👁️</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card Details Docket */}
-                  <div className={styles.cardDetails}>
-                    <div className={styles.titleRow}>
-                      <h2
-                        className={styles.projectCardTitle}
-                        onClick={() => setSelectedProject(project)}
-                      >
-                        {project.title || project.name}
-                      </h2>
-                      <span className={styles.roleTag}>
-                        {project.role || 'Product Designer'}
-                      </span>
-                    </div>
-
-                    <p className={styles.projectDescription}>
-                      {project.description || project.desc || 'High-impact design execution with responsive architecture and user-tested workflows.'}
-                    </p>
-
-                    {/* Tech Stack Pills */}
-                    <div className={styles.techStackRow}>
-                      {techs.slice(0, 5).map((tech, tIdx) => (
-                        <TechBadge key={tIdx} name={tech} />
-                      ))}
-                      {techs.length > 5 && (
-                        <TechMoreBadge
-                          count={techs.length - 5}
-                          remainingNames={techs.slice(5)}
-                        />
-                      )}
-                    </div>
-
-                    {/* Direct Links Below Project: Consistent Brutalist Buttons */}
-                    <div className={styles.cardActionsRow}>
-                      {hasFigma ? (
-                        <a
-                          href={figmaUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.viewProjectBtn}
-                          aria-label={`View Figma Prototype for ${project.title || project.name}`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>VIEW FIGMA PROTOTYPE</span>
-                          <ArrowUpRight size={14} className={styles.viewProjectIcon} />
-                        </a>
-                      ) : liveWebUrl ? (
-                        <a
-                          href={liveWebUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={styles.viewProjectBtn}
-                          aria-label={`View live project for ${project.title || project.name}`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>VIEW LIVE PROJECT</span>
-                          <ArrowUpRight size={14} className={styles.viewProjectIcon} />
-                        </a>
-                      ) : (
-                        <span className={styles.confidentialTag}>[ CLIENT CONFIDENTIAL ]</span>
-                      )}
-
-                      <button
-                        type="button"
-                        onClick={() => setSelectedProject(project)}
-                        className={styles.cardDetailsBtn}
-                        aria-label={`Open details modal for ${project.title || project.name}`}
-                      >
-                        <span>DETAILS</span>
-                      </button>
-                    </div>
-                  </div>
-
-                </article>
-              );
-            })}
+            <div className={styles.gridDensityToggle} role="group" aria-label="Grid Column Density">
+              <span className={styles.densityLabel}>GRID VIEW:</span>
+              <button
+                type="button"
+                onClick={() => setGridCols(3)}
+                className={`${styles.densityBtn} ${gridCols === 3 ? styles.densityBtnActive : ''}`}
+                aria-label="3 Columns Compact Grid"
+              >
+                <LayoutGrid size={13} />
+                <span>3 COLUMNS</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setGridCols(2)}
+                className={`${styles.densityBtn} ${gridCols === 2 ? styles.densityBtnActive : ''}`}
+                aria-label="2 Columns Large Grid"
+              >
+                <Layers size={13} />
+                <span>2 COLUMNS</span>
+              </button>
+            </div>
           </div>
 
           {/* ==============================================================
-             BRAND IDENTITIES & LOGOMARKS (CLEAN RETRO CAROUSEL)
+             EDITORIAL IMAGE & PROJECT GRID (IMAGE SHOWN + PROJECT DETAILS)
+             ============================================================== */}
+          {filteredProjects.length === 0 ? (
+            <div className={styles.emptyStateContainer}>
+              <div className={styles.emptyStateBadge}>[ NOTICE: 0 MATCHES ]</div>
+              <h3 className={styles.emptyStateTitle}>NO ARCHIVED SPECIFICATIONS FOUND</h3>
+              <p className={styles.emptyStateText}>
+                No project dossiers match your current filter or keyword search &ldquo;{searchQuery}&rdquo;.
+              </p>
+              <button
+                type="button"
+                onClick={() => { setFilter('all'); setSearchQuery(''); }}
+                className={styles.emptyStateResetBtn}
+              >
+                RESET ARCHIVE FILTERS
+              </button>
+            </div>
+          ) : (
+            <div className={`${styles.editorialProjectsGrid} ${gridCols === 2 ? styles.grid2Cols : ''}`}>
+              {filteredProjects.map((project, idx) => {
+                const slug = slugify(project.slug || project.id || project.title || project.name);
+                const rawTechs = Array.isArray(project.technology)
+                  ? project.technology
+                  : (typeof project.tools === 'string' ? project.tools.split(',').map((s) => s.trim()) : ['Figma', 'UI/UX']);
+                const techs = Array.from(new Set(rawTechs.map((t) => (typeof t === 'string' ? t.trim() : t)).filter(Boolean)));
+
+                const figmaUrl = (project.figmaLink && project.figmaLink.trim() !== '')
+                  ? project.figmaLink
+                  : ((project.link && project.link.includes('figma.com'))
+                    ? project.link
+                    : ((project.liveLink && project.liveLink.includes('figma.com')) ? project.liveLink : null));
+
+                const liveWebUrl = (project.liveLink && !project.liveLink.includes('figma.com') && project.liveLink.startsWith('http'))
+                  ? project.liveLink
+                  : ((project.link && !project.link.includes('figma.com') && project.link.startsWith('http')) ? project.link : null);
+
+                const plateNum = idx < 9 ? `0${idx + 1}` : `${idx + 1}`;
+                const totalCount = filteredProjects.length < 10 ? `0${filteredProjects.length}` : `${filteredProjects.length}`;
+
+                return (
+                  <article key={project.id || idx} className={styles.editorialGridCard}>
+                    {/* Header Bar Docket */}
+                    <div className={styles.cardHeaderBar}>
+                      <div className={styles.cardHeaderLeft}>
+                        <span className={styles.cardIndexNumber}>[ {plateNum} / {totalCount} ]</span>
+                        <span className={styles.cardCategoryPill}>{project.category || 'Digital Product'}</span>
+                      </div>
+                      {project.isFeatured ? (
+                        <span className={styles.cardFeaturedBadge}>★ TOP WORK</span>
+                      ) : (
+                        <span className={styles.cardRoleBadge}>{project.role || 'Design'}</span>
+                      )}
+                    </div>
+
+                    {/* Image Frame with 16:10 Ratio & Vintage Risograph Treatment */}
+                    <Link
+                      href={`/projects/${slug}`}
+                      className={styles.cardImageWrapper}
+                      aria-label={`Open case study for ${project.title || project.name}`}
+                    >
+                      <ProjectCardImage
+                        project={project}
+                        plateNum={plateNum}
+                        sizes={gridCols === 2 ? "(max-width: 680px) 100vw, 50vw" : "(max-width: 680px) 100vw, (max-width: 1180px) 50vw, 33vw"}
+                      />
+
+                      {/* Top Right Quick Launch Tag */}
+                      {figmaUrl ? (
+                        <span className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}>
+                          <span>FIGMA ↗</span>
+                        </span>
+                      ) : liveWebUrl ? (
+                        <span className={styles.imageLaunchBtn}>
+                          <span>LIVE ↗</span>
+                        </span>
+                      ) : null}
+
+                      {/* Center Hover Action */}
+                      <div className={styles.centerHoverAction}>
+                        <span className={styles.quickPreviewHoverBtn}>
+                          <Maximize2 size={13} />
+                          <span>CASE STUDY ↗</span>
+                        </span>
+                      </div>
+                    </Link>
+
+                    {/* Card Details Dossier: Title, Description, Tech Badges, Action Buttons */}
+                    <div className={styles.cardDetails}>
+                      <div className={styles.cardDetailsTop}>
+                        <div className={styles.titleRow}>
+                          <Link
+                            href={`/projects/${slug}`}
+                            className={styles.cardTitleLink}
+                          >
+                            <h3 className={styles.projectCardTitle}>
+                              {project.title || project.name}
+                            </h3>
+                          </Link>
+                        </div>
+
+                        <p className={styles.projectDescription}>
+                          {project.description || project.desc || 'Engineered interface, user flows, and scalable design system.'}
+                        </p>
+
+                        {/* Tech Stack Badges */}
+                        <div className={styles.techStackRow}>
+                          {techs.slice(0, 3).map((t, i) => (
+                            <TechBadge key={i} name={t} />
+                          ))}
+                          {techs.length > 3 && (
+                            <TechMoreBadge count={techs.length - 3} remainingNames={techs.slice(3)} />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Pinned Bottom Actions Row */}
+                      <div className={styles.cardActionsRow}>
+                        <Link
+                          href={`/projects/${slug}`}
+                          className={styles.viewProjectBtn}
+                          aria-label={`Explore case study for ${project.title || project.name}`}
+                        >
+                          <span>CASE STUDY</span>
+                          <ArrowRight size={13} className={styles.viewProjectIcon} />
+                        </Link>
+
+                        {figmaUrl ? (
+                          <a
+                            href={figmaUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.cardDetailsBtn}
+                            aria-label={`Open Figma Prototype for ${project.title || project.name}`}
+                          >
+                            <span>FIGMA ↗</span>
+                          </a>
+                        ) : liveWebUrl ? (
+                          <a
+                            href={liveWebUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.cardDetailsBtn}
+                            aria-label={`Open Live Demo for ${project.title || project.name}`}
+                          >
+                            <span>LIVE ↗</span>
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
+
+          {/* ==============================================================
+             BRAND IDENTITIES & LOGOMARKS (NEWSPAPER PAPER-CUTTING SCRAPBOOK)
              ============================================================== */}
           <section className={styles.logosSection} id="brand-logos">
-            {/* Minimalist Section Header */}
-            <div className={styles.logosHeaderBar}>
-              <div className={styles.logosHeaderLeft}>
-                <span className={styles.logosHeaderTag}>[ LOGOMARKS ]</span>
-                <h2 className={styles.logosTitle}>BRAND IDENTITIES</h2>
+            {/* Newspaper Masthead Editorial Header */}
+            <div className={styles.newspaperMasthead}>
+              <div className={styles.mastheadMetaRow}>
+                <span className={styles.mastheadMetaTag}>[ CLASSIFIED SUPPLEMENT // ARCHIVAL PRESS CLIPPINGS ]</span>
+                <span className={styles.mastheadEdition}>VOL. 1984–2026 • ROTOGRAVURE INK PRESS</span>
+                <span className={styles.mastheadStampBadge}>OFFICIAL DISPATCH</span>
               </div>
-              <div className={styles.carouselArrows}>
-                <button
-                  type="button"
-                  className={styles.carouselArrowBtn}
-                  onClick={() => scrollLogoCarousel('left')}
-                  aria-label="Previous logos"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  type="button"
-                  className={styles.carouselArrowBtn}
-                  onClick={() => scrollLogoCarousel('right')}
-                  aria-label="Next logos"
-                >
-                  <ChevronRight size={18} />
-                </button>
+
+              <div className={styles.newspaperRuleDouble} />
+
+              <div className={styles.logosHeaderBar}>
+                <div className={styles.logosHeaderLeft}>
+                  <div className={styles.clippingCutoutLabel}>
+                    <span>✂ CUT ALONG DOTTED LINE</span>
+                    <span className={styles.docketArchiveCode}>// PRESS CLIPPING ARCHIVE</span>
+                  </div>
+                  <h2 className={styles.logosTitle}>BRAND IDENTITIES & TRADEMARKS</h2>
+                  <p className={styles.newspaperSubhead}>
+                    Authentic client insignias, vector logomarks, and brand identities clipped directly from commercial print publications and digital design systems.
+                  </p>
+                </div>
+
+                <div className={styles.carouselArrows}>
+                  <button
+                    type="button"
+                    className={styles.carouselArrowBtn}
+                    onClick={() => scrollLogoCarousel('left')}
+                    aria-label="Previous clippings"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.carouselArrowBtn}
+                    onClick={() => scrollLogoCarousel('right')}
+                    aria-label="Next clippings"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
               </div>
+
+              <div className={styles.newspaperRuleSingle} />
             </div>
 
-            {/* Seamless Floating Infinite Carousel */}
+            {/* Seamless Old Paper Cutting Scrapbook Carousel */}
             <div
               className={styles.logoCarouselViewport}
               ref={logoCarouselRef}
@@ -823,28 +911,86 @@ export default function ProjectsPage() {
                 className={`${styles.logoCarouselTrack} ${isLogoCarouselPaused ? styles.carouselPaused : ''}`}
               >
                 {[...logosData, ...logosData].map((item, idx) => {
-                  const shapeClass = styles[`shape_${item.shape}`] || styles.shape_chamfer;
+                  const itemIndex = (idx % logosData.length) + 1;
+                  const itemCode = itemIndex < 10 ? `0${itemIndex}` : `${itemIndex}`;
+                  const isDarkBg = item.bgColor && !item.bgColor.toLowerCase().startsWith('#fff') && !item.bgColor.toLowerCase().startsWith('#faf');
+
                   return (
                     <div
                       key={`${item.id}-${idx}`}
-                      className={styles.carouselItem}
+                      className={styles.newspaperClippingItem}
                       onClick={() => {
                         setSelectedLogo(item);
                         setLogoModalSurface(item.bgColor === '#FFFFFF' || item.bgColor.startsWith('#FFF') ? 'light' : 'dark');
                       }}
-                      title={item.title}
+                      title={`Inspect ${item.title} Press Clipping`}
                     >
-                      <div
-                        className={`${styles.logoBadge} ${shapeClass}`}
-                      >
-                        <div className={styles.badgeLogoWrap}>
-                          <Image
-                            src={encodeURI(item.image)}
-                            alt={item.title}
-                            width={180}
-                            height={180}
-                            className={styles.badgeLogoImg}
-                          />
+                      {/* Translucent Washi / Masking Tape Strip holding paper */}
+                      <div className={styles.tapeStrip} aria-hidden="true" />
+
+                      {/* Main Newsprint Paper Cutout Body */}
+                      <div className={styles.clippingPaperCard}>
+                        {/* Scissors Cut Header Docket */}
+                        <div className={styles.clippingDocketHeader}>
+                          <span className={styles.cutDocketCode}>[ FIG. {itemCode} // PRESS ]</span>
+                          <span className={styles.cutDocketSection}>SEC. {item.year || '2025'}</span>
+                        </div>
+
+                        {/* Inked Press Bed / Plate Container */}
+                        <div
+                          className={styles.clippingPressBed}
+                          style={{
+                            backgroundColor: item.bgColor || (isDarkBg ? '#181512' : '#F4ECE1'),
+                            borderColor: item.borderColor || '#181512'
+                          }}
+                        >
+                          {/* Corner Registration Brackets */}
+                          <span className={`${styles.pressBracket} ${styles.pressTL}`} />
+                          <span className={`${styles.pressBracket} ${styles.pressTR}`} />
+                          <span className={`${styles.pressBracket} ${styles.pressBL}`} />
+                          <span className={`${styles.pressBracket} ${styles.pressBR}`} />
+
+                          {/* Subtle Halftone Print Grain */}
+                          <div className={styles.halftonePrintOverlay} />
+
+                          <div className={styles.badgeLogoWrap}>
+                            <Image
+                              src={encodeURI(item.image)}
+                              alt={item.title}
+                              width={180}
+                              height={180}
+                              className={styles.badgeLogoImg}
+                            />
+                          </div>
+
+                          {/* Rubber Stamp Watermark in corner */}
+                          <div className={styles.postalStampOverlay}>
+                            <span>APPROVED</span>
+                          </div>
+                        </div>
+
+                        {/* Newspaper Article Caption Docket */}
+                        <div className={styles.clippingCaptionDocket}>
+                          <div className={styles.clippingTitleRow}>
+                            <h4 className={styles.clippingTitle}>{item.title}</h4>
+                            <span className={styles.clippingTagPill}>{item.tagText || 'TRADEMARK'}</span>
+                          </div>
+                          <p className={styles.clippingClientText}>
+                            {item.client || item.industry || item.category}
+                          </p>
+                          <div className={styles.clippingFooterMeta}>
+                            <span className={styles.clippingDeliverablesCount}>
+                              {item.deliverables?.length || 3} DELIVERABLES
+                            </span>
+                            <span className={styles.clippingInspectLink}>
+                              INSPECT ↗
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Scissors cut dashed guide at bottom */}
+                        <div className={styles.scissorsGuideBottom}>
+                          <span>✂ -----------------</span>
                         </div>
                       </div>
                     </div>
@@ -856,152 +1002,6 @@ export default function ProjectsPage() {
 
         </div>
       </main>
-
-      {/* ==============================================================
-         CINEMATIC RETRO DOSSIER MODAL POPUP
-         ============================================================== */}
-      {selectedProject && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedProject(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Top Bar */}
-            <div className={styles.modalHeader}>
-              <span className={styles.modalTitleText}>
-                [ PROJECT DOSSIER // DECLASSIFIED RECORD ]
-              </span>
-              <button
-                type="button"
-                className={styles.closeModalBtn}
-                onClick={() => setSelectedProject(null)}
-                aria-label="Close Dossier"
-              >
-                CLOSE [ESC] ✕
-              </button>
-            </div>
-
-            {/* Modal Body */}
-            <div className={styles.modalBody}>
-              {/* Full-width Image Frame */}
-              <div className={styles.modalImageContainer}>
-                <ProjectCardImage project={selectedProject} className={styles.modalImage} />
-              </div>
-
-              {/* Project Meta Dossier */}
-              <div className={styles.modalMetaDocket}>
-                <div className={styles.modalHeaderMeta}>
-                  <div>
-                    <span className={styles.modalCategoryTag}>
-                      {selectedProject.category || 'Digital Product'}
-                    </span>
-                    <h3 className={styles.modalProjectTitle}>
-                      {selectedProject.title || selectedProject.name}
-                    </h3>
-                  </div>
-                  <div className={styles.modalRoleRow}>
-                    <span>ROLE: <strong>{selectedProject.role || 'Product Designer'}</strong></span>
-                    <span>YEAR: <strong>2024 - 2026</strong></span>
-                  </div>
-                </div>
-
-                <p className={styles.modalDescText}>
-                  {selectedProject.description || selectedProject.desc || 'High-impact design execution with responsive architecture, user-tested workflows, and bespoke UI engineering.'}
-                </p>
-
-                {/* Full Tech Stack Grid */}
-                <div>
-                  <h4 className={styles.modalTechTitle}>[ TECHNOLOGIES & TOOLCHAIN ]</h4>
-                  <div className={styles.techStackRow}>
-                    {(Array.isArray(selectedProject.technology)
-                      ? selectedProject.technology
-                      : (typeof selectedProject.tools === 'string' ? selectedProject.tools.split(',') : ['Figma', 'UI/UX'])
-                    ).map((t, i) => (
-                      <TechBadge key={i} name={typeof t === 'string' ? t.trim() : t} />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Modal Action Links */}
-                <div className={styles.modalActionsRow}>
-                  {selectedProject.figmaLink ? (
-                    <a
-                      href={selectedProject.figmaLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.viewProjectBtn}
-                    >
-                      <span>VIEW FIGMA PROTOTYPE</span>
-                      <ArrowUpRight size={14} className={styles.viewProjectIcon} />
-                    </a>
-                  ) : null}
-
-                  {selectedProject.liveLink && !selectedProject.liveLink.includes('figma.com') ? (
-                    <a
-                      href={selectedProject.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.viewProjectBtn}
-                    >
-                      <span>VIEW LIVE PROJECT</span>
-                      <ArrowUpRight size={14} className={styles.viewProjectIcon} />
-                    </a>
-                  ) : null}
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedProject(null)}
-                    className={styles.cardDetailsBtn}
-                  >
-                    <span>RETURN TO ARCHIVE</span>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
-
-      {/* Lightbox Modal for Extra Projects Mockup Zoom */}
-      {lightboxImg && (
-        <div className={styles.lightboxOverlay} onClick={() => setLightboxImg(null)}>
-          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className={styles.closeLightboxBtn}
-              onClick={() => setLightboxImg(null)}
-              aria-label="Close Preview"
-            >
-              <X size={20} />
-            </button>
-
-            <div className={styles.lightboxImgBox}>
-              <Image
-                src={encodeURI(lightboxImg.image)}
-                alt={lightboxImg.title}
-                width={1200}
-                height={800}
-                className={styles.lightboxImg}
-              />
-            </div>
-
-            <div className={styles.lightboxMeta}>
-              <div>
-                <span className={styles.lightboxCategory}>{lightboxImg.category}</span>
-                <h4 className={styles.lightboxTitle}>{lightboxImg.title}</h4>
-              </div>
-              <span className={styles.lightboxTag}>{lightboxImg.tag}</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ==============================================================
          RETRO LOGOMARK DOSSIER MODAL

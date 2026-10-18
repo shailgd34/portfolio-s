@@ -12,18 +12,19 @@ export default function WhatICanDo() {
     {
       num: '1.',
       title: 'UI/UX DESIGN',
-      previewImage: '/uiux.jpg',
+      tag: 'FIGMA • FIGJAM • USER RESEARCH • PROTOTYPING',
       checklist: [
-        'User research and persona creation',
-        'Wireframing and interactive prototyping',
-        'Design systems and UI style guides',
-        'Usability testing and feedback analysis'
+        'User research, FigJam journey maps & empathy mapping',
+        'Hotjar behavioral heatmaps & drop-off funnel auditing',
+        'Information architecture & card-sorting matrices in Miro',
+        'Figma atomic design systems & interactive component prototyping',
+        'Usability testing benchmarks (System Usability Scale & Maze)'
       ]
     },
     {
       num: '2.',
       title: 'GRAPHIC DESIGN',
-      previewImage: '/graphics.jpg',
+      tag: 'BRAND IDENTITY • VECTOR ART • PACKAGING • ASSETS',
       checklist: [
         'Logo and brand identity design',
         'Social media graphics and ad creatives',
@@ -34,7 +35,7 @@ export default function WhatICanDo() {
     {
       num: '3.',
       title: 'WEB DESIGN',
-      previewImage: '/webdesign.jpg',
+      tag: 'RESPONSIVE • HIGH CONVERSION • E-COMMERCE • CMS',
       checklist: [
         'Responsive web design and layout',
         'Landing page design and optimization',
@@ -45,7 +46,7 @@ export default function WhatICanDo() {
     {
       num: '4.',
       title: 'FRONTEND DEVELOPMENT',
-      previewImage: '/frontend.jpg',
+      tag: 'REACT • NEXT.JS • GSAP • CLEAN CODE • SEO',
       checklist: [
         'React & Next.js web application development',
         'Responsive pixel-perfect HTML/CSS layout',
@@ -62,7 +63,7 @@ export default function WhatICanDo() {
         {/* Main Section Grid */}
         <div className={styles.sectionGrid}>
           
-          {/* Left Column */}
+          {/* Left Column: Accordion */}
           <div className={styles.leftCol}>
             
             {/* Header Title & Subtitle */}
@@ -77,7 +78,7 @@ export default function WhatICanDo() {
               </p>
             </div>
 
-            {/* Accordion List - Hover to open, closed by default */}
+            {/* Accordion List */}
             <div className={styles.accordionContainer}>
               {services.map((service, index) => {
                 const isOpen = activeItemIndex === index;
@@ -115,9 +116,13 @@ export default function WhatICanDo() {
                       </div>
                     </div>
 
-                    {/* Expanded Checklist Body (Appears on Hover) */}
+                    {/* Expanded Checklist Body (Unobstructed & Clean) */}
                     {isOpen && (
                       <div className={styles.accordionBody}>
+                        <div className={styles.serviceTagDocket}>
+                          <span className={styles.serviceTagLabel}>[ KEY FOCUS ]</span>
+                          <span className={styles.serviceTagText}>{service.tag}</span>
+                        </div>
                         <ul className={styles.checklistList}>
                           {service.checklist.map((item, i) => (
                             <li key={i} className={styles.checkItem}>
@@ -133,20 +138,6 @@ export default function WhatICanDo() {
                       </div>
                     )}
 
-                    {/* On-Hover Tilted Floating Overlay Image Preview */}
-                    {isOpen && (
-                      <div className={styles.hoverFloatingThumbnail}>
-                        <Image
-                          src={service.previewImage}
-                          alt={service.title}
-                          width={280}
-                          height={170}
-                          priority
-                          className={styles.thumbnailImg}
-                        />
-                      </div>
-                    )}
-
                   </div>
                 );
               })}
@@ -154,7 +145,7 @@ export default function WhatICanDo() {
 
           </div>
 
-          {/* Right Column: Destination Landing Area for the Scroll-Flipping Hero Card */}
+          {/* Right Column: Destination Landing Area for the Scroll-Flipping Hero Lanyard Card */}
           <div className={styles.rightColTargetArea}>
             <div id="what-i-can-do-card-target" className={styles.cardPlaceholderSpace}>
               {/* Backup workspace card container */}

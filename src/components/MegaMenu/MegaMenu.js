@@ -8,42 +8,42 @@ import styles from './MegaMenu.module.css';
 export default function MegaMenu({ onClose }) {
   const showcaseProjects = [
     {
-      id: '7sens',
+      id: 'neuro-kaizen',
       log: 'LOG // 01',
+      title: 'Neuro Kaizen SaaS',
+      category: 'Bio-Analytics SaaS',
+      image: '/portfolio/Neuro Kaizen/mainone.png',
+      link: '/projects/neuro-kaizen',
+      isExternal: false
+    },
+    {
+      id: '7sens',
+      log: 'LOG // 02',
       title: '7Sens Luxury Brand',
       category: 'Creative Agency',
       image: '/portfolio/7Sens/mainone.png',
-      link: 'https://7sens-frontend.vercel.app/',
-      isExternal: true
+      link: '/projects/7sens',
+      isExternal: false
     },
     {
       id: 'carat-club',
-      log: 'LOG // 02',
+      log: 'LOG // 03',
       title: 'Carat Club 3D Luxury',
       category: 'E-Commerce 3D',
       image: '/portfolio/Carat Club/mainone.png',
-      link: 'https://carat-club.vercel.app/',
-      isExternal: true
-    },
-    {
-      id: 'neuro-kaizen',
-      log: 'LOG // 03',
-      title: 'NeuroKaizen AI Portal',
-      category: 'AI SaaS Platform',
-      image: '/portfolio/Neuro Kaizen/mainone.png',
-      link: 'https://portal.neurokaizen.com/',
-      isExternal: true
+      link: '/projects/carat-club',
+      isExternal: false
     }
   ];
 
   return (
-    <div 
+    <div
       className={styles.megaMenuWrapper}
       role="region"
       aria-label="Projects Mega Menu"
     >
       <div className={styles.megaMenuContainer}>
-        
+
         {/* Editorial Retro Header Docket */}
         <div className={styles.megaMenuHeader}>
           <div className={styles.headerLeftGroup}>
@@ -58,8 +58,8 @@ export default function MegaMenu({ onClose }) {
             </div>
           </div>
 
-          <Link 
-            href="/projects" 
+          <Link
+            href="/projects"
             className={styles.viewAllDirectoryLink}
             onClick={onClose}
           >
@@ -71,11 +71,9 @@ export default function MegaMenu({ onClose }) {
         {/* 4 Cards Grid: 3 Editorial Case Studies + 1 Brutalist Archive Ledger */}
         <div className={styles.projectsGrid}>
           {showcaseProjects.map((item) => (
-            <a
+            <Link
               key={item.id}
               href={item.link}
-              target={item.isExternal ? '_blank' : '_self'}
-              rel={item.isExternal ? 'noopener noreferrer' : ''}
               className={styles.projectCard}
               onClick={onClose}
             >
@@ -95,7 +93,7 @@ export default function MegaMenu({ onClose }) {
                   className={styles.thumbImg}
                 />
                 <div className={styles.filmOverlay} />
-                <span className={styles.liveTag}>LIVE PROD ↗</span>
+                <span className={styles.liveTag}>CASE STUDY ↗</span>
               </div>
 
               {/* Card Content Docket */}
@@ -111,10 +109,10 @@ export default function MegaMenu({ onClose }) {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
 
-          {/* Eye-Catching Inverted Brutalist Master Directory Card */}
+          {/* Eye-Catching Inverted Brutalist Master Directory Card - Links directly to /projects page */}
           <Link
             href="/projects"
             className={styles.seeAllCard}

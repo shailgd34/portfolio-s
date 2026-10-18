@@ -15,7 +15,7 @@
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 2rem;
+  gap: 3rem;
   margin-bottom: 2rem;
   position: relative;
   width: 100%;
@@ -42,30 +42,159 @@
   padding-top: 1rem;
 }
 
-/* Uncle Joe Style Monospaced Kicker Tag */
+/* Uncle Joe Eye-Catching Rotated Retro Kicker Tag */
 .kickerTag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
+  gap: 0.55rem;
+  padding: 0.45rem 1.05rem;
   font-family: var(--font-mono), 'Azeret Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FF6B35;
-  background: rgba(255, 107, 53, 0.1);
-  border: 1.5px solid #FF6B35;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  background: #FF6B35 !important;
+  border: 2px solid #181512 !important;
   border-radius: 0 !important;
-  margin-bottom: 0.9rem;
+  box-shadow: 3.5px 3.5px 0px #181512 !important;
+  transform: rotate(-2.5deg);
+  transform-origin: right center;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  animation: tagFloatSway 5.5s ease-in-out infinite;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tagFloatSway {
+
+  0%,
+  100% {
+    transform: rotate(-2.5deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-1.2deg) translateY(-3px);
+  }
+}
+
+.kickerTag:hover {
+  transform: rotate(0deg) scale(1.04) translateY(-2px);
+  box-shadow: 5px 5px 0px #181512 !important;
+  animation-play-state: paused;
+}
+
+/* Light Beam Sheen Sweep across the tag */
+.tagLightBeam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: lightSweep 4.5s ease-in-out infinite;
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -70px;
+  }
+
+  25%,
+  100% {
+    left: 125%;
+  }
+}
+
+/* Live Status Beacon Dot */
+.tagStatusBeacon {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.15rem;
+}
+
+.beaconCore {
+  width: 6px;
+  height: 6px;
+  background: #181512;
+  border-radius: 0 !important;
+}
+
+.beaconPing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #181512;
+  border-radius: 0 !important;
+  animation: beaconPingAnim 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes beaconPingAnim {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.tagBadgeYear {
+  background: #181512;
+  color: #F4ECE1 !important;
+  -webkit-text-fill-color: #F4ECE1 !important;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  border: 1px solid #181512;
   line-height: 1;
 }
 
-.kickerDot {
-  width: 6px;
-  height: 6px;
-  background: #FF6B35;
-  border-radius: 0 !important;
+.tagDivider {
+  color: rgba(24, 21, 18, 0.65) !important;
+  -webkit-text-fill-color: rgba(24, 21, 18, 0.65) !important;
+  font-weight: 900;
+  margin: 0 0.1rem;
+}
+
+.tagTitleText {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.tagBlinkCursor {
+  color: #181512 !important;
+  -webkit-text-fill-color: #181512 !important;
+  font-weight: 900;
+  animation: blinkCursor 1s step-end infinite;
+  margin-left: -0.2rem;
+}
+
+@keyframes blinkCursor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .leftSubKicker {
@@ -75,7 +204,7 @@
   letter-spacing: 0.11em;
   text-transform: uppercase;
   color: #4A433C;
-  margin-top: 0.6rem;
+  margin-top: 1.25rem;
 }
 
 .mobileSubKicker {
@@ -154,31 +283,35 @@
 }
 
 @keyframes lanyardHangSway {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-1.2deg);
   }
+
   75% {
     transform: rotate(1.2deg);
   }
 }
 
-/* Woven Lanyard Ribbon Strap */
+/* Woven Lanyard Ribbon Strap - Enlarged Handtag */
 .lanyardStrap {
-  width: 32px;
-  height: 72px;
+  width: 44px;
+  height: 85px;
   background: #181512;
-  border-left: 2.5px dashed #FF6B35;
-  border-right: 2.5px dashed #FF6B35;
+  border-left: 3px dashed #FF6B35;
+  border-right: 3px dashed #FF6B35;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 0px rgba(24, 21, 18, 0.25);
+  box-shadow: 3px 3px 0px rgba(24, 21, 18, 0.3);
   z-index: 5;
-  margin-top: -44px;
+  margin-top: -48px;
 }
 
 .lanyardStitching {
@@ -186,57 +319,71 @@
   top: 0;
   bottom: 0;
   width: 1px;
-  border-left: 1px dotted rgba(255, 255, 255, 0.2);
+  border-left: 1px dotted rgba(255, 255, 255, 0.25);
 }
 
 .lanyardBrandText {
   writing-mode: vertical-rl;
   font-family: var(--font-mono), 'Space Mono', monospace;
-  font-size: 0.52rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: #F4ECE1;
-  opacity: 0.9;
+  opacity: 0.95;
   user-select: none;
 }
 
-/* Metallic Swivel Clasp Hardware - Elevated to Upper Side */
+.lanyardCrimp {
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  right: -2px;
+  height: 8px;
+  background: linear-gradient(90deg, #71717A 0%, #E4E4E7 50%, #52525B 100%);
+  border: 1.5px solid #181512;
+  border-radius: 1px;
+}
+
+/* Metallic Swivel Clasp Hardware - Enlarged to Match Handtag */
 .lanyardHardware {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: 6;
-  margin-top: -4px;
-  margin-bottom: -2px;
+  z-index: 105;
+  margin-top: -5px;
+  margin-bottom: -18px;
+  /* Extends down into the card punch slot */
+  pointer-events: none;
 }
 
 .lanyardRing {
-  width: 20px;
-  height: 20px;
-  border: 3px solid #71717A;
+  width: 24px;
+  height: 24px;
+  border: 3.5px solid #71717A;
   border-radius: 50%;
-  background: #27272A;
-  box-shadow: 1px 1px 0px #181512;
+  background: linear-gradient(135deg, #A1A1AA 0%, #3F3F46 100%);
+  box-shadow: 1.5px 1.5px 0px #181512;
 }
 
 .lanyardClasp {
-  width: 14px;
+  width: 16px;
   height: 18px;
   background: linear-gradient(135deg, #E4E4E7 0%, #71717A 50%, #3F3F46 100%);
   border: 1.5px solid #181512;
-  border-radius: 3px;
+  border-radius: 2px;
   margin-top: -4px;
 }
 
 .lanyardClipHook {
-  width: 11px;
-  height: 13px;
-  background: #52525B;
+  width: 18px;
+  height: 24px;
+  background: linear-gradient(180deg, #E4E4E7 0%, #A1A1AA 50%, #52525B 100%);
   border: 1.5px solid #181512;
-  border-radius: 2px 2px 4px 4px;
+  border-radius: 3px 3px 6px 6px;
   margin-top: -2px;
   position: relative;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.35);
 }
 
 .lanyardClipHook::after {
@@ -245,10 +392,10 @@
   bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 3px;
-  height: 3px;
+  width: 6px;
+  height: 11px;
   background: #181512;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .portraitCardContainer {
@@ -258,19 +405,11 @@
   align-items: center;
 }
 
-/* The Laminated Physical Identity Card Pass */
+/* The Laminated Physical Identity Card Pass 3D Flippable Container */
 .idCardMockup {
   position: relative;
-  width: 285px;
+  width: 295px;
   height: auto !important;
-  min-height: 0 !important;
-  border-radius: 14px !important;
-  background: #FFFFFF !important;
-  border: 2px solid #181512 !important;
-  box-shadow: 5px 5px 0px #181512 !important;
-  padding: 9px 12px 11px 12px;
-  display: flex;
-  flex-direction: column;
   transform-style: preserve-3d;
   transform-origin: top center;
   will-change: transform;
@@ -279,18 +418,51 @@
   overflow: visible !important;
 }
 
-/* Oval Punched Lanyard Slot */
+.cardFrontFace,
+.cardBackFace {
+  width: 100%;
+  height: auto;
+  border-radius: 14px !important;
+  background: #FFFFFF !important;
+  border: 2px solid #181512 !important;
+  box-shadow: 5px 5px 0px #181512 !important;
+  padding: 10px 13px 12px 13px;
+  display: flex;
+  flex-direction: column;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transform-style: preserve-3d;
+  overflow: visible !important;
+}
+
+.cardFrontFace {
+  position: relative;
+  transform: rotateY(0deg);
+}
+
+.cardBackFace {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: rotateY(180deg);
+}
+
+/* Oval Punched Lanyard Slot - Enlarged to Receive Bolder Hook */
 .idPunchSlot {
-  width: 48px;
-  height: 11px;
-  background: #EAE1D3;
-  border: 1.5px solid #181512;
+  width: 54px;
+  height: 14px;
+  background: #D8CEBE;
+  border: 2px solid #181512;
   border-radius: 9999px;
-  margin: 0 auto 8px auto;
-  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.25);
+  margin: 0 auto 9px auto;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 5;
 }
 
 .idSlotHole {
@@ -354,8 +526,17 @@
 }
 
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
 }
 
 .idStatusLabel {
@@ -370,7 +551,8 @@
 .idPhotoContainer {
   position: relative;
   width: 100%;
-  height: 210px;
+  height: 220px;
+  /* Decreased height as requested */
   background: #181512;
   border: 1.5px solid #181512;
   border-radius: 4px;
@@ -424,7 +606,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 14%;
   border-radius: 0 !important;
   display: block;
 }
@@ -433,43 +615,48 @@
 .idCardFooterDocket {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0;
   width: 100%;
-  margin-top: 7px;
-  padding: 0 1px;
+  margin-top: 14px;
+  /* Increased gap from photo */
+  padding: 0 2px;
 }
 
 .idNameTitleGroup {
   display: flex;
   flex-direction: column;
-  gap: 1.5px;
+  gap: 6px;
+  /* Increased gap between name and role tag */
 }
 
 .idHolderName {
   font-family: var(--font-heading), 'Azeret Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: #181512;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   margin: 0;
   line-height: 1.2;
 }
 
 .idHolderRole {
   font-family: var(--font-mono), 'Space Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 800;
   color: #FF6B35;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
 }
 
 .idBarcodeRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 4px;
-  border-top: 1px dashed rgba(24, 21, 18, 0.18);
-  margin-top: 1px;
+  padding-top: 8px;
+  /* Increased gap before barcode */
+  border-top: 1.5px dashed rgba(24, 21, 18, 0.22);
+  margin-top: 10px;
+  margin-bottom: 15px;
+  /* Increased gap between role and barcode */
 }
 
 .idBarcodeBars {

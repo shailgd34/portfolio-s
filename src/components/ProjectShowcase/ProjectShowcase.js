@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   X,
   Maximize2,
@@ -389,18 +390,35 @@ export default function ProjectShowcase() {
                     {activeProject.title || activeProject.name}
                   </h3>
 
-                  {(activeProject.link || activeProject.figmaLink || activeProject.liveLink) && (
-                    <a
-                      href={activeProject.link || activeProject.liveLink || activeProject.figmaLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '10px' }}>
+                    <Link
+                      href={`/projects/${activeProject.slug}`}
+                      onClick={() => setIsOpen(false)}
                       className={styles.overlayLiveBtn}
-                      title="Open live project / prototype"
+                      style={{
+                        background: 'var(--accent-orange, #FF6B35)',
+                        color: '#FFFFFF',
+                        borderColor: 'var(--accent-orange, #FF6B35)',
+                        fontWeight: 800
+                      }}
+                      title="Open full UX research case study"
                     >
-                      <span>VISIT LIVE / SPEC</span>
+                      <span>EXPLORE CASE STUDY</span>
                       <ArrowUpRight size={13} />
-                    </a>
-                  )}
+                    </Link>
+
+                    {(activeProject.link || activeProject.figmaLink || activeProject.liveLink) && (
+                      <a
+                        href={activeProject.link || activeProject.liveLink || activeProject.figmaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.overlayLiveBtn}
+                        title="Open live project / prototype"
+                      >
+                        <span>VISIT SPEC ↗</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* =========================================================

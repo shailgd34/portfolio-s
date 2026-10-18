@@ -35,6 +35,33 @@ const TECH_MAP = {
     )
   },
 
+  // --- HOTJAR ---
+  hotjar: {
+    name: 'Hotjar',
+    color: '#FF3C38',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#1C1814"/>
+        <path d="M12 4c3 4 5 8 4 12-1 3-5 3-7 1-2-2 0-6 3-13z" fill="#FF3C38"/>
+        <circle cx="12" cy="15" r="2" fill="#FFAA00"/>
+      </svg>
+    )
+  },
+
+  // --- MIRO ---
+  miro: {
+    name: 'Miro',
+    color: '#FFD02F',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#050038"/>
+        <polygon points="7,6 11,18 6,18" fill="#FFD02F"/>
+        <polygon points="11,6 15,18 10,18" fill="#FFD02F"/>
+        <polygon points="15,6 19,18 14,18" fill="#FFD02F"/>
+      </svg>
+    )
+  },
+
   // --- REACT ---
   react: {
     name: 'React',
