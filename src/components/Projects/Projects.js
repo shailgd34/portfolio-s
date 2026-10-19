@@ -441,10 +441,14 @@ export default function Projects() {
 
                 {/* Header Docket with [ 01 / 20 ] and 10s Timer */}
                 <div className={styles.featuredHeroHeader}>
-                  <div className={styles.heroDocketPill}>
+                  <Link
+                    href={`/projects/${currentHero.slug}`}
+                    className={styles.heroDocketPill}
+                    aria-label={`Open case study for ${currentHero.title}`}
+                  >
                     <span className={styles.heroDocketNumber}>[ {currentHero.num} / 20 ]</span>
                     <span className={styles.heroDocketLabel}>FEATURED CASE STUDY</span>
-                  </div>
+                  </Link>
 
                   {/* Tactile 10s Carousel Batch Controls & Counter */}
                   <div className={styles.heroCarouselControls}>
@@ -484,25 +488,35 @@ export default function Projects() {
 
                 {/* Full-Bleed Image Frame with Bottom Overlay (NO DESCRIPTION) */}
                 <div className={styles.heroFullBleedFrame}>
-                  <div className={styles.heroImgBackdrop}>
-                    <Image
-                      key={currentHero.image}
-                      src={currentHero.image}
-                      alt={`${currentHero.title} Platform Preview`}
-                      fill
-                      priority
-                      sizes="(max-width: 1280px) 100vw, 850px"
-                      className={`${styles.heroFullImg} ${isFading ? styles.heroImgFading : ''}`}
-                    />
-                  </div>
+                  <Link
+                    href={`/projects/${currentHero.slug}`}
+                    className={styles.heroImgBackdropLink}
+                    aria-label={`Open case study for ${currentHero.title}`}
+                  >
+                    <div className={styles.heroImgBackdrop}>
+                      <Image
+                        key={currentHero.image}
+                        src={currentHero.image}
+                        alt={`${currentHero.title} Platform Preview`}
+                        fill
+                        priority
+                        sizes="(max-width: 1280px) 100vw, 850px"
+                        className={`${styles.heroFullImg} ${isFading ? styles.heroImgFading : ''}`}
+                      />
+                    </div>
+                  </Link>
 
                   {/* Taped Quote Note (Pinned at Top-Left) */}
-                  <div className={styles.tapedPaperScrapQuote}>
+                  <Link
+                    href={`/projects/${currentHero.slug}`}
+                    className={styles.tapedPaperScrapQuote}
+                    aria-label={`View ${currentHero.title} case study`}
+                  >
                     <div className={styles.paperTapeTop} />
                     <p className={styles.quoteText}>
                       &ldquo;{currentHero.tapedQuote}&rdquo;
                     </p>
-                  </div>
+                  </Link>
 
                   {/* Dynamic Decorative Etching SVG in corner */}
                   <div className={styles.heroEtchingDeco} aria-hidden="true">
@@ -561,7 +575,9 @@ export default function Projects() {
                   <div className={`${styles.heroBottomOverlay} ${isFading ? styles.heroOverlayFading : ''}`}>
                     <div className={styles.heroOverlayLeft}>
                       <div className={styles.heroRoleLabel}>{currentHero.role}</div>
-                      <h3 className={styles.heroProjectName}>{currentHero.title}</h3>
+                      <Link href={`/projects/${currentHero.slug}`} className={styles.heroProjectNameLink}>
+                        <h3 className={styles.heroProjectName}>{currentHero.title}</h3>
+                      </Link>
                       <div className={styles.heroTechRow}>
                         {currentHero.techList.map((tag, tIdx) => (
                           <TechBadge key={tIdx} name={tag} />
@@ -607,96 +623,108 @@ export default function Projects() {
               ================================================================== */}
           <div className={styles.editorialBottomCardsGrid}>
             {currentBottomCards.map((card) => (
-              <article key={card.title} className={styles.editorialBottomCard}>
-
-                {/* Header Docket */}
-                <div className={styles.cardHeaderDocket}>
-                  <span className={styles.docketNumberPill}>[ {card.num} / 20 ]</span>
-                  <span className={styles.docketCategoryPill}>{card.category}</span>
-                </div>
+              <article key={card.title} className={styles.editorialBottomCard}>                {/* Header Docket */}
+                <Link
+                  href={`/projects/${card.slug}`}
+                  className={styles.cardHeaderDocketLink}
+                  aria-label={`Open case study for ${card.title}`}
+                >
+                  <div className={styles.cardHeaderDocket}>
+                    <span className={styles.docketNumberPill}>[ {card.num} / 20 ]</span>
+                    <span className={styles.docketCategoryPill}>{card.category}</span>
+                  </div>
+                </Link>
 
                 {/* Collaged Media Preview Frame */}
-                <div className={styles.bottomCardCollagedFrame}>
-                  <div className={styles.bottomCardLaptopWrap}>
-                    <Image
-                      src={card.image}
-                      alt={`${card.title} Platform Preview`}
-                      fill
-                      sizes="(max-width: 990px) 100vw, 380px"
-                      className={`${styles.bottomCardImg} ${isFading ? styles.heroImgFading : ''}`}
-                    />
+                <Link
+                  href={`/projects/${card.slug}`}
+                  className={styles.bottomCardCollagedFrameLink}
+                  aria-label={`Open case study for ${card.title}`}
+                >
+                  <div className={styles.bottomCardCollagedFrame}>
+                    <div className={styles.bottomCardLaptopWrap}>
+                      <Image
+                        src={card.image}
+                        alt={`${card.title} Platform Preview`}
+                        fill
+                        sizes="(max-width: 990px) 100vw, 380px"
+                        className={`${styles.bottomCardImg} ${isFading ? styles.heroImgFading : ''}`}
+                      />
+                    </div>
+
+                    {/* Taped Quote Note */}
+                    <div className={styles.tapedCardQuote}>
+                      <div className={styles.tapedCardTape} />
+                      <span>&ldquo;{card.tapedQuote}&rdquo;</span>
+                    </div>
+
+                    {/* Dynamic Decorative Etchings & Stamps */}
+                    {card.etchingType === 'building' && (
+                      <div className={styles.buildingEtchingDeco} aria-hidden="true">
+                        <svg className={styles.miniEtchingSvg} viewBox="0 0 80 80" fill="none">
+                          <polygon points="40,10 10,30 70,30" stroke="#181512" strokeWidth="1.5" />
+                          <line x1="16" y1="30" x2="16" y2="70" stroke="#181512" strokeWidth="1.5" />
+                          <line x1="32" y1="30" x2="32" y2="70" stroke="#181512" strokeWidth="1.5" />
+                          <line x1="48" y1="30" x2="48" y2="70" stroke="#181512" strokeWidth="1.5" />
+                          <line x1="64" y1="30" x2="64" y2="70" stroke="#181512" strokeWidth="1.5" />
+                          <rect x="8" y="70" width="64" height="6" stroke="#181512" strokeWidth="1.5" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {card.etchingType === 'statue' && (
+                      <div className={styles.statueEtchingDeco} aria-hidden="true">
+                        <svg className={styles.miniEtchingSvg} viewBox="0 0 80 80" fill="none">
+                          <circle cx="35" cy="25" r="14" stroke="#FF6B35" strokeWidth="1.5" strokeDasharray="3 2" />
+                          <path d="M25 22 Q35 15 45 22" stroke="#FF6B35" strokeWidth="1.2" />
+                          <path d="M20 50 C20 40 28 36 35 36 C42 36 50 40 50 50 L54 70 H16 Z" stroke="#FF6B35" strokeWidth="1.5" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {card.etchingType === 'paw' && (
+                      <div className={styles.pawPrintsDeco} aria-hidden="true">
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="#181512">
+                          <circle cx="8" cy="7" r="2" />
+                          <circle cx="16" cy="7" r="2" />
+                          <circle cx="5" cy="12" r="1.8" />
+                          <circle cx="19" cy="12" r="1.8" />
+                          <path d="M12 11 C9 11 7 13 8 16 C9 18 11 19 12 19 C13 19 15 18 16 16 C17 13 15 11 12 11 Z" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {card.etchingType === 'chart' && (
+                      <div className={styles.buildingEtchingDeco} aria-hidden="true">
+                        <svg className={styles.miniEtchingSvg} viewBox="0 0 100 100" fill="none">
+                          <line x1="15" y1="80" x2="85" y2="80" stroke="#181512" strokeWidth="2" />
+                          <line x1="15" y1="20" x2="15" y2="80" stroke="#181512" strokeWidth="2" />
+                          <rect x="25" y="45" width="10" height="35" stroke="#181512" strokeWidth="1.5" />
+                          <rect x="45" y="30" width="10" height="50" fill="#FF6B35" fillOpacity="0.4" stroke="#181512" strokeWidth="1.5" />
+                          <rect x="65" y="20" width="10" height="60" stroke="#181512" strokeWidth="1.5" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {card.etchingType === 'brain' && (
+                      <div className={styles.statueEtchingDeco} aria-hidden="true">
+                        <svg className={styles.miniEtchingSvg} viewBox="0 0 100 100" fill="none">
+                          <circle cx="50" cy="50" r="30" stroke="#FF6B35" strokeWidth="1.5" strokeDasharray="3 2" />
+                          <path d="M30 45 Q50 30 70 45" stroke="#181512" strokeWidth="1.5" />
+                          <path d="M30 55 Q50 70 70 55" stroke="#181512" strokeWidth="1.5" />
+                        </svg>
+                      </div>
+                    )}
                   </div>
-
-                  {/* Taped Quote Note */}
-                  <div className={styles.tapedCardQuote}>
-                    <div className={styles.tapedCardTape} />
-                    <span>&ldquo;{card.tapedQuote}&rdquo;</span>
-                  </div>
-
-                  {/* Dynamic Decorative Etchings & Stamps */}
-                  {card.etchingType === 'building' && (
-                    <div className={styles.buildingEtchingDeco} aria-hidden="true">
-                      <svg className={styles.miniEtchingSvg} viewBox="0 0 80 80" fill="none">
-                        <polygon points="40,10 10,30 70,30" stroke="#181512" strokeWidth="1.5" />
-                        <line x1="16" y1="30" x2="16" y2="70" stroke="#181512" strokeWidth="1.5" />
-                        <line x1="32" y1="30" x2="32" y2="70" stroke="#181512" strokeWidth="1.5" />
-                        <line x1="48" y1="30" x2="48" y2="70" stroke="#181512" strokeWidth="1.5" />
-                        <line x1="64" y1="30" x2="64" y2="70" stroke="#181512" strokeWidth="1.5" />
-                        <rect x="8" y="70" width="64" height="6" stroke="#181512" strokeWidth="1.5" />
-                      </svg>
-                    </div>
-                  )}
-
-                  {card.etchingType === 'statue' && (
-                    <div className={styles.statueEtchingDeco} aria-hidden="true">
-                      <svg className={styles.miniEtchingSvg} viewBox="0 0 80 80" fill="none">
-                        <circle cx="35" cy="25" r="14" stroke="#FF6B35" strokeWidth="1.5" strokeDasharray="3 2" />
-                        <path d="M25 22 Q35 15 45 22" stroke="#FF6B35" strokeWidth="1.2" />
-                        <path d="M20 50 C20 40 28 36 35 36 C42 36 50 40 50 50 L54 70 H16 Z" stroke="#FF6B35" strokeWidth="1.5" />
-                      </svg>
-                    </div>
-                  )}
-
-                  {card.etchingType === 'paw' && (
-                    <div className={styles.pawPrintsDeco} aria-hidden="true">
-                      <svg width="34" height="34" viewBox="0 0 24 24" fill="#181512">
-                        <circle cx="8" cy="7" r="2" />
-                        <circle cx="16" cy="7" r="2" />
-                        <circle cx="5" cy="12" r="1.8" />
-                        <circle cx="19" cy="12" r="1.8" />
-                        <path d="M12 11 C9 11 7 13 8 16 C9 18 11 19 12 19 C13 19 15 18 16 16 C17 13 15 11 12 11 Z" />
-                      </svg>
-                    </div>
-                  )}
-
-                  {card.etchingType === 'chart' && (
-                    <div className={styles.buildingEtchingDeco} aria-hidden="true">
-                      <svg className={styles.miniEtchingSvg} viewBox="0 0 100 100" fill="none">
-                        <line x1="15" y1="80" x2="85" y2="80" stroke="#181512" strokeWidth="2" />
-                        <line x1="15" y1="20" x2="15" y2="80" stroke="#181512" strokeWidth="2" />
-                        <rect x="25" y="45" width="10" height="35" stroke="#181512" strokeWidth="1.5" />
-                        <rect x="45" y="30" width="10" height="50" fill="#FF6B35" fillOpacity="0.4" stroke="#181512" strokeWidth="1.5" />
-                        <rect x="65" y="20" width="10" height="60" stroke="#181512" strokeWidth="1.5" />
-                      </svg>
-                    </div>
-                  )}
-
-                  {card.etchingType === 'brain' && (
-                    <div className={styles.statueEtchingDeco} aria-hidden="true">
-                      <svg className={styles.miniEtchingSvg} viewBox="0 0 100 100" fill="none">
-                        <circle cx="50" cy="50" r="30" stroke="#FF6B35" strokeWidth="1.5" strokeDasharray="3 2" />
-                        <path d="M30 45 Q50 30 70 45" stroke="#181512" strokeWidth="1.5" />
-                        <path d="M30 55 Q50 70 70 55" stroke="#181512" strokeWidth="1.5" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
+                </Link>
 
                 {/* Card Details Body Matching Image 2 */}
                 <div className={styles.bottomCardDetails}>
 
                   {/* Title in Vibrant Orange */}
-                  <h4 className={styles.bottomCardTitle}>{card.title}</h4>
+                  <Link href={`/projects/${card.slug}`} className={styles.bottomCardTitleLink}>
+                    <h4 className={styles.bottomCardTitle}>{card.title}</h4>
+                  </Link>
 
                   {/* Monospace / Typewriter Description */}
                   <p className={styles.bottomCardDesc}>{card.desc}</p>

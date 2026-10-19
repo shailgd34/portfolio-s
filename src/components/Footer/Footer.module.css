@@ -376,3 +376,17 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 520px) {
+  .emailPillBtn {
+    padding: 0.85rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .emailAddress {
+    font-size: 0.76rem;
+    word-break: break-all;
+  }
+}

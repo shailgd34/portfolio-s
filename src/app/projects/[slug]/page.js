@@ -31,12 +31,15 @@ export default function CaseStudyPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeLightboxImg, setActiveLightboxImg] = useState(null);
 
-  // Sync title
+  // Sync title and ensure viewport scrolls to top on navigation
   useEffect(() => {
     if (project?.title) {
       document.title = `${project.title} — Product Design | Sheelash`;
     }
-  }, [project]);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [project, slug]);
 
   if (!project) {
     return (

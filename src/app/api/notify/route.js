@@ -1,3 +1,8 @@
+// In-memory cache to store notified visitor IPs for 24 hours
+// Prevents duplicate Telegram notifications when the same visitor revisits or refreshes
+const notifiedVisitors = new Map();
+const DEDUPLICATION_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+
 export async function POST(request) {
   try {
     const data = await request.json().catch(() => ({}));
@@ -20,8 +25,32 @@ export async function POST(request) {
       ip = '',
       referrer = 'Direct Visit',
       device = 'Desktop',
+      isNewVisitor = false,
       timestamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
     } = data;
+
+    // Server-side IP deduplication (24-hour window)
+    if (ip) {
+      const now = Date.now();
+      const lastNotified = notifiedVisitors.get(ip);
+      if (lastNotified && (now - lastNotified) < DEDUPLICATION_WINDOW_MS) {
+        return Response.json({
+          success: true,
+          skipped: true,
+          message: 'Visitor IP recently notified (within 24h), skipping duplicate.'
+        }, { status: 200 });
+      }
+      notifiedVisitors.set(ip, now);
+
+      // Clean up old entries periodically
+      if (notifiedVisitors.size > 1000) {
+        for (const [key, time] of notifiedVisitors.entries()) {
+          if (now - time > DEDUPLICATION_WINDOW_MS) {
+            notifiedVisitors.delete(key);
+          }
+        }
+      }
+    }
 
     const message = `🚀 *New Visitor on Portfolio!*
 ━━━━━━━━━━━━━━━━━━

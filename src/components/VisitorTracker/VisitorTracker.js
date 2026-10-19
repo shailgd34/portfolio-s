@@ -10,11 +10,32 @@ export default function VisitorTracker() {
     // Only run on client
     if (typeof window === 'undefined') return;
 
-    // Check if we already notified for this browser session on this visit
-    const sessionKey = `visited_tracked_${new Date().toISOString().slice(0, 10)}`;
-    const alreadyTracked = sessionStorage.getItem(sessionKey);
+    // Check permanent localStorage token - only NEW visitors get notified
+    const permanentTokenKey = 'sheelash_portfolio_visitor_token';
+    const hasVisitedBefore = localStorage.getItem(permanentTokenKey);
 
-    if (alreadyTracked) return;
+    // If visitor has already visited before, do NOT notify
+    // (Allows manual testing via ?test_notify=true or ?reset_visitor=true)
+    const searchParams = new URLSearchParams(window.location.search);
+    const forceTestNotify = searchParams.get('test_notify') === 'true';
+    const shouldReset = searchParams.get('reset_visitor') === 'true';
+
+    if (shouldReset) {
+      localStorage.removeItem(permanentTokenKey);
+      sessionStorage.clear();
+      console.log('Visitor token reset.');
+    }
+
+    if (hasVisitedBefore && !forceTestNotify) {
+      // Returning visitor or site owner - skip notification
+      return;
+    }
+
+    // Also check session storage so even during the first visit we don't notify multiple times per page navigation
+    const sessionKey = 'sheelash_visitor_session_tracked';
+    if (sessionStorage.getItem(sessionKey) && !forceTestNotify) {
+      return;
+    }
 
     const trackVisit = async () => {
       try {
@@ -38,7 +59,7 @@ export default function VisitorTracker() {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         const deviceType = isMobile ? 'Mobile 📱' : 'Desktop 💻';
 
-        await fetch('/api/notify', {
+        const res = await fetch('/api/notify', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -48,6 +69,7 @@ export default function VisitorTracker() {
             ip,
             referrer: document.referrer || 'Direct Visit',
             device: deviceType,
+            isNewVisitor: true,
             timestamp: new Date().toLocaleTimeString('en-US', {
               hour: '2-digit',
               minute: '2-digit',
@@ -57,15 +79,16 @@ export default function VisitorTracker() {
           }),
         });
 
-        // Mark session as tracked
+        // Permanently record that this visitor has been notified so future visits NEVER re-notify
+        localStorage.setItem(permanentTokenKey, `first_visit_${Date.now()}`);
         sessionStorage.setItem(sessionKey, 'true');
       } catch (err) {
         // Silently catch network errors
       }
     };
 
-    // Small delay so it doesn't impact initial page load metrics
-    const timer = setTimeout(trackVisit, 2000);
+    // Delay 2.5s so initial render is completely uninterrupted
+    const timer = setTimeout(trackVisit, 2500);
     return () => clearTimeout(timer);
   }, [pathname]);
 

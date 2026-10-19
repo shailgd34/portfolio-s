@@ -83,3 +83,27 @@
 .variantParchment .starIcon {
   color: #FF6B35;
 }
+
+@media (max-width: 640px) {
+  .marqueeWrapper {
+    padding: 0.65rem 0;
+  }
+
+  .marqueeTrack {
+    gap: 1.25rem;
+  }
+
+  .marqueeGroup {
+    gap: 1.25rem;
+  }
+
+  .marqueeItem {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    gap: 1.25rem;
+  }
+
+  .starIcon {
+    font-size: 0.72rem;
+  }
+}

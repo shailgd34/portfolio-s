@@ -205,6 +205,8 @@
   font-weight: 700;
   color: #181512;
   text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .contactValue:hover {

@@ -211,7 +211,19 @@
 
 @media (max-width: 480px) {
   .cinematicTechGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .techTileCard {
+    padding: 1rem 0.75rem 1.15rem 0.75rem;
+    min-height: 160px;
+  }
+
+  .tileLogoWrapper {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 0.75rem;
   }
 }
 

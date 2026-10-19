@@ -280,6 +280,12 @@ h1, h2, h3, h4, h5, h6,
   padding: 0 3rem;
 }
 
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1.25rem;
@@ -288,8 +294,18 @@ h1, h2, h3, h4, h5, h6,
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 0.85rem;
   }
+}
+
+/* Global Responsive Overflow Prevention */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+p, span, a, li {
+  overflow-wrap: break-word;
 }
 
 /* Typography Utilities */

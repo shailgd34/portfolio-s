@@ -534,7 +534,25 @@
 /* =========================================================
    RESPONSIVE BREAKPOINTS
    ========================================================= */
-@media (max-width: 900px) {
+@media (max-width: 1240px) {
+  .navTopRow {
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+    font-size: 0.72rem;
+  }
+
+  .brandNameText {
+    font-size: 0.78rem;
+  }
+
+  .navCell {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 1024px) {
   .navHeader {
     top: 0.65rem;
     padding: 0 0.75rem;
@@ -635,5 +653,29 @@
 
   .brandLogo {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navHeader {
+    top: 0.45rem;
+    padding: 0 0.5rem;
+  }
+
+  .navbar {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .mobileBrandName {
+    font-size: 0.75rem;
+  }
+
+  .mobileStatusTag {
+    font-size: 0.58rem;
+  }
+
+  .mobileDrawer {
+    max-width: 88vw;
+    padding: 1.5rem 1.15rem;
   }
 }
