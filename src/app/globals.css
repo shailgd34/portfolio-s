@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Antonio:wght@400;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --font-heading: 'Azeret Mono', monospace;
+  --mv-font-d: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mv-font-b: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mv-font-m: 'Chivo Mono', ui-monospace, monospace;
+  --font-heading: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Chivo Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-retro: 'Azeret Mono', monospace;
   --font-retro-serif: 'Fraunces', Georgia, serif;
-  --font-mono: 'Azeret Mono', monospace;
-  --font-body: 'Azeret Mono', 'Manrope', monospace, sans-serif;
-  --font-antonio: 'Azeret Mono', monospace;
-  --font-epilogue: 'Azeret Mono', monospace;
-  --font-manrope: 'Azeret Mono', monospace;
-  --font-inter: 'Azeret Mono', monospace;
+  --font-antonio: 'Mona Sans', sans-serif;
+  --font-epilogue: 'Mona Sans', sans-serif;
+  --font-manrope: 'Mona Sans', sans-serif;
+  --font-inter: 'Mona Sans', sans-serif;
 
   /* VINTAGE AGED PARCHMENT & RETRO BURNT ORANGE PALETTE */
   --bg-main: #F4ECE1;
@@ -235,7 +239,17 @@ h1, h2, h3, h4, h5, h6,
 .activeTechTitle,
 .rowTechTitle,
 .heroTitle {
-  font-family: var(--font-heading), 'Azeret Mono', 'Space Mono', monospace !important;
+  font-family: var(--font-heading), 'Mona Sans', -apple-system, sans-serif !important;
+}
+
+.retro-edition h1,
+.retro-edition h2,
+.retro-edition h3,
+.retro-edition h4,
+.retro-edition h5,
+.retro-edition h6,
+.retro-edition .heroTitle {
+  font-family: var(--font-retro), 'Azeret Mono', monospace !important;
 }
 
 /* High-contrast solid ink black headings across the whole website */

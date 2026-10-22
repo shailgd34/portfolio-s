@@ -447,7 +447,7 @@ export default function Projects() {
                     aria-label={`Open case study for ${currentHero.title}`}
                   >
                     <span className={styles.heroDocketNumber}>[ {currentHero.num} / 20 ]</span>
-                    <span className={styles.heroDocketLabel}>FEATURED CASE STUDY</span>
+
                   </Link>
 
                   {/* Tactile 10s Carousel Batch Controls & Counter */}

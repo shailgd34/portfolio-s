@@ -93,6 +93,18 @@ export default function FloatingActions() {
     <>
 
 
+      {/* Studio Edition Toggle link */}
+      <a
+        href="/voss-preview"
+        className={styles.studioEditionBtn}
+        aria-label="View Mara Voss Studio Edition Portfolio"
+        title="View Studio Edition"
+      >
+        <span>🎬</span>
+        <span>STUDIO EDITION</span>
+        <ArrowUpRight size={13} strokeWidth={2.8} />
+      </a>
+
       {/* Sticky Contact Button at Left Bottom Side */}
       <a
         href="#contact"

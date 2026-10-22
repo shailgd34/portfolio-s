@@ -1,3 +1,40 @@
+/* Studio Edition Floating Badge - Left Bottom Side */
+.studioEditionBtn {
+  position: fixed;
+  bottom: 5.4rem;
+  left: 2rem;
+  z-index: 99999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 0 !important;
+  background: #FF5B2E;
+  border: 1.5px solid #181512;
+  color: #141210;
+  text-decoration: none;
+  font-family: var(--font-heading), 'Azeret Mono', monospace !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0px #181512 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.studioEditionBtn:hover {
+  transform: translate(-2px, -2px);
+  background: #141210;
+  color: #FF5B2E;
+  box-shadow: 5px 5px 0px #FF5B2E !important;
+}
+
+.studioEditionBtn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #181512 !important;
+}
+
 /* Sticky Contact Button - Left Bottom Side */
 .stickyContactBtn {
   position: fixed;
@@ -257,6 +294,14 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .studioEditionBtn {
+    bottom: calc(4.35rem + env(safe-area-inset-bottom, 0px));
+    left: 1rem;
+    padding: 0.42rem 0.75rem;
+    font-size: 0.7rem;
+    box-shadow: 2px 2px 0px #181512 !important;
+  }
+
   .stickyContactBtn {
     bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
     left: 1rem;

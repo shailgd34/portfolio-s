@@ -751,36 +751,56 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Image Frame with 16:10 Ratio & Vintage Risograph Treatment */}
-                    <Link
-                      href={`/projects/${slug}`}
-                      className={styles.cardImageWrapper}
-                      aria-label={`Open case study for ${project.title || project.name}`}
-                    >
-                      <ProjectCardImage
-                        project={project}
-                        plateNum={plateNum}
-                        sizes={gridCols === 2 ? "(max-width: 680px) 100vw, 50vw" : "(max-width: 680px) 100vw, (max-width: 1180px) 50vw, 33vw"}
-                      />
+                    <div className={styles.cardImageWrapper}>
+                      <Link
+                        href={`/projects/${slug}`}
+                        className={styles.cardImageInnerLink}
+                        aria-label={`Open case study for ${project.title || project.name}`}
+                      >
+                        <ProjectCardImage
+                          project={project}
+                          plateNum={plateNum}
+                          sizes={gridCols === 2 ? "(max-width: 680px) 100vw, 50vw" : "(max-width: 680px) 100vw, (max-width: 1180px) 50vw, 33vw"}
+                        />
+
+                        {/* Center Hover Action */}
+                        <div className={styles.centerHoverAction}>
+                          <span className={styles.quickPreviewHoverBtn}>
+                            <Maximize2 size={13} />
+                            <span>CASE STUDY ↗</span>
+                          </span>
+                        </div>
+                      </Link>
 
                       {/* Top Right Quick Launch Tag */}
                       {figmaUrl ? (
-                        <span className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}>
+                        <a
+                          href={figmaUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${styles.imageLaunchBtn} ${styles.figmaLaunchBtn}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                          aria-label={`Open Figma Prototype for ${project.title || project.name}`}
+                        >
                           <span>FIGMA ↗</span>
-                        </span>
+                        </a>
                       ) : liveWebUrl ? (
-                        <span className={styles.imageLaunchBtn}>
+                        <a
+                          href={liveWebUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.imageLaunchBtn}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                          aria-label={`Open Live Demo for ${project.title || project.name}`}
+                        >
                           <span>LIVE ↗</span>
-                        </span>
+                        </a>
                       ) : null}
-
-                      {/* Center Hover Action */}
-                      <div className={styles.centerHoverAction}>
-                        <span className={styles.quickPreviewHoverBtn}>
-                          <Maximize2 size={13} />
-                          <span>CASE STUDY ↗</span>
-                        </span>
-                      </div>
-                    </Link>
+                    </div>
 
                     {/* Card Details Dossier: Title, Description, Tech Badges, Action Buttons */}
                     <div className={styles.cardDetails}>

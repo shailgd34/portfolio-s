@@ -16,8 +16,9 @@ export default function Cursor() {
   const animFrameId = useRef(null);
 
   useEffect(() => {
-    // Only enable on desktop pointer devices
+    // Only enable on desktop pointer devices and on /retro route
     if (typeof window === 'undefined') return;
+    if (!window.location.pathname.startsWith('/retro')) return;
     if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 1024) return;
 
     const handleMouseMove = (e) => {

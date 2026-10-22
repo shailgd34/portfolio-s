@@ -11,6 +11,12 @@ export default function RetroLoader() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    if (!window.location.pathname.startsWith('/retro')) {
+      setIsActive(false);
+      document.documentElement.classList.add('retro-loader-done');
+      return;
+    }
+
     const searchParams = new URLSearchParams(window.location.search);
     const forceReplay = searchParams.has('loader') || searchParams.has('intro');
     const hasSeen = sessionStorage.getItem('sheelash_retro_tape_v1');

@@ -1576,11 +1576,22 @@ export function getProjectBySlug(slug) {
     return curatedCaseStudies[clean];
   }
 
-  // Find in projects.json
-  const match = rawProjectsJson.find(p => {
+  // Find in projects.json (exact match first)
+  let match = rawProjectsJson.find(p => {
     const s1 = slugify(p.slug || p.id || p.name || p.title);
     return s1 === clean || slugify(p.id) === clean || slugify(p.title) === clean;
   });
+
+  // Prefix / alias match fallback
+  if (!match) {
+    match = rawProjectsJson.find(p => {
+      const s1 = slugify(p.slug || p.id || p.name || p.title);
+      const s2 = slugify(p.id);
+      const s3 = slugify(p.title);
+      return s1.startsWith(clean) || s2.startsWith(clean) || s3.startsWith(clean) ||
+             clean.startsWith(s1) || clean.startsWith(s2) || clean.startsWith(s3);
+    });
+  }
 
   if (match) {
     return generateCaseStudy(match);

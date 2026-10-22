@@ -3731,7 +3731,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  height: 230px;
+  height: auto;
   background: #181512;
   overflow: hidden;
   border-bottom: 2px solid #181512;
@@ -3739,17 +3739,16 @@
   flex-shrink: 0;
   display: block;
   text-decoration: none;
-  transition: height 0.25s ease;
 }
 
-/* Increased Image Height in 2-Column Grid View */
+/* 2-Column Grid View strict 16:10 scaling */
 .grid2Cols .cardImageWrapper {
-  height: 340px;
+  height: auto;
 }
 
 @media (max-width: 1180px) {
   .grid2Cols .cardImageWrapper {
-    height: 290px;
+    height: auto;
   }
 }
 
@@ -3757,7 +3756,7 @@
 
   .cardImageWrapper,
   .grid2Cols .cardImageWrapper {
-    height: 210px;
+    height: auto;
   }
 }
 

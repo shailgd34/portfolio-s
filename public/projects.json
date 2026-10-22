@@ -24,7 +24,7 @@
     "filterCategory": "FINTECH & SAAS",
     "type": "Trading Platform & Analytics Dashboard",
     "technology": ["Figma", "Data Architecture", "React", "Chart.js", "Design System"],
-    "link": "https://tugatrades.com/",
+    "link": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
     "figmaLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
     "liveLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
     "image": "/tugatraders.png",
@@ -54,7 +54,6 @@
     "name": "fresh art club",
     "title": "Fresh Art Club",
     "category": "React & Fullstack Web App",
-    "filterCategory": "WEB & PLATFORMS",
     "type": "React & Node.js Enterprise Platform (2+ Yrs Active)",
     "technology": ["React", "Node.js", "Express", "Next.js", "MongoDB", "Figma", "Stripe API"],
     "link": "https://freshartclub.com/",
@@ -66,7 +65,7 @@
     "role": "Lead Product Designer & Fullstack Engineer",
     "description": "Massive 2+ year ongoing React & Node.js fine art digital ecosystem, connecting global artists, galleries, and collectors with custom auction & marketplace infrastructure."
   },
-   {
+  {
     "id": "GMKC Logistics Website",
     "name": "GMKC Logistics Website",
     "title": "GMKC Logistics Website",
@@ -77,7 +76,7 @@
     "figmaLink": "https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114",
     "liveLink": "https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114",
     "image": "/gmkc.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "GMKC Logistics is a leading provider of transportation and logistics services."
@@ -125,7 +124,7 @@
     "figmaLink": "https://www.figma.com/proto/8Mikb4NU5QOnXiJaJIJSmG/Stockmate-website?node-id=3-291&starting-point-node-id=3%3A291&t=CryKwLj4zRSuhjP5-1",
     "liveLink": "",
     "image": "/stockmate.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
     "description": ""
@@ -157,7 +156,7 @@
     "figmaLink": null,
     "liveLink": "https://fuqiao.art/",
     "image": "/portfolio/Fuqiao Arts/fuqiao.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer & Developer",
     "description": "Contemporary art gallery and cultural exhibition portal."
@@ -174,7 +173,7 @@
     "figmaLink": "http://figma.com/proto/c7ObeDfrIpjzCUS501Ay4d/finance-web-project?node-id=1-6249&t=jJQ28wtTytjv2sv0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A6249",
     "liveLink": "",
     "image": "/finapp.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "Figma Web Designer",
     "description": "Pavement recycling and heavy soil stabilization engineering website."
@@ -206,7 +205,7 @@
     "figmaLink": "https://www.figma.com/proto/9xqemBMObUymVXpNQ5YRKG/Active-communities?node-id=0-1&p=f&t=C2Yj2dN3qyOpI93m-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A10875&fuid=1041940900126019045",
     "liveLink": null,
     "image": "/activecommunities.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
     "description": "Neighborhood social network and public community event organizer UI."
@@ -239,7 +238,7 @@
     "figmaLink": "https://www.figma.com/proto/kiMpR6zI22O1qcXsm6ZOmw/npr-carpentory?node-id=251-191",
     "liveLink": null,
     "image": "/npr-carpentary.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
     "description": "Bespoke architectural woodworking and custom interior joinery website."
@@ -255,7 +254,7 @@
     "figmaLink": null,
     "liveLink": "https://carat-club.vercel.app/",
     "image": "/portfolio/Carat Club/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Luxury jewelry and diamond e-commerce platform interface."
@@ -271,7 +270,7 @@
     "figmaLink": "https://www.figma.com/proto/X1ahyDdtQFGrWTIO3BYIKt/CM-Football-Academy?node-id=121-2209&p=f&t=wJAwLoH3aYV6SrDU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=121%3A2230&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/X1ahyDdtQFGrWTIO3BYIKt/CM-Football-Academy?node-id=121-2209&p=f&t=wJAwLoH3aYV6SrDU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=121%3A2230&show-proto-sidebar=1",
     "image": "/portfolio/Coach Max/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Personal athletic coaching and fitness platform website."
@@ -287,7 +286,7 @@
     "figmaLink": null,
     "liveLink": "https://crconidigital.com/",
     "image": "/portfolio/Crconi Digital/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UI/UX Designer & Developer",
     "description": "Interactive digital agency experience featuring smooth GSAP micro-animations."
@@ -303,7 +302,7 @@
     "figmaLink": null,
     "liveLink": null,
     "image": "/portfolio/Esotek Corporation/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Industrial automation and high-tech manufacturing portal."
@@ -321,7 +320,7 @@
     "figmaLink": "https://www.figma.com/proto/uMNKLzSocHRNJ7qmOjOF8M/Trucking-Insurance-Company-Website?node-id=5-394&p=f&t=yjgFXwYb3g3qiLPn-0&scaling=scale-down&content-scaling=fixed&page-id=1%3A8&starting-point-node-id=5%3A394",
     "liveLink": "https://www.figma.com/proto/uMNKLzSocHRNJ7qmOjOF8M/Trucking-Insurance-Company-Website?node-id=5-394&p=f&t=yjgFXwYb3g3qiLPn-0&scaling=scale-down&content-scaling=fixed&page-id=1%3A8&starting-point-node-id=5%3A394",
     "image": "/trucking.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Insurance and FinTech website for a trucking insurance company."
@@ -337,7 +336,7 @@
     "figmaLink":"https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
     "image": "/bisocial.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Utility vehicle and commercial truck rental booking app."
@@ -355,7 +354,7 @@
     "figmaLink": "https://www.figma.com/proto/rhVqziKU9O9pz4h08aDJhi/Kiro-App?node-id=6-26&p=f&t=toJQ4q0MqWSctH9L-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=3%3A7&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/rhVqziKU9O9pz4h08aDJhi/Kiro-App?node-id=6-26&p=f&t=toJQ4q0MqWSctH9L-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=3%3A7&show-proto-sidebar=1",
     "image": "/kiroapp.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Utility vehicle and commercial truck rental booking app."
@@ -387,7 +386,7 @@
     "figmaLink": "https://www.figma.com/proto/NJvBaf5NvsDpUsefVO0pEK/Ipixit-V2?node-id=2248-8913&p=f&t=MF8KajrUUgJHSgtW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2019%3A7873&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/NJvBaf5NvsDpUsefVO0pEK/Ipixit-V2?node-id=2248-8913&p=f&t=MF8KajrUUgJHSgtW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2019%3A7873&show-proto-sidebar=1",
     "image": "/ipixitapp.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Photo sharing app with a modern and user-friendly interface. It allows users to share their photos with friends and family and also provides a platform for photographers to showcase their work."
@@ -485,7 +484,7 @@
     "figmaLink": "https://www.figma.com/proto/7wxy5C8SK7jKEP95yMdk4o/NZL-Reverse-Bidding-App?node-id=1-6484",
     "liveLink": "https://nzlapp.com/",
     "image": "/portfolio/Nzl App/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer & Mobile Developer",
     "description": "Dynamic reverse-bidding marketplace app with real-time auction engine."
@@ -501,7 +500,7 @@
     "figmaLink": "",
     "liveLink": null,
     "image": "/portfolio/Out App/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Local events finder and nightlife social planning mobile app."
@@ -533,7 +532,7 @@
     "figmaLink": null,
     "liveLink": "http://www.praizeproductions.com/",
     "image": "/portfolio/Praize Productions/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Performing arts production agency and event ticketing website."
@@ -549,7 +548,7 @@
     "figmaLink": "https://www.figma.com/proto/HYpQJy7lcTH1zoAusVB4Cx/Raptex-crypto-Exchange?node-id=1-4",
     "liveLink": null,
     "image": "/portfolio/Raptex/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "High-frequency crypto trading exchange interface with order books and charts."
@@ -565,7 +564,7 @@
     "figmaLink": "https://www.figma.com/proto/q4zxLjSNWo97ulUvFxzJAr/Runner-Project?node-id=2-79055&p=f&viewport=10%2C-32%2C0.02&t=v6bcEBlIWhjE2ZM0-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A79055&show-proto-sidebar=1&page-id=2%3A2",
     "liveLink": "https://www.figma.com/proto/q4zxLjSNWo97ulUvFxzJAr/Runner-Project?node-id=2-79055&p=f&viewport=10%2C-32%2C0.02&t=v6bcEBlIWhjE2ZM0-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A79055&show-proto-sidebar=1&page-id=2%3A2",
     "image": "/portfolio/Runner/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Same-day errand running and urban courier dispatch application."
@@ -581,7 +580,7 @@
     "figmaLink": null,
     "liveLink": null,
     "image": "/portfolio/Semrossi/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "High-fashion apparel brand identity and digital e-commerce storefront."
@@ -613,7 +612,7 @@
     "figmaLink": null,
     "liveLink": "https://thecorporatehub.org/",
     "image": "/portfolio/The corporate Hub/mainone.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
     "description": "Executive co-working space booking and flexible office membership portal."
@@ -629,7 +628,7 @@
     "link": "https://equuschain.io/",
     "figmaLink": null,
     "liveLink": "https://equuschain.io/",
-    "image": "",
+    "image": "/equuschain.jpg",
     "isFeatured": false,
     "featureTag": "web3",
     "role": "Frontend Developer & UX Designer",
@@ -713,7 +712,7 @@
     "figmaLink": "https://www.figma.com/proto/hRCXJqwfF94rWag2qeCQuW/fast-delivery?node-id=8-15&t=ohWCHpfVQ9MTQPOD-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     "liveLink": null,
     "image": "/fastdelivery.png",
-    "isFeatured": false,
+    "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
     "description": "On-demand logistics fleet tracking and delivery booking platform."
@@ -842,7 +841,7 @@
     "figmaLink": "https://www.figma.com/proto/XMlLSoMBMLj6LAOVFSg3Uc/Ij-art-bank?node-id=1-1227&t=RWYqWiWsutWx3HAn-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1227",
     "liveLink": null,
     "image": "/ijart.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
     "description": "High-net-worth art investment fund management and valuation platform."

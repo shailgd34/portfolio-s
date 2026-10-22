@@ -3,9 +3,10 @@ import { Antonio, Manrope, Caveat } from 'next/font/google';
 import SmoothScroll from '@/components/SmoothScroll/SmoothScroll';
 import BackgroundNoise from '@/components/BackgroundNoise/BackgroundNoise';
 import Cursor from '@/components/Cursor/Cursor';
-import RetroLoader from '@/components/RetroLoader/RetroLoader';
+import MvLoader from '@/components/voss/MvLoader';
 import ProjectShowcase from '@/components/ProjectShowcase/ProjectShowcase';
 import VisitorTracker from '@/components/VisitorTracker/VisitorTracker';
+import MvPageTrans from '@/components/voss/MvPageTrans';
 import 'lenis/dist/lenis.css';
 import './globals.css';
 
@@ -31,21 +32,18 @@ const caveat = Caveat({
 });
 
 export const metadata = {
-  title: 'Sheelash Singh Bhadoriya — Product Designer & UI/UX Specialist',
+  title: 'Sheelash B. — Product Designer & UI/UX Specialist',
   description: 'Portfolio of Sheelash Singh Bhadoriya, Product Designer and UI/UX Specialist. Crafting intuitive, high-impact digital products, SaaS dashboards, and modern web applications.',
   keywords: 'Sheelash Singh Bhadoriya, Product Designer, UI/UX Designer, Creative Web Designer, Frontend Developer',
   authors: [{ name: 'Sheelash Singh Bhadoriya' }],
   creator: 'Sheelash Singh Bhadoriya',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
-      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
-      { url: '/icon.png', type: 'image/png', sizes: '64x64' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg?v=4', type: 'image/svg+xml' },
+      { url: '/icon.svg?v=4', type: 'image/svg+xml' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.svg?v=4',
+    apple: '/favicon.svg?v=4',
   },
 };
 
@@ -53,25 +51,28 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" className={`${antonio.variable} ${manrope.variable} ${caveat.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg?v=4" />
+        <link rel="apple-touch-icon" href="/favicon.svg?v=4" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&family=Chivo+Mono:ital,wght@0,300..600;1,300..600&display=swap"
+          rel="stylesheet"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Antonio:wght@400;500;600;700&family=Caveat:wght@400;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-        {/* Synchronous script to immediately suppress loader on repeat visits without flash */}
+        {/* Synchronous script to prepare film loader state without visual flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var seen = sessionStorage.getItem('sheelash_retro_tape_v1');
+                var seen = sessionStorage.getItem('mv-loaded');
                 var hasForce = window.location.search.indexOf('loader') !== -1 || window.location.search.indexOf('intro') !== -1;
-                if (seen && !hasForce) {
-                  document.documentElement.classList.add('retro-loader-done');
+                if (!seen || hasForce) {
+                  document.documentElement.classList.add('mv-hold-ld', 'mvld-go');
                 }
               } catch(e) {}
             `,
@@ -93,8 +94,13 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
+        <MvPageTrans />
         <VisitorTracker />
-        <RetroLoader />
+        <MvLoader
+          enabled={true}
+          once={true}
+          slate="Portfolio 2026 · Scene 01 · Take 1 · Sheelash Singh Bhadoriya"
+        />
         <ProjectShowcase />
         <SmoothScroll>
           {/* Continuous looping noise.gif texture background overlay */}

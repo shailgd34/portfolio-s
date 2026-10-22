@@ -21,6 +21,7 @@ export default function SmoothScroll({ children }) {
 
     lenisRef.current = lenis;
     window.__lenis = lenis;
+    window.__ltLenis = lenis;
 
     let animId;
     function raf(time) {

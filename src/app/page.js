@@ -1,103 +1,128 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar/Navbar';
-import Hero from '@/components/Hero/Hero';
-import RetroMarquee from '@/components/RetroMarquee/RetroMarquee';
-import WhatICanDo from '@/components/WhatICanDo/WhatICanDo';
-import About from '@/components/About/About';
-import Projects from '@/components/Projects/Projects';
-import Experience from '@/components/Experience/Experience';
-import Skills from '@/components/Skills/Skills';
-import Contact from '@/components/Contact/Contact';
-import Footer from '@/components/Footer/Footer';
-import ScrollTextEffect from '@/components/ScrollTextEffect/ScrollTextEffect';
-import FloatingActions from '@/components/FloatingActions/FloatingActions';
+import React from 'react';
+import {
+  MvLoader,
+  MvPageTrans,
+  MvHeader,
+  MvHero,
+  MvIntro,
+  MvWork,
+  MvServices,
+  MvProcess,
+  MvKit,
+  MvCredits,
+  MvPress,
+  MvLab,
+  MvNotes,
+  MvContact,
+  MvCta,
+  MvFooter,
+  siteData,
+  topHomeProjects,
+} from '@/components/voss';
 
 export default function Home() {
-  const [theme, setTheme] = useState('light');
-  const [activeSection, setActiveSection] = useState('hero');
-
-  // Sync theme attribute to <html> tag
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // Theme Toggler
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
-  };
-
-  // Active section scroll tracking
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'what-i-can-do', 'about', 'projects', 'experience', 'technology', 'contact'];
-      const scrollPos = window.scrollY + 250;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} activeSection={activeSection} />
-      <main>
-        <Hero theme={theme} toggleTheme={toggleTheme} />
+    <main
+      style={{
+        minHeight: '100vh',
+        background: '#141210',
+        color: '#F1ECE4',
+        position: 'relative',
+      }}
+    >
+      {/* Shutter blade route transition */}
+      <MvPageTrans enabled={true} />
 
-        {/* Uncle Joe Style Ticker Tape 1 (Below Hero) */}
-        <RetroMarquee
-          items={[
-            'PRODUCT DESIGNER',
-            'UI/UX ARCHITECTURE',
-            'NEXT.JS 15 ENGINEER',
-            'FINTECH & SAAS SPECIALIST',
-            'DESIGN SYSTEMS',
-            'MOBILE APPS',
-            '6+ YEARS EXPERIENCE',
-            'WORLDWIDE CLIENTS'
-          ]}
-          variant="orange"
+      {/* Studio Header: Logo, Timezone Clock, Navigation, Hire Me CTA */}
+      <MvHeader
+        links="Work:/work, About:/about, Resume:/resume, Contact:/contact"
+        ctaLabel="Hire me"
+        ctaLink="/contact"
+        avail={siteData.avail}
+      />
+
+      {/* Photography Studio Hero: Giant Name Typography, Cutout Portrait, Light Spot, Backdrop Switcher */}
+      <MvHero
+        nameText={siteData.heroDisplayName}
+        roleLine="Product designer|& developer"
+        statement={siteData.statement}
+        primary="See my work"
+        primaryLink="/work"
+        secondary="Download résumé"
+        secondaryLink={siteData.resume}
+        portrait={siteData.portrait}
+        showNav={false}
+      />
+
+      {/* Philosophy and Key Impact Metrics */}
+      <MvIntro />
+
+      {/* Work Section: 35mm Contact Sheet of Selected Case Studies */}
+      <section id="work">
+        <MvWork
+          heading="Selected *work*,|2020 – 2026."
+          sheetLabel="Contact sheet · Roll 01"
+          allLabel="All 61 projects"
+          allLink="/work"
+          ctaLabel="All 61 projects"
+          ctaLink="/work"
+          projects={topHomeProjects}
         />
+      </section>
 
-        <WhatICanDo />
-        <About />
-        <Projects />
-
-        {/* Uncle Joe Style Ticker Tape 2 (Between Projects & Experience) */}
-        <RetroMarquee
-          items={[
-            '50+ COMPLETED PROJECTS',
-            'FIGMA TO PRODUCTION',
-            'PIXEL PERFECT CODE',
-            'HIGH PERFORMANCE WEB APPS',
-            'CLEAN ARCHITECTURE',
-            'TOP RATED FREELANCER'
-          ]}
-          variant="dark"
+      {/* Services Section: Theatrical Color Gel Lens Cards */}
+      <section id="services">
+        <MvServices
+          heading="What I *build*,|how I help."
+          ctaLabel="All services"
+          ctaLink="/services"
         />
+      </section>
 
-        <Experience />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingActions />
-      <ScrollTextEffect />
-    </>
+      {/* Process Section: Sprint Stages & Architecture Pipeline */}
+      <section id="process">
+        <MvProcess />
+      </section>
+
+      {/* Kit Section: Design Tool Tokens & UI Component Anatomy */}
+      <MvKit />
+
+      {/* Credits Section: End-Credits Rolling Career & Experience Timeline */}
+      <MvCredits />
+
+      {/* Press Section: Verified Endorsements & Client Testimonials */}
+      <MvPress />
+
+      {/* Lab Section: Creative Code & 16mm Outtakes Reel */}
+      <section id="lab">
+        <MvLab
+          heading="Outtakes &|*experiments*."
+          allLabel="All experiments"
+          allLink="/lab"
+        />
+      </section>
+
+      {/* Notes Section: Studio Notebook Essays & Newsletter Strip */}
+      <section id="notes">
+        <MvNotes
+          heading="Notes from|the *studio*."
+          allLabel="All notes"
+          allLink="/writing"
+        />
+      </section>
+
+      {/* Contact Section: Studio Booking Call Sheet & Inquiry Form */}
+      <section id="contact">
+        <MvContact />
+      </section>
+
+      {/* Final Clapperboard CTA */}
+      <MvCta />
+
+      {/* Studio Footer: Comprehensive Sitemap, Legal Links, Live Local Time */}
+      <MvFooter />
+    </main>
   );
 }
