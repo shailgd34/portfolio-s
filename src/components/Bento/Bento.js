@@ -55,7 +55,7 @@ export default function Bento() {
                 Based in Indore, I design high-growth interfaces for Fintech startups.
               </p>
               <p className={styles.bioSubText}>
-                With 5 years of professional experience, I bridge the gap between complex financial systems and intuitive user design. I combine analytical research with frontend coding to deploy layouts that convert.
+                With 6 years of professional experience, I bridge the gap between complex financial systems and intuitive user design. I combine analytical research with frontend coding to deploy layouts that convert.
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function Bento() {
             <span className={styles.cardTitle}>
               <Clock size={16} /> Years of Experience
             </span>
-            <div className={styles.metricValue}>5+</div>
+            <div className={styles.metricValue}>6</div>
             <span className={styles.metricDesc}>Product Design • UX/UI • Frontend Development</span>
           </div>
 

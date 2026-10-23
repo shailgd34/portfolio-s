@@ -284,7 +284,7 @@ export default function LiveTerminal() {
                         <span className={styles.statName}>Projects Shipped</span>
                       </div>
                       <div className={styles.statCell}>
-                        <span className={styles.statNum}>6+</span>
+                        <span className={styles.statNum}>6</span>
                         <span className={styles.statName}>Years Practice</span>
                       </div>
                       <div className={styles.statCell}>

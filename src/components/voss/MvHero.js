@@ -492,7 +492,6 @@ export default function MvHero(props = {}) {
           role="group"
           aria-label="Backdrop colour"
         >
-          <span className="mvp-sw-l">Backdrop</span>
           {BDS.map((b, i) => (
             <button
               key={i}
@@ -531,7 +530,7 @@ const CSS_HERO = `
 .mvp.has-cur{cursor:none} .mvp.has-cur :is(a,button){cursor:pointer}
 .mvp-stage{position:absolute;inset:0;z-index:0;container-type:size}
 .mvp-wall{position:absolute;inset:-4%;transform:translate3d(var(--wpx,0),var(--wpy,0),0);background:radial-gradient(circle min(46vw,640px) at calc(var(--lx,72%) + 4%) calc(var(--ly,22%) + 4%),var(--wall-light),transparent 70%),radial-gradient(120% 80% at 50% 110%,rgba(0,0,0,.28),transparent 60%)}
-.mvp-name{position:absolute;left:0;right:0;top:48%;margin:0 auto;padding:0 clamp(28px,6vw,84px);box-sizing:border-box;max-width:100%;display:flex;justify-content:center;font-size:var(--fs,11.4cqw);line-height:.88;letter-spacing:-.03em;font-weight:900;white-space:nowrap;transform:translate3d(var(--wpx,0),var(--wpy,0),0);pointer-events:none;z-index:3}
+.mvp-name{position:absolute;left:0;right:0;top:calc(65% - 60px);margin:0 auto;padding:0 clamp(28px,6vw,84px);box-sizing:border-box;max-width:100%;display:flex;justify-content:center;font-size:var(--fs,11.4cqw);line-height:.88;letter-spacing:-.03em;font-weight:900;white-space:nowrap;transform:translate3d(var(--wpx,0),var(--wpy,0),0);pointer-events:none;z-index:3}
 .mvp-nm{display:inline-flex}
 .mvp-l{display:inline-block;overflow:visible;padding:.04em .10em .08em;margin:0 -.05em -.08em;--t:0}
 .mvp-l>span{display:inline-block;color:color-mix(in srgb,var(--nm-lit) calc(var(--t) * 100%),var(--nm-dim));translate:0 calc(var(--t) * -.05em);transform:translateY(108%);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),color .15s linear;transition-delay:inherit}
@@ -568,12 +567,12 @@ const CSS_HERO = `
 .mvp-cur i{position:absolute;left:0;top:0;width:18px;height:18px;translate:-50% -50%;border-radius:50%;background:#FFF1DA;box-shadow:0 0 22px 8px rgba(255,226,180,.55),0 0 0 6px rgba(255,241,218,.18);transition:scale .3s cubic-bezier(.34,1.56,.64,1)}
 .mvp-cur b{position:absolute;left:16px;top:10px;padding:3px 7px;border-radius:5px;background:#FFF1DA;color:#111113;font-size:12px;font-weight:500;white-space:nowrap;transition:opacity .2s}
 .mvp-cur[data-m="btn"] i{scale:.45} .mvp-cur[data-m="btn"] b{opacity:0}
-.mvp.is-tab .mvp-shadow,.mvp.is-tab .mvp-person,.mvp.is-tab .mvp-back{height:74%;left:60%} .mvp.is-tab .mvp-meta{display:none} .mvp.is-tab .mvp-name{top:56%} .mvp.is-tab .mvp-links{display:none} .mvp.is-tab .mvp-navcta{margin-left:auto} .mvp.is-tab .mvp-hint{display:none} .mvp.is-tab .mvp-copy{width:min(300px,34vw)} .mvp.is-tab .mvp-role{font-size:30px} .mvp.is-tab .mvp-st{display:none}
+.mvp.is-tab .mvp-shadow,.mvp.is-tab .mvp-person,.mvp.is-tab .mvp-back{height:74%;left:60%} .mvp.is-tab .mvp-meta{display:none} .mvp.is-tab .mvp-name{top:calc(63% - 40px)} .mvp.is-tab .mvp-links{display:none} .mvp.is-tab .mvp-navcta{margin-left:auto} .mvp.is-tab .mvp-hint{display:none} .mvp.is-tab .mvp-copy{width:min(300px,34vw)} .mvp.is-tab .mvp-role{font-size:30px} .mvp.is-tab .mvp-st{display:none}
 .mvp.is-ph{height:auto;min-height:0;display:flex;flex-direction:column} .mvp.is-ph.no-nav{padding-top:54px}
 .mvp.is-ph .mvp-nav{position:relative;padding:12px var(--mvg);gap:10px} .mvp.is-ph .mvp-links{display:none} .mvp.is-ph .mvp-navcta{margin-left:auto}
 .mvp.is-ph .mvp-stage{position:relative;inset:auto;height:clamp(340px,46vh,440px);flex:none;overflow:hidden}
 .mvp.is-ph{--nm-dim:color-mix(in srgb,var(--bd) 56%,#fff)} .mvp.is-ph.is-lightbd{--nm-dim:color-mix(in srgb,var(--bd) 45%,#000)}
-.mvp.is-ph .mvp-name{top:6%;line-height:.88;font-size:clamp(28px,11.5vw,52px)!important;padding:0 6px;box-sizing:border-box;letter-spacing:-.03em;white-space:nowrap!important}
+.mvp.is-ph .mvp-name{top:18%;line-height:.85;font-size:clamp(26px,10.5vw,48px)!important;padding:0 6px;box-sizing:border-box;letter-spacing:-.03em;white-space:nowrap!important}
 .mvp.is-ph .mvp-nm{flex-wrap:nowrap!important;justify-content:center;white-space:nowrap!important;display:inline-flex!important}
 .mvp.is-ph .mvp-shadow,.mvp.is-ph .mvp-person,.mvp.is-ph .mvp-back{height:82%;bottom:0;left:50%;translate:-50% 0}
 .mvp.is-ph .mvp-copy{position:relative;left:auto;top:auto;width:auto;padding:18px var(--mvg) 10px;display:flex;flex-direction:column;gap:12px}

@@ -189,14 +189,14 @@ export default function ProjectShowcase() {
         }}
         className={styles.stickyShowcaseBtn}
         aria-label="Open Visual Gallery Album"
-        title="Open Running Retro Project Album"
+        title="Open Running 35mm Project Album"
       >
         <span className={styles.iconWrapper}>
-          <Film size={16} strokeWidth={2.4} />
-          <span className={styles.badge50}>50+</span>
+          <Film size={15} strokeWidth={2.2} />
+          <span className={styles.badge50}>60+</span>
         </span>
         <span className={styles.labelWrapper}>
-          <span className={styles.labelText}>VISUAL GALLERY</span>
+          <span className={styles.labelText}>GALLERY REEL</span>
           <ArrowUpRight size={13} />
         </span>
       </button>
@@ -209,7 +209,7 @@ export default function ProjectShowcase() {
           className={styles.showcaseModal}
           role="dialog"
           aria-modal="true"
-          aria-label="Retro Visual Album"
+          aria-label="35mm Visual Project Album"
         >
           <div className={styles.modalTexture} aria-hidden="true" />
 
@@ -217,7 +217,7 @@ export default function ProjectShowcase() {
           <header className={styles.minimalTopBar}>
             {/* Left: Vintage Album Stamp */}
             <div className={styles.topStampGroup}>
-              <span className={styles.topStampBadge}>[ 35mm ARCHIVAL REEL ]</span>
+              <span className={styles.topStampBadge}>[ VOSS 35mm · ARCHIVAL REEL ]</span>
               <span className={styles.topTotalCounter}>
                 EXP. {String(currentIndex + 1).padStart(2, '0')} / {validProjects.length}
               </span>
@@ -283,10 +283,6 @@ export default function ProjectShowcase() {
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                style={{
-                  transform: 'none',
-                  boxShadow: '6px 6px 0px #181512',
-                }}
               >
                 {/* The Hero Big Image */}
                 <Image
@@ -304,7 +300,7 @@ export default function ProjectShowcase() {
                   className={styles.mouseSheenOverlay}
                   style={{
                     background: isHovering
-                      ? `radial-gradient(circle 350px at ${mousePos.clientX}px ${mousePos.clientY}px, rgba(255, 255, 255, 0.42) 0%, rgba(255, 107, 53, 0.26) 32%, rgba(60, 180, 255, 0.14) 62%, transparent 80%)`
+                      ? `radial-gradient(circle 350px at ${mousePos.clientX}px ${mousePos.clientY}px, rgba(255, 255, 255, 0.28) 0%, rgba(255, 91, 46, 0.18) 32%, rgba(34, 195, 238, 0.1) 62%, transparent 80%)`
                       : 'none',
                   }}
                   aria-hidden="true"
@@ -337,8 +333,9 @@ export default function ProjectShowcase() {
 
                 {/* Live Optical Coordinates Telemetry HUD */}
                 <div className={styles.coordBadge} aria-hidden="true">
-                  <span>X: {String(mousePos.clientX).padStart(3, '0')}</span>
-                  <span>Y: {String(mousePos.clientY).padStart(3, '0')}</span>
+                  <span>FRAME {String(currentIndex + 1).padStart(2, '0')}</span>
+                  <span>·</span>
+                  <span>f/2.8 · 1/125</span>
                 </div>
 
                 {/* Left & Right Fast Arrow Navigation Paddle Zones */}
@@ -352,7 +349,7 @@ export default function ProjectShowcase() {
                   aria-label="Previous image"
                   title="Previous Image (← Arrow)"
                 >
-                  <ChevronLeft size={30} />
+                  <ChevronLeft size={28} />
                 </button>
 
                 <button
@@ -365,7 +362,7 @@ export default function ProjectShowcase() {
                   aria-label="Next image"
                   title="Next Image (→ Arrow)"
                 >
-                  <ChevronRight size={30} />
+                  <ChevronRight size={28} />
                 </button>
 
                 {/* =========================================================
@@ -377,11 +374,11 @@ export default function ProjectShowcase() {
                 >
                   <div className={styles.overlayIndexRow}>
                     <span className={styles.overlayIndexBadge}>
-                      [{String(currentIndex + 1).padStart(2, '0')} / {validProjects.length}]
+                      TAKE {String(currentIndex + 1).padStart(2, '0')} / {validProjects.length}
                     </span>
                     {activeProject.category && (
                       <span className={styles.overlayCategoryTag}>
-                        // {activeProject.category}
+                        {activeProject.category}
                       </span>
                     )}
                   </div>
@@ -390,21 +387,21 @@ export default function ProjectShowcase() {
                     {activeProject.title || activeProject.name}
                   </h3>
 
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '10px' }}>
+                  {(activeProject.description || activeProject.desc) && (
+                    <p className={styles.overlayProjectDesc}>
+                      {activeProject.description || activeProject.desc}
+                    </p>
+                  )}
+
+                  <div className={styles.overlayBtnRow}>
                     <Link
-                      href={`/projects/${activeProject.slug}`}
+                      href={`/work/${activeProject.slug}`}
                       onClick={() => setIsOpen(false)}
-                      className={styles.overlayLiveBtn}
-                      style={{
-                        background: 'var(--accent-orange, #FF6B35)',
-                        color: '#FFFFFF',
-                        borderColor: 'var(--accent-orange, #FF6B35)',
-                        fontWeight: 800
-                      }}
+                      className={styles.overlayCaseBtn}
                       title="Open full UX research case study"
                     >
                       <span>EXPLORE CASE STUDY</span>
-                      <ArrowUpRight size={13} />
+                      <ArrowUpRight size={14} />
                     </Link>
 
                     {(activeProject.link || activeProject.figmaLink || activeProject.liveLink) && (

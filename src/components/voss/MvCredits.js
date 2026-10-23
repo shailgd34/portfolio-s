@@ -103,7 +103,7 @@ export default function MvCredits(props = {}) {
   const fill = (s) =>
     String(s || '')
       .replace(/\{name\}/g, site.name)
-      .replace(/\{years\}/g, site.years || '6+')
+      .replace(/\{years\}/g, site.years || '6')
       .replace(/\{city\}/g, site.city || 'Indore, India')
       .replace(/\s+/g, ' ')
       .trim();

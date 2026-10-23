@@ -142,7 +142,7 @@ export default function Experience() {
           <div className={styles.headerLeft}>
             <div className={styles.categorySubheading}>
               <span className={styles.subheadingDash}>[ 06 / WORK EXPERIENCE ]</span>
-              <span className={styles.subheadingText}>&bull; 6+ YEARS IN TECH &bull; ROLES &amp; MILESTONES</span>
+              <span className={styles.subheadingText}>&bull; 6 YEARS IN TECH &bull; ROLES &amp; MILESTONES</span>
             </div>
             <h2 className={styles.sectionTitle}>
               EXPERIENCE &amp;<br />

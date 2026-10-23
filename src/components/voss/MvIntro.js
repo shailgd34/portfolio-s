@@ -88,7 +88,7 @@ export default function MvIntro(props = {}) {
 
   const src = srcOf(photo, '/workspace_mockup.jpg' || MVIN_PHOTO);
   const im = RS(src, '(max-width: 809px) 100vw, 40vw');
-  const defaultFacts = `${site.years || '6+'} years Experience;50+ products launched;${site.city || 'Indore'}, working worldwide`;
+  const defaultFacts = `${site.years || '6'} years Experience;50+ products launched;${site.city || 'Indore'}, working worldwide`;
   const list = listOf(facts || defaultFacts);
   const text = pick(
     statement,

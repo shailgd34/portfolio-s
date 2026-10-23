@@ -6,7 +6,7 @@ import styles from './About.module.css';
 
 export default function About() {
   const stats = [
-    { number: '6+', label: 'Years of Experience' },
+    { number: '6', label: 'Years of Experience' },
     { number: '200+', label: 'Completed Projects' },
     { number: '50+', label: 'Clients Worldwide' },
   ];
@@ -27,7 +27,7 @@ export default function About() {
             <h2 className={styles.sectionTitle}>ABOUT ME</h2>
 
             <p className={styles.bioText} style={{ marginBottom: '1.25rem' }}>
-              I am a Senior Product Designer with 6+ years of experience turning complex challenges into intuitive, high-impact digital products. My core focus is on B2B SaaS platforms, enterprise workflows, and fintech ecosystems where usability directly drives adoption and business outcomes.
+              I am a Senior Product Designer with 6 years of experience turning complex challenges into intuitive, high-impact digital products. My core focus is on B2B SaaS platforms, enterprise workflows, and fintech ecosystems where usability directly drives adoption and business outcomes.
             </p>
 
 

@@ -10,7 +10,7 @@ export default function RetroMarquee({
     'FINTECH & SAAS SPECIALIST',
     'DESIGN SYSTEMS',
     'MOBILE APPS',
-    '6+ YEARS EXPERIENCE',
+    '6 YEARS EXPERIENCE',
     'WORLDWIDE CLIENTS'
   ],
   variant = 'orange', // 'orange' | 'dark' | 'parchment'

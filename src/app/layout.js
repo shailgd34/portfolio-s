@@ -39,11 +39,14 @@ export const metadata = {
   creator: 'Sheelash Singh Bhadoriya',
   icons: {
     icon: [
-      { url: '/favicon.svg?v=4', type: 'image/svg+xml' },
-      { url: '/icon.svg?v=4', type: 'image/svg+xml' },
+      { url: '/favicon.ico?v=5', sizes: 'any' },
+      { url: '/favicon.svg?v=5', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png?v=5', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16x16.png?v=5', type: 'image/png', sizes: '16x16' },
+      { url: '/icon.svg?v=5', type: 'image/svg+xml' },
     ],
-    shortcut: '/favicon.svg?v=4',
-    apple: '/favicon.svg?v=4',
+    shortcut: '/favicon.ico?v=5',
+    apple: '/apple-touch-icon.png?v=5',
   },
 };
 
@@ -51,9 +54,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" className={`${antonio.variable} ${manrope.variable} ${caveat.variable}`}>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4" />
-        <link rel="icon" type="image/svg+xml" href="/icon.svg?v=4" />
-        <link rel="apple-touch-icon" href="/favicon.svg?v=4" />
+        <link rel="icon" href="/favicon.ico?v=5" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

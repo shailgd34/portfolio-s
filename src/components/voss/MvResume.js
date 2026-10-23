@@ -54,7 +54,7 @@ export default function MvResume(props = {}) {
     websiteLabel = 'portfolio-s-gilt.vercel.app',
     website = 'https://portfolio-s-gilt.vercel.app',
     summaryTitle = 'Profile',
-    summary = 'Product Designer and Frontend Developer with 5+ years of experience creating user-centered digital products, SaaS platforms, and responsive web applications. Skilled in UX research, UI design, Figma, React, Next.js, and WordPress, focused on improving usability and delivering impactful digital experiences.',
+    summary = 'Product Designer and Frontend Developer with 6 years of experience creating user-centered digital products, SaaS platforms, and responsive web applications. Skilled in UX research, UI design, Figma, React, Next.js, and WordPress, focused on improving usability and delivering impactful digital experiences.',
     expTitle = 'Experience',
     moreLabel = 'Key Contributions',
     b1 = 'Led end-to-end UI/UX design for SaaS and enterprise applications;Conducted user research, usability testing, and competitor analysis;Created wireframes, prototypes, and scalable design systems in Figma;Collaborated with cross-functional teams in Agile environments;Developed responsive interfaces using React, Next.js, and WordPress;Built multilingual websites using Elementor and WPML',
@@ -103,7 +103,7 @@ export default function MvResume(props = {}) {
     String(s || '')
       .replace(/\{name\}/g, site.name || '')
       .replace(/\{city\}/g, site.city || '')
-      .replace(/\{years\}/g, site.years || '6+')
+      .replace(/\{years\}/g, site.years || '6')
       .replace(/\{email\}/g, site.email || '');
 
   useEffect(() => {
