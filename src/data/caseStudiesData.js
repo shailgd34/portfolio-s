@@ -1434,7 +1434,7 @@ export const curatedCaseStudies = {
           name: 'FigJam',
           category: 'Spatial Route Optimization Flow',
           purpose: 'Mapped physical warehouse bin layouts against digital batch picking paths to eliminate backtracking.',
-          highlight: 'Shortest-Path Warehouse Batch Flow'
+          highlight: 'Shortest Path Warehouse Batch Flow'
         },
         {
           name: 'Hotjar',
