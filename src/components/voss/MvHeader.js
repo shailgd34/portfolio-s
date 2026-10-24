@@ -430,24 +430,22 @@ export default function MvHeader(props = {}) {
             <MvhdMark />
             <span style={Dh}>{site.name}</span>
           </a>
-          {!compact && (
-            <nav className="mvhd-nav" aria-label="Main">
-              <ul className="mvhd-links">
-                {L.map((l, i) => (
-                  <li key={i}>
-                    <a
-                      href={l.h}
-                      aria-current={isAct(l.h) ? 'page' : undefined}
-                      className={isAct(l.h) ? 'is-act' : ''}
-                    >
-                      <span>{l.l}</span>
-                      <i aria-hidden />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
+          <nav className="mvhd-nav" aria-label="Main">
+            <ul className="mvhd-links">
+              {L.map((l, i) => (
+                <li key={i}>
+                  <a
+                    href={l.h}
+                    aria-current={isAct(l.h) ? 'page' : undefined}
+                    className={isAct(l.h) ? 'is-act' : ''}
+                  >
+                    <span>{l.l}</span>
+                    <i aria-hidden />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <div className="mvhd-r">
             <span
               className="mvhd-av"
@@ -459,7 +457,7 @@ export default function MvHeader(props = {}) {
               <i className="mv-port" aria-hidden />
               <em style={M}>{avail}</em>
             </span>
-            {!phone && ctaLabel && (
+            {ctaLabel && (
               <Btn
                 href={book}
                 label={ctaLabel}
@@ -467,32 +465,30 @@ export default function MvHeader(props = {}) {
                 className="mvhd-cta"
               />
             )}
-            {compact && (
-              <button
-                ref={burger}
-                type="button"
-                className="mvhd-bg"
-                aria-expanded={open}
-                aria-controls="mvhd-drawer"
-                aria-label={open ? closeLabel : menuLabel}
-                onClick={() => setOpen((o) => !o)}
-              >
-                <span className="mvhd-bgl" aria-hidden>
-                  <i />
-                  <i />
-                </span>
-                <span className="mvhd-bgt" style={M} aria-hidden>
-                  {open ? closeLabel : menuLabel}
-                </span>
-              </button>
-            )}
+            <button
+              ref={burger}
+              type="button"
+              className="mvhd-bg"
+              aria-expanded={open}
+              aria-controls="mvhd-drawer"
+              aria-label={open ? closeLabel : menuLabel}
+              onClick={() => setOpen((o) => !o)}
+            >
+              <span className="mvhd-bgl" aria-hidden>
+                <i />
+                <i />
+              </span>
+              <span className="mvhd-bgt" style={M} aria-hidden>
+                {open ? closeLabel : menuLabel}
+              </span>
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
 
-  const drawerEl = compact ? (
+  const drawerEl = mounted ? (
     <div
       data-mvhd=""
       ref={drawer}
@@ -630,9 +626,9 @@ const CSS_MVHD = `
 .mvhd-mark{flex:none;transition:rotate .6s cubic-bezier(.34,1.56,.64,1)} .mvhd-logo:hover .mvhd-mark{rotate:-8deg}
 /* centre: the glass link bar (the hero nav) with a selection underline */
 .mvhd-nav{margin:0 auto}
-.mvhd-links{display:flex;gap:2px;list-style:none;margin:0;padding:4px;border-radius:10px;background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--rim);transition:background-color .45s,box-shadow .45s}
+.mvhd-links{display:flex;gap:2px;list-style:none;margin:0;padding:4px;border-radius:10px;background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--rim);transition:background-color .45s,box-shadow .45s;white-space:nowrap!important}
 .mvhd.is-glass .mvhd-links{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-.mvhd-links a{position:relative;display:block;padding:8px 14px;border-radius:6px;color:inherit;text-decoration:none;transition:background .25s}
+.mvhd-links a{position:relative;display:block;padding:8px 14px;border-radius:6px;color:inherit;text-decoration:none;transition:background .25s;white-space:nowrap!important}
 .mvhd-links a:hover{background:color-mix(in srgb,currentColor 12%,transparent)}
 .mvhd-links a>i{position:absolute;left:14px;right:14px;bottom:3px;height:2px;background:var(--mv-brass);clip-path:inset(0 100% 0 0);transition:clip-path .45s steps(8,end)}
 .mvhd-links a>i::before,.mvhd-links a>i::after{content:"";position:absolute;top:-1.5px;width:5px;height:5px;background:var(--mv-cloud);box-shadow:0 0 0 1.2px var(--mv-brass)} .mvhd-links a>i::before{left:-3px} .mvhd-links a>i::after{right:-3px}
@@ -653,11 +649,30 @@ const CSS_MVHD = `
 .mvhd-bgt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap!important;display:inline-block;line-height:1}
 .mvhd.is-open{color:var(--mv-cloud)} .mvhd.is-open .mvhd-bg{background:var(--mv-brass);color:var(--mv-ink);box-shadow:none}
 .mvhd.is-open .mvhd-av,.mvhd.is-open .mvhd-cta{opacity:0;pointer-events:none;visibility:hidden}
-.mvhd.is-ph .mvhd-in{padding:10px var(--mvg);gap:10px} .mvhd.is-ph.is-glass:not(.is-open) .mvhd-in{margin:8px var(--mvg) 0;padding:6px 8px 6px 10px}
+@media (max-width:1099px){
+  .mvhd-nav{display:none!important}
+  .mvhd-bg{display:inline-flex!important}
+  .mvhd-in{justify-content:space-between!important;width:100%!important}
+  .mvhd-r,.mvhd-nav+.mvhd-r{margin-left:auto!important;display:flex!important;align-items:center!important;gap:10px!important;flex-shrink:0!important}
+}
+@media (min-width:1100px){
+  .mvhd-bg{display:none!important}
+  .mvhd-nav{display:flex!important}
+}
+@media (max-width:809px){
+  .mvhd-cta{display:none!important}
+  .mvhd-in{justify-content:space-between!important;padding:8px 14px!important;gap:10px!important;width:100%!important}
+  .mvhd.is-glass:not(.is-open) .mvhd-in{margin:8px 12px 0!important;padding:6px 10px!important;justify-content:space-between!important;width:calc(100% - 24px)!important}
+  .mvhd-r,.mvhd-nav+.mvhd-r{margin-left:auto!important;flex-shrink:0!important;display:flex!important;align-items:center!important;gap:10px!important}
+  .mvhd-logo{font-size:15px;min-width:0;flex-shrink:1}
+  .mvhd-logo span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:clamp(140px,46vw,220px)}
+}
+.mvhd.is-ph .mvhd-in{justify-content:space-between!important;padding:8px 14px!important;gap:10px!important;width:100%!important}
+.mvhd.is-ph.is-glass:not(.is-open) .mvhd-in{margin:8px 12px 0!important;padding:6px 10px!important;justify-content:space-between!important;width:calc(100% - 24px)!important}
+.mvhd.is-ph .mvhd-r,.mvhd.is-ph .mvhd-nav+.mvhd-r{margin-left:auto!important;flex-shrink:0!important;display:flex!important;align-items:center!important;gap:10px!important}
 .mvhd.is-ph .mvhd-logo{font-size:15px;min-width:0;flex-shrink:1}
-.mvhd.is-ph .mvhd-logo span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media (max-width:540px){.mvhd-logo span{max-width:160px}}
-@media (max-width:400px){.mvhd-logo span{max-width:120px}}
+.mvhd.is-ph .mvhd-logo span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:clamp(140px,46vw,220px)}
+@media (max-width:400px){.mvhd-logo span{max-width:clamp(120px,40vw,160px)}}
 @media (max-width:340px){.mvhd .mvhd-bgt{display:none} .mvhd .mvhd-bg{padding:0 8px}}
 /* skip link */
 .mvhd-skip{position:absolute;left:12px;top:-60px;z-index:3;padding:10px 14px;border-radius:6px;background:var(--mv-brass);color:var(--mv-ink);font-size:12px;letter-spacing:.06em;text-decoration:none}

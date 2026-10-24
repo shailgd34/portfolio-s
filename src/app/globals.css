@@ -520,3 +520,109 @@ html.retro-loader-done [class*="loaderOverlay"],
 html.retro-loader-done [class*="minimalLoader"] {
   display: none !important;
 }
+
+/* ==========================================================================
+   Critical Mobile Header & Hero Styles (Zero-FOUC during loading & SSR)
+   ========================================================================== */
+@media (max-width: 1099px) {
+  .mvhd-nav {
+    display: none !important;
+  }
+  .mvhd-bg {
+    display: inline-flex !important;
+  }
+  .mvhd-in {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .mvhd-r,
+  .mvhd-nav + .mvhd-r {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 1100px) {
+  .mvhd-bg {
+    display: none !important;
+  }
+  .mvhd-nav {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 809px) {
+  .mvhd-cta {
+    display: none !important;
+  }
+  .mvhd-links a {
+    white-space: nowrap !important;
+  }
+  .mvhd-in {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 14px !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .mvhd.is-glass:not(.is-open) .mvhd-in {
+    margin: 8px 12px 0 !important;
+    padding: 6px 10px !important;
+    width: calc(100% - 24px) !important;
+    justify-content: space-between !important;
+  }
+  .mvhd-r,
+  .mvhd-nav + .mvhd-r {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-shrink: 0 !important;
+  }
+  .mvhd-logo {
+    font-size: 15px !important;
+  }
+  .mvhd-logo span {
+    max-width: clamp(140px, 46vw, 220px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  /* Mobile Hero: Photo large (92%) and SHEELASH on photo at bottom side */
+  .mvp-stage {
+    position: relative !important;
+    inset: auto !important;
+    height: clamp(400px, 56vh, 520px) !important;
+    flex: none !important;
+    overflow: hidden !important;
+  }
+  .mvp-name {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: clamp(16px, 3.5vh, 28px) !important;
+    line-height: 0.88 !important;
+    font-size: clamp(38px, 13.5vw, 64px) !important;
+    padding: 0 8px !important;
+    white-space: nowrap !important;
+    z-index: 10 !important;
+    display: flex !important;
+    justify-content: center !important;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.55)) !important;
+  }
+  .mvp-shadow,
+  .mvp-person,
+  .mvp-back {
+    height: 96% !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    translate: -50% 0 !important;
+  }
+}

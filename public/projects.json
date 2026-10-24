@@ -1,5 +1,31 @@
 [
   {
+    "id": "milo-luxury-residence",
+    "name": "Milo Luxury Residence",
+    "title": "Milo Luxury Residence",
+    "category": "Luxury Real Estate & Web App",
+    "filterCategory": "UI/UX DESIGN",
+    "type": "Interactive Luxury Real Estate Showcase & Booking Engine",
+    "technology": [
+      "Semantic HTML5",
+      "Vanilla CSS",
+      "GSAP",
+      "ScrollTrigger",
+      "ScrollToPlugin",
+      "Lenis Smooth Scroll",
+      "Splide JS",
+      "Figma"
+    ],
+    "link": "https://milo-henna.vercel.app/",
+    "figmaLink": "",
+    "liveLink": "https://milo-henna.vercel.app/",
+    "image": "/milo.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead Frontend Engineer & UI/UX Designer",
+    "description": "A premium, high-end interactive luxury real estate showcase website designed for ultimate tranquility, subtracted aesthetics, and architectural silence. Built with smooth motion mechanics and sophisticated booking capabilities."
+  },
+  {
     "id": "neuro-kaizen",
     "name": "Neuro Kaizen",
     "title": "Neuro Kaizen",

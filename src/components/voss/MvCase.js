@@ -197,12 +197,14 @@ export default function MvCase(props = {}) {
     liveLink: study?.liveLink || study?.link || baseRow.liveLink || '',
     toolsList: study?.toolsList || baseRow.technology || [],
   };
-  const effectiveFigma =
+  const hasExplicitFigma =
     row.figmaLink ||
     (row.link && row.link.includes('figma.com') ? row.link : '') ||
     (row.liveLink && row.liveLink.includes('figma.com') ? row.liveLink : '') ||
-    (study?.figmaLink ? study.figmaLink : '') ||
-    'https://www.figma.com/proto/R1iGpN1hLDj7hpgVvo1xWb/neuro-kaizen?node-id=10-887';
+    (study?.figmaLink ? study.figmaLink : '');
+  const effectiveFigma =
+    hasExplicitFigma ||
+    (row.liveLink ? '' : 'https://www.figma.com/proto/R1iGpN1hLDj7hpgVvo1xWb/neuro-kaizen?node-id=10-887');
   const nxt = n > 1 ? rows[(idx + 1) % n] : null;
 
   const reviews = defaultReviews;
@@ -247,7 +249,7 @@ export default function MvCase(props = {}) {
         .filter(Boolean)
         .slice(0, 3);
 
-  const code = tok(codeSnippet).split('\n');
+  const code = tok(study?.codeSnippet || codeSnippet).split('\n');
   const stat = csStat(row.f10);
   const labels = listOf(sheetLabels);
   const L = (k, fb) => labels[k] || fb;
@@ -274,7 +276,8 @@ export default function MvCase(props = {}) {
       : didList;
 
   const did = listOf(tok(activeDidList));
-  const mets = listOf(metrics)
+  const activeMets = study?.metrics || (study?.impact?.metrics ? study.impact.metrics.map(m => `${m.value}|${m.label}`).join(';') : metrics);
+  const mets = listOf(activeMets)
     .map((x) => {
       const [a, b] = x.split('|');
       return { v: (a || '').trim(), l: (b || '').trim() };
@@ -595,34 +598,38 @@ export default function MvCase(props = {}) {
                 on={on}
                 D={D}
                 size={
-                  title.length > 10
-                    ? 'clamp(52px,7.4vw,128px)'
-                    : 'clamp(76px,13vw,212px)'
+                  title.length > 25
+                    ? 'clamp(32px,3.8vw,52px)'
+                    : title.length > 14
+                    ? 'clamp(36px,4.5vw,64px)'
+                    : 'clamp(42px,5.5vw,76px)'
                 }
-                lh={0.86}
+                lh={0.96}
                 delay={140}
                 step={80}
-                style={{ fontWeight: 800, fontStretch: '118%' }}
+                style={{ fontWeight: 800, fontStretch: '100%' }}
                 className="mvcs-h1"
               />
-              {effectiveFigma && (
+              {(effectiveFigma || row.liveLink) && (
                 <div className="mvcs-hero-btns" style={rise(on, 280, 16)}>
-                  <Btn
-                    href={effectiveFigma}
-                    label="Figma Prototype"
-                    kind="solid"
-                    arrow={true}
-                    sub="Prototype"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                  {row.liveLink && row.liveLink !== effectiveFigma && (
+                  {row.liveLink && (
                     <Btn
                       href={row.liveLink}
-                      label="Live Platform"
-                      kind="ghost"
+                      label={effectiveFigma ? "Live Website" : "Open Live Project"}
+                      kind="solid"
                       arrow={true}
                       sub="Production"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  )}
+                  {effectiveFigma && (
+                    <Btn
+                      href={effectiveFigma}
+                      label="Figma Prototype"
+                      kind={row.liveLink ? "ghost" : "solid"}
+                      arrow={true}
+                      sub="Prototype"
                       target="_blank"
                       rel="noopener noreferrer"
                     />
@@ -654,6 +661,17 @@ export default function MvCase(props = {}) {
                 </dl>
                 {(effectiveFigma || row.liveLink) && (
                   <div className="mvcs-actions">
+                    {row.liveLink && (
+                      <Btn
+                        href={row.liveLink}
+                        label="Live Website"
+                        kind="quiet"
+                        arrow={true}
+                        sub="Production"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    )}
                     {effectiveFigma && (
                       <Btn
                         href={effectiveFigma}
@@ -662,17 +680,6 @@ export default function MvCase(props = {}) {
                         className="mv-ghost"
                         arrow={true}
                         sub="Prototype"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      />
-                    )}
-                    {row.liveLink && row.liveLink !== effectiveFigma && (
-                      <Btn
-                        href={row.liveLink}
-                        label="Live Website"
-                        kind="quiet"
-                        arrow={true}
-                        sub="Production"
                         target="_blank"
                         rel="noopener noreferrer"
                       />
@@ -722,7 +729,7 @@ export default function MvCase(props = {}) {
             <span className="mvcs-ctag" style={M} aria-hidden>
               {tidy(tok(coverTag))}
             </span>
-            {effectiveFigma && (
+            {effectiveFigma ? (
               <a
                 href={effectiveFigma}
                 target="_blank"
@@ -735,7 +742,21 @@ export default function MvCase(props = {}) {
                 </svg>
                 <span>Figma Prototype ↗</span>
               </a>
-            )}
+            ) : row.liveLink ? (
+              <a
+                href={row.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mvcs-cover-figma-badge"
+                title="Open live website in new tab"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                <span>Live Website ↗</span>
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

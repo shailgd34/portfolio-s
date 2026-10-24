@@ -20,6 +20,7 @@ import {
   MvFooter,
   siteData,
   topHomeProjects,
+  allProjects,
 } from '@/components/voss';
 
 export default function Home() {
@@ -64,9 +65,9 @@ export default function Home() {
         <MvWork
           heading="Selected *work*,|2020 – 2026."
           sheetLabel="Contact sheet · Roll 01"
-          allLabel="All 61 projects"
+          allLabel={`All ${allProjects.length} projects`}
           allLink="/work"
-          ctaLabel="All 61 projects"
+          ctaLabel={`All ${allProjects.length} projects`}
           ctaLink="/work"
           projects={topHomeProjects}
         />

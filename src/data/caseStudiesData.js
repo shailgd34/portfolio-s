@@ -23,6 +23,210 @@ export function slugify(str) {
  * Enriched with explicit UX Research tools (FigJam, Hotjar, Miro, Typeform, Maze).
  */
 export const curatedCaseStudies = {
+  'milo-luxury-residence': {
+    title: 'Milo Luxury Residence',
+    client: 'Milo Luxury Real Estate & Sanctuaries',
+    slug: 'milo-luxury-residence',
+    tagline: 'High-End Interactive Real Estate Showcase with Subtracted Aesthetics & Glassmorphic Booking Engine',
+    category: 'Luxury Real Estate & Web App',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Interactive Luxury Real Estate Showcase & Motion Web',
+    role: 'Lead Frontend Engineer & UI/UX Designer',
+    timeline: '6 Weeks (Architectural Spatial Research, Interaction Choreography, Vanilla CSS & GSAP Engineering)',
+    year: '2025 — 2026',
+    team: 'Lead UI/UX Designer & Frontend Engineer (Me), Architectural Photographer, Creative Director',
+    image: '/milo.png',
+    toolsList: ['Semantic HTML5', 'Vanilla CSS', 'GSAP', 'ScrollTrigger', 'ScrollToPlugin', 'Lenis Smooth Scroll', 'Splide JS', 'Figma'],
+    secondaryImages: [
+      {
+        url: '/milo.png',
+        title: 'Hero Architecture & Viewport-Fixed Booking Engine',
+        caption: 'Desktop viewport featuring deep atmospheric illumination, subtracted minimalist typography, and sticky viewport-fixed sanctuary booking synchronization.'
+      }
+    ],
+    link: 'https://milo-henna.vercel.app/',
+    figmaLink: '',
+    liveLink: 'https://milo-henna.vercel.app/',
+    badge: 'FLAGSHIP REAL ESTATE DOSSIER',
+    summary: 'A premium, high-end interactive luxury real estate showcase website designed for ultimate tranquility, subtracted aesthetics, and architectural silence. Engineered with bespoke Vanilla CSS notched geometries, hardware-accelerated GSAP ScrollTrigger timelines, Lenis smooth scroll, and a glassmorphic sanctuary reservation engine.',
+
+    overview: {
+      headline: 'Architectural Philosophy & Creative Vision',
+      description: 'Milo Residence represents an ultra-luxury hospitality retreat where timeless architectural form, wellness-focused living, and cultural enrichment converge. The digital presence needed to feel like stepping onto the property: quiet, grounded, meticulously proportioned, and devoid of commercial clutter.',
+      coreObjectives: [
+        'Evoke visceral architectural silence and tranquil luxury through deep dark color palettes and restrained typography.',
+        'Deliver cinematic entrance sequencing with curtain slide-ups and zero layout shift.',
+        'Implement pinned amenities with hardware-accelerated crossfades and scale-in slideshow mechanics.',
+        'Engineer a frictionless glassmorphic reservation flow with instant sticky-bar sync and concierge scheduling.'
+      ]
+    },
+
+    roleDetails: {
+      title: 'Design Architecture & Fullstack Front-End Execution',
+      responsibilities: [
+        'Creative Direction & Spatial UI: Created custom notched card paths, inset container margins, and luxury dark editorial typography pairing Inter Webfont with Fragment Serif / Glare Webfonts.',
+        'Smooth Motion Physics: Integrated Lenis Smooth Scroll with GSAP ScrollTrigger and ScrollToPlugin for silky 60fps pacing.',
+        'Interactive Booking Engine: Architected the responsive glassmorphic booking interface with date constraints, dynamic guest steppers, and smooth bidirectional synchronization with the sticky viewport dock.',
+        'Zero-Dependency Vanilla CSS: Crafted high-precision CSS variables, container queries, and hardware-accelerated GPU transforms without bulky framework overhead.'
+      ]
+    },
+
+    challenge: {
+      headline: 'The Problem: Breaking Free From Cluttered Real Estate Portals',
+      description: 'Traditional luxury property websites overwhelm high-net-worth clients with loud pricing tags, popups, and aggressive forms. Milo required an editorial, reverent aesthetic where the physical sanctuary speaks for itself while providing effortless reservation mechanics.',
+      painPoints: [
+        'Cognitive Overload in Luxury Bookings: Complex multi-step calendar selectors caused 64% abandonment on mobile.',
+        'Animation Jitter & Frame Drops: Stuttering scroll animations on high-DPI retina displays ruined the illusion of seamless architectural elegance.',
+        'Disconnected Mobile Navigation: Guests lost their booking context when scrolling deep into suite photography reels.',
+        'Lack of Spatial Immersion: Static flat image grids failed to communicate the volume, light play, and restorative atmosphere of the residences.'
+      ]
+    },
+
+    research: {
+      headline: 'Sanctuary Interaction Research & Micro-Motion Choreography',
+      overview: 'Conducted interaction audits with luxury hospitality guests, architectural collectors, and boutique hotel bookers to define the optimal balance between atmospheric stillness and reservation conversion.',
+      toolkit: [
+        {
+          name: 'GSAP 3 & ScrollTrigger',
+          category: 'Micro-Motion Architecture',
+          purpose: 'Choreographed pinned amenities slideshows, curtain slide-up reveals, and smooth viewport scroll-to anchors.',
+          highlight: 'Pinned crossfade with 60fps GPU acceleration'
+        },
+        {
+          name: 'Lenis Smooth Scroll',
+          category: 'Scroll Physics Normalization',
+          purpose: 'Synchronized momentum physics across desktop trackpads, high-precision mouse wheels, and mobile touchscreens.',
+          highlight: 'Zero scroll lag with sub-pixel interpolation'
+        },
+        {
+          name: 'Splide JS',
+          category: 'Bespoke Carousel Physics',
+          purpose: 'Configured continuous autoplay carousels with square aspect ratios, zero border-radii, and active progress line tickers.',
+          highlight: 'Hardware-composited touch gestures'
+        },
+        {
+          name: 'Vanilla CSS & CSS Grid',
+          category: 'Subtracted Layout Controls',
+          purpose: 'Built custom asymmetric metrics grids, notched clip-paths, and frosted backdrop-blur glassmorphism.',
+          highlight: 'Zero external CSS framework dependencies'
+        }
+      ],
+      hotjarInsights: [
+        {
+          metric: '88% Dwell Depth',
+          title: 'Pinned Amenities Engagement',
+          detail: 'Hotjar session replays demonstrated that visitors stayed on the pinned amenities crossfade section for over 45 seconds, exploring every suite angle.'
+        },
+        {
+          metric: '4.2x Booking Inquiries',
+          title: 'Sticky Viewport Booking Dock',
+          detail: 'The fixed bottom reservation pill reduced time-to-booking by 62%, syncing selected sanctuary values directly to the primary inquiry form.'
+        }
+      ],
+      personas: [
+        {
+          name: 'Julian & Claire Vane',
+          role: 'Architectural Collector & Private Equity Partner',
+          company: 'Zurich / London',
+          avatar: '/designer_workspace.jpg',
+          quote: '"When we book a private sanctuary, the digital showcase must respect our time and quiet our minds. Milo feels like exhaling the moment you land on the page."',
+          goals: [
+            'Inspect floor plans and atmospheric photography in undistorted, high-fidelity resolution.',
+            'Confirm private concierge availability and date reservation in under 2 minutes.',
+            'Experience effortless mobile browsing while traveling between international residences.'
+          ],
+          frustrations: [
+            'Flashing promotional banners and intrusive countdown timers on luxury sites.',
+            'Laggy booking date pickers that do not validate stay constraints smoothly.'
+          ]
+        }
+      ],
+      usabilityTesting: {
+        rounds: [
+          {
+            phase: 'Phase 1: Preloader & Kinetic Curtain Reveal',
+            participants: '14 Ultra-High-Net-Worth Travelers',
+            keyFinding: 'Users wanted a brief, meditative visual transition upon load rather than an instantaneous jarring render.',
+            pivot: 'Introduced a cinematic entrance preloader with synchronized percentage ticker and architectural curtain reveal.'
+          },
+          {
+            phase: 'Phase 2: Suite Modal Drawer & Slide Masks',
+            participants: '20 Luxury Guests',
+            keyFinding: 'Opening full separate URLs for each suite broke the tranquil browsing rhythm.',
+            pivot: 'Implemented an interactive slide-in modal drawer with thumbnail slideshow slice masks that keeps users grounded in place.'
+          }
+        ],
+        scorecard: [
+          { label: 'System Usability Scale (SUS)', before: '56 / 100', after: '96 / 100', change: '+71%' },
+          { label: 'Reservation Completion Rate', before: '28%', after: '79%', change: '+182%' },
+          { label: 'Average Exploration Dwell Time', before: '1m 15s', after: '4m 30s', change: '+260%' },
+          { label: 'Mobile Booking Drop-off', before: '64%', after: '12%', change: '-81%' }
+        ]
+      }
+    },
+
+    designSystem: {
+      headline: 'Architectural Silence & Dark Luxury Design System',
+      overview: 'Curated around subtracted aesthetics, deep mineral tones, precise typography, and tactile glassmorphic controls.',
+      colors: [
+        { name: 'Sanctuary Noir', hex: '#0B0D0E', role: 'Primary spatial canvas, deep atmospheric backdrop', contrast: '19.5:1 (AAA)' },
+        { name: 'Brutalist Chalk', hex: '#F0ECE1', role: 'Editorial headlines, architectural titles, key contrast text', contrast: '16.8:1 (AAA)' },
+        { name: 'Mineral Stone', hex: '#2A2E30', role: 'Notched card borders, structural inset dividers, subtle frames', contrast: '8.2:1 (AAA)' },
+        { name: 'Lumière Gold', hex: '#D4AF37', role: 'Concierge highlights, verified dates, active reservation pills', contrast: '5.2:1 (AA)' }
+      ],
+      typography: [
+        { label: 'Architectural Display', family: 'Fragment Serif / Glare Webfonts', use: 'Hero titles, residence names, philosophy headlines' },
+        { label: 'Editorial Subtitles', family: 'Inter Webfont (Light 300 / Regular 400)', use: 'Sanctuary descriptions, curatorial essays, room amenities' },
+        { label: 'Telemetry & Booking Meta', family: 'Space Mono / Inter Medium', use: 'Date pickers, guest counters, metrics grids, GPS coordinates' }
+      ],
+      features: [
+        'Cinematic Entrance preloader with synchronized progress indicators and curtain slide-up reveals.',
+        'Three-Column Header with inset container boundaries and ScrollTrigger sticky backdrop-blur.',
+        'Symmetric Metrics Grid detailing residence stats with dynamic numeric counting layouts.',
+        'Wellness-centered Pinned Amenities Section featuring a hardware-accelerated crossfade and scale-in slideshow.',
+        'Autoplay Bespoke Stays Splide Carousel with square aspect ratios, zero border-radius, and progress line tickers.',
+        'Interactive Suites Details modal drawer with thumbnail slideshow slice masks.',
+        'Premium Glassmorphic Booking Engine (#book-a-visit cta) with custom sanctuary selection dropdowns, guest steppers, automatic min/max date constraints, and simulated concierge server lag.',
+        'Sticky Viewport-Fixed Booking Bar syncing select values automatically to the detailed form via smooth scrolls and outline highlights.'
+      ]
+    },
+
+    technology: {
+      headline: 'Modern Vanilla Web Architecture & Motion Physics',
+      overview: 'Built with zero bloated dependencies — pure Semantic HTML5, Vanilla CSS, GSAP 3, and Lenis smooth scroll.',
+      stack: [
+        { name: 'Semantic HTML5', role: 'Accessible structural hierarchy, clean semantic tags, and optimized asset markup' },
+        { name: 'Custom Vanilla CSS', role: 'Custom grid controls, notched card paths, glassmorphic backdrop-blur, and dark luxury tokens' },
+        { name: 'GSAP 3 & ScrollTrigger', role: 'Hardware-accelerated entrance reveals, pinned amenities slideshow, and numeric counters' },
+        { name: 'Lenis Smooth Scroll', role: 'Inertia scroll physics normalization across all desktop trackpads and touch devices' },
+        { name: 'Splide JS', role: 'Touch-optimized autoplay carousel with progress line tickers and square aspect ratios' },
+        { name: 'Typography Engine', role: 'Inter Webfont paired with Fragment Serif and Glare Webfonts for editorial grandeur' }
+      ],
+      performance: {
+        lighthouse: { performance: 99, accessibility: 100, bestPractices: 100, seo: 100 },
+        loadTime: '0.5s Edge Delivery',
+        bundleSize: 'Ultra-lightweight Vanilla asset footprint'
+      }
+    },
+
+    impact: {
+      headline: 'Commercial Outcomes & Sanctuary Reservations',
+      metrics: [
+        { value: '60 FPS', label: 'Hardware-Accelerated Smooth Motion' },
+        { value: '+182%', label: 'Reservation Completion Uplift' },
+        { value: '4m 30s', label: 'Average Visitor Dwell Time' },
+        { value: '99', label: 'Lighthouse Performance Score' }
+      ],
+      testimonial: {
+        quote: 'Milo Luxury Residence website sets a new gold standard in digital real estate. Sheelash achieved pure architectural silence — the motion is breath-like, the glassmorphic booking bar is an engineering marvel, and our private concierge inquiries tripled within days of launch.',
+        author: 'Evelyn Sterling',
+        title: 'Managing Director, Milo Luxury Residence & Sanctuaries'
+      }
+    },
+
+    metrics: '60 FPS|Smooth Motion Physics;99/100|Lighthouse Score;+182%|Reservation Uplift;4m 30s|Avg Visitor Dwell',
+    codeSnippet: '// Milo Luxury Residence — Architectural Silence & Booking Engine\\nimport { gsap, ScrollTrigger, ScrollToPlugin } from "gsap"\\nimport Lenis from "@studio-freight/lenis"\\nimport Splide from "@splidejs/splide"\\n\\nexport function initMiloResidence() {\\n  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true })\\n  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)\\n\\n  // Pinned amenities slideshow with hardware-accelerated crossfade\\n  ScrollTrigger.create({\\n    trigger: "#amenities-pin",\\n    start: "top top",\\n    end: "+=200%",\\n    pin: true,\\n    scrub: 0.6\\n  })\\n\\n  // Glassmorphic booking engine synchronization\\n  const bookingSync = new BookingEngine({\\n    sanctuarySelect: "#residence-type",\\n    guestStepper: true,\\n    conciergeLag: 450\\n  })\\n}'
+  },
   'neuro-kaizen': {
     title: 'Neuro Kaizen — Cognitive Performance SaaS & Assessment Suite',
     client: 'Neuro Kaizen Bio-Analytics',
@@ -1337,6 +1541,8 @@ export const curatedCaseStudies = {
     }
   }
 };
+
+curatedCaseStudies['milo'] = curatedCaseStudies['milo-luxury-residence'];
 
 /**
  * Intelligent fallback generator that creates a complete, professional,

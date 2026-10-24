@@ -308,6 +308,7 @@
 }
 
 .perspectiveWrap {
+  position: relative;
   width: 100%;
   height: 100%;
   max-width: 1480px;
@@ -322,7 +323,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #141210;
+  background: #0E0C0B;
   border-radius: 20px;
   border: 1px solid rgba(241, 236, 228, 0.12);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
@@ -332,7 +333,7 @@
 }
 
 .bigHeroImage {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -553,16 +554,19 @@
 .overlayCaseBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
   background: #FF5B2E;
-  color: #141210;
+  color: #141210 !important;
   font-family: var(--font-manrope-next), 'Manrope', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  padding: 0.55rem 1.35rem;
-  border-radius: 9999px;
-  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 6px 0 16px;
+  border-radius: 6px;
+  text-decoration: none !important;
   transition: all 0.2s ease;
   box-shadow: 0 4px 18px rgba(255, 91, 46, 0.4);
 }
@@ -573,19 +577,38 @@
   box-shadow: 0 8px 24px rgba(255, 91, 46, 0.5);
 }
 
+.caseBtnArr {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: #141210;
+  color: #FF5B2E;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.overlayCaseBtn:hover .caseBtnArr {
+  transform: translate(2px, -2px);
+}
+
 .overlayLiveBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 42px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(241, 236, 228, 0.18);
-  color: #F1ECE4;
+  border: 1px solid rgba(241, 236, 228, 0.22);
+  color: #F1ECE4 !important;
   font-family: var(--font-manrope-next), 'Manrope', sans-serif;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.55rem 1.15rem;
-  border-radius: 9999px;
-  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0 6px 0 14px;
+  border-radius: 6px;
+  text-decoration: none !important;
   transition: all 0.2s ease;
 }
 
@@ -593,6 +616,17 @@
   background: rgba(255, 255, 255, 0.16);
   border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
+}
+
+.caseBtnArrGhost {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -795,25 +829,160 @@
 /* Responsive queries */
 @media (max-width: 900px) {
   .minimalTopBar {
-    padding: 0.6rem 1rem;
+    padding: 0.65rem 1rem;
+    gap: 0.5rem;
   }
   .btnLabelDesktop {
     display: none;
   }
   .topStampBadge {
-    display: none;
+    display: none !important;
   }
+  /* Remove running text badge on mobile as requested */
+  .statusBadge {
+    display: none !important;
+  }
+  .escKeyHelp {
+    display: none !important;
+  }
+  .closeBtn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.68rem;
+  }
+  .iconActionBtn {
+    padding: 0.35rem 0.65rem;
+  }
+  /* Mobile Gallery Layout: Full image fit (1280x800 / 16:10) without cropping, content card placed BELOW (not overlay) */
+  .bigAlbumStage {
+    padding: 0.6rem 0.85rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .perspectiveWrap {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 540px !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: unset !important;
+    gap: 12px !important;
+    perspective: none !important;
+    margin: auto 0;
+  }
+  .bigImageFrame {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+    max-height: 48vh !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75) !important;
+    background: #0E0C0B !important;
+    border: 1px solid rgba(241, 236, 228, 0.14) !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+  }
+  .bigHeroImage {
+    object-fit: contain !important;
+    object-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* Content is positioned directly BELOW the image, NEVER overlaying it */
   .bottomLeftOverlay {
-    bottom: 14px;
-    left: 14px;
-    right: 14px;
-    max-width: none;
-    padding: 1rem 1.15rem;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0.9rem 1.1rem !important;
+    border-radius: 14px !important;
+    background: rgba(18, 16, 14, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(241, 236, 228, 0.12) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55) !important;
+    flex-shrink: 0 !important;
   }
   .overlayProjectTitle {
-    font-size: 1.45rem;
+    font-size: 1.25rem !important;
+    line-height: 1.15 !important;
+    margin: 0.2rem 0 0.35rem !important;
+  }
+  .overlayProjectDesc {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .overlayBtnRow {
+    gap: 0.55rem !important;
+  }
+  .overlayCaseBtn {
+    font-size: 0.72rem !important;
+    min-height: 38px !important;
+    padding: 0 5px 0 12px !important;
+  }
+  .overlayCaseBtn .caseBtnArr {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .overlayLiveBtn {
+    font-size: 0.72rem !important;
+    min-height: 38px !important;
+    padding: 0 5px 0 12px !important;
+  }
+  .overlayLiveBtn .caseBtnArrGhost {
+    width: 26px !important;
+    height: 26px !important;
   }
   .bottomRightOverlay {
-    display: none;
+    display: none !important;
+  }
+  .imagePaddle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .paddleLeft {
+    left: 8px !important;
+  }
+  .paddleRight {
+    right: 8px !important;
+  }
+  .cornerReticle {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .reticleTL { top: 10px !important; left: 10px !important; }
+  .reticleTR { top: 10px !important; right: 10px !important; }
+  .reticleBL { bottom: 10px !important; left: 10px !important; }
+  .reticleBR { bottom: 10px !important; right: 10px !important; }
+  .coordBadge {
+    top: 8px !important;
+    left: 8px !important;
+    font-size: 0.6rem !important;
+    padding: 2px 7px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .perspectiveWrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .bottomLeftOverlay {
+    padding: 0.8rem 0.95rem !important;
+  }
+  .overlayProjectTitle {
+    font-size: 1.15rem !important;
   }
 }

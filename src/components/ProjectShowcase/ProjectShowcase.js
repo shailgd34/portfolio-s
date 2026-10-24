@@ -365,99 +365,6 @@ export default function ProjectShowcase() {
                   <ChevronRight size={28} />
                 </button>
 
-                {/* =========================================================
-                    CONTENT OVERLAY ON IMAGE: BOTTOM-LEFT SIDE
-                    ========================================================= */}
-                <div
-                  className={styles.bottomLeftOverlay}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className={styles.overlayIndexRow}>
-                    <span className={styles.overlayIndexBadge}>
-                      TAKE {String(currentIndex + 1).padStart(2, '0')} / {validProjects.length}
-                    </span>
-                    {activeProject.category && (
-                      <span className={styles.overlayCategoryTag}>
-                        {activeProject.category}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className={styles.overlayProjectTitle}>
-                    {activeProject.title || activeProject.name}
-                  </h3>
-
-                  {(activeProject.description || activeProject.desc) && (
-                    <p className={styles.overlayProjectDesc}>
-                      {activeProject.description || activeProject.desc}
-                    </p>
-                  )}
-
-                  <div className={styles.overlayBtnRow}>
-                    <Link
-                      href={`/work/${activeProject.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className={styles.overlayCaseBtn}
-                      title="Open full UX research case study"
-                    >
-                      <span>EXPLORE CASE STUDY</span>
-                      <ArrowUpRight size={14} />
-                    </Link>
-
-                    {(activeProject.link || activeProject.figmaLink || activeProject.liveLink) && (
-                      <a
-                        href={activeProject.link || activeProject.liveLink || activeProject.figmaLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.overlayLiveBtn}
-                        title="Open live project / prototype"
-                      >
-                        <span>VISIT SPEC ↗</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* =========================================================
-                    BOTTOM-RIGHT CONTROLS OVERLAY (PREV, NEXT, ZOOM)
-                    ========================================================= */}
-                <div
-                  className={styles.bottomRightOverlay}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    className={styles.overlayNavBtn}
-                    aria-label="Previous slide"
-                    title="Previous Slide (← Arrow)"
-                  >
-                    <ChevronLeft size={15} />
-                    <span>PREV</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className={styles.overlayNavBtn}
-                    aria-label="Next slide"
-                    title="Next Slide (→ Arrow)"
-                  >
-                    <span>NEXT</span>
-                    <ChevronRight size={15} />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setLightboxOpen(true)}
-                    className={styles.overlayZoomBtn}
-                    aria-label="Fullscreen view"
-                    title="Fullscreen zoom"
-                  >
-                    <Maximize2 size={13} />
-                  </button>
-                </div>
-
                 {/* Auto-Advance Hairline Retro Timer Track docked to bottom of frame */}
                 <div
                   className={styles.frameTimerTrack}
@@ -469,6 +376,104 @@ export default function ProjectShowcase() {
                     style={{ width: `${timerProgress}%` }}
                   />
                 </div>
+              </div>
+
+              {/* =========================================================
+                  CONTENT OVERLAY ON IMAGE: BOTTOM-LEFT SIDE
+                  ========================================================= */}
+              <div
+                className={styles.bottomLeftOverlay}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className={styles.overlayIndexRow}>
+                  <span className={styles.overlayIndexBadge}>
+                    TAKE {String(currentIndex + 1).padStart(2, '0')} / {validProjects.length}
+                  </span>
+                  {activeProject.category && (
+                    <span className={styles.overlayCategoryTag}>
+                      {activeProject.category}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className={styles.overlayProjectTitle}>
+                  {activeProject.title || activeProject.name}
+                </h3>
+
+                {(activeProject.description || activeProject.desc) && (
+                  <p className={styles.overlayProjectDesc}>
+                    {activeProject.description || activeProject.desc}
+                  </p>
+                )}
+
+                <div className={styles.overlayBtnRow}>
+                  <Link
+                    href={`/work/${activeProject.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className={styles.overlayCaseBtn}
+                    title="Open full UX research case study"
+                  >
+                    <span>EXPLORE CASE STUDY</span>
+                    <span className={styles.caseBtnArr} aria-hidden="true">
+                      <ArrowUpRight size={14} />
+                    </span>
+                  </Link>
+
+                  {(activeProject.link || activeProject.figmaLink || activeProject.liveLink) && (
+                    <a
+                      href={activeProject.link || activeProject.liveLink || activeProject.figmaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.overlayLiveBtn}
+                      title="Open live project / prototype"
+                    >
+                      <span>{activeProject.figmaLink ? 'FIGMA' : 'VISIT SPEC'}</span>
+                      <span className={styles.caseBtnArrGhost} aria-hidden="true">
+                        <ArrowUpRight size={13} />
+                      </span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* =========================================================
+                  BOTTOM-RIGHT CONTROLS OVERLAY (PREV, NEXT, ZOOM)
+                  ========================================================= */}
+              <div
+                className={styles.bottomRightOverlay}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className={styles.overlayNavBtn}
+                  aria-label="Previous slide"
+                  title="Previous Slide (← Arrow)"
+                >
+                  <ChevronLeft size={15} />
+                  <span>PREV</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className={styles.overlayNavBtn}
+                  aria-label="Next slide"
+                  title="Next Slide (→ Arrow)"
+                >
+                  <span>NEXT</span>
+                  <ChevronRight size={15} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setLightboxOpen(true)}
+                  className={styles.overlayZoomBtn}
+                  aria-label="Fullscreen view"
+                  title="Fullscreen zoom"
+                >
+                  <Maximize2 size={13} />
+                </button>
               </div>
             </div>
           </main>

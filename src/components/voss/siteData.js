@@ -171,6 +171,7 @@ export const allProjects = baseProjects;
 // 8. Active Communities
 // 9. 7Sens
 const TOP_SLUGS = [
+  'milo-luxury-residence',
   'fresh-art-club',
   'ij-art-bank',
   'seductive-seeker',

@@ -176,6 +176,70 @@ const TECH_MAP = {
     )
   },
 
+  // --- SCROLLTRIGGER ---
+  scrolltrigger: {
+    name: 'ScrollTrigger',
+    color: '#0AE448',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#0C1A10" stroke="#0AE448" strokeWidth="1.2" />
+        <path d="M12 5v14m0 0l-4-4m4 4l4-4" stroke="#0AE448" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    )
+  },
+
+  // --- LENIS SMOOTH SCROLL ---
+  lenis: {
+    name: 'Lenis',
+    color: '#FF6B35',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#1C1814" stroke="#FF6B35" strokeWidth="1.2" />
+        <path d="M7 16c2-4 4-8 8-8s2 4 2 8" stroke="#FF6B35" strokeWidth="2.2" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="2" fill="#FF6B35" />
+      </svg>
+    )
+  },
+
+  // --- SPLIDE JS ---
+  splide: {
+    name: 'Splide JS',
+    color: '#34E0A1',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#121815" stroke="#34E0A1" strokeWidth="1.2" />
+        <rect x="5" y="7" width="6" height="10" rx="1" fill="#34E0A1" />
+        <rect x="13" y="9" width="6" height="6" rx="1" stroke="#34E0A1" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+
+  // --- VANILLA CSS ---
+  'vanilla css': {
+    name: 'Vanilla CSS',
+    color: '#264DE4',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 2l1.6 18.2L12 22.4l7.4-2.2L21 2H3z" fill="#264DE4" />
+        <path d="M12 3.8v16.7l5.8-1.7L19.2 3.8H12z" fill="#2965F1" />
+        <path d="M12 7.7H7.8l.3 3.3h3.9v-3.3zm0 6.6H9.3l-.2-2h-1.5l.4 4.5 4 .9v-3.4zm0-6.6v3.3h3.6l-.3 3.3-3.3.9v3.4l4-1.1.7-7.5H12z" fill="#FFFFFF" />
+      </svg>
+    )
+  },
+
+  // --- SEMANTIC HTML5 ---
+  'semantic html5': {
+    name: 'HTML5',
+    color: '#E34F26',
+    svg: (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 2l1.6 18.2L12 22.4l7.4-2.2L21 2H3z" fill="#E34F26" />
+        <path d="M12 3.8v16.7l5.8-1.7L19.2 3.8H12z" fill="#EF652A" />
+        <path d="M12 7.7H7.8l.3 3.3h3.9v-3.3zm0 6.6H9.3l-.2-2h-1.5l.4 4.5 4 .9v-3.4zm0-6.6v3.3h3.6l-.3 3.3-3.3.9v3.4l4-1.1.7-7.5H12z" fill="#FFFFFF" />
+      </svg>
+    )
+  },
+
   // --- PHP ---
   php: {
     name: 'PHP',
