@@ -200,7 +200,13 @@ export default function MvCredits(props = {}) {
             />
           </div>
           <div className="mvcr-btns" style={rise(on, 380, 14)}>
-            <Btn href={resume} label={primary} kind="solid" />
+            <Btn
+              href={resume}
+              label={primary}
+              kind="solid"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
             <Btn
               href={secondaryLink || '#contact'}
               label={secondary}

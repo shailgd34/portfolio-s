@@ -371,7 +371,13 @@ export default function MvAbout(props = {}) {
                 <Btn href={book} label={primary} kind="solid" />
               )}
               {secondary && (
-                <Btn href={resume} label={secondary} kind="ghost" />
+                <Btn
+                  href={resume}
+                  label={secondary}
+                  kind="ghost"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
               )}
             </div>
           </div>

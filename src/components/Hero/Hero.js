@@ -13,7 +13,7 @@ export default function Hero({ theme, toggleTheme }) {
   const cardRef = useRef(null);
 
   // Dynamic Image for Card
-  const [cardImg, setCardImg] = useState('/profile.png');
+  const [cardImg, setCardImg] = useState('/profile.webp');
 
   // Screen width state for responsive checks
   const [isMobile, setIsMobile] = useState(false);
@@ -184,7 +184,7 @@ export default function Hero({ theme, toggleTheme }) {
                       {/* Portrait Photo Frame with Registration Corners */}
                       <div className={styles.idPhotoContainer}>
                         <Image
-                          src="/profile.png"
+                          src="/profile.webp"
                           alt="Sheelash Singh Bhadoriya"
                           width={380}
                           height={500}

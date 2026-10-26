@@ -50,6 +50,45 @@ const IcoArrow = ({ s = 20 }) => (
   </svg>
 );
 
+const SocialIcon = ({ name = '', s = 16 }) => {
+  const n = String(name).toLowerCase();
+  if (n.includes('behance')) {
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.111 0-5-2.25-5-5.5s1.944-5.5 4.889-5.5c3.084 0 4.757 2.083 4.757 5.139 0 .417-.056.861-.083 1.111h-7.389c.083 1.361 1.056 2.361 2.5 2.361 1.25 0 1.944-.611 2.222-1.111h2.83zm-4.778-5.361c-1.167 0-1.889.722-2.028 1.861h4.111c-.028-1.028-.75-1.861-2.083-1.861zm-10.948 8.361h-8v-16h7.722c2.722 0 4.778 1.278 4.778 3.75 0 1.556-.833 2.722-2.111 3.361 1.639.583 2.611 1.944 2.611 3.861 0 3.028-2.306 5.028-5 5.028zm-4.5-9.611h3.75c1.083 0 1.944-.556 1.944-1.5 0-.944-.861-1.444-1.944-1.444h-3.75v2.944zm0 6.667h3.944c1.278 0 2.222-.611 2.222-1.722 0-1.139-.944-1.722-2.222-1.722h-3.944v3.444z" />
+      </svg>
+    );
+  }
+  if (n.includes('linkedin')) {
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    );
+  }
+  if (n.includes('whatsapp')) {
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.031 2c-5.502 0-9.972 4.47-9.972 9.974 0 1.757.457 3.473 1.328 4.984l-1.411 5.161 5.29-1.388c1.46.797 3.109 1.217 4.765 1.217 5.503 0 9.973-4.47 9.973-9.974 0-5.504-4.47-9.974-9.973-9.974zm0 18.254c-1.488 0-2.946-.4-4.218-1.156l-.302-.179-3.136.822.838-3.056-.197-.313c-.829-1.319-1.267-2.846-1.267-4.402 0-4.551 3.702-8.254 8.282-8.254 4.57 0 8.272 3.703 8.272 8.254 0 4.552-3.702 8.284-8.272 8.284zm4.536-6.196c-.249-.125-1.472-.727-1.7-.81-.229-.083-.395-.125-.561.125-.166.249-.644.81-.789.977-.145.166-.291.187-.54.062s-1.05-.387-2.001-1.234c-.74-.66-1.239-1.475-1.385-1.724-.145-.249-.015-.384.109-.508.112-.112.249-.291.374-.437.125-.145.166-.249.249-.415.083-.166.042-.312-.021-.437s-.561-1.35-.769-1.849c-.202-.487-.407-.421-.561-.429l-.478-.008c-.166 0-.436.062-.664.312s-.872.852-.872 2.078 1.892 2.411 2.162 2.764c.27.353 3.693 5.64 8.948 7.91 1.25.54 2.226.863 2.986 1.104 1.256.399 2.398.343 3.301.208 1.008-.15 3.093-1.264 3.53-2.485.437-1.222.437-2.271.312-2.486-.125-.214-.457-.339-.706-.464z" />
+      </svg>
+    );
+  }
+  if (n.includes('mail') || n.includes('email')) {
+    return (
+      <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+    );
+  }
+  return (
+    <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  );
+};
+
 export default function MvFooter(props = {}) {
   const {
     reveal = true,
@@ -307,6 +346,44 @@ export default function MvFooter(props = {}) {
                 {lead}
               </p>
             )}
+            <div className="mvft-socials-dock" style={rise(on, 300)}>
+              <a
+                href="https://www.linkedin.com/in/sheelash-singh-bhadoriya-5a941818b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mvft-dock-pill"
+                title="Sheelash on LinkedIn"
+                aria-label="Sheelash on LinkedIn"
+              >
+                <SocialIcon name="linkedin" s={14} />
+                <span>LinkedIn</span>
+                <span className="mvft-dock-arr">↗</span>
+              </a>
+              <a
+                href="https://www.behance.net/prithvibhadour"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mvft-dock-pill"
+                title="Sheelash on Behance"
+                aria-label="Sheelash on Behance"
+              >
+                <SocialIcon name="behance" s={14} />
+                <span>Behance</span>
+                <span className="mvft-dock-arr">↗</span>
+              </a>
+              <a
+                href="https://wa.me/919516372235"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mvft-dock-pill"
+                title="Chat on WhatsApp"
+                aria-label="Chat on WhatsApp"
+              >
+                <SocialIcon name="whatsapp" s={14} />
+                <span>WhatsApp</span>
+                <span className="mvft-dock-arr">↗</span>
+              </a>
+            </div>
             {site.email && (
               <p className="mvft-mailw" style={rise(on, 340)}>
                 <span style={M}>{emailLabel}</span>
@@ -338,8 +415,13 @@ export default function MvFooter(props = {}) {
                     <a
                       href={l.h}
                       target={col.ext ? '_blank' : undefined}
-                      rel={col.ext ? 'noopener' : undefined}
+                      rel={col.ext ? 'noopener noreferrer' : undefined}
                     >
+                      {col.ext && (
+                        <span className="mvft-soc-ico" aria-hidden="true">
+                          <SocialIcon name={l.l} s={15} />
+                        </span>
+                      )}
                       <span className="mvft-ll">
                         {l.l}
                       </span>
@@ -440,7 +522,16 @@ const CSS_FOOTER = `
 .mvft-cols{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);padding:clamp(48px,5vw,72px) 0}
 .mvft-ct{margin:0 0 18px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:color-mix(in srgb,var(--mv-cloud) 78%,transparent)}
 .mvft-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.mvft-col a{position:relative;display:flex;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:16px;transition:color .3s}
+.mvft-col a{position:relative;display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:16px;transition:color .3s}
+.mvft-soc-ico{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;color:color-mix(in srgb,var(--mv-cloud) 75%,transparent);flex-shrink:0;transition:color .25s,transform .25s}
+.mvft-soc-ico svg{display:block}
+.mvft-col a:hover .mvft-soc-ico{color:var(--mv-brass);transform:scale(1.18)}
+.mvft-socials-dock{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0}
+.mvft-dock-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 10px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--mv-cloud);background:color-mix(in srgb,var(--mv-cloud) 8%,transparent);border:1px solid color-mix(in srgb,var(--mv-cloud) 16%,transparent);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);transition:all .22s cubic-bezier(.2,.8,.2,1)}
+.mvft-dock-pill svg{display:block;flex-shrink:0}
+.mvft-dock-pill:hover{background:var(--mv-brass);color:var(--mv-ink);border-color:var(--mv-brass);transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,91,46,.3)}
+.mvft-dock-arr{font-size:11px;opacity:.7;transition:transform .2s ease}
+.mvft-dock-pill:hover .mvft-dock-arr{opacity:1;transform:translate(1px,-1px)}
 .mvft-ll{position:relative;padding:0 .12em;margin:0 -.12em;background:linear-gradient(var(--mv-brass),var(--mv-brass)) 0 0/0% 100% no-repeat;transition:background-size .4s steps(6,end),color .25s}
 .mvft-col a:hover .mvft-ll,.mvft-col a:focus-visible .mvft-ll{background-size:100% 100%;color:var(--mv-ink)}
 .mvft-col em{font-style:normal;font-size:12px;letter-spacing:.06em;color:color-mix(in srgb,var(--mv-cloud) 78%,transparent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

@@ -34,7 +34,7 @@ import {
 } from './scaffold';
 import { siteData, defaultPosts } from './siteData';
 
-const MVPO_PORTRAIT = siteData.portrait || '/profile.png';
+const MVPO_PORTRAIT = siteData.portrait || '/profile.webp';
 
 const mvpoTc = (sec, fps = 24) => {
   const f = Math.floor(sec * fps);
@@ -279,7 +279,7 @@ export default function MvPost(props = {}) {
     if (live) {
       try {
         setUrl(window.location.href);
-      } catch (e) {}
+      } catch (e) { }
     }
   }, [live]);
   const shareUrl = url || `#notes-${row.slug || ''}`;
@@ -296,7 +296,7 @@ export default function MvPost(props = {}) {
         ta.select();
         document.execCommand('copy');
         ta.remove();
-      } catch (x) {}
+      } catch (x) { }
     }
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1800);
@@ -343,9 +343,9 @@ export default function MvPost(props = {}) {
           q > 0.985
             ? endLabel
             : leftLabel.replace(
-                /\{min\}/g,
-                String(Math.max(1, left))
-              );
+              /\{min\}/g,
+              String(Math.max(1, left))
+            );
         if (l.textContent !== s) l.textContent = s;
       }
     }, read);

@@ -141,7 +141,7 @@ export default function MvHero(props = {}) {
   const name = pick(nameText, site.heroDisplayName || 'SHEELASH').toUpperCase();
   const src = srcOf(portrait, site.templatePortrait);
   const statementT = pick(statement, site.statement || site.tagline || '');
-  const resume = pick(secondaryLink, '/resume');
+  const resume = pick(secondaryLink, site.resume || '/Sheelash Singh Bhadoriya - Resume.pdf');
 
   const nextRef = useRef(() => { });
   nextRef.current = () => {
@@ -149,51 +149,13 @@ export default function MvHero(props = {}) {
     setFlash((f) => f + 1);
   };
 
-  // fit the name to the stage width: --fs in cqw of the stage (~76-78% width across the screen with generous edge safety margin)
-  const [fs, setFs] = useState(0.114);
-  const fsRef = useRef(0.114);
-  fsRef.current = fs;
-
-  useLayoutEffect(() => {
-    const el = nameEl.current,
-      st = stage.current;
-    if (!el || !st) return;
-    let dead = false;
-    const fit = () => {
-      if (dead) return;
-      const inner = el.querySelector('.mvp-nm');
-      if (!inner || !st.clientWidth) return;
-      // Clean ~76-78% width target across the stage: bold and cinematic with generous 11-12% safety margin on each side
-      const target = st.clientWidth * (phone ? 0.78 : 0.76);
-      const cw = inner.scrollWidth;
-      const cur = parseFloat(getComputedStyle(el).fontSize) || 100;
-      if (cw > 0) {
-        const want = (cur * target) / cw / st.clientWidth;
-        if (
-          isFinite(want) &&
-          want > 0.02 &&
-          Math.abs(want - fsRef.current) > 0.002
-        ) {
-          fsRef.current = want;
-          setFs(want);
-        }
-      }
-    };
-    fit();
-    try {
-      if (typeof document !== 'undefined' && document.fonts?.ready) {
-        document.fonts.ready.then(() => window.setTimeout(fit, 30));
-      }
-    } catch (e) { }
-    const t = window.setTimeout(fit, 1200);
-    const ro = new ResizeObserver(() => fit());
-    ro.observe(st);
-    return () => {
-      dead = true;
-      ro.disconnect();
-      window.clearTimeout(t);
-    };
-  }, [w, name, phone]);
+  // High-performance responsive typographic scale: perfectly proportioned, zero FOVU, zero layout shift
+  const chars = Array.from(name);
+  const charCount = Math.max(chars.length, 1);
+  const cqwTarget = Math.min(16.5, Math.max(7.0, 122 / charCount));
+  const maxPx = Math.round(cqwTarget * 14.2);
+  const minPx = phone ? 42 : 64;
+  const fsStyle = `clamp(${minPx}px, ${cqwTarget.toFixed(2)}cqw, ${maxPx}px)`;
 
   // key light: pointer (or orbit when idle / touch)
   useEffect(() => {
@@ -321,7 +283,7 @@ export default function MvHero(props = {}) {
       r.removeEventListener('pointermove', mv);
       r.removeEventListener('pointerdown', dn);
     };
-  }, [live, rm, phone, tab, name, fs]);
+  }, [live, rm, phone, tab, name]);
 
   useEffect(() => {
     if (
@@ -355,7 +317,6 @@ export default function MvHero(props = {}) {
   }, [live, site.tz]);
 
   const links = linkList(navLinks);
-  const chars = Array.from(name);
 
   return (
     <section
@@ -367,7 +328,7 @@ export default function MvHero(props = {}) {
         '--hh': H ? `${H}px` : 'auto',
         '--bd': bd.bg,
         '--pimg': `url("${src}")`,
-        '--fs': `${(fs * 100).toFixed(3)}cqw`,
+        '--fs': fsStyle,
         ...(props.style || {}),
       }}
       aria-label={`${site.name} — ${site.role}`}
@@ -430,7 +391,7 @@ export default function MvHero(props = {}) {
                   key={i}
                   className="mvp-l"
                   style={{
-                    transitionDelay: `${260 + i * 60}ms`,
+                    transitionDelay: `${150 + i * 45}ms`,
                   }}
                 >
                   <span>{ch}</span>
@@ -470,14 +431,42 @@ export default function MvHero(props = {}) {
             label={primary}
             kind="solid"
           />
-          <Btn href={resume} label={secondary} kind="ghost" />
+          <Btn
+            href={resume}
+            label={secondary}
+            kind="ghost"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         </div>
       </div>
       <div className="mvp-meta" style={{ ...M, ...rise(inn, 850, 12) }}>
-        <p>
-          <i className="mv-port" aria-hidden />
-          {site.avail || 'Available for work'}
-        </p>
+        <div className="mvp-avail-row">
+          <p className="mvp-avail-tag">
+            <i className="mv-port" aria-hidden />
+            {site.avail || 'Available for work'}
+          </p>
+          <a
+            href="https://www.linkedin.com/in/sheelash-singh-bhadoriya-5a941818b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mvp-linkedin-badge"
+            title="Sheelash Singh on LinkedIn"
+            aria-label="Sheelash on LinkedIn"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <span>LinkedIn</span>
+            <span className="mvp-arr-icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
         <p className="mvp-dim">
           {site.city}
           {clock ? ` · ${clock}` : ''}
@@ -530,13 +519,13 @@ const CSS_HERO = `
 .mvp.has-cur{cursor:none} .mvp.has-cur :is(a,button){cursor:pointer}
 .mvp-stage{position:absolute;inset:0;z-index:0;container-type:size}
 .mvp-wall{position:absolute;inset:-4%;transform:translate3d(var(--wpx,0),var(--wpy,0),0);background:radial-gradient(circle min(46vw,640px) at calc(var(--lx,72%) + 4%) calc(var(--ly,22%) + 4%),var(--wall-light),transparent 70%),radial-gradient(120% 80% at 50% 110%,rgba(0,0,0,.28),transparent 60%)}
-.mvp-name{position:absolute;left:0;right:0;top:calc(65% - 60px);margin:0 auto;padding:0 clamp(28px,6vw,84px);box-sizing:border-box;max-width:100%;display:flex;justify-content:center;font-size:var(--fs,11.4cqw);line-height:.88;letter-spacing:-.03em;font-weight:900;white-space:nowrap;transform:translate3d(var(--wpx,0),var(--wpy,0),0);pointer-events:none;z-index:3}
-.mvp-nm{display:inline-flex}
-.mvp-l{display:inline-block;overflow:visible;padding:.04em .10em .08em;margin:0 -.05em -.08em;--t:0}
-.mvp-l>span{display:inline-block;color:color-mix(in srgb,var(--nm-lit) calc(var(--t) * 100%),var(--nm-dim));translate:0 calc(var(--t) * -.05em);transform:translateY(108%);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),color .15s linear;transition-delay:inherit}
-.mvp.is-in .mvp-l>span{transform:none}
+.mvp-name{position:absolute;left:0;right:0;top:calc(64% + 10px);margin:0 auto;padding:0 clamp(20px,4vw,60px);box-sizing:border-box;max-width:100%;display:flex;justify-content:center;align-items:center;font-size:var(--fs,clamp(64px,15.25cqw,220px));line-height:.88;letter-spacing:-.03em;font-weight:900;white-space:nowrap;transform:translate3d(var(--wpx,0),var(--wpy,0),0);pointer-events:none;z-index:3;user-select:none}
+.mvp-nm{display:inline-flex;align-items:baseline;justify-content:center;white-space:nowrap}
+.mvp-l{display:inline-block;position:relative;overflow:hidden;vertical-align:bottom;padding:.02em .04em .06em;margin:0 -.01em;--t:0}
+.mvp-l>span{display:inline-block;color:color-mix(in srgb,var(--nm-lit) calc(var(--t) * 100%),var(--nm-dim));translate:0 calc(var(--t) * -.05em);transform:translateY(115%);opacity:0;filter:blur(6px);transition:transform 1.0s cubic-bezier(.16,1,.3,1),opacity .8s ease,filter .8s ease,color .15s linear;transition-delay:inherit;will-change:transform,opacity,filter}
+.mvp.is-in .mvp-l>span{transform:translateY(0%);opacity:1;filter:blur(0px)}
 .mvp-sp{display:inline-block;width:.24em}
-.mvp.is-still .mvp-l>span{color:color-mix(in srgb,var(--nm-lit) 55%,var(--nm-dim))}
+.mvp.is-still .mvp-l>span,.mvp.is-rm .mvp-l>span{transform:none!important;opacity:1!important;filter:none!important;transition:none!important;color:color-mix(in srgb,var(--nm-lit) 55%,var(--nm-dim))}
 .mvp-shadow,.mvp-person,.mvp-back{position:absolute;left:50%;bottom:0;height:94%;aspect-ratio:${P_AR};translate:-50% 0}
 .mvp-shadow{background:var(--shade);-webkit-mask:var(--pimg) center bottom/contain no-repeat;mask:var(--pimg) center bottom/contain no-repeat;filter:blur(14px);transform:translate3d(calc(var(--ppx,0px) + var(--sx,-30px)),calc(var(--ppy,0px) + var(--sy,10px)),0) scale(1.02);transform-origin:50% 100%;opacity:0;transition:opacity 1.4s ease .6s}
 .mvp.is-in .mvp-shadow{opacity:1}
@@ -558,6 +547,14 @@ const CSS_HERO = `
 .mvp-st{margin:0;font-size:16px;line-height:1.55;opacity:.86}
 .mvp-btns{display:flex;flex-direction:column;align-items:flex-start;gap:10px} .mvp:not(.is-ph):not(.is-tab) .mvp-btns{flex-direction:row;flex-wrap:wrap}
 .mvp-meta{position:absolute;z-index:5;right:max(var(--mvg),calc((100% - ${MAXW})/2));top:clamp(120px,17.5%,194px);display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12px;text-align:right} .mvp-meta p{display:flex;align-items:center;gap:8px;margin:0} .mvp-dim{opacity:.78}
+.mvp-avail-row{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+.mvp-avail-tag{display:flex;align-items:center;gap:8px;margin:0}
+.mvp-linkedin-badge{display:inline-flex;align-items:center;gap:6px;padding:3.5px 10px 3.5px 8px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.02em;text-decoration:none;color:inherit;background:color-mix(in srgb,var(--bd) 72%,transparent);border:1px solid color-mix(in srgb,currentColor 22%,transparent);box-shadow:0 2px 8px rgba(0,0,0,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:all .22s cubic-bezier(.2,.8,.2,1);pointer-events:auto}
+.mvp-linkedin-badge svg{display:block;flex-shrink:0;transition:transform .22s ease}
+.mvp-linkedin-badge .mvp-arr-icon{font-size:11px;opacity:.75;transition:transform .22s ease}
+.mvp-linkedin-badge:hover{background:#0A66C2;color:#FFFFFF;border-color:#0A66C2;transform:translateY(-1px);box-shadow:0 6px 18px rgba(10,102,194,.38)}
+.mvp-linkedin-badge:hover svg{transform:scale(1.08)}
+.mvp-linkedin-badge:hover .mvp-arr-icon{opacity:1;transform:translate(1.5px,-1.5px)}
 .mvp-bar{position:absolute;z-index:5;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 max(var(--mvg),calc((100% - ${MAXW})/2)) 26px;font-size:12px;pointer-events:none} .mvp-bar>*{pointer-events:auto}
 .mvp-hint{display:flex;align-items:center;gap:10px;margin:0;padding:7px 12px;border-radius:8px;background:color-mix(in srgb,var(--bd) 60%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)} .mvp-hint i{width:10px;height:10px;border-radius:50%;background:#FFE9C7;box-shadow:0 0 12px 3px rgba(255,226,180,.8)}
 .mvp-sw{display:flex;align-items:center;gap:6px;position:absolute;left:50%;bottom:22px;translate:-50% 0;padding:5px 6px 5px 12px;border-radius:10px;background:color-mix(in srgb,var(--bd) 60%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 16%,transparent)}
@@ -567,12 +564,12 @@ const CSS_HERO = `
 .mvp-cur i{position:absolute;left:0;top:0;width:18px;height:18px;translate:-50% -50%;border-radius:50%;background:#FFF1DA;box-shadow:0 0 22px 8px rgba(255,226,180,.55),0 0 0 6px rgba(255,241,218,.18);transition:scale .3s cubic-bezier(.34,1.56,.64,1)}
 .mvp-cur b{position:absolute;left:16px;top:10px;padding:3px 7px;border-radius:5px;background:#FFF1DA;color:#111113;font-size:12px;font-weight:500;white-space:nowrap;transition:opacity .2s}
 .mvp-cur[data-m="btn"] i{scale:.45} .mvp-cur[data-m="btn"] b{opacity:0}
-.mvp.is-tab .mvp-shadow,.mvp.is-tab .mvp-person,.mvp.is-tab .mvp-back{height:74%;left:60%} .mvp.is-tab .mvp-meta{display:none} .mvp.is-tab .mvp-name{top:calc(63% - 40px)} .mvp.is-tab .mvp-links{display:none} .mvp.is-tab .mvp-navcta{margin-left:auto} .mvp.is-tab .mvp-hint{display:none} .mvp.is-tab .mvp-copy{width:min(300px,34vw)} .mvp.is-tab .mvp-role{font-size:30px} .mvp.is-tab .mvp-st{display:none}
+.mvp.is-tab .mvp-shadow,.mvp.is-tab .mvp-person,.mvp.is-tab .mvp-back{height:74%;left:60%} .mvp.is-tab .mvp-meta{display:none} .mvp.is-tab .mvp-name{top:calc(63% + 30px)} .mvp.is-tab .mvp-links{display:none} .mvp.is-tab .mvp-navcta{margin-left:auto} .mvp.is-tab .mvp-hint{display:none} .mvp.is-tab .mvp-copy{width:min(300px,34vw)} .mvp.is-tab .mvp-role{font-size:30px} .mvp.is-tab .mvp-st{display:none}
 .mvp.is-ph{height:auto;min-height:0;display:flex;flex-direction:column} .mvp.is-ph.no-nav{padding-top:54px}
 .mvp.is-ph .mvp-nav{position:relative;padding:12px var(--mvg);gap:10px} .mvp.is-ph .mvp-links{display:none} .mvp.is-ph .mvp-navcta{margin-left:auto}
 .mvp.is-ph .mvp-stage{position:relative;inset:auto;height:clamp(400px,56vh,520px);flex:none;overflow:hidden}
 .mvp.is-ph{--nm-dim:color-mix(in srgb,var(--bd) 56%,#fff)} .mvp.is-ph.is-lightbd{--nm-dim:color-mix(in srgb,var(--bd) 45%,#000)}
-.mvp.is-ph .mvp-name{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:clamp(16px,3.5vh,28px)!important;line-height:.88!important;font-size:clamp(38px,13.5vw,64px)!important;padding:0 8px;box-sizing:border-box;letter-spacing:-.035em;white-space:nowrap!important;z-index:10!important;display:flex!important;justify-content:center!important;pointer-events:none;filter:drop-shadow(0 4px 18px rgba(0,0,0,0.55))}
+.mvp.is-ph .mvp-name{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:clamp(14px,3vh,26px)!important;line-height:.88!important;font-size:clamp(42px,14.5vw,70px)!important;padding:0 8px;box-sizing:border-box;letter-spacing:-.035em;white-space:nowrap!important;z-index:10!important;display:flex!important;justify-content:center!important;pointer-events:none;filter:drop-shadow(0 4px 18px rgba(0,0,0,0.55))}
 .mvp.is-ph .mvp-nm{flex-wrap:nowrap!important;justify-content:center;white-space:nowrap!important;display:inline-flex!important}
 .mvp.is-ph .mvp-shadow,.mvp.is-ph .mvp-person,.mvp.is-ph .mvp-back{height:96%;bottom:0;left:50%;translate:-50% 0}
 .mvp.is-ph .mvp-copy{position:relative;left:auto;top:auto;width:auto;padding:18px var(--mvg) 10px;display:flex;flex-direction:column;gap:12px}
@@ -581,11 +578,12 @@ const CSS_HERO = `
 .mvp.is-ph .mvp-btns{display:flex;flex-direction:row;align-items:center;gap:10px;width:100%}
 .mvp.is-ph .mvp-btns .mv-btn{flex:1 1 0;min-height:46px;width:auto}
 .mvp.is-ph .mvp-meta{position:relative;right:auto;top:auto;align-items:flex-start;text-align:left;padding:12px var(--mvg) 0}
+.mvp.is-ph .mvp-avail-row{justify-content:flex-start}
 .mvp.is-ph .mvp-bar{position:relative;padding:12px var(--mvg) 20px} .mvp.is-ph .mvp-sw{position:static;translate:none}
 @media (max-width:809px){
   .mvp{height:auto!important;min-height:0!important;display:flex!important;flex-direction:column!important}
   .mvp .mvp-stage{position:relative!important;inset:auto!important;height:clamp(400px,56vh,520px)!important;flex:none!important;overflow:hidden!important}
-  .mvp .mvp-name{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:clamp(16px,3.5vh,28px)!important;line-height:.88!important;font-size:clamp(38px,13.5vw,64px)!important;padding:0 8px!important;white-space:nowrap!important;z-index:10!important;display:flex!important;justify-content:center!important;filter:drop-shadow(0 4px 18px rgba(0,0,0,0.55))!important}
+  .mvp .mvp-name{position:absolute!important;left:0!important;right:0!important;top:auto!important;bottom:clamp(14px,3vh,26px)!important;line-height:.88!important;font-size:clamp(42px,14.5vw,70px)!important;padding:0 8px!important;white-space:nowrap!important;z-index:10!important;display:flex!important;justify-content:center!important;filter:drop-shadow(0 4px 18px rgba(0,0,0,0.55))!important}
   .mvp .mvp-shadow,.mvp .mvp-person,.mvp .mvp-back{height:96%!important;bottom:0!important;left:50%!important;translate:-50% 0!important}
 }
 @media (max-width:480px){

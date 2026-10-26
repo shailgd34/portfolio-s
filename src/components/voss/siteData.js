@@ -18,8 +18,8 @@ export const siteData = {
   firstName: "SHEELASH",
   lastName: "BHADORIYA",
   heroDisplayName: "SHEELASH", // Renders in giant letters behind portrait
-  role: "Product Designer & Frontend Developer",
-  roleLine: "Product Designer|& Frontend Developer",
+  role: "Product Designer | UI/UX & Design Systems",
+  roleLine: "Product Designer | UI/UX & Design Systems",
   tagline: "I design digital products and build them in code, from the first sketch to scalable production releases.",
   statement: "Product Designer and Frontend Developer with 6 years of experience creating user-centered digital products, SaaS platforms, and responsive web applications with Figma, React, Next.js, and WordPress.",
   email: "shailashs79@gmail.com",
@@ -29,12 +29,12 @@ export const siteData = {
   avail: "Available for work — Immediate Joiner",
   noticePeriod: "Immediate Joiner",
   status: "Immediate Joiner",
-  resume: "/shailash 2026.pdf",
-  socials: "LinkedIn:https://www.linkedin.com/in/sheelash-singh-bhadoriya-5a941818b/,Behance:https://www.behance.net/prithvibhadour,Email:mailto:shailashs79@gmail.com",
+  resume: "/Sheelash Singh Bhadoriya - Resume.pdf",
+  socials: "LinkedIn:https://www.linkedin.com/in/sheelash-singh-bhadoriya-5a941818b/,Behance:https://www.behance.net/prithvibhadour,WhatsApp:https://wa.me/919516372235,Email:mailto:shailashs79@gmail.com",
   years: "6",
   book: "/contact",
-  portrait: "/profile.png",
-  templatePortrait: "/profile.png",
+  portrait: "/profile.webp",
+  templatePortrait: "/profile.webp",
 };
 
 export const defaultBackdrops = "Bone:#E6DED1;Tangerine:#FF5B2E;Ink:#171311";
@@ -110,7 +110,7 @@ const baseProjects = rawProjectsJson.map((p, idx) => {
     f3: getCleanCategory(p),
     f4: p.year || (p.timeline ? p.timeline.split('—')[0].trim() : '2025'),
     f5: p.description || 'High-impact product and interaction design engineered for commercial scale.',
-    img: p.image || '/profile.png',
+    img: p.image || '/profile.webp',
     f6: getIconType(p),
     f7: PALETTE[idx % PALETTE.length],
     f8: p.role || 'Senior Product Designer',

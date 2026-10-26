@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var seen = sessionStorage.getItem('mv-loaded');
+                var seen = sessionStorage.getItem('mvld_seen_v1') || sessionStorage.getItem('mv-loaded');
                 var hasForce = window.location.search.indexOf('loader') !== -1 || window.location.search.indexOf('intro') !== -1;
                 if (!seen || hasForce) {
                   document.documentElement.classList.add('mv-hold-ld', 'mvld-go');

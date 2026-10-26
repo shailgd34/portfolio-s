@@ -409,8 +409,9 @@ export const Btn = ({
   ...rest
 }) => {
   const isExt = /^https?:\/\//.test(href || '');
-  const effTarget = target !== undefined ? target : (isExt ? '_blank' : undefined);
-  const effRel = rel !== undefined ? rel : (isExt ? 'noopener noreferrer' : undefined);
+  const isPdf = /\.pdf($|\?)/i.test(href || '');
+  const effTarget = target !== undefined ? target : (isExt || isPdf ? '_blank' : undefined);
+  const effRel = rel !== undefined ? rel : (isExt || isPdf ? 'noopener noreferrer' : undefined);
 
   return (
     <a
@@ -421,12 +422,12 @@ export const Btn = ({
       target={effTarget}
       rel={effRel}
       onClick={(e) => {
-        if (isExt) {
+        if (isExt || isPdf) {
           e.stopPropagation();
         }
         if (onClick) {
           onClick(e);
-        } else {
+        } else if (!isExt && !isPdf) {
           jumpTo(e, href);
         }
       }}
@@ -646,7 +647,7 @@ export function useStage(live) {
       }
     });
     mo.observe(h, { attributes: true, attributeFilter: ['class'] });
-    const t = window.setTimeout(() => setR(true), 120);
+    const t = window.setTimeout(() => setR(true), 2400);
     return () => {
       mo.disconnect();
       window.clearTimeout(t);

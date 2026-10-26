@@ -94,7 +94,7 @@ export default function MvIntro(props = {}) {
     statement,
     `I'm ${site.name.split(' ')[0]}. For over six years I've turned complex challenges into digital products people *actually use* — designed in Figma, engineered in Next.js, shipped on time.`
   );
-  const resume = pick(resumeLink, site.resume || '/shailash 2026.pdf');
+  const resume = pick(resumeLink, site.resume || '/Sheelash Singh Bhadoriya - Resume.pdf');
   const dfw = props.customFonts ? D.fontWeight : 'var(--mv-font-dw, 700)';
 
   return (
@@ -155,6 +155,8 @@ export default function MvIntro(props = {}) {
                 label={resumeLabel}
                 kind="quiet"
                 arrow={false}
+                target="_blank"
+                rel="noopener noreferrer"
               />
             )}
           </div>

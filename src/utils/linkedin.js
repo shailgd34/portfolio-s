@@ -5,8 +5,8 @@
  * - Mobile (iOS): Top-frame navigation to trigger iOS Universal Links into LinkedIn app
  */
 
-export const LINKEDIN_USERNAME = 'sheelash-singh-bhadoriya-5a941818b';
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/sheelash-singh-bhadoriya-5a941818b/';
+export const LINKEDIN_USERNAME = 'sheelash-singh';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/sheelash-singh/';
 export const LINKEDIN_APP_INTENT = `intent://www.linkedin.com/in/${LINKEDIN_USERNAME}#Intent;package=com.linkedin.android;scheme=https;S.browser_fallback_url=${encodeURIComponent(LINKEDIN_URL)};end;`;
 
 export function isMobileDevice() {

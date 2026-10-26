@@ -45,28 +45,28 @@ export default function MvResume(props = {}) {
     eyebrow = 'FRAME 00 — Résumé',
     updated = 'Updated 2026 · A4',
     pdfLabel = 'Download PDF',
-    pdfLink = siteData.resume || '/shailash 2026.pdf',
+    pdfLink = siteData.resume || '/Sheelash Singh Bhadoriya - Resume.pdf',
     printLabel = 'Print',
     sheetLeft = 'Résumé · {name}',
     sheetRight = 'Proof 01',
     nameOverride = '',
-    roleOverride = '',
+    roleOverride = 'Product Designer | UI/UX & Design Systems',
     websiteLabel = 'portfolio-s-gilt.vercel.app',
     website = 'https://portfolio-s-gilt.vercel.app',
     summaryTitle = 'Profile',
     summary = 'Product Designer and Frontend Developer with 6 years of experience creating user-centered digital products, SaaS platforms, and responsive web applications. Skilled in UX research, UI design, Figma, React, Next.js, and WordPress, focused on improving usability and delivering impactful digital experiences.',
     expTitle = 'Experience',
     moreLabel = 'Key Contributions',
-    b1 = 'Led end-to-end UI/UX design for SaaS and enterprise applications;Conducted user research, usability testing, and competitor analysis;Created wireframes, prototypes, and scalable design systems in Figma;Collaborated with cross-functional teams in Agile environments;Developed responsive interfaces using React, Next.js, and WordPress;Built multilingual websites using Elementor and WPML',
-    b2 = 'Designed responsive interfaces for domestic and international clients;Created user flows, wireframes, prototypes, and high-fidelity UI designs;Collaborated with developers to deliver pixel-perfect, responsive experiences;Built and customized WordPress websites using Elementor;Gathered client requirements and improved usability through user-centered design',
-    b3 = 'Learned HTML5 and CSS3 fundamentals for web development;Assisted in designing and structuring basic web pages;Gained practical experience with design tools and UI principles;Collaborated with senior designers to understand professional workflows',
+    b1 = 'Led Product Discovery and Interaction Design for 4 enterprise SaaS platforms, structuring complex Information Architecture and user flows to increase task completion rates by 32% across 50,000+ users.;Architected and scaled a multi-brand Figma design system with 250+ tokens and components, establishing standardized UI patterns across 4 product squads and accelerating sprint delivery velocity by over 40%.;Executed 45+ Usability Research sessions and heuristic audits applying Design Thinking, translating user feedback into interface refinements that reduced workflow drop-off by 28% and cut support tickets by 35%.;Developed responsive, accessible web interfaces adhering strictly to Accessibility (WCAG) standards using React, Next.js, and Redux, cutting design handoff discrepancies and UI defect tickets by 35%.',
+    b2 = 'Delivered Interaction Design, detailed user personas, journey maps, wireframes, and clickable interactive prototypes in Figma for 18+ international client accounts across diverse responsive web and mobile products.;Facilitated Product Discovery workshops and restructured complex Information Architecture, applying Design Thinking principles to streamline onboarding funnels and boost enterprise user retention by 25%.;Partnered closely with cross-functional engineering teams during Agile sprints to deliver pixel-accurate design specifications and token documentation, cutting frontend implementation turnaround by 30%.',
+    b3 = 'Built semantic, responsive web layouts and interactive UI prototypes using HTML5, CSS3, and JavaScript, collaborating on 12+ client website launches complying with Accessibility (WCAG 2.1) standards.;Standardized reusable UI component libraries, responsive layout grids, and digital asset production guidelines, ensuring seamless cross-browser consistency and accelerating team asset delivery turnaround by 20%.',
     skillsTitle = 'Skills',
-    designTitle = 'Design',
-    codeTitle = 'Code & Frontend',
-    designSkills = 'UI/UX Design;Design Systems;Wireframing;User Flows;Usability Testing;Figma;Framer;Adobe Creative Suite',
-    codeSkills = 'React;Next.js;WordPress;REST API Integration;Redux Toolkit;WebSockets;Firebase Cloud Messaging (FCM);React Query',
-    toolsTitle = 'Tools',
-    tools = 'Figma;Framer;React;Next.js;WordPress;VS Code;Adobe Photoshop;Adobe Illustrator;Adobe InDesign;Git;Elementor',
+    designTitle = 'Design & Strategy',
+    codeTitle = 'Frontend & Standards',
+    designSkills = 'UI/UX Design;Interaction Design;Information Architecture;Wireframing;Prototyping;Design Systems;Usability Research;User Testing;Heuristic Evaluation;Product Discovery;Design Thinking',
+    codeSkills = 'React;Next.js;Redux Toolkit;HTML5;CSS3;REST APIs;Accessibility (WCAG 2.1);Agile/Scrum;Developer Handoff',
+    toolsTitle = 'Tools & Environment',
+    tools = 'Figma;Framer;Adobe Creative Suite (Photoshop, Illustrator);Accessibility (WCAG 2.1);React;Next.js;Redux Toolkit;HTML5;CSS3;VS Code;Git',
     eduTitle = 'Education',
     awardTitle = 'Milestones & Impact',
     langTitle = 'Languages',
@@ -172,13 +172,13 @@ export default function MvResume(props = {}) {
     };
   }, [final, work.length, w]);
 
-  const pdfHref = pick(pdfLink, site.resume || '/shailash 2026.pdf');
+  const pdfHref = pick(pdfLink, site.resume || '/Sheelash Singh Bhadoriya - Resume.pdf');
   const selfPdf = !pdfHref || /^\/resume\/?$/.test(pdfHref);
   const doPrint = (e) => {
     e.preventDefault();
     try {
       window.print();
-    } catch (x) {}
+    } catch (x) { }
   };
 
   const socials = linkList(site.socials);
@@ -193,11 +193,11 @@ export default function MvResume(props = {}) {
 
   const dS = listOf(
     designSkills ||
-      'Product strategy;UX research;Interaction design;Design systems;Prototyping;Motion design'
+    'Product strategy;UX research;Interaction design;Design systems;Prototyping;Motion design'
   );
   const cS = listOf(
     codeSkills ||
-      'React & Next.js;TypeScript;CSS & Tailwind;Framer Motion & GSAP;Accessibility (WCAG 2.2);Storybook & testing'
+    'React & Next.js;TypeScript;CSS & Tailwind;Framer Motion & GSAP;Accessibility (WCAG 2.2);Storybook & testing'
   );
   const toolL = listOf(tools || 'Figma;Framer;Rive;VS Code;Git;Linear;Notion');
   const langL = listOf(

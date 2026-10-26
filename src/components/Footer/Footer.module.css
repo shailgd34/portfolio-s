@@ -255,6 +255,9 @@
 }
 
 .minimalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-family: var(--font-mono), 'Azeret Mono', monospace !important;
   font-size: 0.76rem;
   font-weight: 800;
@@ -264,9 +267,27 @@
   transition: color 0.16s ease, transform 0.16s ease;
 }
 
+.linkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+
+.linkIcon svg {
+  display: block;
+}
+
 .minimalLink:hover {
   color: #FFFFFF !important;
   transform: translateY(-1.5px);
+}
+
+.minimalLink:hover .linkIcon {
+  transform: scale(1.15);
 }
 
 /* ==========================================================================

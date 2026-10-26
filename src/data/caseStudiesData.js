@@ -313,7 +313,7 @@ export const curatedCaseStudies = {
         name: 'Dr. Ananya Sharma',
         role: 'Wellness Coach & Doctor',
         company: 'Mumbai, India',
-        avatar: '/profile.png',
+        avatar: '/profile.webp',
         quote: '"My clients need simple visual charts so they easily understand how stress and sleep affect their daily memory."',
         goals: [
           'See client progress week-over-week in one simple chart',
@@ -737,7 +737,7 @@ export const curatedCaseStudies = {
     liveLink: 'https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114',
     badge: 'ENTERPRISE CASE STUDY',
     summary: 'Redesigned GMKC\'s legacy fleet tracking and client dispatch system into a high-throughput, mission-critical operations dashboard, cutting driver dispatch cycle times by 44% and increasing quote-to-booking conversions by 58%.',
-    
+
     challenge: {
       headline: 'The Problem: Fragmented Logistics Workflows & High Drop-Offs',
       description: 'GMKC Logistics handled over 1,200 daily domestic and interstate consignments across air, road, and maritime transit. However, their legacy client booking interface and dispatch portal suffered from severe usability bottlenecks.',
@@ -1562,8 +1562,8 @@ export function generateCaseStudy(p) {
   const role = p.role || 'Lead Product Designer & UX Researcher';
   const timeline = p.timeline || '8 - 12 Weeks';
   const image = p.image && p.image.trim() !== '' ? p.image : '/neurokaizen.png';
-  const rawTech = Array.isArray(p.technology) 
-    ? p.technology 
+  const rawTech = Array.isArray(p.technology)
+    ? p.technology
     : (typeof p.tools === 'string' ? p.tools.split(',').map(s => s.trim()) : ['Figma', 'UI/UX Architecture', 'React']);
 
   const liveLink = p.liveLink && p.liveLink.startsWith('http') ? p.liveLink : (p.link && p.link.startsWith('http') ? p.link : null);
@@ -1659,7 +1659,7 @@ export function generateCaseStudy(p) {
           name: 'Alex Morgan',
           role: 'Primary End User',
           company: 'Target Demographic Segment',
-          avatar: '/profile.png',
+          avatar: '/profile.webp',
           quote: '"I want a clear, lightning-fast interface where I can accomplish my goal in under 60 seconds without wading through clutter."',
           goals: [
             'Immediate access to core information without unnecessary clicks.',
@@ -1753,7 +1753,7 @@ export function generateCaseStudy(p) {
  */
 export function getAllProjectSlugs() {
   const slugs = new Set();
-  
+
   // Add curated slugs
   Object.keys(curatedCaseStudies).forEach(s => slugs.add(s));
 
@@ -1774,7 +1774,7 @@ export function getProjectBySlug(slug) {
   let decoded = String(slug);
   try {
     decoded = decodeURIComponent(decoded);
-  } catch (e) {}
+  } catch (e) { }
   const clean = slugify(decoded);
 
   // Check curated first
@@ -1795,7 +1795,7 @@ export function getProjectBySlug(slug) {
       const s2 = slugify(p.id);
       const s3 = slugify(p.title);
       return s1.startsWith(clean) || s2.startsWith(clean) || s3.startsWith(clean) ||
-             clean.startsWith(s1) || clean.startsWith(s2) || clean.startsWith(s3);
+        clean.startsWith(s1) || clean.startsWith(s2) || clean.startsWith(s3);
     });
   }
 

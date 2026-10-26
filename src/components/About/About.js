@@ -96,7 +96,7 @@ export default function About() {
               </div>
 
               <a
-                href="/shailash 2026.pdf"
+                href="/Sheelash Singh Bhadoriya - Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.myStoryBtn}
