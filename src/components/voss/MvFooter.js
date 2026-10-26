@@ -52,13 +52,6 @@ const IcoArrow = ({ s = 20 }) => (
 
 const SocialIcon = ({ name = '', s = 16 }) => {
   const n = String(name).toLowerCase();
-  if (n.includes('behance')) {
-    return (
-      <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-4.726 3-3.111 0-5-2.25-5-5.5s1.944-5.5 4.889-5.5c3.084 0 4.757 2.083 4.757 5.139 0 .417-.056.861-.083 1.111h-7.389c.083 1.361 1.056 2.361 2.5 2.361 1.25 0 1.944-.611 2.222-1.111h2.83zm-4.778-5.361c-1.167 0-1.889.722-2.028 1.861h4.111c-.028-1.028-.75-1.861-2.083-1.861zm-10.948 8.361h-8v-16h7.722c2.722 0 4.778 1.278 4.778 3.75 0 1.556-.833 2.722-2.111 3.361 1.639.583 2.611 1.944 2.611 3.861 0 3.028-2.306 5.028-5 5.028zm-4.5-9.611h3.75c1.083 0 1.944-.556 1.944-1.5 0-.944-.861-1.444-1.944-1.444h-3.75v2.944zm0 6.667h3.944c1.278 0 2.222-.611 2.222-1.722 0-1.139-.944-1.722-2.222-1.722h-3.944v3.444z" />
-      </svg>
-    );
-  }
   if (n.includes('linkedin')) {
     return (
       <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -360,15 +353,15 @@ export default function MvFooter(props = {}) {
                 <span className="mvft-dock-arr">↗</span>
               </a>
               <a
-                href="https://www.behance.net/prithvibhadour"
+                href="https://github.com/shailgd34"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mvft-dock-pill"
-                title="Sheelash on Behance"
-                aria-label="Sheelash on Behance"
+                title="Sheelash on GitHub"
+                aria-label="Sheelash on GitHub"
               >
-                <SocialIcon name="behance" s={14} />
-                <span>Behance</span>
+                <SocialIcon name="github" s={14} />
+                <span>GitHub</span>
                 <span className="mvft-dock-arr">↗</span>
               </a>
               <a

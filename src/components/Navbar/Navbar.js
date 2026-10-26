@@ -419,9 +419,7 @@ export default function Navbar({ activeSection = 'hero' }) {
                   LINKEDIN
                 </a>
                 <span>•</span>
-                <a href="https://www.behance.net/prithvibhadour" target="_blank" rel="noopener noreferrer">BEHANCE</a>
-                <span>•</span>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                <a href="https://github.com/shailgd34" target="_blank" rel="noopener noreferrer">GITHUB</a>
               </div>
             </div>
           </div>
