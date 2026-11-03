@@ -101,7 +101,7 @@ function mvhdGround(x, y) {
 
 export default function MvHeader(props = {}) {
   const {
-    links = 'Home:/,Work:/work, About:/about, Resume:/resume, Contact:/contact',
+    links = 'Home:/, Work:/work, Graphics:/graphics, About:/about, Resume:/resume, Contact:/contact',
     ctaLabel = 'Hire me',
     ctaLink = siteData.book || '/contact',
     homeLabel = 'home',

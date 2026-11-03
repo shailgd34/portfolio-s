@@ -1,8 +1,58 @@
 [
   {
+    "id": "health-management-platform",
+    "slug": "health-management-platform",
+    "name": "Health Management Platform",
+    "title": "Health Management Platform",
+    "category": "Healthcare & Medical SaaS",
+    "filterCategory": "UI/UX DESIGN",
+    "type": "Health System Management Platform",
+    "technology": [
+      "Figma",
+      "Design Systems",
+      "Healthcare UX",
+      "Clinical Telemetry",
+      "React",
+      "Next.js"
+    ],
+    "link": "https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1",
+    "figmaLink": "https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1",
+    "liveLink": "https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1",
+    "image": "/medvita.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead Product Designer",
+    "description": "Comprehensive healthcare and medical system management platform engineered for hospital networks, clinical workflows, patient records, and medical appointment scheduling."
+  },
+  {
+    "id": "bar-trekk-app",
+    "slug": "bar-nightlife-discovery-app",
+    "name": "Bar & Nightlife Discovery Mobile App",
+    "title": "Bar & Nightlife Discovery Mobile App",
+    "category": "Mobile Application",
+    "filterCategory": "MOBILE APP",
+    "type": "Mobile App UI/UX & Interactive Prototype",
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "iOS & Android",
+      "Geolocation Maps",
+      "Interactive Prototyping",
+      "Design Systems"
+    ],
+    "link": "https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1",
+    "figmaLink": "https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1",
+    "liveLink": "https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1",
+    "image": "/bartrekk.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead UI/UX Designer",
+    "description": "Interactive mobile application for discovering local bars, planning custom bar crawl routes, checking real-time venue vibe telemetry, and social nightlife exploration with geolocation maps."
+  },
+  {
     "id": "milo-luxury-residence",
-    "name": "Milo Luxury Residence",
-    "title": "Milo Luxury Residence",
+    "name": "Luxury Real Estate Showcase Platform",
+    "title": "Luxury Real Estate Showcase Platform",
     "category": "Luxury Real Estate & Web App",
     "filterCategory": "UI/UX DESIGN",
     "type": "Interactive Luxury Real Estate Showcase & Booking Engine",
@@ -23,16 +73,24 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "Lead Frontend Engineer & UI/UX Designer",
-    "description": "A premium, high-end interactive luxury real estate showcase website designed for ultimate tranquility, subtracted aesthetics, and architectural silence. Built with smooth motion mechanics and sophisticated booking capabilities."
+    "description": "A premium, high-end interactive luxury real estate showcase website designed for ultimate tranquility, subtracted aesthetics, and architectural silence. Built with smooth motion mechanics and sophisticated booking capabilities.",
+    "slug": "luxury-real-estate-showcase-platform"
   },
   {
     "id": "neuro-kaizen",
-    "name": "Neuro Kaizen",
-    "title": "Neuro Kaizen",
+    "name": "Cognitive Performance SaaS Platform",
+    "title": "Cognitive Performance SaaS Platform",
     "category": "Fintech & SaaS",
     "filterCategory": "FINTECH & SAAS",
     "type": "B2B SaaS Dashboard & Assessment Engine",
-    "technology": ["Figma", "Design Systems", "React", "Next.js", "Data Visualization", "Hotjar"],
+    "technology": [
+      "Figma",
+      "Design Systems",
+      "React",
+      "Next.js",
+      "Data Visualization",
+      "Hotjar"
+    ],
     "link": "https://portal.neurokaizen.com/",
     "figmaLink": "https://www.figma.com/proto/R1iGpN1hLDj7hpgVvo1xWb/neuro-kaizen?node-id=10-887",
     "liveLink": "https://portal.neurokaizen.com/",
@@ -40,16 +98,23 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "Lead Product Designer",
-    "description": "AI-driven cognitive performance SaaS. Solved cognitive tracking fatigue by designing 6-domain radial telemetry, weekly habit check-ins, and a tokenized design system."
+    "description": "AI-driven cognitive performance SaaS. Solved cognitive tracking fatigue by designing 6-domain radial telemetry, weekly habit check-ins, and a tokenized design system.",
+    "slug": "cognitive-performance-saas-platform"
   },
   {
     "id": "tuga-trades",
-    "name": "TugaTrades",
-    "title": "TugaTrades",
+    "name": "Trading & Financial Analytics Platform",
+    "title": "Trading & Financial Analytics Platform",
     "category": "Fintech & SaaS",
     "filterCategory": "FINTECH & SAAS",
     "type": "Trading Platform & Analytics Dashboard",
-    "technology": ["Figma", "Data Architecture", "React", "Chart.js", "Design System"],
+    "technology": [
+      "Figma",
+      "Data Architecture",
+      "React",
+      "Chart.js",
+      "Design System"
+    ],
     "link": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
     "figmaLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
     "liveLink": "https://www.figma.com/proto/hCYQiIZGAEmp46m7nRlyzc/tugatrades-foundation?node-id=5085-2009&p=f&viewport=-412%2C208%2C0.02&t=9akSWHKlVZ5Zo9je-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5085%3A2009&show-proto-sidebar=1&page-id=1014%3A2",
@@ -57,15 +122,21 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "Lead Product Designer",
-    "description": "High-density multi-asset trading platform. Eliminated visual clutter and order latency for active traders through modular customizable charts and 1-click execution UX."
+    "description": "High-density multi-asset trading platform. Eliminated visual clutter and order latency for active traders through modular customizable charts and 1-click execution UX.",
+    "slug": "trading-financial-analytics-platform"
   },
   {
     "id": "7sens ",
-    "name": "7Sens",
-    "title": "7Sens",
+    "name": "Luxury Sensory Creative Experience",
+    "title": "Luxury Sensory Creative Experience",
     "category": "Creative & Digital Agency",
     "type": "React / Next.js Web App",
-    "technology": ["React", "Next.js", "Vercel", "Figma"],
+    "technology": [
+      "React",
+      "Next.js",
+      "Vercel",
+      "Figma"
+    ],
     "link": "https://7sens-frontend.vercel.app/",
     "figmaLink": "https://www.figma.com/proto/MG4Jcq3XBHcBOQ6eOSO0LL/7sens-website?node-id=1-2&t=KrOGpGBvJWM3fQLk-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1&fuid=1177212330531058533",
     "liveLink": "https://www.figma.com/proto/MG4Jcq3XBHcBOQ6eOSO0LL/7sens-website?node-id=1-2&t=KrOGpGBvJWM3fQLk-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1&fuid=1177212330531058533",
@@ -73,15 +144,24 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Modern high-impact sensory web experience for luxury creative branding."
+    "description": "Modern high-impact sensory web experience for luxury creative branding.",
+    "slug": "luxury-sensory-creative-experience"
   },
   {
     "id": "fresh-art-club",
-    "name": "fresh art club",
-    "title": "Fresh Art Club",
+    "name": "Artwork E-Commerce Platform",
+    "title": "Artwork E-Commerce Platform",
     "category": "React & Fullstack Web App",
     "type": "React & Node.js Enterprise Platform (2+ Yrs Active)",
-    "technology": ["React", "Node.js", "Express", "Next.js", "MongoDB", "Figma", "Stripe API"],
+    "technology": [
+      "React",
+      "Node.js",
+      "Express",
+      "Next.js",
+      "MongoDB",
+      "Figma",
+      "Stripe API"
+    ],
     "link": "https://freshartclub.com/",
     "figmaLink": "https://www.figma.com/proto/wJ9rztO00EHFXWbOJrTDJE/Fresh-Art-Club-Design?node-id=2241-8905",
     "liveLink": "https://freshartclub.com/",
@@ -89,15 +169,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "Lead Product Designer & Fullstack Engineer",
-    "description": "Massive 2+ year ongoing React & Node.js fine art digital ecosystem, connecting global artists, galleries, and collectors with custom auction & marketplace infrastructure."
+    "description": "Massive 2+ year ongoing React & Node.js fine art digital ecosystem, connecting global artists, galleries, and collectors with custom auction & marketplace infrastructure.",
+    "slug": "artwork-e-commerce-platform"
   },
   {
     "id": "GMKC Logistics Website",
-    "name": "GMKC Logistics Website",
-    "title": "GMKC Logistics Website",
+    "name": "Global Logistics & Freight Platform",
+    "title": "Global Logistics & Freight Platform",
     "category": "Corporate & Enterprise",
     "type": "Figma Web Prototype",
-    "technology": ["Figma", "CSS3", "Figma"],
+    "technology": [
+      "Figma",
+      "CSS3",
+      "Figma"
+    ],
     "link": "https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114",
     "figmaLink": "https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114",
     "liveLink": "https://www.figma.com/proto/TGl9atluHX9NJfJE8DrP3M/GMKC-logistic?node-id=32-646&p=f&viewport=-1417%2C-642%2C0.3&t=9JMvriwkIV8SLbqq-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=32%3A646&page-id=1%3A114",
@@ -105,15 +190,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "GMKC Logistics is a leading provider of transportation and logistics services."
+    "description": "GMKC Logistics is a leading provider of transportation and logistics services.",
+    "slug": "global-logistics-freight-platform"
   },
   {
     "id": "seductive-seeker",
-    "name": "Seductive Seeker",
-    "title": "Seductive Seeker",
+    "name": "Lifestyle & Dating Discovery Platform",
+    "title": "Lifestyle & Dating Discovery Platform",
     "category": "Web Application",
     "type": "Figma Web Prototype",
-    "technology": ["Figma", "Discovery UI", "Web App"],
+    "technology": [
+      "Figma",
+      "Discovery UI",
+      "Web App"
+    ],
     "link": "https://www.figma.com/proto/NZc8NlQXXgQpO5VxYs73uN/Seductive-Seeker?node-id=59-1055",
     "figmaLink": "https://www.figma.com/proto/NZc8NlQXXgQpO5VxYs73uN/Seductive-Seeker?node-id=59-1055",
     "liveLink": "",
@@ -121,15 +211,20 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Luxury lifestyle discovery app and exclusive membership portal."
+    "description": "Luxury lifestyle discovery app and exclusive membership portal.",
+    "slug": "lifestyle-dating-discovery-platform"
   },
   {
     "id": "petcare-website",
-    "name": "petcare-website",
-    "title": "petcare-website",
+    "name": "Pet Care & Veterinary Platform",
+    "title": "Pet Care & Veterinary Platform",
     "category": "Web Application",
     "type": "Figma Web Prototype",
-    "technology": ["Figma", "Discovery UI", "Web App"],
+    "technology": [
+      "Figma",
+      "Discovery UI",
+      "Web App"
+    ],
     "link": "https://www.figma.com/proto/rdlVN0i2cn1WEagwKhowNo/petcare-website?node-id=3-3&starting-point-node-id=3%3A3",
     "figmaLink": "https://www.figma.com/proto/rdlVN0i2cn1WEagwKhowNo/petcare-website?node-id=3-3&starting-point-node-id=3%3A3",
     "liveLink": "",
@@ -137,15 +232,21 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Luxury lifestyle discovery app and exclusive membership portal."
+    "description": "Luxury lifestyle discovery app and exclusive membership portal.",
+    "slug": "pet-care-veterinary-platform"
   },
   {
-    "id":"Stockmate - Ecommerce Stock",
-    "name": "Stockmate - Ecommerce Stock",
-    "title": "Stockmate - Ecommerce Stock",
+    "id": "Stockmate - Ecommerce Stock",
+    "name": "E-Commerce Stock & Inventory Platform",
+    "title": "E-Commerce Stock & Inventory Platform",
     "category": "E-Commerce & Stock",
     "type": "Figma Web Design",
-    "technology": ["Figma", "Web Design", "Figma", "Industrial CMS"],
+    "technology": [
+      "Figma",
+      "Web Design",
+      "Figma",
+      "Industrial CMS"
+    ],
     "link": "https://www.figma.com/proto/8Mikb4NU5QOnXiJaJIJSmG/Stockmate-website?node-id=3-291&starting-point-node-id=3%3A291&t=CryKwLj4zRSuhjP5-1",
     "figmaLink": "https://www.figma.com/proto/8Mikb4NU5QOnXiJaJIJSmG/Stockmate-website?node-id=3-291&starting-point-node-id=3%3A291&t=CryKwLj4zRSuhjP5-1",
     "liveLink": "",
@@ -153,15 +254,21 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": ""
+    "description": "",
+    "slug": "e-commerce-stock-inventory-platform"
   },
   {
     "id": "Siddhachalam web & App",
-    "name": "Siddhachalam web & App",
-    "title": "Siddhachalam web & App",
+    "name": "Jainism Temple Platform",
+    "title": "Jainism Temple Platform",
     "category": "Figma Web Design",
     "type": "Figma Web Design",
-    "technology": ["Figma", "Web Design", "Figma", "Industrial CMS"],
+    "technology": [
+      "Figma",
+      "Web Design",
+      "Figma",
+      "Industrial CMS"
+    ],
     "link": "https://www.figma.com/proto/9sN6eklujFsLmEEdufFlBG/Siddhachalam-App?node-id=0-1&p=f&t=jJQ28wtTytjv2sv0-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2007%3A3771&fuid=1177212330531058533",
     "figmaLink": "https://www.figma.com/proto/9sN6eklujFsLmEEdufFlBG/Siddhachalam-App?node-id=0-1&p=f&t=jJQ28wtTytjv2sv0-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2007%3A3771&fuid=1177212330531058533",
     "liveLink": "",
@@ -169,15 +276,20 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "Figma Web Designer",
-    "description": "Pavement recycling and heavy soil stabilization engineering website."
+    "description": "Pavement recycling and heavy soil stabilization engineering website.",
+    "slug": "jainism-temple-platform"
   },
   {
     "id": "fuqiao-arts",
-    "name": "Fuqiao Arts",
-    "title": "Fuqiao Arts",
+    "name": "Fine Art Gallery & Exhibition Platform",
+    "title": "Fine Art Gallery & Exhibition Platform",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "Figma", "Custom CSS"],
+    "technology": [
+      "WordPress",
+      "Figma",
+      "Custom CSS"
+    ],
     "link": "https://fuqiao.art/",
     "figmaLink": null,
     "liveLink": "https://fuqiao.art/",
@@ -185,16 +297,21 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer & Developer",
-    "description": "Contemporary art gallery and cultural exhibition portal."
+    "description": "Contemporary art gallery and cultural exhibition portal.",
+    "slug": "fine-art-gallery-exhibition-platform"
   },
-  
   {
     "id": "Useful finance management Saas Platform",
-    "name": "Useful finance management Saas Platform",
-    "title": "Useful finance management Saas Platform",
+    "name": "Financial Management SaaS Platform",
+    "title": "Financial Management SaaS Platform",
     "category": "Figma Web Design",
     "type": "Figma Web Design",
-    "technology": ["Figma", "Web Design", "Figma", "Industrial CMS"],
+    "technology": [
+      "Figma",
+      "Web Design",
+      "Figma",
+      "Industrial CMS"
+    ],
     "link": "http://figma.com/proto/c7ObeDfrIpjzCUS501Ay4d/finance-web-project?node-id=1-6249&t=jJQ28wtTytjv2sv0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A6249",
     "figmaLink": "http://figma.com/proto/c7ObeDfrIpjzCUS501Ay4d/finance-web-project?node-id=1-6249&t=jJQ28wtTytjv2sv0-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A6249",
     "liveLink": "",
@@ -202,15 +319,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "Figma Web Designer",
-    "description": "Pavement recycling and heavy soil stabilization engineering website."
+    "description": "Pavement recycling and heavy soil stabilization engineering website.",
+    "slug": "financial-management-saas-platform"
   },
   {
     "id": "zawaya-property",
-    "name": "Zawaya Property Management",
-    "title": "Zawaya Property Management",
+    "name": "Commercial Property Management Portal",
+    "title": "Commercial Property Management Portal",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Real Estate UI", "Dashboard"],
+    "technology": [
+      "Figma",
+      "Real Estate UI",
+      "Dashboard"
+    ],
     "link": "https://www.figma.com/proto/ixx6DnvXC9peFOQfS6h8bT/Zawaya-Property-Management?node-id=1-2981&t=MTudEvkGxsUYfkKZ-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2981&fuid=1041940900126019045",
     "figmaLink": "https://www.figma.com/proto/ixx6DnvXC9peFOQfS6h8bT/Zawaya-Property-Management?node-id=1-2981&t=MTudEvkGxsUYfkKZ-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2981&fuid=1041940900126019045",
     "liveLink": null,
@@ -218,15 +340,20 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Commercial & residential property leasing management dashboard."
+    "description": "Commercial & residential property leasing management dashboard.",
+    "slug": "commercial-property-management-portal"
   },
   {
     "id": "active-communities",
-    "name": "Active Communities",
-    "title": "Active Communities",
+    "name": "Civic & Community Engagement Platform",
+    "title": "Civic & Community Engagement Platform",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Community Portal", "UX Design"],
+    "technology": [
+      "Figma",
+      "Community Portal",
+      "UX Design"
+    ],
     "link": "https://www.figma.com/proto/9xqemBMObUymVXpNQ5YRKG/Active-communities?node-id=0-1&p=f&t=C2Yj2dN3qyOpI93m-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A10875&fuid=1041940900126019045",
     "figmaLink": "https://www.figma.com/proto/9xqemBMObUymVXpNQ5YRKG/Active-communities?node-id=0-1&p=f&t=C2Yj2dN3qyOpI93m-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A10875&fuid=1041940900126019045",
     "liveLink": null,
@@ -234,15 +361,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Neighborhood social network and public community event organizer UI."
+    "description": "Neighborhood social network and public community event organizer UI.",
+    "slug": "civic-community-engagement-platform"
   },
   {
     "id": "DJ Fabrics & Foods",
-    "name": "DJ Fabrics & Foods",
-    "title": "DJ Fabrics & Foods",
+    "name": "Textile & Wholesale Food Distribution Portal",
+    "title": "Textile & Wholesale Food Distribution Portal",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Community Portal", "UX Design"],
+    "technology": [
+      "Figma",
+      "Community Portal",
+      "UX Design"
+    ],
     "link": "https://www.figma.com/proto/EL1K8mdEq6Ct4fQtr00K5s/dj-fabrics%C2%A0and%C2%A0food?node-id=1-1242&t=ykDqTG7RVJFPWMq0-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     "figmaLink": "https://www.figma.com/proto/EL1K8mdEq6Ct4fQtr00K5s/dj-fabrics%C2%A0and%C2%A0food?node-id=1-1242&t=ykDqTG7RVJFPWMq0-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     "liveLink": null,
@@ -250,16 +382,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Neighborhood social network and public community event organizer UI."
+    "description": "Neighborhood social network and public community event organizer UI.",
+    "slug": "textile-wholesale-food-distribution-portal"
   },
-  
   {
     "id": "npr-carpentry",
-    "name": "NPR Carpentry",
-    "title": "NPR Carpentry",
+    "name": "Bespoke Carpentry & Craftsmanship Portal",
+    "title": "Bespoke Carpentry & Craftsmanship Portal",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Business UI", "Craftsmanship"],
+    "technology": [
+      "Figma",
+      "Business UI",
+      "Craftsmanship"
+    ],
     "link": "https://www.figma.com/proto/kiMpR6zI22O1qcXsm6ZOmw/npr-carpentory?node-id=251-191",
     "figmaLink": "https://www.figma.com/proto/kiMpR6zI22O1qcXsm6ZOmw/npr-carpentory?node-id=251-191",
     "liveLink": null,
@@ -267,15 +403,21 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Bespoke architectural woodworking and custom interior joinery website."
+    "description": "Bespoke architectural woodworking and custom interior joinery website.",
+    "slug": "bespoke-carpentry-craftsmanship-portal"
   },
   {
     "id": "carat-club",
-    "name": "Carat Club",
-    "title": "Carat Club",
+    "name": "Luxury Diamond & Jewelry E-Commerce",
+    "title": "Luxury Diamond & Jewelry E-Commerce",
     "category": "E-Commerce & Luxury",
     "type": "React / Next.js Web App",
-    "technology": ["React", "Next.js", "Vercel", "Figma"],
+    "technology": [
+      "React",
+      "Next.js",
+      "Vercel",
+      "Figma"
+    ],
     "link": "https://carat-club.vercel.app/",
     "figmaLink": null,
     "liveLink": "https://carat-club.vercel.app/",
@@ -283,15 +425,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Luxury jewelry and diamond e-commerce platform interface."
+    "description": "Luxury jewelry and diamond e-commerce platform interface.",
+    "slug": "luxury-diamond-jewelry-e-commerce"
   },
   {
     "id": "coach-max",
-    "name": "Coach Max",
-    "title": "Coach Max",
+    "name": "Athletic Coaching & Mentorship Platform",
+    "title": "Athletic Coaching & Mentorship Platform",
     "category": "Creative & Digital Agency",
     "type": "Web Design",
-    "technology": ["Figma", "Adobe CC", "Web Design"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Web Design"
+    ],
     "link": "https://www.figma.com/proto/X1ahyDdtQFGrWTIO3BYIKt/CM-Football-Academy?node-id=121-2209&p=f&t=wJAwLoH3aYV6SrDU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=121%3A2230&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/X1ahyDdtQFGrWTIO3BYIKt/CM-Football-Academy?node-id=121-2209&p=f&t=wJAwLoH3aYV6SrDU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=121%3A2230&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/X1ahyDdtQFGrWTIO3BYIKt/CM-Football-Academy?node-id=121-2209&p=f&t=wJAwLoH3aYV6SrDU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=121%3A2230&show-proto-sidebar=1",
@@ -299,15 +446,21 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Personal athletic coaching and fitness platform website."
+    "description": "Personal athletic coaching and fitness platform website.",
+    "slug": "athletic-coaching-mentorship-platform"
   },
   {
     "id": "crconi-digital",
-    "name": "Crconi Digital",
-    "title": "Crconi Digital",
+    "name": "Digital Creative & Growth Agency Platform",
+    "title": "Digital Creative & Growth Agency Platform",
     "category": "Creative & Digital Agency",
     "type": "React / Next.js Web App",
-    "technology": ["Next.js", "GSAP", "CSS Modules", "React"],
+    "technology": [
+      "Next.js",
+      "GSAP",
+      "CSS Modules",
+      "React"
+    ],
     "link": "https://crconidigital.com/",
     "figmaLink": null,
     "liveLink": "https://crconidigital.com/",
@@ -315,15 +468,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UI/UX Designer & Developer",
-    "description": "Interactive digital agency experience featuring smooth GSAP micro-animations."
+    "description": "Interactive digital agency experience featuring smooth GSAP micro-animations.",
+    "slug": "digital-creative-growth-agency-platform"
   },
   {
     "id": "esotek-corporation",
-    "name": "Esotek Corporation",
-    "title": "Esotek Corporation",
+    "name": "Enterprise Industrial Tech Portal",
+    "title": "Enterprise Industrial Tech Portal",
     "category": "Corporate & Enterprise",
     "type": "Web Design & Portal",
-    "technology": ["Figma", "Adobe CC", "Corporate UI"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Corporate UI"
+    ],
     "link": "https://darkorange-tarsier-721134.hostingersite.com/",
     "figmaLink": null,
     "liveLink": null,
@@ -331,17 +489,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Industrial automation and high-tech manufacturing portal."
+    "description": "Industrial automation and high-tech manufacturing portal.",
+    "slug": "enterprise-industrial-tech-portal"
   },
-  
-  
   {
     "id": "Continental-Trucking-Insurance",
-    "name": "Continental Trucking Insurance ",
-    "title": "Continental Trucking Insurance",
+    "name": "Commercial Trucking Insurance Platform",
+    "title": "Commercial Trucking Insurance Platform",
     "category": "Insurance",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Adobe CC", "Insurance UI"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Insurance UI"
+    ],
     "link": "https://www.figma.com/proto/uMNKLzSocHRNJ7qmOjOF8M/Trucking-Insurance-Company-Website?node-id=5-394&p=f&t=yjgFXwYb3g3qiLPn-0&scaling=scale-down&content-scaling=fixed&page-id=1%3A8&starting-point-node-id=5%3A394",
     "figmaLink": "https://www.figma.com/proto/uMNKLzSocHRNJ7qmOjOF8M/Trucking-Insurance-Company-Website?node-id=5-394&p=f&t=yjgFXwYb3g3qiLPn-0&scaling=scale-down&content-scaling=fixed&page-id=1%3A8&starting-point-node-id=5%3A394",
     "liveLink": "https://www.figma.com/proto/uMNKLzSocHRNJ7qmOjOF8M/Trucking-Insurance-Company-Website?node-id=5-394&p=f&t=yjgFXwYb3g3qiLPn-0&scaling=scale-down&content-scaling=fixed&page-id=1%3A8&starting-point-node-id=5%3A394",
@@ -349,33 +510,41 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Insurance and FinTech website for a trucking insurance company."
+    "description": "Insurance and FinTech website for a trucking insurance company.",
+    "slug": "commercial-trucking-insurance-platform"
   },
   {
     "id": "Bi social App",
-    "name": "Bi social App",
-    "title": "Bi social App",
+    "name": "Social Networking & Community Mobile App",
+    "title": "Social Networking & Community Mobile App",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
-    "technology": ["Figma", "Mobile UI", "Rental Platform"],
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Rental Platform"
+    ],
     "link": "https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
-    "figmaLink":"https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
+    "figmaLink": "https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/wkbHZII8prpVnPZVRyBEr9/Bi-social-App?node-id=197-6759&p=f&t=uDV2Ex4VhqiZCOak-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=197%3A6759&show-proto-sidebar=1",
     "image": "/bisocial.png",
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Utility vehicle and commercial truck rental booking app."
-    
-
+    "description": "Utility vehicle and commercial truck rental booking app.",
+    "slug": "social-networking-community-mobile-app"
   },
   {
     "id": "kiro-app",
-    "name": "Kiro-App",
-    "title": "Kiro-App",
+    "name": "Task & Habit Tracker Mobile App",
+    "title": "Task & Habit Tracker Mobile App",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
-    "technology": ["Figma", "Mobile UI", "Rental Platform"],
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Rental Platform"
+    ],
     "link": "https://www.figma.com/proto/rhVqziKU9O9pz4h08aDJhi/Kiro-App?node-id=6-26&p=f&t=toJQ4q0MqWSctH9L-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=3%3A7&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/rhVqziKU9O9pz4h08aDJhi/Kiro-App?node-id=6-26&p=f&t=toJQ4q0MqWSctH9L-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=3%3A7&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/rhVqziKU9O9pz4h08aDJhi/Kiro-App?node-id=6-26&p=f&t=toJQ4q0MqWSctH9L-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A2&starting-point-node-id=3%3A7&show-proto-sidebar=1",
@@ -383,15 +552,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Utility vehicle and commercial truck rental booking app."
+    "description": "Utility vehicle and commercial truck rental booking app.",
+    "slug": "task-habit-tracker-mobile-app"
   },
   {
     "id": "Harmonity- Beauty Saloon",
-    "name": "Harmonity- Beauty Saloon",
-    "title": "Harmonity- Beauty Saloon",
+    "name": "Luxury Beauty & Salon Booking Platform",
+    "title": "Luxury Beauty & Salon Booking Platform",
     "category": "Beauty",
     "type": "Web UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "Beauty"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Beauty"
+    ],
     "link": "https://www.figma.com/proto/xcRDX3azo2VSVTSmVZaG3D/Harmonity-app?node-id=11-772&p=f&t=wBcp3Sk26MvRzcZq-1&scaling=scale-down&content-scaling=fixed&page-id=2%3A2&starting-point-node-id=6%3A91&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/xcRDX3azo2VSVTSmVZaG3D/Harmonity-app?node-id=11-772&p=f&t=wBcp3Sk26MvRzcZq-1&scaling=scale-down&content-scaling=fixed&page-id=2%3A2&starting-point-node-id=6%3A91&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/xcRDX3azo2VSVTSmVZaG3D/Harmonity-app?node-id=11-772&p=f&t=wBcp3Sk26MvRzcZq-1&scaling=scale-down&content-scaling=fixed&page-id=2%3A2&starting-point-node-id=6%3A91&show-proto-sidebar=1",
@@ -399,15 +573,20 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Beauty salon web application"
+    "description": "Beauty salon web application",
+    "slug": "luxury-beauty-salon-booking-platform"
   },
   {
     "id": "ipixit- Photo sharing App",
-    "name": "iPixit - Photo sharing App",
-    "title": "iPixit - Photo sharing App",
+    "name": "Photo Sharing & Licensing Mobile App",
+    "title": "Photo Sharing & Licensing Mobile App",
     "category": "Photo sharing App",
     "type": "Web UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "Photo sharing App"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Photo sharing App"
+    ],
     "link": "https://www.figma.com/proto/NJvBaf5NvsDpUsefVO0pEK/Ipixit-V2?node-id=2248-8913&p=f&t=MF8KajrUUgJHSgtW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2019%3A7873&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/NJvBaf5NvsDpUsefVO0pEK/Ipixit-V2?node-id=2248-8913&p=f&t=MF8KajrUUgJHSgtW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2019%3A7873&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/NJvBaf5NvsDpUsefVO0pEK/Ipixit-V2?node-id=2248-8913&p=f&t=MF8KajrUUgJHSgtW-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2019%3A7873&show-proto-sidebar=1",
@@ -415,15 +594,20 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Photo sharing app with a modern and user-friendly interface. It allows users to share their photos with friends and family and also provides a platform for photographers to showcase their work."
+    "description": "Photo sharing app with a modern and user-friendly interface. It allows users to share their photos with friends and family and also provides a platform for photographers to showcase their work.",
+    "slug": "photo-sharing-licensing-mobile-app"
   },
   {
     "id": "pixyvue",
-    "name": "Pixyvue",
-    "title": "Pixyvue",
+    "name": "Visual Curation & Media Platform",
+    "title": "Visual Curation & Media Platform",
     "category": "Photo sharing App",
     "type": "Web UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "Photo sharing App"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Photo sharing App"
+    ],
     "link": "https://www.figma.com/proto/5EkRbYJ0u0la8RHIZJUbNy/pixyvue?node-id=44-3172&p=f&t=i2oj8gHJsGi7GJfF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=44%3A3172&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/5EkRbYJ0u0la8RHIZJUbNy/pixyvue?node-id=44-3172&p=f&t=i2oj8gHJsGi7GJfF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=44%3A3172&show-proto-sidebar=1",
     "liveLink": "https://www.figma.com/proto/5EkRbYJ0u0la8RHIZJUbNy/pixyvue?node-id=44-3172&p=f&t=i2oj8gHJsGi7GJfF-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=44%3A3172&show-proto-sidebar=1",
@@ -431,33 +615,41 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Photo sharing app with a modern and user-friendly interface. It allows users to share their photos with friends and family and also provides a platform for photographers to showcase their work."
+    "description": "Photo sharing app with a modern and user-friendly interface. It allows users to share their photos with friends and family and also provides a platform for photographers to showcase their work.",
+    "slug": "visual-curation-media-platform"
   },
-{
-  "id":"kids School bus tracking App",
-  "name":"kids School bus tracking App",
-  "title":"kids School bus tracking App",
-  "category":"School bus tracking App",
-  "type":"Mobile & Web UI/UX",
-  "technology":["Figma", "Mobile UI", "Rental Platform"],
-  "link":"https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
-  "figmaLink":"https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
-  "liveLink":"https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
-  "image":"/schoolbus.png",
-  "isFeatured":false,
-  "featureTag":"top",
-  "role":"UX/UI Designer",
-  "description":"Kids school bus tracking app with a modern and user-friendly interface. It allows users to track their kids' school bus and also provides a platform for parents to communicate with the bus driver."
-  
-
-},
+  {
+    "id": "kids School bus tracking App",
+    "name": "School Bus GPS Tracking & Safety App",
+    "title": "School Bus GPS Tracking & Safety App",
+    "category": "School bus tracking App",
+    "type": "Mobile & Web UI/UX",
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Rental Platform"
+    ],
+    "link": "https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
+    "figmaLink": "https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
+    "liveLink": "https://www.figma.com/proto/1KrsCGTLF8nW8HL9rFNtpC/Bus-Booking-app?node-id=12-1868&p=f&t=XTNnL1aXa1MH5A9z-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=12%3A4354&show-proto-sidebar=1",
+    "image": "/schoolbus.png",
+    "isFeatured": false,
+    "featureTag": "top",
+    "role": "UX/UI Designer",
+    "description": "Kids school bus tracking app with a modern and user-friendly interface. It allows users to track their kids' school bus and also provides a platform for parents to communicate with the bus driver.",
+    "slug": "school-bus-gps-tracking-safety-app"
+  },
   {
     "id": "global-investment",
-    "name": "Global Investment",
-    "title": "Global Investment",
+    "name": "Global Wealth & Investment Portal",
+    "title": "Global Wealth & Investment Portal",
     "category": "FinTech",
     "type": "Web UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "FinTech"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "FinTech"
+    ],
     "link": "globalinvestmenthub.com",
     "figmaLink": null,
     "liveLink": null,
@@ -465,15 +657,20 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Wealth management and international investment portfolio portal."
+    "description": "Wealth management and international investment portfolio portal.",
+    "slug": "global-wealth-investment-portal"
   },
   {
     "id": "hireute",
-    "name": "HireUTE",
-    "title": "HireUTE",
+    "name": "Vehicle Hire & Fleet Dispatch Platform",
+    "title": "Vehicle Hire & Fleet Dispatch Platform",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
-    "technology": ["Figma", "Mobile UI", "Rental Platform"],
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Rental Platform"
+    ],
     "link": "#",
     "figmaLink": "https://www.figma.com/proto/w6VdouSOryHdW517wFq3ay/hireute?node-id=147-1953&p=f&viewport=3080%2C1741%2C0.29&t=vl10PdPAvNXy880P-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=147%3A1953&page-id=25%3A2",
     "liveLink": "https://www.figma.com/proto/w6VdouSOryHdW517wFq3ay/hireute?node-id=147-1953&p=f&viewport=3080%2C1741%2C0.29&t=vl10PdPAvNXy880P-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=147%3A1953&page-id=25%3A2",
@@ -481,15 +678,21 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Utility vehicle and commercial truck rental booking app."
+    "description": "Utility vehicle and commercial truck rental booking app.",
+    "slug": "vehicle-hire-fleet-dispatch-platform"
   },
   {
     "id": "kzm-consulting",
-    "name": "KZM Consulting",
-    "title": "KZM Consulting",
+    "name": "Strategic Management Consulting Portal",
+    "title": "Strategic Management Consulting Portal",
     "category": "Creative & WordPress",
     "type": "WordPress Website & Figma Design",
-    "technology": ["WordPress", "Figma", "PHP", "CSS3"],
+    "technology": [
+      "WordPress",
+      "Figma",
+      "PHP",
+      "CSS3"
+    ],
     "link": "https://kzmconsulting.com.au/",
     "figmaLink": null,
     "liveLink": "https://kzmconsulting.com.au/",
@@ -497,15 +700,21 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer & WordPress Developer",
-    "description": "Strategic business management and corporate financial advisory firm."
+    "description": "Strategic business management and corporate financial advisory firm.",
+    "slug": "strategic-management-consulting-portal"
   },
   {
     "id": "nzl-app",
-    "name": "Nzl App",
-    "title": "Nzl App",
+    "name": "Reverse Bidding & Services Marketplace",
+    "title": "Reverse Bidding & Services Marketplace",
     "category": "Mobile Application",
     "type": "Reverse Bidding App & Web",
-    "technology": ["Figma", "React Native", "Mobile UI", "React"],
+    "technology": [
+      "Figma",
+      "React Native",
+      "Mobile UI",
+      "React"
+    ],
     "link": "https://nzlapp.com/",
     "figmaLink": "https://www.figma.com/proto/7wxy5C8SK7jKEP95yMdk4o/NZL-Reverse-Bidding-App?node-id=1-6484",
     "liveLink": "https://nzlapp.com/",
@@ -513,15 +722,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer & Mobile Developer",
-    "description": "Dynamic reverse-bidding marketplace app with real-time auction engine."
+    "description": "Dynamic reverse-bidding marketplace app with real-time auction engine.",
+    "slug": "reverse-bidding-services-marketplace"
   },
   {
     "id": "out-app",
-    "name": "Out App",
-    "title": "Out App",
+    "name": "Nightlife & Venue Discovery Mobile App",
+    "title": "Nightlife & Venue Discovery Mobile App",
     "category": "Mobile Application",
     "type": "Mobile App UI/UX",
-    "technology": ["Figma", "Mobile UI", "Social App"],
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Social App"
+    ],
     "link": "#",
     "figmaLink": "",
     "liveLink": null,
@@ -529,31 +743,41 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Local events finder and nightlife social planning mobile app."
+    "description": "Local events finder and nightlife social planning mobile app.",
+    "slug": "nightlife-venue-discovery-mobile-app"
   },
   {
     "id": "parkin-app",
-    "name": "Parkin App",
-    "title": "Parkin App",
+    "name": "Smart Parking Reservation & Navigation App",
+    "title": "Smart Parking Reservation & Navigation App",
     "category": "Mobile Application",
     "type": "Mobile UI/UX Design",
-    "technology": ["Figma", "Mobile App Design", "Prototyping"],
+    "technology": [
+      "Figma",
+      "Mobile App Design",
+      "Prototyping"
+    ],
     "link": "https://www.figma.com/proto/B8Af3xqdPTxEV34np2dab7/Parkin-App",
     "figmaLink": "https://www.figma.com/proto/B8Af3xqdPTxEV34np2dab7/Parkin-App",
     "liveLink": null,
     "image": "/portfolio/Parkin App/mainone.png",
-    "isFeatured":false,
+    "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Smart parking space finder and digital reservation application."
+    "description": "Smart parking space finder and digital reservation application.",
+    "slug": "smart-parking-reservation-navigation-app"
   },
   {
     "id": "praize-productions",
-    "name": "Praize Productions",
-    "title": "Praize Productions",
+    "name": "Media Production & Creative Studio Portal",
+    "title": "Media Production & Creative Studio Portal",
     "category": "Creative & Art",
     "type": "Web UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "Media Design"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "Media Design"
+    ],
     "link": "http://www.praizeproductions.com/",
     "figmaLink": null,
     "liveLink": "http://www.praizeproductions.com/",
@@ -561,15 +785,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Performing arts production agency and event ticketing website."
+    "description": "Performing arts production agency and event ticketing website.",
+    "slug": "media-production-creative-studio-portal"
   },
   {
     "id": "raptex ",
-    "name": "Raptex - Crypto Exchange",
-    "title": "Raptex - Crypto Exchange",
+    "name": "Cryptocurrency Exchange & Trading Terminal",
+    "title": "Cryptocurrency Exchange & Trading Terminal",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
-    "technology": ["Figma", "Crypto Exchange Design", "Prototyping"],
+    "technology": [
+      "Figma",
+      "Crypto Exchange Design",
+      "Prototyping"
+    ],
     "link": "https://www.figma.com/proto/HYpQJy7lcTH1zoAusVB4Cx/Raptex-crypto-Exchange?node-id=1-4",
     "figmaLink": "https://www.figma.com/proto/HYpQJy7lcTH1zoAusVB4Cx/Raptex-crypto-Exchange?node-id=1-4",
     "liveLink": null,
@@ -577,15 +806,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "High-frequency crypto trading exchange interface with order books and charts."
+    "description": "High-frequency crypto trading exchange interface with order books and charts.",
+    "slug": "cryptocurrency-exchange-trading-terminal"
   },
   {
     "id": "runner",
-    "name": "Runner",
-    "title": "Runner",
+    "name": "On-Demand Delivery & Errand Runner App",
+    "title": "On-Demand Delivery & Errand Runner App",
     "category": "Mobile Application",
     "type": "Mobile App UI/UX",
-    "technology": ["Figma", "Logistics UI", "Mobile App"],
+    "technology": [
+      "Figma",
+      "Logistics UI",
+      "Mobile App"
+    ],
     "link": "https://www.figma.com/proto/q4zxLjSNWo97ulUvFxzJAr/Runner-Project?node-id=2-79055&p=f&viewport=10%2C-32%2C0.02&t=v6bcEBlIWhjE2ZM0-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A79055&show-proto-sidebar=1&page-id=2%3A2",
     "figmaLink": "https://www.figma.com/proto/q4zxLjSNWo97ulUvFxzJAr/Runner-Project?node-id=2-79055&p=f&viewport=10%2C-32%2C0.02&t=v6bcEBlIWhjE2ZM0-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A79055&show-proto-sidebar=1&page-id=2%3A2",
     "liveLink": "https://www.figma.com/proto/q4zxLjSNWo97ulUvFxzJAr/Runner-Project?node-id=2-79055&p=f&viewport=10%2C-32%2C0.02&t=v6bcEBlIWhjE2ZM0-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A79055&show-proto-sidebar=1&page-id=2%3A2",
@@ -593,15 +827,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Same-day errand running and urban courier dispatch application."
+    "description": "Same-day errand running and urban courier dispatch application.",
+    "slug": "on-demand-delivery-errand-runner-app"
   },
   {
     "id": "semrossi",
-    "name": "Semrossi",
-    "title": "Semrossi",
+    "name": "Luxury Fashion & Lifestyle E-Commerce",
+    "title": "Luxury Fashion & Lifestyle E-Commerce",
     "category": "E-Commerce & Luxury",
     "type": "Web & Mobile Design",
-    "technology": ["Figma", "E-Commerce", "Brand Identity"],
+    "technology": [
+      "Figma",
+      "E-Commerce",
+      "Brand Identity"
+    ],
     "link": "#",
     "figmaLink": null,
     "liveLink": null,
@@ -609,15 +848,20 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "High-fashion apparel brand identity and digital e-commerce storefront."
+    "description": "High-fashion apparel brand identity and digital e-commerce storefront.",
+    "slug": "luxury-fashion-lifestyle-e-commerce"
   },
   {
     "id": "spi",
-    "name": "SPI",
-    "title": "SPI",
+    "name": "Industrial Engineering & Equipment Portal",
+    "title": "Industrial Engineering & Equipment Portal",
     "category": "Corporate & Enterprise",
     "type": "Corporate Web UI",
-    "technology": ["Figma", "Web Design", "Corporate UI"],
+    "technology": [
+      "Figma",
+      "Web Design",
+      "Corporate UI"
+    ],
     "link": "https://www.figma.com/proto/OvUwbYi3QEadAuICYX3WMD/SPI-PROJECT?node-id=154-58474&p=f&viewport=-78%2C-84%2C0.02&t=c9yCsMW4wT3yBixo-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=154%3A58474&page-id=1%3A2",
     "figmaLink": "https://www.figma.com/proto/OvUwbYi3QEadAuICYX3WMD/SPI-PROJECT?node-id=154-58474&p=f&viewport=-78%2C-84%2C0.02&t=c9yCsMW4wT3yBixo-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=154%3A58474&page-id=1%3A2",
     "liveLink": "https://www.figma.com/proto/OvUwbYi3QEadAuICYX3WMD/SPI-PROJECT?node-id=154-58474&p=f&viewport=-78%2C-84%2C0.02&t=c9yCsMW4wT3yBixo-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=154%3A58474&page-id=1%3A2",
@@ -625,15 +869,20 @@
     "isFeatured": false,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Industrial precision engineering and manufacturing corporate website."
+    "description": "Industrial precision engineering and manufacturing corporate website.",
+    "slug": "industrial-engineering-equipment-portal"
   },
   {
     "id": "the-corporate-hub",
-    "name": "The corporate Hub",
-    "title": "The corporate Hub",
+    "name": "Corporate Coworking & Workspace Portal",
+    "title": "Corporate Coworking & Workspace Portal",
     "category": "Corporate & Enterprise",
     "type": "Web Portal UI/UX Design",
-    "technology": ["Figma", "Adobe CC", "UI Design"],
+    "technology": [
+      "Figma",
+      "Adobe CC",
+      "UI Design"
+    ],
     "link": "https://thecorporatehub.org/",
     "figmaLink": null,
     "liveLink": "https://thecorporatehub.org/",
@@ -641,16 +890,21 @@
     "isFeatured": true,
     "featureTag": "top",
     "role": "UX/UI Designer",
-    "description": "Executive co-working space booking and flexible office membership portal."
+    "description": "Executive co-working space booking and flexible office membership portal.",
+    "slug": "corporate-coworking-workspace-portal"
   },
-  
   {
     "id": "equuschain",
-    "name": "Equus Chain",
-    "title": "Equus Chain",
+    "name": "Web3 Equine Blockchain & NFT Platform",
+    "title": "Web3 Equine Blockchain & NFT Platform",
     "category": "Web3 & AI",
     "type": "React / Next.js Web App",
-    "technology": ["React", "Next.js", "Tailwind CSS", "Web3"],
+    "technology": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Web3"
+    ],
     "link": "https://equuschain.io/",
     "figmaLink": null,
     "liveLink": "https://equuschain.io/",
@@ -658,15 +912,20 @@
     "isFeatured": false,
     "featureTag": "web3",
     "role": "Frontend Developer & UX Designer",
-    "description": "Decentralized Web3 blockchain portal built for high-performance transactions."
+    "description": "Decentralized Web3 blockchain portal built for high-performance transactions.",
+    "slug": "web3-equine-blockchain-nft-platform"
   },
   {
     "id": "entry-website",
-    "name": "Entry Website",
-    "title": "Entry Website",
+    "name": "Enterprise Access & Identity Portal",
+    "title": "Enterprise Access & Identity Portal",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "UI/UX Design", "Prototyping"],
+    "technology": [
+      "Figma",
+      "UI/UX Design",
+      "Prototyping"
+    ],
     "link": "https://www.figma.com/proto/HQoJyqZM3mUcRDUBsayUjW/Entry-website?node-id=0-1&p=f&t=N4bpJrHf23rnOtxb-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&fuid=1177212330531058533",
     "figmaLink": "https://www.figma.com/proto/HQoJyqZM3mUcRDUBsayUjW/Entry-website?node-id=0-1&p=f&t=N4bpJrHf23rnOtxb-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&fuid=1177212330531058533",
     "liveLink": null,
@@ -674,15 +933,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Next-generation glassmorphism entry portal and administrative dashboard design."
+    "description": "Next-generation glassmorphism entry portal and administrative dashboard design.",
+    "slug": "enterprise-access-identity-portal"
   },
   {
     "id": "angel-business",
-    "name": "Angel Business Website",
-    "title": "Angel Business Website",
+    "name": "Angel Investment & Venture Funding Portal",
+    "title": "Angel Investment & Venture Funding Portal",
     "category": "FinTech",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Venture Capital", "Financial UI"],
+    "technology": [
+      "Figma",
+      "Venture Capital",
+      "Financial UI"
+    ],
     "link": "https://www.figma.com/proto/tAxwpXS7Vby4iJcmMrb51P/Business-Angel?node-id=176-4952&t=fKCLoxo26efVYCYJ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     "figmaLink": "https://www.figma.com/proto/tAxwpXS7Vby4iJcmMrb51P/Business-Angel?node-id=176-4952&t=fKCLoxo26efVYCYJ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     "liveLink": null,
@@ -690,18 +954,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Angel investment & startup deal flow management platform for angel investors."
+    "description": "Angel investment & startup deal flow management platform for angel investors.",
+    "slug": "angel-investment-venture-funding-portal"
   },
-  
-  
-  
   {
     "id": "siza-send",
-    "name": "Siza Send App",
-    "title": "Siza Send App",
+    "name": "Cross-Border Remittance & Money Transfer App",
+    "title": "Cross-Border Remittance & Money Transfer App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
-    "technology": ["Figma", "Mobile Payment", "FinTech"],
+    "technology": [
+      "Figma",
+      "Mobile Payment",
+      "FinTech"
+    ],
     "link": "https://www.figma.com/proto/UoS5J0criC99khTkLrLI1X/SIZA-SAND?node-id=41-1331&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/UoS5J0criC99khTkLrLI1X/SIZA-SAND?node-id=41-1331&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3&show-proto-sidebar=1",
     "liveLink": null,
@@ -709,15 +975,20 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Cross-border peer-to-peer mobile payment and remittance application."
+    "description": "Cross-border peer-to-peer mobile payment and remittance application.",
+    "slug": "cross-border-remittance-money-transfer-app"
   },
   {
     "id": "pryo-app",
-    "name": "Pryo App",
-    "title": "Pryo App",
+    "name": "Smart Living & IoT Automation App",
+    "title": "Smart Living & IoT Automation App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
-    "technology": ["Figma", "Mobile UI", "Prototyping"],
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "Prototyping"
+    ],
     "link": "https://www.figma.com/proto/ovh5Wn0cmjFAUOZ5KSxoPC/PRYO-App?node-id=14-362&p=f&t=oB5OEGIE1cJz5uz3-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=4%3A1561&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/ovh5Wn0cmjFAUOZ5KSxoPC/PRYO-App?node-id=14-362&p=f&t=oB5OEGIE1cJz5uz3-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=4%3A1561&show-proto-sidebar=1",
     "liveLink": null,
@@ -725,15 +996,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Smart task management and mobile productivity application."
+    "description": "Smart task management and mobile productivity application.",
+    "slug": "smart-living-iot-automation-app"
   },
   {
     "id": "fast-delivery",
-    "name": "Fast Delivery Website",
-    "title": "Fast Delivery Website",
+    "name": "Express Courier & Delivery Logistics Portal",
+    "title": "Express Courier & Delivery Logistics Portal",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Logistics", "Web UI"],
+    "technology": [
+      "Figma",
+      "Logistics",
+      "Web UI"
+    ],
     "link": "https://www.figma.com/proto/hRCXJqwfF94rWag2qeCQuW/fast-delivery?node-id=8-15&t=ohWCHpfVQ9MTQPOD-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     "figmaLink": "https://www.figma.com/proto/hRCXJqwfF94rWag2qeCQuW/fast-delivery?node-id=8-15&t=ohWCHpfVQ9MTQPOD-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     "liveLink": null,
@@ -741,15 +1017,20 @@
     "isFeatured": true,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "On-demand logistics fleet tracking and delivery booking platform."
+    "description": "On-demand logistics fleet tracking and delivery booking platform.",
+    "slug": "express-courier-delivery-logistics-portal"
   },
   {
     "id": "bnl-app",
-    "name": "BNL App",
-    "title": "BNL App",
+    "name": "Resort Booking & Hospitality Mobile App",
+    "title": "Resort Booking & Hospitality Mobile App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
-    "technology": ["Figma", "Banking UI", "FinTech"],
+    "technology": [
+      "Figma",
+      "Banking UI",
+      "FinTech"
+    ],
     "link": "https://www.figma.com/proto/cP4mNj4NfTGMRGS6VFJtC7/BNL-app?type=design&node-id=4-73",
     "figmaLink": "https://www.figma.com/proto/cP4mNj4NfTGMRGS6VFJtC7/BNL-app?type=design&node-id=4-73",
     "liveLink": null,
@@ -757,15 +1038,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Mobile retail banking and account management application interface."
+    "description": "Mobile retail banking and account management application interface.",
+    "slug": "resort-booking-hospitality-mobile-app"
   },
   {
     "id": "trade-zone App",
-    "name": "Trade Zone App",
-    "title": "Trade Zone App",
+    "name": "Forex & Equity Trading Mobile App",
+    "title": "Forex & Equity Trading Mobile App",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
-    "technology": ["Figma", "Trading", "Responsive UI"],
+    "technology": [
+      "Figma",
+      "Trading",
+      "Responsive UI"
+    ],
     "link": "https://www.figma.com/proto/qcIUHHED0cfIFzHY18DJN1/trade-zone?type=design&node-id=72-1042",
     "figmaLink": "https://www.figma.com/proto/qcIUHHED0cfIFzHY18DJN1/trade-zone?type=design&node-id=72-1042",
     "liveLink": null,
@@ -773,15 +1059,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Multi-asset financial trading desk and real-time market data platform."
+    "description": "Multi-asset financial trading desk and real-time market data platform.",
+    "slug": "forex-equity-trading-mobile-app"
   },
-   {
+  {
     "id": "trade-zone Web",
-    "name": "Trade Zone Web",
-    "title": "Trade Zone Web",
+    "name": "Equity & Derivatives Web Trading Terminal",
+    "title": "Equity & Derivatives Web Trading Terminal",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
-    "technology": ["Figma", "Trading", "Responsive UI"],
+    "technology": [
+      "Figma",
+      "Trading",
+      "Responsive UI"
+    ],
     "link": "https://www.figma.com/proto/qcIUHHED0cfIFzHY18DJN1/trade-zone?node-id=567-5774&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=484%3A3785&starting-point-node-id=567%3A5774",
     "figmaLink": "https://www.figma.com/proto/qcIUHHED0cfIFzHY18DJN1/trade-zone?node-id=567-5774&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=484%3A3785&starting-point-node-id=567%3A5774",
     "liveLink": null,
@@ -789,16 +1080,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Multi-asset financial trading desk and real-time market data platform."
+    "description": "Multi-asset financial trading desk and real-time market data platform.",
+    "slug": "equity-derivatives-web-trading-terminal"
   },
-  
   {
     "id": "lani-betting-tips",
-    "name": "Lani Betting Tips",
-    "title": "Lani Betting Tips",
+    "name": "Sports Analytics & Prediction Mobile App",
+    "title": "Sports Analytics & Prediction Mobile App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
-    "technology": ["Figma", "Sports Analytics", "Mobile UI"],
+    "technology": [
+      "Figma",
+      "Sports Analytics",
+      "Mobile UI"
+    ],
     "link": "https://www.figma.com/proto/8yQuJlcOUbCD23ohUUsfxz/lani-betting-tips?node-id=9-343&p=f&t=C1ouXVbiBsWKXJVc-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=9%3A343&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/8yQuJlcOUbCD23ohUUsfxz/lani-betting-tips?node-id=9-343&p=f&t=C1ouXVbiBsWKXJVc-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=9%3A343&show-proto-sidebar=1",
     "liveLink": null,
@@ -806,15 +1101,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Sports prediction analytics and real-time odds tracking mobile interface."
+    "description": "Sports prediction analytics and real-time odds tracking mobile interface.",
+    "slug": "sports-analytics-prediction-mobile-app"
   },
   {
     "id": "cad-academy",
-    "name": "CAD Academy",
-    "title": "CAD Academy",
+    "name": "Engineering CAD E-Learning Platform",
+    "title": "Engineering CAD E-Learning Platform",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
-    "technology": ["Figma", "EdTech", "Web UI"],
+    "technology": [
+      "Figma",
+      "EdTech",
+      "Web UI"
+    ],
     "link": "https://www.figma.com/proto/Wx4H44WEvMhQwf3GxNRuQS/cad-Academy?node-id=32-33&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/Wx4H44WEvMhQwf3GxNRuQS/cad-Academy?node-id=32-33&p=f&t=9PBC9B38P14T1PjU-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     "liveLink": null,
@@ -822,15 +1122,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Educational platform and course portal for computer-aided engineering."
+    "description": "Educational platform and course portal for computer-aided engineering.",
+    "slug": "engineering-cad-e-learning-platform"
   },
   {
     "id": "caters-app",
-    "name": "Caters App & Web",
-    "title": "Caters App & Web",
+    "name": "Event Catering & Hospitality Platform",
+    "title": "Event Catering & Hospitality Platform",
     "category": "Mobile Application",
     "type": "Figma Web & Mobile",
-    "technology": ["Figma", "Catering UI", "Mobile & Web"],
+    "technology": [
+      "Figma",
+      "Catering UI",
+      "Mobile & Web"
+    ],
     "link": "https://www.figma.com/file/G3n0MPp4BUKqbkfC0bcvHa/caters-app?type=design&node-id=0%3A1",
     "figmaLink": "https://www.figma.com/file/G3n0MPp4BUKqbkfC0bcvHa/caters-app?type=design&node-id=0%3A1",
     "liveLink": null,
@@ -838,15 +1143,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Event catering reservation platform and online menu selection interface."
+    "description": "Event catering reservation platform and online menu selection interface.",
+    "slug": "event-catering-hospitality-platform"
   },
   {
     "id": "matteolm-dating",
-    "name": "Matteolm Dating App",
-    "title": "Matteolm Dating App",
+    "name": "Curated Dating & Matchmaking Mobile App",
+    "title": "Curated Dating & Matchmaking Mobile App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
-    "technology": ["Figma", "Social App UI", "Mobile"],
+    "technology": [
+      "Figma",
+      "Social App UI",
+      "Mobile"
+    ],
     "link": "https://www.figma.com/proto/kFXb06eJHXnongDHtGv3D0/Matteolm-final?node-id=1-5332&p=f&t=Wv7PNU3CH1noQl0R-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A8292&show-proto-sidebar=1",
     "figmaLink": "https://www.figma.com/proto/kFXb06eJHXnongDHtGv3D0/Matteolm-final?node-id=1-5332&p=f&t=Wv7PNU3CH1noQl0R-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A8292&show-proto-sidebar=1",
     "liveLink": null,
@@ -854,15 +1164,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "Next-generation social matchmaking and relationship mobile experience."
+    "description": "Next-generation social matchmaking and relationship mobile experience.",
+    "slug": "curated-dating-matchmaking-mobile-app"
   },
   {
     "id": "ij-art-bank",
-    "name": "IJ Art Bank",
-    "title": "IJ Art Bank",
+    "name": "Fine Art Investment & Curation Platform",
+    "title": "Fine Art Investment & Curation Platform",
     "category": "Creative & Art",
     "type": "Figma Prototype",
-    "technology": ["Figma", "Art Investment", "Financial UI"],
+    "technology": [
+      "Figma",
+      "Art Investment",
+      "Financial UI"
+    ],
     "link": "https://www.figma.com/proto/XMlLSoMBMLj6LAOVFSg3Uc/Ij-art-bank?node-id=1-1227&t=RWYqWiWsutWx3HAn-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1227",
     "figmaLink": "https://www.figma.com/proto/XMlLSoMBMLj6LAOVFSg3Uc/Ij-art-bank?node-id=1-1227&t=RWYqWiWsutWx3HAn-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1227",
     "liveLink": null,
@@ -870,16 +1185,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "UX/UI Designer",
-    "description": "High-net-worth art investment fund management and valuation platform."
+    "description": "High-net-worth art investment fund management and valuation platform.",
+    "slug": "fine-art-investment-curation-platform"
   },
-  
   {
     "id": "ashmount-services",
-    "name": "Ashmount Services",
-    "title": "Ashmount Services",
+    "name": "Facilities Management & Commercial Services Website",
+    "title": "Facilities Management & Commercial Services Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "Business CMS"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "Business CMS"
+    ],
     "link": "https://ashmountservices.co.uk/",
     "figmaLink": null,
     "liveLink": "https://ashmountservices.co.uk/",
@@ -887,15 +1206,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Commercial facilities management and specialist building services website."
+    "description": "Commercial facilities management and specialist building services website.",
+    "slug": "facilities-management-commercial-services-website"
   },
   {
     "id": "house-of-content",
-    "name": "House of Content",
-    "title": "House of Content",
+    "name": "Content Marketing Agency Website",
+    "title": "Content Marketing Agency Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "Video CMS"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "Video CMS"
+    ],
     "link": "https://www.houseofcontent.tv/",
     "figmaLink": null,
     "liveLink": "https://www.houseofcontent.tv/",
@@ -903,15 +1227,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer & Designer",
-    "description": "Creative video production studio and digital content distribution platform."
+    "description": "Creative video production studio and digital content distribution platform.",
+    "slug": "content-marketing-agency-website"
   },
   {
     "id": "tractors-direct",
-    "name": "Tractors For Sale Direct",
-    "title": "Tractors For Sale Direct",
+    "name": "Agricultural Machinery Marketplace Website",
+    "title": "Agricultural Machinery Marketplace Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "WooCommerce", "Marketplace"],
+    "technology": [
+      "WordPress",
+      "WooCommerce",
+      "Marketplace"
+    ],
     "link": "https://tractorsforsaledirectcomau.wpcomstaging.com/",
     "figmaLink": null,
     "liveLink": "https://tractorsforsaledirectcomau.wpcomstaging.com/",
@@ -919,15 +1248,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Heavy agricultural machinery marketplace and machinery sales website."
+    "description": "Heavy agricultural machinery marketplace and machinery sales website.",
+    "slug": "agricultural-machinery-marketplace-website"
   },
   {
     "id": "cecilia-ho-studio",
-    "name": "Cecilia Ho Studio",
-    "title": "Cecilia Ho Studio",
+    "name": "Artisan Studio & Textile Workshop Website",
+    "title": "Artisan Studio & Textile Workshop Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "Custom CSS", "Design CMS"],
+    "technology": [
+      "WordPress",
+      "Custom CSS",
+      "Design CMS"
+    ],
     "link": "https://ceciliaho.studio/",
     "figmaLink": null,
     "liveLink": "https://ceciliaho.studio/",
@@ -935,16 +1269,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Architectural interior design and spatial consultancy portfolio website."
+    "description": "Architectural interior design and spatial consultancy portfolio website.",
+    "slug": "artisan-studio-textile-workshop-website"
   },
-  
   {
     "id": "franklin-hodge",
-    "name": "Franklin Hodge",
-    "title": "Franklin Hodge",
+    "name": "Industrial Water Storage Engineering Website",
+    "title": "Industrial Water Storage Engineering Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "Industrial CMS"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "Industrial CMS"
+    ],
     "link": "https://franklinhodge.com/",
     "figmaLink": null,
     "liveLink": "https://franklinhodge.com/",
@@ -952,15 +1290,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Global liquid storage tank manufacturer corporate website."
+    "description": "Global liquid storage tank manufacturer corporate website.",
+    "slug": "industrial-water-storage-engineering-website"
   },
   {
     "id": "chatline-hookup",
-    "name": "Chatline Hookup",
-    "title": "Chatline Hookup",
+    "name": "Telecommunication & Voice Community Portal",
+    "title": "Telecommunication & Voice Community Portal",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "SEO Landing"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "SEO Landing"
+    ],
     "link": "https://chatlinehookup.com/",
     "figmaLink": null,
     "liveLink": "https://chatlinehookup.com/",
@@ -968,15 +1311,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Voice chatline network landing portal."
+    "description": "Voice chatline network landing portal.",
+    "slug": "telecommunication-voice-community-portal"
   },
   {
     "id": "deltaro",
-    "name": "Deltaro",
-    "title": "Deltaro",
+    "name": "Industrial Automation & Engineering Solutions Website",
+    "title": "Industrial Automation & Engineering Solutions Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "Business CMS"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "Business CMS"
+    ],
     "link": "https://deltaro.com.au/",
     "figmaLink": null,
     "liveLink": "https://deltaro.com.au/",
@@ -984,15 +1332,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Commercial equipment supply and enterprise distribution platform."
+    "description": "Commercial equipment supply and enterprise distribution platform.",
+    "slug": "industrial-automation-engineering-solutions-website"
   },
   {
     "id": "pop-culture-news",
-    "name": "Pop Culture News",
-    "title": "Pop Culture News",
+    "name": "Entertainment Media & Pop Culture Publication",
+    "title": "Entertainment Media & Pop Culture Publication",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "Editorial CMS", "News Theme"],
+    "technology": [
+      "WordPress",
+      "Editorial CMS",
+      "News Theme"
+    ],
     "link": "https://popculturenews.com/",
     "figmaLink": null,
     "liveLink": "https://popculturenews.com/",
@@ -1000,15 +1353,20 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Digital media publishing platform covering entertainment, film, and trend news."
+    "description": "Digital media publishing platform covering entertainment, film, and trend news.",
+    "slug": "entertainment-media-pop-culture-publication"
   },
   {
     "id": "usa-stabilizers",
-    "name": "USA Stabilizers",
-    "title": "USA Stabilizers",
+    "name": "Soil Stabilization Engineering Website",
+    "title": "Soil Stabilization Engineering Website",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
-    "technology": ["WordPress", "PHP", "Industrial CMS"],
+    "technology": [
+      "WordPress",
+      "PHP",
+      "Industrial CMS"
+    ],
     "link": "https://usastabilizers.com/",
     "figmaLink": null,
     "liveLink": "https://usastabilizers.com/",
@@ -1016,7 +1374,7 @@
     "isFeatured": false,
     "featureTag": "generated-ai",
     "role": "WordPress Developer",
-    "description": "Pavement recycling and heavy soil stabilization engineering website."
+    "description": "Pavement recycling and heavy soil stabilization engineering website.",
+    "slug": "soil-stabilization-engineering-website"
   }
-  
 ]

@@ -158,40 +158,53 @@ export const logoProjects = (logosData || []).map((logo, idx) => {
   };
 });
 
-// All 61 real projects from projects.json formatted for the Voss design system
+// All real projects from projects.json formatted for the Voss design system
 export const allProjects = baseProjects;
 
-// Top 9 projects specified for Homepage display in exact user-requested order:
-// 1. Fresh Art Club
-// 2. IJ Art
-// 3. Seductive Seeker
-// 4. Runner
-// 5. NZL App
-// 6. iPixit
-// 7. Siddhachalam
-// 8. Active Communities
-// 9. 7Sens
+// Top projects specified for Homepage display in priority order:
 const TOP_SLUGS = [
+  'health-management-platform',
+  'bar-nightlife-discovery-app',
+  'bar-trekk-app',
+  'luxury-real-estate-showcase-platform',
   'milo-luxury-residence',
+  'artwork-e-commerce-platform',
   'fresh-art-club',
+  'fine-art-investment-curation-platform',
   'ij-art-bank',
+  'lifestyle-dating-discovery-platform',
   'seductive-seeker',
+  'on-demand-delivery-errand-runner-app',
   'runner',
+  'reverse-bidding-services-marketplace',
   'nzl-app',
+  'photo-sharing-licensing-mobile-app',
   'ipixit-photo-sharing-app',
+  'jainism-temple-platform',
   'siddhachalam-web-app',
+  'civic-community-engagement-platform',
   'active-communities',
+  'luxury-sensory-creative-experience',
   '7sens',
 ];
 
-export const topHomeProjects = TOP_SLUGS.map((slug, idx) => {
-  const found = allProjects.find((p) => p.slug === slug || p.slug.startsWith(slug.slice(0, 6)));
-  if (!found) return allProjects[idx % allProjects.length];
-  return {
-    ...found,
-    n1: String(idx + 1),
-  };
-});
+export const topHomeProjects = (() => {
+  const seen = new Set();
+  const list = [];
+  TOP_SLUGS.forEach((slug) => {
+    const found = allProjects.find(
+      (p) =>
+        p.slug === slug ||
+        slugify(p.f1) === slug ||
+        p.slug.startsWith(slug.slice(0, 8))
+    );
+    if (found && !seen.has(found.slug)) {
+      seen.add(found.slug);
+      list.push({ ...found, n1: String(list.length + 1) });
+    }
+  });
+  return list.length >= 8 ? list.slice(0, 10) : allProjects.slice(0, 10);
+})();
 
 // Default to allProjects across the entire portfolio
 export const defaultProjects = allProjects;
@@ -340,6 +353,26 @@ export const defaultReviews = [
 ];
 
 export const defaultLab = [
+  {
+    slug: "bar-route-telemetry",
+    f1: "Bar Crawl Route Radar",
+    f2: "Bar Trekk · Mobile Navigation",
+    f3: "2026",
+    f4: "Figma;Mobile UI;Geolocation;iOS",
+    img: "/bartrekk.png",
+    logo: "/logo/shuffle logo-01.png",
+    client: "Bar Trekk App",
+  },
+  {
+    slug: "clinical-telemetry-engine",
+    f1: "Clinical Telemetry & Triage",
+    f2: "Health Management Platform · Medical SaaS",
+    f3: "2026",
+    f4: "Figma;Design Systems;React;Telemetry",
+    img: "/medvita.png",
+    logo: "/logo/scds logo.jpg",
+    client: "Health Management Platform",
+  },
   {
     slug: "fresh-art-canvas",
     f1: "Creator Canvas Engine",

@@ -34,6 +34,7 @@ export { default as MvLoader } from './MvLoader';
 export { default as MvPageTrans } from './MvPageTrans';
 export { default as MvStartHere } from './MvStartHere';
 export { default as MvLogoReel } from './MvLogoReel';
+export { default as MvGraphicsIndex } from './MvGraphicsIndex';
 
 export * from './scaffold';
 export * from './siteData';

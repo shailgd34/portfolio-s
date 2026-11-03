@@ -38,7 +38,7 @@ export default function Home() {
 
       {/* Studio Header: Logo, Timezone Clock, Navigation, Hire Me CTA */}
       <MvHeader
-        links="Work:/work, About:/about, Resume:/resume, Contact:/contact"
+        links="Work:/work, Graphics:/graphics, About:/about, Resume:/resume, Contact:/contact"
         ctaLabel="Hire me"
         ctaLink="/contact"
         avail={siteData.avail}

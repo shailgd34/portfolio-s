@@ -23,6 +23,158 @@ export function slugify(str) {
  * Enriched with explicit UX Research tools (FigJam, Hotjar, Miro, Typeform, Maze).
  */
 export const curatedCaseStudies = {
+  'bar-nightlife-discovery-app': {
+    title: 'Bar & Nightlife Discovery Mobile App',
+    client: 'Bar Trekk Social & Nightlife',
+    slug: 'bar-nightlife-discovery-app',
+    tagline: 'Interactive Bar Crawl Route Navigation & Real-Time Venue Discovery Mobile App',
+    category: 'Mobile Application',
+    filterCategory: 'MOBILE APP',
+    type: 'Mobile App UI/UX & Interactive Prototype',
+    role: 'Lead UI/UX Designer',
+    timeline: '6 Weeks (User Persona Research, Geolocation UX, Interactive Figma Prototyping)',
+    year: '2025 — 2026',
+    team: 'Lead UI/UX Designer (Me), Product Strategist, Mobile Engineering Lead',
+    image: '/bartrekk.png',
+    toolsList: ['Figma', 'Interactive Prototyping', 'Mobile UI/UX', 'Geolocation Maps', 'Design Systems', 'Micro-Interactions'],
+    secondaryImages: [
+      {
+        url: '/bartrekk.png',
+        title: 'Bar Crawl Route & Venue Discovery Screens',
+        caption: 'High-fidelity mobile interface designed in Figma featuring interactive bar discovery maps, drink menus, live venue telemetry, and group crawl itinerary planning.'
+      }
+    ],
+    link: 'https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1',
+    figmaLink: 'https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1',
+    liveLink: 'https://www.figma.com/proto/i5LyyW8ckC8YSCH5lswPoC/Bar-Trekk-App?node-id=4-648&p=f&viewport=267%2C-23%2C0.2&t=QzlUtoJLPb2FMMwH-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4%3A466&show-proto-sidebar=1&page-id=0%3A1',
+    badge: 'MOBILE NIGHTLIFE PROTOTYPE',
+    summary: 'An intuitive, location-aware mobile application designed to transform nightlife exploration and group bar crawls. Features live venue vibe telemetry, interactive route optimization, drink specials radars, and one-tap group meetups.',
+
+    challenge: {
+      headline: 'The Challenge: Disconnected Nightlife Planning & Group Coordination Friction',
+      description: 'Navigating unfamiliar city nightlife often results in crowded dead-ends, long wait lines, and chaotic group communication across separate mapping and messaging apps.',
+      painPoints: [
+        'Users struggle to gauge real-time venue crowd capacity, music style, and wait times before arriving.',
+        'Planning multi-stop bar crawl routes requires toggling between maps, group chats, and review sites.',
+        'Drink specials and happy hour schedules are scattered and frequently outdated.',
+        'Group members easily get separated during busy weekend nights without live party-trail sharing.'
+      ]
+    },
+
+    research: {
+      headline: 'Nightlife User Research, Geolocation Heuristics & Journey Mapping',
+      methodology: 'Interviewed 24 active weekend nightlife goers, event organizers, and local bar managers to identify core decision drivers and friction points.',
+      keyFindings: [
+        '82% of users prioritize instant visual cues for venue vibe (quiet, energetic, live DJ, rooftop).',
+        'Turn-by-turn crawl walking routes with estimated transit times increase itinerary completion by 3.4x.',
+        'Quick drink menu previews and happy hour countdowns significantly boost venue discovery rates.',
+        'Dark-mode-first aesthetic with high-contrast text is essential for low-light bar environments.'
+      ]
+    },
+
+    designSystem: {
+      headline: 'Neon Dark-Mode Mobile Design System & Geolocation Tokens',
+      description: 'Engineered an immersive, high-contrast mobile design system in Figma optimized for single-thumb navigation, vibrant accent badges, and fluid gesture interactions.',
+      components: [
+        'Interactive bar card with live crowd meter, music vibe pill, and distance badge',
+        'Turn-by-turn walking route timeline for scheduled bar crawls',
+        'Drink menu and cocktail showcase with ingredient tags and promotional badges',
+        'Group crawl sync tray allowing friends to see live party checkpoints'
+      ]
+    },
+
+    results: {
+      headline: 'Interactive Prototype Validation & User Feedback',
+      metrics: [
+        { value: '88%', label: 'Crawl Route Planning Completion' },
+        { value: '< 2 sec', label: 'Average Bar Discovery Velocity' },
+        { value: '94%', label: 'Positive Dark-Mode Usability Score' },
+        { value: '4.9/5', label: 'Interactive Figma Prototype Rating' }
+      ],
+      testimonial: {
+        quote: 'Sheelash crafted an exceptionally fun, vibrant, and effortless mobile experience. The Figma prototype felt like a live shipped iOS app from the very first tap.',
+        author: 'Nightlife Product Lead',
+        title: 'Bar Trekk Initiative'
+      }
+    }
+  },
+
+  'health-management-platform': {
+    title: 'Health Management Platform',
+    client: 'Healthcare Network & Clinical SaaS',
+    slug: 'health-management-platform',
+    tagline: 'Integrated Hospital System, Clinical Telemetry & Patient Care Management Platform',
+    category: 'Healthcare & Medical SaaS',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Health System Management Platform',
+    role: 'Lead Product Designer',
+    timeline: '10 Weeks (Clinical Research, User Journey Mapping, EHR Telemetry, High-Fidelity Figma Systems)',
+    year: '2025 — 2026',
+    team: 'Lead Product Designer (Me), Clinical Operations Consultant, Frontend Architect',
+    image: '/medvita.png',
+    toolsList: ['Figma', 'Design Systems', 'Healthcare UX', 'Clinical Telemetry', 'WCAG 2.1 AA', 'User Testing'],
+    secondaryImages: [
+      {
+        url: '/medvita.png',
+        title: 'Clinical Operations Dashboard & Patient Care Telemetry',
+        caption: 'High-density clinical interface designed in Figma featuring patient triage queues, electronic health records (EHR), and telemetry vitals.'
+      }
+    ],
+    link: 'https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1',
+    figmaLink: 'https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1',
+    liveLink: 'https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1',
+    badge: 'CLINICAL TELEMETRY CASE STUDY',
+    summary: 'A comprehensive healthcare and medical system management platform engineered to eliminate administrative overhead in hospitals and medical practices. Features synchronized electronic health records (EHR), dynamic doctor shift rosters, real-time vital telemetry monitors, and an intuitive triage scheduling engine designed in Figma.',
+
+    challenge: {
+      headline: 'The Challenge: Fragmented Hospital Workflows & Cognitive Overload in Clinical Care',
+      description: 'Hospital teams juggle disparate legacy software for patient intake, medical histories, prescription authorization, and operating room scheduling. This fragmentation leads to clerical errors, prolonged patient wait times, and clinician burnout.',
+      painPoints: [
+        'Legacy medical software creates severe cognitive fatigue with bloated, un-hierarchical data tables.',
+        'Doctors spent up to 45% of consultation time clicking through redundant documentation forms.',
+        'Patient appointment scheduling suffered from high no-show rates and lack of automated triage classification.',
+        'Clinical telemetry data lacked clear visual thresholds for urgent patient escalation.'
+      ]
+    },
+
+    research: {
+      headline: 'Clinical User Research, Workflow Shadowing & Usability Audits',
+      methodology: 'Conducted 16 in-depth contextual inquiries shadowing attending physicians, triage nurses, and administrative receptionists across multiple medical departments.',
+      keyFindings: [
+        'Clinicians require critical patient vitals and allergy warnings visible at a single glance without scrolling.',
+        'Triage status needs color-coded semantic cues conforming to WCAG 2.1 AA accessibility standards.',
+        'Medication prescription flows require instant contraindication warnings before final submission.',
+        'One-click appointment rescheduling with automated SMS notification reduces clinical empty-slot rates by 48%.'
+      ]
+    },
+
+    designSystem: {
+      headline: 'Clinical Figma Design System & High-Contrast Telemetry Tokens',
+      description: 'Created an accessible medical-grade design system in Figma featuring 85+ components, strict WCAG AA contrast ratios, clean tabular numerals for vitals, and scalable state variants.',
+      components: [
+        'Electronic Health Record (EHR) dossier cards with collapsible history tabs',
+        'Clinical telemetry vitals monitor with dynamic threshold indicators',
+        'Interactive doctor shift calendar with visual drag-and-drop rescheduling',
+        'Patient triage prioritization queue with automated severity badge tagging'
+      ]
+    },
+
+    results: {
+      headline: 'Verified Clinical Efficiency & Operational Impact',
+      metrics: [
+        { value: '-42%', label: 'Consultation Documentation Time' },
+        { value: '99.4%', label: 'Prescription Verification Accuracy' },
+        { value: '+68%', label: 'Daily Patient Throughput Velocity' },
+        { value: '4.9/5', label: 'Clinician Usability Rating' }
+      ],
+      testimonial: {
+        quote: 'Sheelash redesigned our complex medical workflows into a remarkably intuitive, calm interface. The doctors can now focus 100% on patients rather than fighting confusing menus.',
+        author: 'Dr. Adrian Popescu',
+        title: 'Chief Medical Officer, Clinical Network'
+      }
+    }
+  },
+
   'milo-luxury-residence': {
     title: 'Milo Luxury Residence',
     client: 'Milo Luxury Real Estate & Sanctuaries',
@@ -1777,9 +1929,37 @@ export function getProjectBySlug(slug) {
   } catch (e) { }
   const clean = slugify(decoded);
 
+  const ALIASES = {
+    'artwork-e-commerce-platform': 'fresh-art-club',
+    'fresh-art-club': 'fresh-art-club',
+    'jainism-temple-platform': 'siddhachalam-web-app',
+    'siddhachalam-web-app': 'jainism-temple-platform',
+    'luxury-real-estate-showcase-platform': 'milo-luxury-residence',
+    'milo-luxury-residence': 'milo-luxury-residence',
+    'cognitive-performance-saas-platform': 'neuro-kaizen',
+    'neuro-kaizen': 'neuro-kaizen',
+    'trading-financial-analytics-platform': 'tuga-trades',
+    'tuga-trades': 'tuga-trades',
+    'global-logistics-freight-platform': 'gmkc-logistics-website',
+    'gmkc-logistics-website': 'gmkc-logistics-website',
+    'luxury-sensory-creative-experience': '7sens',
+    '7sens': '7sens',
+    'commercial-property-management-portal': 'zawaya-property',
+    'zawaya-property': 'zawaya-property',
+    'e-commerce-stock-inventory-platform': 'stockmate-ecommerce-stock',
+    'stockmate-ecommerce-stock': 'stockmate-ecommerce-stock',
+    'medvita': 'health-management-platform',
+    'health-system-management-platform': 'health-management-platform',
+    'bar-trekk-app': 'bar-nightlife-discovery-app',
+    'bar-treek-app': 'bar-nightlife-discovery-app',
+    'bar-trekk': 'bar-nightlife-discovery-app',
+    'bar-nightlife-discovery-app': 'bar-nightlife-discovery-app',
+  };
+  const resolved = ALIASES[clean] || clean;
+
   // Check curated first
-  if (curatedCaseStudies[clean]) {
-    return curatedCaseStudies[clean];
+  if (curatedCaseStudies[resolved] || curatedCaseStudies[clean]) {
+    return curatedCaseStudies[resolved] || curatedCaseStudies[clean];
   }
 
   // Find in projects.json (exact match first)
