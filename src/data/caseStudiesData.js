@@ -23,6 +23,40 @@ export function slugify(str) {
  * Enriched with explicit UX Research tools (FigJam, Hotjar, Miro, Typeform, Maze).
  */
 export const curatedCaseStudies = {
+  'creative-studio-interactive-showcase': {
+    title: 'Creative Studio Interactive Showcase',
+    client: 'Energetic Path Studio',
+    slug: 'creative-studio-interactive-showcase',
+    tagline: 'High-Impact Web Motion Experience & Creative Studio Platform Built with Framer',
+    category: 'Interactive Web & Motion Experience',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Framer Interactive Experience & Web Animation Platform',
+    role: 'Interaction Designer & Framer Developer',
+    timeline: '4 Weeks (Motion Architecture, Micro-Interactions & Framer Development)',
+    year: '2025 — 2026',
+    team: 'Lead Interaction Designer (Me), Creative Director',
+    image: '/staylaah.png',
+    toolsList: ['Framer', 'Motion Design', 'Scroll Physics', 'Kinetic Typography', 'Interactive Prototyping', 'Responsive Design'],
+    secondaryImages: [
+      {
+        url: '/staylaah.png',
+        title: 'Framer Interactive Showcase Experience',
+        caption: 'Seamless web interactions, responsive kinetic layout hierarchy, and fluid physics-based transitions designed and built in Framer.'
+      }
+    ],
+    link: 'https://energetic-path-963614.framer.app/',
+    liveLink: 'https://energetic-path-963614.framer.app/',
+    badge: 'FRAMER MOTION EXPERIENCE',
+    overview: 'An interactive digital experience and creative studio showcase engineered directly in Framer. Designed to deliver smooth kinetic scroll physics, responsive component interactions, and modern visual typography.',
+    challenge: 'Bridging the gap between conceptual high-fidelity motion prototypes and production-ready interactive web experiences with flawless 60 FPS fluidity across mobile and desktop viewpoints.',
+    solution: 'Engineered custom interactive components in Framer featuring physics-based scroll choreography, responsive layouts, intuitive navigation mechanics, and optimized web asset delivery.',
+    metrics: [
+      { label: 'Scroll Frame Rate', value: '60 FPS' },
+      { label: 'Responsive Viewports', value: '100%' },
+      { label: 'Framer Components', value: '25+' },
+      { label: 'Interaction Latency', value: '< 16ms' }
+    ]
+  },
   'bar-nightlife-discovery-app': {
     title: 'Bar & Nightlife Discovery Mobile App',
     client: 'Bar Trekk Social & Nightlife',
@@ -1083,6 +1117,8 @@ export const curatedCaseStudies = {
     toolsList: ['Figma', 'FigJam', 'Adobe Illustrator', 'Adobe Photoshop', 'Hotjar', 'Miro', 'React', 'Node.js'],
     link: 'https://freshartclub.com/',
     figmaLink: 'https://www.figma.com/proto/wJ9rztO00EHFXWbOJrTDJE/Fresh-Art-Club-Design?node-id=2241-8905',
+    adminLink: 'https://www.figma.com/proto/IgTuxPHurIMzxbPLHLLnXl/Fresh-Art-admin?node-id=1-2146&p=f&viewport=325%2C679%2C0.13&t=XvOUlpq4mzDIayYQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2146&page-id=0%3A1&show-proto-sidebar=1',
+    adminFigmaLink: 'https://www.figma.com/proto/IgTuxPHurIMzxbPLHLLnXl/Fresh-Art-admin?node-id=1-2146&p=f&viewport=325%2C679%2C0.13&t=XvOUlpq4mzDIayYQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2146&page-id=0%3A1&show-proto-sidebar=1',
     liveLink: 'https://freshartclub.com/',
     badge: '2+ YEARS CONTINUOUS ENTERPRISE PLATFORM',
     summary: 'A massive 2-year continuous engineering and product design initiative built from the ground up on React and Node.js. Architected high-density multi-tenant artist portals, real-time collector bidding/inquiry flows, dynamic AR-scale previews, and high-concurrency microservices that reduced cart bounce rate by 64% and power thousands of global art transactions.',
@@ -1930,6 +1966,8 @@ export function getProjectBySlug(slug) {
   const clean = slugify(decoded);
 
   const ALIASES = {
+    'creative-studio-interactive-showcase': 'creative-studio-interactive-showcase',
+    'energetic-path-framer-showcase': 'creative-studio-interactive-showcase',
     'artwork-e-commerce-platform': 'fresh-art-club',
     'fresh-art-club': 'fresh-art-club',
     'jainism-temple-platform': 'siddhachalam-web-app',

@@ -194,9 +194,11 @@ export default function MvCase(props = {}) {
     f9: study?.team || study?.timeline || baseRow.f9,
     img: study?.image || baseRow.img,
     figmaLink: study?.figmaLink || baseRow.figmaLink || '',
+    adminLink: study?.adminLink || study?.adminFigmaLink || baseRow.adminLink || baseRow.adminFigmaLink || '',
     liveLink: study?.liveLink || study?.link || baseRow.liveLink || '',
     toolsList: study?.toolsList || baseRow.technology || [],
   };
+  const effectiveAdmin = row.adminLink || '';
   const hasExplicitFigma =
     row.figmaLink ||
     (row.link && row.link.includes('figma.com') ? row.link : '') ||
@@ -610,7 +612,7 @@ export default function MvCase(props = {}) {
                 style={{ fontWeight: 800, fontStretch: '100%' }}
                 className="mvcs-h1"
               />
-              {(effectiveFigma || row.liveLink) && (
+              {(effectiveFigma || row.liveLink || effectiveAdmin) && (
                 <div className="mvcs-hero-btns" style={rise(on, 280, 16)}>
                   {row.liveLink && (
                     <Btn
@@ -630,6 +632,17 @@ export default function MvCase(props = {}) {
                       kind={row.liveLink ? "ghost" : "solid"}
                       arrow={true}
                       sub="Prototype"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  )}
+                  {effectiveAdmin && (
+                    <Btn
+                      href={effectiveAdmin}
+                      label="Admin Panel (Figma)"
+                      kind="ghost"
+                      arrow={true}
+                      sub="Admin Prototype"
                       target="_blank"
                       rel="noopener noreferrer"
                     />
@@ -659,7 +672,7 @@ export default function MvCase(props = {}) {
                     </div>
                   ))}
                 </dl>
-                {(effectiveFigma || row.liveLink) && (
+                {(effectiveFigma || row.liveLink || effectiveAdmin) && (
                   <div className="mvcs-actions">
                     {row.liveLink && (
                       <Btn
@@ -680,6 +693,18 @@ export default function MvCase(props = {}) {
                         className="mv-ghost"
                         arrow={true}
                         sub="Prototype"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    )}
+                    {effectiveAdmin && (
+                      <Btn
+                        href={effectiveAdmin}
+                        label="Admin Panel"
+                        kind="quiet"
+                        className="mv-ghost"
+                        arrow={true}
+                        sub="Figma"
                         target="_blank"
                         rel="noopener noreferrer"
                       />

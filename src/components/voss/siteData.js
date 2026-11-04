@@ -52,39 +52,44 @@ const getIconType = (p) => {
 };
 
 export const getCleanCategory = (item) => {
+  const id = (item.id || '').toLowerCase();
   const t = (item.type || '').toLowerCase();
   const c = (item.category || '').toLowerCase();
-  const name = (item.name || item.title || item.id || '').toLowerCase();
+  const name = (item.name || item.title || '').toLowerCase();
   const tech = (Array.isArray(item.technology) ? item.technology.join(' ') : (item.technology || '')).toLowerCase();
+  const desc = (item.description || '').toLowerCase();
+  const text = id + ' ' + name + ' ' + c + ' ' + t + ' ' + desc;
 
-  // 1. WordPress (WordPress & WooCommerce websites)
+  // 1. Dashboard / Admin Panel (Explicitly includes neuro kaizen, fresh art club, runner, spi, active communities, seductive seeker, medvita, tuga trades, etc.)
+  const explicitDashboard = [
+    'neuro-kaizen',
+    'fresh-art-club',
+    'runner',
+    'spi',
+    'active-communities',
+    'seductive-seeker',
+    'health-management-platform',
+    'tuga-trades',
+    'zawaya-property',
+    'the-corporate-hub',
+    'equuschain',
+    'deltaro',
+    'lani-betting-tips'
+  ];
   if (
-    t.includes('wordpress') ||
-    c.includes('wordpress') ||
-    tech.includes('wordpress') ||
-    name.includes('wordpress') ||
-    tech.includes('elementor') ||
-    tech.includes('woocommerce')
+    explicitDashboard.some(d => id === d || name.includes(d.replace(/-/g, ' '))) ||
+    text.includes('dashboard') ||
+    text.includes('admin panel') ||
+    text.includes('admin') ||
+    text.includes('telemetry') ||
+    text.includes('b2b saas') ||
+    text.includes('analytics portal') ||
+    text.includes('management saas')
   ) {
-    return 'WordPress';
+    return 'Dashboard / Admin';
   }
 
-  // 2. React / Next (fullstack, React web apps, Next.js releases)
-  if (
-    t.includes('react') ||
-    t.includes('next') ||
-    c.includes('react') ||
-    c.includes('next') ||
-    c.includes('fullstack') ||
-    name.includes('7sens') ||
-    name.includes('fresh art') ||
-    tech.includes('next.js') ||
-    tech.includes('react')
-  ) {
-    return 'React / Next';
-  }
-
-  // 3. Mobile App (iOS, Android, mobile prototypes & apps)
+  // 2. Mobile App (iOS, Android, mobile prototypes & apps)
   if (
     t.includes('mobile app') ||
     t.includes('phone') ||
@@ -97,7 +102,33 @@ export const getCleanCategory = (item) => {
     return 'Mobile App';
   }
 
-  // 4. UI/UX (B2B SaaS, Web UI/UX, Design systems, Dashboards, Figma prototypes)
+  // 3. WordPress (WordPress & WooCommerce websites)
+  if (
+    t.includes('wordpress') ||
+    c.includes('wordpress') ||
+    tech.includes('wordpress') ||
+    name.includes('wordpress') ||
+    tech.includes('elementor') ||
+    tech.includes('woocommerce')
+  ) {
+    return 'WordPress';
+  }
+
+  // 4. React / Next (fullstack, React web apps, Next.js releases)
+  if (
+    t.includes('react') ||
+    t.includes('next') ||
+    c.includes('react') ||
+    c.includes('next') ||
+    c.includes('fullstack') ||
+    name.includes('7sens') ||
+    tech.includes('next.js') ||
+    tech.includes('react')
+  ) {
+    return 'React / Next';
+  }
+
+  // 5. UI/UX (B2B SaaS, Web UI/UX, Design systems, Dashboards, Figma prototypes)
   return 'UI/UX';
 };
 

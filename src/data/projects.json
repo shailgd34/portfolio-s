@@ -1,9 +1,33 @@
 [
   {
+    "id": "energetic-path-framer-showcase",
+    "slug": "creative-studio-interactive-showcase",
+    "name": "Staylaah Homestay",
+    "title": "Staylaah Homestay",
+    "category": "Interactive Web & Motion Experience",
+    "filterCategory": "UI/UX DESIGN",
+    "type": "Framer Interactive Experience & Web Animation Platform",
+    "technology": [
+      "Framer",
+      "Interactive Motion",
+      "Component Architecture",
+      "Web Interaction",
+      "Responsive Layouts",
+      "Visual Design"
+    ],
+    "link": "https://energetic-path-963614.framer.app/",
+    "liveLink": "https://energetic-path-963614.framer.app/",
+    "image": "/staylaah.png",
+    "isFeatured": false,
+    "featureTag": "framer",
+    "role": "Interaction Designer & Framer Developer",
+    "description": "High-fidelity interactive web motion experience and creative studio showcase built with Framer, featuring fluid scroll physics, kinetic typography, and responsive micro-interactions."
+  },
+  {
     "id": "health-management-platform",
     "slug": "health-management-platform",
-    "name": "Health Management Platform",
-    "title": "Health Management Platform",
+    "name": "Medvita",
+    "title": "Medvita",
     "category": "Healthcare & Medical SaaS",
     "filterCategory": "UI/UX DESIGN",
     "type": "Health System Management Platform",
@@ -27,8 +51,8 @@
   {
     "id": "bar-trekk-app",
     "slug": "bar-nightlife-discovery-app",
-    "name": "Bar & Nightlife Discovery Mobile App",
-    "title": "Bar & Nightlife Discovery Mobile App",
+    "name": "Bar Trekk App",
+    "title": "Bar Trekk App",
     "category": "Mobile Application",
     "filterCategory": "MOBILE APP",
     "type": "Mobile App UI/UX & Interactive Prototype",
@@ -51,8 +75,8 @@
   },
   {
     "id": "milo-luxury-residence",
-    "name": "Luxury Real Estate Showcase Platform",
-    "title": "Luxury Real Estate Showcase Platform",
+    "name": "Milo Luxury Residence",
+    "title": "Milo Luxury Residence",
     "category": "Luxury Real Estate & Web App",
     "filterCategory": "UI/UX DESIGN",
     "type": "Interactive Luxury Real Estate Showcase & Booking Engine",
@@ -78,8 +102,8 @@
   },
   {
     "id": "neuro-kaizen",
-    "name": "Cognitive Performance SaaS Platform",
-    "title": "Cognitive Performance SaaS Platform",
+    "name": "Neuro Kaizen",
+    "title": "Neuro Kaizen",
     "category": "Fintech & SaaS",
     "filterCategory": "FINTECH & SAAS",
     "type": "B2B SaaS Dashboard & Assessment Engine",
@@ -103,8 +127,8 @@
   },
   {
     "id": "tuga-trades",
-    "name": "Trading & Financial Analytics Platform",
-    "title": "Trading & Financial Analytics Platform",
+    "name": "TugaTrades",
+    "title": "TugaTrades",
     "category": "Fintech & SaaS",
     "filterCategory": "FINTECH & SAAS",
     "type": "Trading Platform & Analytics Dashboard",
@@ -127,8 +151,8 @@
   },
   {
     "id": "7sens ",
-    "name": "Luxury Sensory Creative Experience",
-    "title": "Luxury Sensory Creative Experience",
+    "name": "7Sens",
+    "title": "7Sens",
     "category": "Creative & Digital Agency",
     "type": "React / Next.js Web App",
     "technology": [
@@ -149,8 +173,8 @@
   },
   {
     "id": "fresh-art-club",
-    "name": "Artwork E-Commerce Platform",
-    "title": "Artwork E-Commerce Platform",
+    "name": "fresh art club",
+    "title": "Fresh Art Club",
     "category": "React & Fullstack Web App",
     "type": "React & Node.js Enterprise Platform (2+ Yrs Active)",
     "technology": [
@@ -170,12 +194,14 @@
     "featureTag": "top",
     "role": "Lead Product Designer & Fullstack Engineer",
     "description": "Massive 2+ year ongoing React & Node.js fine art digital ecosystem, connecting global artists, galleries, and collectors with custom auction & marketplace infrastructure.",
-    "slug": "artwork-e-commerce-platform"
+    "slug": "artwork-e-commerce-platform",
+    "adminLink": "https://www.figma.com/proto/IgTuxPHurIMzxbPLHLLnXl/Fresh-Art-admin?node-id=1-2146&p=f&viewport=325%2C679%2C0.13&t=XvOUlpq4mzDIayYQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2146&page-id=0%3A1&show-proto-sidebar=1",
+    "adminFigmaLink": "https://www.figma.com/proto/IgTuxPHurIMzxbPLHLLnXl/Fresh-Art-admin?node-id=1-2146&p=f&viewport=325%2C679%2C0.13&t=XvOUlpq4mzDIayYQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2146&page-id=0%3A1&show-proto-sidebar=1"
   },
   {
     "id": "GMKC Logistics Website",
-    "name": "Global Logistics & Freight Platform",
-    "title": "Global Logistics & Freight Platform",
+    "name": "GMKC Logistics Website",
+    "title": "GMKC Logistics Website",
     "category": "Corporate & Enterprise",
     "type": "Figma Web Prototype",
     "technology": [
@@ -195,8 +221,8 @@
   },
   {
     "id": "seductive-seeker",
-    "name": "Lifestyle & Dating Discovery Platform",
-    "title": "Lifestyle & Dating Discovery Platform",
+    "name": "Seductive Seeker",
+    "title": "Seductive Seeker",
     "category": "Web Application",
     "type": "Figma Web Prototype",
     "technology": [
@@ -216,8 +242,8 @@
   },
   {
     "id": "petcare-website",
-    "name": "Pet Care & Veterinary Platform",
-    "title": "Pet Care & Veterinary Platform",
+    "name": "petcare-website",
+    "title": "petcare-website",
     "category": "Web Application",
     "type": "Figma Web Prototype",
     "technology": [
@@ -237,8 +263,8 @@
   },
   {
     "id": "Stockmate - Ecommerce Stock",
-    "name": "E-Commerce Stock & Inventory Platform",
-    "title": "E-Commerce Stock & Inventory Platform",
+    "name": "Stockmate - Ecommerce Stock",
+    "title": "Stockmate - Ecommerce Stock",
     "category": "E-Commerce & Stock",
     "type": "Figma Web Design",
     "technology": [
@@ -259,8 +285,8 @@
   },
   {
     "id": "Siddhachalam web & App",
-    "name": "Jainism Temple Platform",
-    "title": "Jainism Temple Platform",
+    "name": "Siddhachalam web & App",
+    "title": "Siddhachalam web & App",
     "category": "Figma Web Design",
     "type": "Figma Web Design",
     "technology": [
@@ -281,8 +307,8 @@
   },
   {
     "id": "fuqiao-arts",
-    "name": "Fine Art Gallery & Exhibition Platform",
-    "title": "Fine Art Gallery & Exhibition Platform",
+    "name": "Fuqiao Arts",
+    "title": "Fuqiao Arts",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -302,8 +328,8 @@
   },
   {
     "id": "Useful finance management Saas Platform",
-    "name": "Financial Management SaaS Platform",
-    "title": "Financial Management SaaS Platform",
+    "name": "Useful finance management Saas Platform",
+    "title": "Useful finance management Saas Platform",
     "category": "Figma Web Design",
     "type": "Figma Web Design",
     "technology": [
@@ -324,8 +350,8 @@
   },
   {
     "id": "zawaya-property",
-    "name": "Commercial Property Management Portal",
-    "title": "Commercial Property Management Portal",
+    "name": "Zawaya Property Management",
+    "title": "Zawaya Property Management",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -345,8 +371,8 @@
   },
   {
     "id": "active-communities",
-    "name": "Civic & Community Engagement Platform",
-    "title": "Civic & Community Engagement Platform",
+    "name": "Active Communities",
+    "title": "Active Communities",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -366,8 +392,8 @@
   },
   {
     "id": "DJ Fabrics & Foods",
-    "name": "Textile & Wholesale Food Distribution Portal",
-    "title": "Textile & Wholesale Food Distribution Portal",
+    "name": "DJ Fabrics & Foods",
+    "title": "DJ Fabrics & Foods",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -387,8 +413,8 @@
   },
   {
     "id": "npr-carpentry",
-    "name": "Bespoke Carpentry & Craftsmanship Portal",
-    "title": "Bespoke Carpentry & Craftsmanship Portal",
+    "name": "NPR Carpentry",
+    "title": "NPR Carpentry",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -408,8 +434,8 @@
   },
   {
     "id": "carat-club",
-    "name": "Luxury Diamond & Jewelry E-Commerce",
-    "title": "Luxury Diamond & Jewelry E-Commerce",
+    "name": "Carat Club",
+    "title": "Carat Club",
     "category": "E-Commerce & Luxury",
     "type": "React / Next.js Web App",
     "technology": [
@@ -430,8 +456,8 @@
   },
   {
     "id": "coach-max",
-    "name": "Athletic Coaching & Mentorship Platform",
-    "title": "Athletic Coaching & Mentorship Platform",
+    "name": "Coach Max",
+    "title": "Coach Max",
     "category": "Creative & Digital Agency",
     "type": "Web Design",
     "technology": [
@@ -451,8 +477,8 @@
   },
   {
     "id": "crconi-digital",
-    "name": "Digital Creative & Growth Agency Platform",
-    "title": "Digital Creative & Growth Agency Platform",
+    "name": "Crconi Digital",
+    "title": "Crconi Digital",
     "category": "Creative & Digital Agency",
     "type": "React / Next.js Web App",
     "technology": [
@@ -473,8 +499,8 @@
   },
   {
     "id": "esotek-corporation",
-    "name": "Enterprise Industrial Tech Portal",
-    "title": "Enterprise Industrial Tech Portal",
+    "name": "Esotek Corporation",
+    "title": "Esotek Corporation",
     "category": "Corporate & Enterprise",
     "type": "Web Design & Portal",
     "technology": [
@@ -494,8 +520,8 @@
   },
   {
     "id": "Continental-Trucking-Insurance",
-    "name": "Commercial Trucking Insurance Platform",
-    "title": "Commercial Trucking Insurance Platform",
+    "name": "Continental Trucking Insurance ",
+    "title": "Continental Trucking Insurance",
     "category": "Insurance",
     "type": "Figma Prototype",
     "technology": [
@@ -515,8 +541,8 @@
   },
   {
     "id": "Bi social App",
-    "name": "Social Networking & Community Mobile App",
-    "title": "Social Networking & Community Mobile App",
+    "name": "Bi social App",
+    "title": "Bi social App",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
     "technology": [
@@ -536,8 +562,8 @@
   },
   {
     "id": "kiro-app",
-    "name": "Task & Habit Tracker Mobile App",
-    "title": "Task & Habit Tracker Mobile App",
+    "name": "Kiro-App",
+    "title": "Kiro-App",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
     "technology": [
@@ -557,8 +583,8 @@
   },
   {
     "id": "Harmonity- Beauty Saloon",
-    "name": "Luxury Beauty & Salon Booking Platform",
-    "title": "Luxury Beauty & Salon Booking Platform",
+    "name": "Harmonity- Beauty Saloon",
+    "title": "Harmonity- Beauty Saloon",
     "category": "Beauty",
     "type": "Web UI/UX Design",
     "technology": [
@@ -578,8 +604,8 @@
   },
   {
     "id": "ipixit- Photo sharing App",
-    "name": "Photo Sharing & Licensing Mobile App",
-    "title": "Photo Sharing & Licensing Mobile App",
+    "name": "iPixit - Photo sharing App",
+    "title": "iPixit - Photo sharing App",
     "category": "Photo sharing App",
     "type": "Web UI/UX Design",
     "technology": [
@@ -599,8 +625,8 @@
   },
   {
     "id": "pixyvue",
-    "name": "Visual Curation & Media Platform",
-    "title": "Visual Curation & Media Platform",
+    "name": "Pixyvue",
+    "title": "Pixyvue",
     "category": "Photo sharing App",
     "type": "Web UI/UX Design",
     "technology": [
@@ -620,8 +646,8 @@
   },
   {
     "id": "kids School bus tracking App",
-    "name": "School Bus GPS Tracking & Safety App",
-    "title": "School Bus GPS Tracking & Safety App",
+    "name": "kids School bus tracking App",
+    "title": "kids School bus tracking App",
     "category": "School bus tracking App",
     "type": "Mobile & Web UI/UX",
     "technology": [
@@ -641,8 +667,8 @@
   },
   {
     "id": "global-investment",
-    "name": "Global Wealth & Investment Portal",
-    "title": "Global Wealth & Investment Portal",
+    "name": "Global Investment",
+    "title": "Global Investment",
     "category": "FinTech",
     "type": "Web UI/UX Design",
     "technology": [
@@ -662,8 +688,8 @@
   },
   {
     "id": "hireute",
-    "name": "Vehicle Hire & Fleet Dispatch Platform",
-    "title": "Vehicle Hire & Fleet Dispatch Platform",
+    "name": "HireUTE",
+    "title": "HireUTE",
     "category": "Mobile Application",
     "type": "Mobile & Web UI/UX",
     "technology": [
@@ -683,8 +709,8 @@
   },
   {
     "id": "kzm-consulting",
-    "name": "Strategic Management Consulting Portal",
-    "title": "Strategic Management Consulting Portal",
+    "name": "KZM Consulting",
+    "title": "KZM Consulting",
     "category": "Creative & WordPress",
     "type": "WordPress Website & Figma Design",
     "technology": [
@@ -705,8 +731,8 @@
   },
   {
     "id": "nzl-app",
-    "name": "Reverse Bidding & Services Marketplace",
-    "title": "Reverse Bidding & Services Marketplace",
+    "name": "Nzl App",
+    "title": "Nzl App",
     "category": "Mobile Application",
     "type": "Reverse Bidding App & Web",
     "technology": [
@@ -727,8 +753,8 @@
   },
   {
     "id": "out-app",
-    "name": "Nightlife & Venue Discovery Mobile App",
-    "title": "Nightlife & Venue Discovery Mobile App",
+    "name": "Out App",
+    "title": "Out App",
     "category": "Mobile Application",
     "type": "Mobile App UI/UX",
     "technology": [
@@ -748,8 +774,8 @@
   },
   {
     "id": "parkin-app",
-    "name": "Smart Parking Reservation & Navigation App",
-    "title": "Smart Parking Reservation & Navigation App",
+    "name": "Parkin App",
+    "title": "Parkin App",
     "category": "Mobile Application",
     "type": "Mobile UI/UX Design",
     "technology": [
@@ -769,8 +795,8 @@
   },
   {
     "id": "praize-productions",
-    "name": "Media Production & Creative Studio Portal",
-    "title": "Media Production & Creative Studio Portal",
+    "name": "Praize Productions",
+    "title": "Praize Productions",
     "category": "Creative & Art",
     "type": "Web UI/UX Design",
     "technology": [
@@ -790,8 +816,8 @@
   },
   {
     "id": "raptex ",
-    "name": "Cryptocurrency Exchange & Trading Terminal",
-    "title": "Cryptocurrency Exchange & Trading Terminal",
+    "name": "Raptex - Crypto Exchange",
+    "title": "Raptex - Crypto Exchange",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
     "technology": [
@@ -811,8 +837,8 @@
   },
   {
     "id": "runner",
-    "name": "On-Demand Delivery & Errand Runner App",
-    "title": "On-Demand Delivery & Errand Runner App",
+    "name": "Runner",
+    "title": "Runner",
     "category": "Mobile Application",
     "type": "Mobile App UI/UX",
     "technology": [
@@ -832,8 +858,8 @@
   },
   {
     "id": "semrossi",
-    "name": "Luxury Fashion & Lifestyle E-Commerce",
-    "title": "Luxury Fashion & Lifestyle E-Commerce",
+    "name": "Semrossi",
+    "title": "Semrossi",
     "category": "E-Commerce & Luxury",
     "type": "Web & Mobile Design",
     "technology": [
@@ -853,8 +879,8 @@
   },
   {
     "id": "spi",
-    "name": "Industrial Engineering & Equipment Portal",
-    "title": "Industrial Engineering & Equipment Portal",
+    "name": "SPI",
+    "title": "SPI",
     "category": "Corporate & Enterprise",
     "type": "Corporate Web UI",
     "technology": [
@@ -874,8 +900,8 @@
   },
   {
     "id": "the-corporate-hub",
-    "name": "Corporate Coworking & Workspace Portal",
-    "title": "Corporate Coworking & Workspace Portal",
+    "name": "The corporate Hub",
+    "title": "The corporate Hub",
     "category": "Corporate & Enterprise",
     "type": "Web Portal UI/UX Design",
     "technology": [
@@ -895,8 +921,8 @@
   },
   {
     "id": "equuschain",
-    "name": "Web3 Equine Blockchain & NFT Platform",
-    "title": "Web3 Equine Blockchain & NFT Platform",
+    "name": "Equus Chain",
+    "title": "Equus Chain",
     "category": "Web3 & AI",
     "type": "React / Next.js Web App",
     "technology": [
@@ -917,8 +943,8 @@
   },
   {
     "id": "entry-website",
-    "name": "Enterprise Access & Identity Portal",
-    "title": "Enterprise Access & Identity Portal",
+    "name": "Entry Website",
+    "title": "Entry Website",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -938,8 +964,8 @@
   },
   {
     "id": "angel-business",
-    "name": "Angel Investment & Venture Funding Portal",
-    "title": "Angel Investment & Venture Funding Portal",
+    "name": "Angel Business Website",
+    "title": "Angel Business Website",
     "category": "FinTech",
     "type": "Figma Prototype",
     "technology": [
@@ -959,8 +985,8 @@
   },
   {
     "id": "siza-send",
-    "name": "Cross-Border Remittance & Money Transfer App",
-    "title": "Cross-Border Remittance & Money Transfer App",
+    "name": "Siza Send App",
+    "title": "Siza Send App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
     "technology": [
@@ -980,8 +1006,8 @@
   },
   {
     "id": "pryo-app",
-    "name": "Smart Living & IoT Automation App",
-    "title": "Smart Living & IoT Automation App",
+    "name": "Pryo App",
+    "title": "Pryo App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
     "technology": [
@@ -1001,8 +1027,8 @@
   },
   {
     "id": "fast-delivery",
-    "name": "Express Courier & Delivery Logistics Portal",
-    "title": "Express Courier & Delivery Logistics Portal",
+    "name": "Fast Delivery Website",
+    "title": "Fast Delivery Website",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -1022,8 +1048,8 @@
   },
   {
     "id": "bnl-app",
-    "name": "Resort Booking & Hospitality Mobile App",
-    "title": "Resort Booking & Hospitality Mobile App",
+    "name": "BNL App",
+    "title": "BNL App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
     "technology": [
@@ -1043,8 +1069,8 @@
   },
   {
     "id": "trade-zone App",
-    "name": "Forex & Equity Trading Mobile App",
-    "title": "Forex & Equity Trading Mobile App",
+    "name": "Trade Zone App",
+    "title": "Trade Zone App",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
     "technology": [
@@ -1064,8 +1090,8 @@
   },
   {
     "id": "trade-zone Web",
-    "name": "Equity & Derivatives Web Trading Terminal",
-    "title": "Equity & Derivatives Web Trading Terminal",
+    "name": "Trade Zone Web",
+    "title": "Trade Zone Web",
     "category": "FinTech",
     "type": "Figma Prototype & Web",
     "technology": [
@@ -1085,8 +1111,8 @@
   },
   {
     "id": "lani-betting-tips",
-    "name": "Sports Analytics & Prediction Mobile App",
-    "title": "Sports Analytics & Prediction Mobile App",
+    "name": "Lani Betting Tips",
+    "title": "Lani Betting Tips",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
     "technology": [
@@ -1106,8 +1132,8 @@
   },
   {
     "id": "cad-academy",
-    "name": "Engineering CAD E-Learning Platform",
-    "title": "Engineering CAD E-Learning Platform",
+    "name": "CAD Academy",
+    "title": "CAD Academy",
     "category": "Corporate & Enterprise",
     "type": "Figma Prototype",
     "technology": [
@@ -1127,8 +1153,8 @@
   },
   {
     "id": "caters-app",
-    "name": "Event Catering & Hospitality Platform",
-    "title": "Event Catering & Hospitality Platform",
+    "name": "Caters App & Web",
+    "title": "Caters App & Web",
     "category": "Mobile Application",
     "type": "Figma Web & Mobile",
     "technology": [
@@ -1148,8 +1174,8 @@
   },
   {
     "id": "matteolm-dating",
-    "name": "Curated Dating & Matchmaking Mobile App",
-    "title": "Curated Dating & Matchmaking Mobile App",
+    "name": "Matteolm Dating App",
+    "title": "Matteolm Dating App",
     "category": "Mobile Application",
     "type": "Figma Mobile Prototype",
     "technology": [
@@ -1169,8 +1195,8 @@
   },
   {
     "id": "ij-art-bank",
-    "name": "Fine Art Investment & Curation Platform",
-    "title": "Fine Art Investment & Curation Platform",
+    "name": "IJ Art Bank",
+    "title": "IJ Art Bank",
     "category": "Creative & Art",
     "type": "Figma Prototype",
     "technology": [
@@ -1190,8 +1216,8 @@
   },
   {
     "id": "ashmount-services",
-    "name": "Facilities Management & Commercial Services Website",
-    "title": "Facilities Management & Commercial Services Website",
+    "name": "Ashmount Services",
+    "title": "Ashmount Services",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1211,8 +1237,8 @@
   },
   {
     "id": "house-of-content",
-    "name": "Content Marketing Agency Website",
-    "title": "Content Marketing Agency Website",
+    "name": "House of Content",
+    "title": "House of Content",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1232,8 +1258,8 @@
   },
   {
     "id": "tractors-direct",
-    "name": "Agricultural Machinery Marketplace Website",
-    "title": "Agricultural Machinery Marketplace Website",
+    "name": "Tractors For Sale Direct",
+    "title": "Tractors For Sale Direct",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1253,8 +1279,8 @@
   },
   {
     "id": "cecilia-ho-studio",
-    "name": "Artisan Studio & Textile Workshop Website",
-    "title": "Artisan Studio & Textile Workshop Website",
+    "name": "Cecilia Ho Studio",
+    "title": "Cecilia Ho Studio",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1274,8 +1300,8 @@
   },
   {
     "id": "franklin-hodge",
-    "name": "Industrial Water Storage Engineering Website",
-    "title": "Industrial Water Storage Engineering Website",
+    "name": "Franklin Hodge",
+    "title": "Franklin Hodge",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1295,8 +1321,8 @@
   },
   {
     "id": "chatline-hookup",
-    "name": "Telecommunication & Voice Community Portal",
-    "title": "Telecommunication & Voice Community Portal",
+    "name": "Chatline Hookup",
+    "title": "Chatline Hookup",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1316,8 +1342,8 @@
   },
   {
     "id": "deltaro",
-    "name": "Industrial Automation & Engineering Solutions Website",
-    "title": "Industrial Automation & Engineering Solutions Website",
+    "name": "Deltaro",
+    "title": "Deltaro",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1337,8 +1363,8 @@
   },
   {
     "id": "pop-culture-news",
-    "name": "Entertainment Media & Pop Culture Publication",
-    "title": "Entertainment Media & Pop Culture Publication",
+    "name": "Pop Culture News",
+    "title": "Pop Culture News",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [
@@ -1358,8 +1384,8 @@
   },
   {
     "id": "usa-stabilizers",
-    "name": "Soil Stabilization Engineering Website",
-    "title": "Soil Stabilization Engineering Website",
+    "name": "USA Stabilizers",
+    "title": "USA Stabilizers",
     "category": "Creative & WordPress",
     "type": "WordPress Website",
     "technology": [

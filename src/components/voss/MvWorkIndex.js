@@ -102,7 +102,7 @@ export default function MvWorkIndex(props = {}) {
 
   const rows = passedProjects || defaultProjects;
 
-  const ORDERED_CATS = ['UI/UX', 'WordPress', 'React / Next', 'Mobile App'];
+  const ORDERED_CATS = ['Dashboard / Admin', 'UI/UX', 'Mobile App', 'WordPress', 'React / Next'];
   const rawCats = [];
   rows.forEach((r) => {
     const k = wiCat(r);

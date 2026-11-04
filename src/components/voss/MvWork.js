@@ -614,7 +614,7 @@ const CSS_MVWK = `
 @keyframes mvwk-in{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
 .mvwk.is-final .mvwk-info>*{animation:none}
 .mvwk-il{display:flex;flex-direction:column;gap:10px;min-width:0}
-.mvwk-t{margin:0;font-size:clamp(32px,3vw,46px);line-height:.95;letter-spacing:-.04em;font-stretch:115%}
+.mvwk-t{margin:0;font-size:clamp(32px,3vw,36px);line-height:.95;letter-spacing:-.04em;font-stretch:115%}
 .mvwk-m{margin:0;text-wrap:balance;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mv-mut)}
 .mvwk-ir{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 .mvwk-role{margin:0;display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.3;max-width:200px} .mvwk-role span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mv-mut)}
