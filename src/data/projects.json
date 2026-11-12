@@ -1,5 +1,54 @@
 [
   {
+    "id": "atelier-noir",
+    "slug": "atelier-noir",
+    "name": "Atelier Noir",
+    "title": "Atelier Noir",
+    "category": "Luxury Fashion & Editorial UI/UX",
+    "filterCategory": "UI/UX DESIGN",
+    "type": "Interactive Luxury Web Experience & Figma Prototype",
+    "technology": [
+      "Figma",
+      "Interactive Prototyping",
+      "Design Systems",
+      "Editorial Typography",
+      "E-Commerce UX"
+    ],
+    "link": "https://www.figma.com/proto/9Su428cVn1l931JyFsO0f6/ATELIER-NOIR?node-id=318-3603&viewport=-50%2C81%2C0.53&t=Wl9EDii1yqIoFByM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=318%3A3080&page-id=316%3A559",
+    "figmaLink": "https://www.figma.com/proto/9Su428cVn1l931JyFsO0f6/ATELIER-NOIR?node-id=318-3603&viewport=-50%2C81%2C0.53&t=Wl9EDii1yqIoFByM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=318%3A3080&page-id=316%3A559",
+    "liveLink": "https://www.figma.com/proto/9Su428cVn1l931JyFsO0f6/ATELIER-NOIR?node-id=318-3603&viewport=-50%2C81%2C0.53&t=Wl9EDii1yqIoFByM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=318%3A3080&page-id=316%3A559",
+    "image": "/AtelierNoir.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead UI/UX Designer",
+    "description": "High-contrast luxury editorial and fashion commerce experience crafted in Figma, featuring refined typographic hierarchy, lookbook storytelling, and seamless interactive prototyping."
+  },
+  {
+    "id": "easyride",
+    "slug": "easyride",
+    "name": "EasyRide",
+    "title": "EasyRide",
+    "category": "Mobile Application & Product Design",
+    "filterCategory": "MOBILE APP",
+    "type": "Complete Product Design & Interactive Mobile Prototype",
+    "technology": [
+      "Figma",
+      "Mobile UI",
+      "iOS & Android",
+      "Interactive Prototyping",
+      "Design Systems",
+      "User Flows"
+    ],
+    "link": "https://www.figma.com/proto/1TFs4DZwCpK711jsltQydt/EASYRIDE-%E2%80%94-COMPLETE-PRODUCT-DESIGN?page-id=0%3A1&node-id=2010-7505&viewport=-13%2C72%2C0.12&t=wug9sgDhKa1j41sD-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2010%3A7505&show-proto-sidebar=1",
+    "figmaLink": "https://www.figma.com/proto/1TFs4DZwCpK711jsltQydt/EASYRIDE-%E2%80%94-COMPLETE-PRODUCT-DESIGN?page-id=0%3A1&node-id=2010-7505&viewport=-13%2C72%2C0.12&t=wug9sgDhKa1j41sD-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2010%3A7505&show-proto-sidebar=1",
+    "liveLink": "https://www.figma.com/proto/1TFs4DZwCpK711jsltQydt/EASYRIDE-%E2%80%94-COMPLETE-PRODUCT-DESIGN?page-id=0%3A1&node-id=2010-7505&viewport=-13%2C72%2C0.12&t=wug9sgDhKa1j41sD-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2010%3A7505&show-proto-sidebar=1",
+    "image": "/easyride.png",
+    "isFeatured": true,
+    "featureTag": "top",
+    "role": "Lead Product Designer",
+    "description": "End-to-end urban mobility and ride-hailing product design in Figma, covering rider booking flows, live route telemetry, fare estimation, and a scalable mobile design system."
+  },
+  {
     "id": "energetic-path-framer-showcase",
     "slug": "creative-studio-interactive-showcase",
     "name": "Staylaah Homestay",
@@ -43,7 +92,7 @@
     "figmaLink": "https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1",
     "liveLink": "https://www.figma.com/design/6BjvkeNfO9Lgf6g2JtwkJX/Medvita.ro-new-design?node-id=0-1&t=Al7OYTQfv6KZbmWY-1",
     "image": "/medvita.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "top",
     "role": "Lead Product Designer",
     "description": "Comprehensive healthcare and medical system management platform engineered for hospital networks, clinical workflows, patient records, and medical appointment scheduling."
@@ -94,7 +143,7 @@
     "figmaLink": "",
     "liveLink": "https://milo-henna.vercel.app/",
     "image": "/milo.png",
-    "isFeatured": true,
+    "isFeatured": false,
     "featureTag": "top",
     "role": "Lead Frontend Engineer & UI/UX Designer",
     "description": "A premium, high-end interactive luxury real estate showcase website designed for ultimate tranquility, subtracted aesthetics, and architectural silence. Built with smooth motion mechanics and sophisticated booking capabilities.",

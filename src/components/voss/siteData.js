@@ -194,11 +194,10 @@ export const allProjects = baseProjects;
 
 // Top projects specified for Homepage display in priority order:
 const TOP_SLUGS = [
-  'health-management-platform',
+  'atelier-noir',
+  'easyride',
   'bar-nightlife-discovery-app',
   'bar-trekk-app',
-  'luxury-real-estate-showcase-platform',
-  'milo-luxury-residence',
   'artwork-e-commerce-platform',
   'fresh-art-club',
   'fine-art-investment-curation-platform',
