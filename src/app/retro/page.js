@@ -68,7 +68,7 @@ export default function RetroPage() {
             'FINTECH & SAAS SPECIALIST',
             'DESIGN SYSTEMS',
             'MOBILE APPS',
-            '6 YEARS EXPERIENCE',
+            '5+ years EXPERIENCE',
             'WORLDWIDE CLIENTS'
           ]}
           variant="orange"

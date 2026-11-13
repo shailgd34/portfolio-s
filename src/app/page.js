@@ -47,17 +47,17 @@ export default function Home() {
       {/* Photography Studio Hero: Giant Name Typography, Cutout Portrait, Light Spot, Backdrop Switcher */}
       <MvHero
         nameText={siteData.heroDisplayName}
-        roleLine="Product designer|& developer"
+        roleLine="Product Designer | UI/UX & Design Systems"
         statement={siteData.statement}
         primary="See my work"
         primaryLink="/work"
         secondary="Download résumé"
         secondaryLink={siteData.resume}
-        portrait={siteData.portrait}
+        portrait="/profile.webp"
         showNav={false}
       />
 
-      {/* Philosophy and Key Impact Metrics */}
+      {/* Philosophy and Key Impact Metrics with Scroll-based Opacity Reveal */}
       <MvIntro />
 
       {/* Work Section: 35mm Contact Sheet of Selected Case Studies */}

@@ -55,7 +55,7 @@ export default function Bento() {
                 Based in Indore, I design high-growth interfaces for Fintech startups.
               </p>
               <p className={styles.bioSubText}>
-                With 6 years of professional experience, I bridge the gap between complex financial systems and intuitive user design. I combine analytical research with frontend coding to deploy layouts that convert.
+                With 5+ years of professional experience, I bridge the gap between complex financial systems and intuitive user design. I combine analytical research with frontend coding to deploy layouts that convert.
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Bento() {
               <div className={styles.mapVisual}>
                 <div className={styles.mapSignal}></div>
                 <svg viewBox="0 0 100 100" style={{ position: 'absolute', width: '100%', height: '100%', opacity: 0.15 }}>
-                  <path d="M 10 0 V 100 M 30 0 V 100 M 50 0 V 100 M 70 0 V 100 M 90 0 V 100 M 0 10 H 100 M 0 30 H 100 M 0 50 H 100 M 0 70 H 100 M 0 90 H 100" stroke="white" strokeWidth="0.5"/>
+                  <path d="M 10 0 V 100 M 30 0 V 100 M 50 0 V 100 M 70 0 V 100 M 90 0 V 100 M 0 10 H 100 M 0 30 H 100 M 0 50 H 100 M 0 70 H 100 M 0 90 H 100" stroke="white" strokeWidth="0.5" />
                 </svg>
               </div>
             </div>
@@ -146,15 +146,15 @@ export default function Bento() {
                       <h4 className={styles.careerRole}>Web Designer (Internship)</h4>
                       <span className={styles.careerCompany}>
                         Mind Info Services
-                        <a 
-                          href="https://mindinfoservices.com" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          style={{ 
-                            display: 'inline-flex', 
-                            alignItems: 'center', 
-                            gap: '0.22rem', 
-                            marginLeft: '0.6rem', 
+                        <a
+                          href="https://mindinfoservices.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.22rem',
+                            marginLeft: '0.6rem',
                             fontSize: '0.8rem',
                             color: 'var(--accent-secondary)',
                             textDecoration: 'none'

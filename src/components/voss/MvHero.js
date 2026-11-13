@@ -203,9 +203,7 @@ export default function MvHero(props = {}) {
     };
 
     const dn = (e) => {
-      const tg = e.target;
-      if (tg.closest?.('a,button,nav,input')) return;
-      if (!rm) nextRef.current();
+      // Backdrop switcher disabled
     };
 
     r.addEventListener('pointermove', mv);
@@ -327,7 +325,7 @@ export default function MvHero(props = {}) {
         ...B,
         '--hh': H ? `${H}px` : 'auto',
         '--bd': bd.bg,
-        '--pimg': `url("${src}")`,
+        '--pimg': `url(${src})`,
         '--fs': fsStyle,
         ...(props.style || {}),
       }}
@@ -471,32 +469,6 @@ export default function MvHero(props = {}) {
           {site.city}
           {clock ? ` · ${clock}` : ''}
         </p>
-        {site.years && (
-          <p className="mvp-dim">{site.years} years of Experience</p>
-        )}
-      </div>
-      <div className="mvp-bar" style={{ ...M, ...rise(inn, 1000, 10) }}>
-        <div
-          className="mvp-sw"
-          role="group"
-          aria-label="Backdrop colour"
-        >
-          {BDS.map((b, i) => (
-            <button
-              key={i}
-              type="button"
-              aria-label={`${b.name} backdrop`}
-              aria-pressed={i === bi % BDS.length}
-              className={i === bi % BDS.length ? 'is-on' : ''}
-              onClick={() => {
-                setBi(i);
-                setFlash((f) => f + 1);
-              }}
-            >
-              <i style={{ background: b.bg }} />
-            </button>
-          ))}
-        </div>
       </div>
       {hasCur && (
         <div
@@ -555,11 +527,6 @@ const CSS_HERO = `
 .mvp-linkedin-badge:hover{background:#0A66C2;color:#FFFFFF;border-color:#0A66C2;transform:translateY(-1px);box-shadow:0 6px 18px rgba(10,102,194,.38)}
 .mvp-linkedin-badge:hover svg{transform:scale(1.08)}
 .mvp-linkedin-badge:hover .mvp-arr-icon{opacity:1;transform:translate(1.5px,-1.5px)}
-.mvp-bar{position:absolute;z-index:5;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 max(var(--mvg),calc((100% - ${MAXW})/2)) 26px;font-size:12px;pointer-events:none} .mvp-bar>*{pointer-events:auto}
-.mvp-hint{display:flex;align-items:center;gap:10px;margin:0;padding:7px 12px;border-radius:8px;background:color-mix(in srgb,var(--bd) 60%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)} .mvp-hint i{width:10px;height:10px;border-radius:50%;background:#FFE9C7;box-shadow:0 0 12px 3px rgba(255,226,180,.8)}
-.mvp-sw{display:flex;align-items:center;gap:6px;position:absolute;left:50%;bottom:22px;translate:-50% 0;padding:5px 6px 5px 12px;border-radius:10px;background:color-mix(in srgb,var(--bd) 60%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 16%,transparent)}
-.mvp-sw-l{margin-right:4px;opacity:.8}
-.mvp-sw button{appearance:none;border:0;background:none;padding:4px;border-radius:7px;cursor:pointer} .mvp-sw button i{display:block;width:22px;height:22px;border-radius:5px;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 30%,transparent)} .mvp-sw button.is-on{box-shadow:0 0 0 1.5px currentColor}
 .mvp-cur{position:fixed;left:0;top:0;z-index:2147483647;pointer-events:none;will-change:transform;opacity:0;transition:opacity .3s}
 .mvp-cur i{position:absolute;left:0;top:0;width:18px;height:18px;translate:-50% -50%;border-radius:50%;background:#FFF1DA;box-shadow:0 0 22px 8px rgba(255,226,180,.55),0 0 0 6px rgba(255,241,218,.18);transition:scale .3s cubic-bezier(.34,1.56,.64,1)}
 .mvp-cur b{position:absolute;left:16px;top:10px;padding:3px 7px;border-radius:5px;background:#FFF1DA;color:#111113;font-size:12px;font-weight:500;white-space:nowrap;transition:opacity .2s}
@@ -579,7 +546,6 @@ const CSS_HERO = `
 .mvp.is-ph .mvp-btns .mv-btn{flex:1 1 0;min-height:46px;width:auto}
 .mvp.is-ph .mvp-meta{position:relative;right:auto;top:auto;align-items:flex-start;text-align:left;padding:12px var(--mvg) 0}
 .mvp.is-ph .mvp-avail-row{justify-content:flex-start}
-.mvp.is-ph .mvp-bar{position:relative;padding:12px var(--mvg) 20px} .mvp.is-ph .mvp-sw{position:static;translate:none}
 @media (max-width:809px){
   .mvp{height:auto!important;min-height:0!important;display:flex!important;flex-direction:column!important}
   .mvp .mvp-stage{position:relative!important;inset:auto!important;height:clamp(400px,56vh,520px)!important;flex:none!important;overflow:hidden!important}

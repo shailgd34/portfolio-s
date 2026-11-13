@@ -10,7 +10,7 @@ export default function RetroMarquee({
     'FINTECH & SAAS SPECIALIST',
     'DESIGN SYSTEMS',
     'MOBILE APPS',
-    '6 YEARS EXPERIENCE',
+    '5+ years EXPERIENCE',
     'WORLDWIDE CLIENTS'
   ],
   variant = 'orange', // 'orange' | 'dark' | 'parchment'
@@ -20,8 +20,8 @@ export default function RetroMarquee({
     variant === 'dark'
       ? styles.variantDark
       : variant === 'parchment'
-      ? styles.variantParchment
-      : styles.variantOrange;
+        ? styles.variantParchment
+        : styles.variantOrange;
 
   return (
     <div className={`${styles.marqueeWrapper} ${variantClass} ${className}`}>

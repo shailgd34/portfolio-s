@@ -65,7 +65,7 @@ const MVST = [
         "Name",
         "Your name: the giant hero name, header logo, loader slate, footer, résumé and page titles.",
       ],
-      ["Role", "Product designer & developer — hero, résumé, footer."],
+      ["Role", "Product Designer | UI/UX & Design Systems — hero, résumé, footer."],
       [
         "Tagline",
         "One sentence about what you do. Hero statement and footer.",

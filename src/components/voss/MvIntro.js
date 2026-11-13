@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import {
   FONTS,
   colorsOf,
@@ -17,6 +17,7 @@ import {
   useScrollVars,
   clamp01,
   rise,
+  plainOf,
   listOf,
   pick,
   srcOf,
@@ -72,6 +73,34 @@ export default function MvIntro(props = {}) {
   const final = still || rm || !live;
   const last = useRef(-1);
 
+  const src = srcOf(photo, '/workspace_mockup.jpg' || MVIN_PHOTO);
+  const im = RS(src, '(max-width: 809px) 100vw, 40vw');
+  const defaultFacts = `${site.years || '6'} years Experience;50+ products launched;${site.city || 'Indore'}, working worldwide`;
+  const list = listOf(facts || defaultFacts);
+  const text = pick(
+    statement,
+    `I'm ${site.name.split(' ')[0]}. For 5+ years I've turned complex challenges into digital products people *actually use* — designed in Figma, engineered in Next.js, shipped on time.`
+  );
+  const resume = pick(resumeLink, site.resume || '/Sheelash Singh Bhadoriya - Resume.pdf');
+  const dfw = props.customFonts ? D.fontWeight : 'var(--mv-font-dw, 700)';
+
+  const parsedWords = useMemo(() => {
+    const parts = text.split(/(\*[^*]+\*)/g);
+    const wordsList = [];
+    parts.forEach((part) => {
+      if (!part) return;
+      const isAccent = part.startsWith('*') && part.endsWith('*');
+      const clean = isAccent ? part.slice(1, -1) : part;
+      const subWords = clean.trim().split(/\s+/);
+      subWords.forEach((w) => {
+        if (w) wordsList.push({ word: w, isAccent });
+      });
+    });
+    return wordsList;
+  }, [text]);
+
+  const wordRefs = useRef([]);
+
   useScrollVars(root, live, rm, (sp) => {
     const dev = clamp01((sp - 0.16) / 0.4);
     const el = root.current;
@@ -84,18 +113,35 @@ export default function MvIntro(props = {}) {
       if (word.current)
         word.current.textContent = p >= 100 ? doneLabel : devLabel;
     }
-  });
 
-  const src = srcOf(photo, '/workspace_mockup.jpg' || MVIN_PHOTO);
-  const im = RS(src, '(max-width: 809px) 100vw, 40vw');
-  const defaultFacts = `${site.years || '6'} years Experience;50+ products launched;${site.city || 'Indore'}, working worldwide`;
-  const list = listOf(facts || defaultFacts);
-  const text = pick(
-    statement,
-    `I'm ${site.name.split(' ')[0]}. For over six years I've turned complex challenges into digital products people *actually use* — designed in Figma, engineered in Next.js, shipped on time.`
-  );
-  const resume = pick(resumeLink, site.resume || '/Sheelash Singh Bhadoriya - Resume.pdf');
-  const dfw = props.customFonts ? D.fontWeight : 'var(--mv-font-dw, 700)';
+    // Scroll-based word opacity reveal
+    if (!rm && wordRefs.current && wordRefs.current.length > 0) {
+      const N = wordRefs.current.length;
+      const startSp = 0.05;
+      const endSp = 0.46;
+      const step = (endSp - startSp) / Math.max(1, N);
+
+      for (let i = 0; i < N; i++) {
+        const wEl = wordRefs.current[i];
+        if (!wEl) continue;
+        const wStart = startSp + i * step;
+        const wEnd = wStart + step * 2.2;
+        const prog = Math.max(0, Math.min(1, (sp - wStart) / (wEnd - wStart)));
+
+        const op = 0.18 + 0.82 * prog;
+        wEl.style.opacity = op.toFixed(3);
+
+        const blur = (1 - prog) * 2;
+        wEl.style.filter = blur > 0.15 ? `blur(${blur.toFixed(1)}px)` : 'none';
+
+        if (prog >= 0.8) {
+          wEl.style.color = wEl.dataset.accent === 'true' ? 'var(--mv-brass, #FF5B2E)' : 'var(--mv-ink, #141210)';
+        } else {
+          wEl.style.color = wEl.dataset.accent === 'true' ? 'rgba(255, 91, 46, 0.4)' : 'var(--mv-mut, #7C7267)';
+        }
+      }
+    }
+  });
 
   return (
     <section
@@ -118,17 +164,39 @@ export default function MvIntro(props = {}) {
       <div className="mv-wrap mvin-grid">
         <div className="mvin-copy">
           <Eyebrow text={eyebrow} on={on} M={M} />
-          <Head
-            text={text}
-            on={on}
-            D={D}
-            size="clamp(28px,2.8vw,44px)"
-            lh={1.1}
-            step={16}
-            delay={120}
-            className="mvin-st"
-            style={{ fontWeight: dfw }}
-          />
+          <h2
+            className={`mv-hd mvin-st${on ? ' is-on' : ''}`}
+            aria-label={plainOf(text)}
+            style={{
+              ...D,
+              fontFamily: "'Merriweather', Georgia, serif",
+              fontSize: 'clamp(28px, 2.8vw, 44px)',
+              lineHeight: 1.15,
+              fontWeight: dfw,
+              letterSpacing: '-0.02em',
+              maxWidth: '22em',
+              margin: '0 0 16px 0',
+            }}
+          >
+            {parsedWords.map((item, idx) => (
+              <span
+                key={idx}
+                ref={(el) => (wordRefs.current[idx] = el)}
+                data-accent={item.isAccent ? 'true' : 'false'}
+                style={{
+                  display: 'inline-block',
+                  marginRight: '0.28em',
+                  opacity: final ? 1 : 0.18,
+                  willChange: 'opacity, filter, color',
+                  transition: 'opacity 0.12s ease-out, filter 0.12s ease-out, color 0.15s ease',
+                  color: item.isAccent ? 'var(--mv-brass, #FF5B2E)' : 'var(--mv-ink, #141210)',
+                  fontStyle: item.isAccent ? 'italic' : 'normal',
+                }}
+              >
+                {item.word}
+              </span>
+            ))}
+          </h2>
           {list.length > 0 && (
             <ul className="mvin-facts" style={M}>
               {list.map((f, i) => (
