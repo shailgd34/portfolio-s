@@ -23,6 +23,41 @@ export function slugify(str) {
  * Enriched with explicit UX Research tools (FigJam, Hotjar, Miro, Typeform, Maze).
  */
 export const curatedCaseStudies = {
+  'pace-pulse': {
+    title: 'Pace Pulse',
+    client: 'PacePulse Athletic Technologies',
+    slug: 'pace-pulse',
+    tagline: 'High-Performance Athletic Running Analytics & Telemetry SaaS Web Platform',
+    category: 'SaaS Platform & Athletic Performance Tracking',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Performance Tracking & Athletic SaaS Web Platform',
+    role: 'Lead Product Designer & Design Systems Architect',
+    timeline: '6 Weeks (Telemetry Architecture, Design System & Interactive Prototyping)',
+    year: '2025 — 2026',
+    team: 'Lead Product Designer (Me), Frontend Engineer',
+    image: '/pacepulse.png',
+    toolsList: ['Figma', 'Interactive Prototyping', 'Design Systems', 'Data Visualization', 'Telemetry UI', 'Framer Motion'],
+    secondaryImages: [
+      {
+        url: '/pacepulse.png',
+        title: 'PacePulse SaaS Platform Experience',
+        caption: 'High-contrast Olympic stadium curve layout with live biometric metrics, pace charts, and weekly progression analytics.'
+      }
+    ],
+    link: 'https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399',
+    figmaLink: 'https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399',
+    liveLink: 'https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399',
+    badge: 'SAAS & TELEMETRY PLATFORM',
+    overview: 'A modern, high-converting SaaS product platform and run tracking telemetry interface engineered for endurance athletes and marathons. Features multi-metric analytics, real-time pace telemetry, and connected device synchronization.',
+    challenge: 'Visualizing complex athletic metrics (pace splits, heart rate variability, elevation curves, weekly volume) without cognitive overload for runners in motion.',
+    solution: 'Architected a modular glassmorphism card hierarchy anchored by a high-contrast Olympic blue stadium curve, delivering instantaneous at-a-glance telemetry and frictionless 3-step workout progression.',
+    metrics: [
+      { label: 'Active Runners', value: '3M+' },
+      { label: 'Marathon Completion', value: '92%' },
+      { label: 'Platform Rating', value: '4.9 ★' },
+      { label: 'Interactive Screens', value: '100%' }
+    ]
+  },
   'creative-studio-interactive-showcase': {
     title: 'Creative Studio Interactive Showcase',
     client: 'Energetic Path Studio',

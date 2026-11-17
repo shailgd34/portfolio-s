@@ -49,6 +49,31 @@
     "description": "End-to-end urban mobility and ride-hailing product design in Figma, covering rider booking flows, live route telemetry, fare estimation, and a scalable mobile design system."
   },
   {
+    "id": "pace-pulse",
+    "slug": "pace-pulse",
+    "name": "Pace Pulse",
+    "title": "Pace Pulse",
+    "category": "SaaS Platform & Athletic Performance Tracking",
+    "filterCategory": "UI/UX DESIGN",
+    "type": "Performance Tracking & Athletic SaaS Web Platform",
+    "technology": [
+      "Figma",
+      "Interactive Prototyping",
+      "SaaS UI/UX",
+      "Design Systems",
+      "Data Visualization",
+      "Telemetry Dashboards"
+    ],
+    "link": "https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399",
+    "figmaLink": "https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399",
+    "liveLink": "https://www.figma.com/proto/H3tB8i9sAu3Jr5AYZLFbgw/Pace-Pulse-Web-Platform?node-id=2604-1807&p=f&viewport=398%2C41%2C0.1&t=x3sno9KQ0Yw432AS-1&scaling=scale-down&content-scaling=fixed&page-id=2604%3A399",
+    "image": "/pacepulse.png",
+    "isFeatured": false,
+    "featureTag": "saas",
+    "role": "Lead Product Designer",
+    "description": "High-performance athletic running analytics SaaS platform featuring live telemetry, pace curves, biometrics monitoring, and interactive prototyping."
+  },
+  {
     "id": "energetic-path-framer-showcase",
     "slug": "creative-studio-interactive-showcase",
     "name": "Staylaah Homestay",
