@@ -194,7 +194,9 @@ export const allProjects = baseProjects;
 
 // Top projects specified for Homepage display in priority order:
 const TOP_SLUGS = [
-  'atelier-noir',
+  'morrow-ai',
+  'shivom-builders',
+  'travialia',
   'easyride',
   'bar-nightlife-discovery-app',
   'bar-trekk-app',

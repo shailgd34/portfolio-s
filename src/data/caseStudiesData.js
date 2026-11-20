@@ -23,6 +23,111 @@ export function slugify(str) {
  * Enriched with explicit UX Research tools (FigJam, Hotjar, Miro, Typeform, Maze).
  */
 export const curatedCaseStudies = {
+  'morrow-ai': {
+    title: 'Morrow AI',
+    client: 'Morrow Intelligence Laboratories',
+    slug: 'morrow-ai',
+    tagline: 'Thoughtful Multimodal AI Workspace, Sub-150ms Voice Streaming & Prismatic UI Systems',
+    category: 'AI Product Design & Multimodal SaaS',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Thoughtful Multimodal AI Workspace & Interactive Figma Prototype',
+    role: 'Lead Product Designer & Design Systems Architect',
+    timeline: '8 Weeks (Multimodal UX, Design System & Interactive Prototyping)',
+    year: '2025 — 2026',
+    team: 'Lead Product Designer (Me), AI Platform Engineer',
+    image: '/morrow.png',
+    toolsList: ['Figma', 'Interactive Prototyping', 'Design Systems', 'React 19', 'Voice Intelligence', 'Tailwind CSS', 'Framer Motion'],
+    secondaryImages: [
+      {
+        url: '/morrow.png',
+        title: 'Morrow AI Thoughtful Workspace',
+        caption: 'Multimodal generative interface featuring acoustic voice streaming, fluid chromatic glassmorphism, and live interactive product studios.'
+      }
+    ],
+    link: 'https://www.figma.com/proto/GDNjOFao8Ky7PgEyF61KQv/Morrow-AI---Complete-Product-UI---Popups?node-id=1-12677&p=f&viewport=206%2C-101%2C0.09&t=QBKkH0CQbL9vMOC5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12677&page-id=0%3A1',
+    figmaLink: 'https://www.figma.com/proto/GDNjOFao8Ky7PgEyF61KQv/Morrow-AI---Complete-Product-UI---Popups?node-id=1-12677&p=f&viewport=206%2C-101%2C0.09&t=QBKkH0CQbL9vMOC5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12677&page-id=0%3A1',
+    liveLink: 'https://www.figma.com/proto/GDNjOFao8Ky7PgEyF61KQv/Morrow-AI---Complete-Product-UI---Popups?node-id=1-12677&p=f&viewport=206%2C-101%2C0.09&t=QBKkH0CQbL9vMOC5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12677&page-id=0%3A1',
+    badge: 'AI MULTIMODAL WORKSPACE',
+    overview: 'A thoughtful, high-performance personal AI companion engineered to replace cluttered chatbot threads with a serene, multimodal spatial canvas. Integrates sub-150ms acoustic voice streaming, 15 dedicated creative studios, and bidirectional Figma design token synchronization.',
+    challenge: 'Overcoming cognitive fatigue and context-switching in conventional LLM interfaces, while designing real-time acoustic feedback indicators that feel organic rather than jarring.',
+    solution: 'Designed a 3-tier fluid glassmorphism architecture anchored by the iconic chromatic halo orb, WCAG AAA high-contrast slate typography, and 1-click task auto-suggest workflows.',
+    metrics: [
+      { label: 'Voice Latency', value: '< 150ms' },
+      { label: 'Product Studios', value: '15' },
+      { label: 'Contrast Ratio', value: '9.6:1 AAA' },
+      { label: 'Interactive Screens', value: '100%' }
+    ]
+  },
+  'shivom-builders': {
+    title: 'Shivom Builders',
+    client: 'Shivom Group Real Estate Developers',
+    slug: 'shivom-builders',
+    tagline: 'Luxury Real Estate & Architectural Construction Digital Platform',
+    category: 'Real Estate & Architectural Web Experience',
+    filterCategory: 'WEB DEVELOPMENT',
+    type: 'Interactive Architectural Real Estate Platform & Brand System',
+    role: 'Principal Designer & Full-Stack Developer',
+    timeline: '6 Weeks (Architectural UX, 3D Interactive Floorplans & Next.js Development)',
+    year: '2025 — 2026',
+    team: 'Principal Designer & Full-Stack Developer (Me)',
+    image: '/shivombuilder.png',
+    toolsList: ['Next.js', 'React', 'Tailwind CSS', 'Figma', 'Architectural 3D', 'Framer Motion'],
+    secondaryImages: [
+      {
+        url: '/shivombuilder.png',
+        title: 'Shivom Builders Architectural Showcase',
+        caption: 'Immersive digital experience featuring signature residential estates, architectural renderings, and luxury developer portfolio.'
+      }
+    ],
+    link: 'https://shivombuilder.com',
+    figmaLink: 'https://shivombuilder.com',
+    liveLink: 'https://shivombuilder.com',
+    badge: 'LUXURY REAL ESTATE PLATFORM',
+    overview: 'An editorial architectural showcase and property discovery platform built for central India\'s premier luxury infrastructure developers. Features interactive estate galleries, construction telemetry updates, and seamless investor inquiry booking.',
+    challenge: 'Conveying structural grandeur, luxury material finishes, and builder integrity on digital screens without sacrificing mobile loading performance or accessibility.',
+    solution: 'Created an Awwwards-caliber editorial layout with high-resolution architectural cinematography, smooth scroll transitions, and frictionless floor plan enquiry channels.',
+    metrics: [
+      { label: 'Lighthouse Score', value: '98/100' },
+      { label: 'Inquiry Conversion', value: '+44%' },
+      { label: 'Prime Estates', value: '12+' },
+      { label: 'Interactive Views', value: '100%' }
+    ]
+  },
+  'travialia': {
+    title: 'Travialia',
+    client: 'Travialia Bespoke Travel Technologies',
+    slug: 'travialia',
+    tagline: 'Curated Luxury Travel Discovery & Immersive Experience Booking Platform',
+    category: 'Travel Tech & Immersive Experience Booking',
+    filterCategory: 'UI/UX DESIGN',
+    type: 'Curated Travel Discovery Web Platform & Figma Design System',
+    role: 'Lead UI/UX Designer',
+    timeline: '5 Weeks (Destination Storytelling, Booking UX & Figma System)',
+    year: '2025 — 2026',
+    team: 'Lead UI/UX Designer (Me), Travel Operations Team',
+    image: '/travialia.png',
+    toolsList: ['Figma', 'Interactive Prototyping', 'Design System', 'Travel Tech', 'User Research', 'Information Architecture'],
+    secondaryImages: [
+      {
+        url: '/travialia.png',
+        title: 'Travialia Travel Experience Platform',
+        caption: 'Tactile destination discovery with immersive imagery, fluid budget filtering, and frictionless bespoke itinerary booking.'
+      }
+    ],
+    link: 'https://www.figma.com/design/eVpgVjEvZLRtboax9GwSC3/Travialia---Travel-Experience?node-id=7-4972&t=C4RBgEteB1Jxa0b9-1',
+    figmaLink: 'https://www.figma.com/design/eVpgVjEvZLRtboax9GwSC3/Travialia---Travel-Experience?node-id=7-4972&t=C4RBgEteB1Jxa0b9-1',
+    liveLink: 'https://www.figma.com/design/eVpgVjEvZLRtboax9GwSC3/Travialia---Travel-Experience?node-id=7-4972&t=C4RBgEteB1Jxa0b9-1',
+    badge: 'TRAVEL TECH & ITINERARY BOOKING',
+    overview: 'A premium travel curation and experiential itinerary booking platform engineered for experiential globetrotters. Features intuitive destination discovery, live pricing breakdown, and interactive trip customizer.',
+    challenge: 'Transforming overwhelming multi-tab vacation planning into a serene, tactile, one-stop itinerary discovery and reservation flow.',
+    solution: 'Constructed an editorial visual hierarchy with rich destination cards, modular trip day-by-day itineraries, and clear transparent booking steps.',
+    metrics: [
+      { label: 'Booking Drop-off', value: '-36%' },
+      { label: 'User Satisfaction', value: '96%' },
+      { label: 'Destinations', value: '140+' },
+      { label: 'Figma Components', value: '60+' }
+    ]
+  },
   'pace-pulse': {
     title: 'Pace Pulse',
     client: 'PacePulse Athletic Technologies',
@@ -2001,6 +2106,11 @@ export function getProjectBySlug(slug) {
   const clean = slugify(decoded);
 
   const ALIASES = {
+    'morrow-ai': 'morrow-ai',
+    'morrow': 'morrow-ai',
+    'shivom-builders': 'shivom-builders',
+    'shivombuilder': 'shivom-builders',
+    'travialia': 'travialia',
     'creative-studio-interactive-showcase': 'creative-studio-interactive-showcase',
     'energetic-path-framer-showcase': 'creative-studio-interactive-showcase',
     'artwork-e-commerce-platform': 'fresh-art-club',

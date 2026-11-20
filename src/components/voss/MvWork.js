@@ -533,7 +533,7 @@ export default function MvWork(props = {}) {
                       kind="quiet"
                       sub={cur.f1}
                     />
-                    {cur.figmaLink && (
+                    {cur.figmaLink && cur.figmaLink.includes('figma.com') && (
                       <Btn
                         href={cur.figmaLink}
                         target="_blank"
@@ -541,6 +541,16 @@ export default function MvWork(props = {}) {
                         label="Figma Prototype"
                         kind="ghost"
                         sub="Prototype"
+                      />
+                    )}
+                    {cur.liveLink && !cur.liveLink.includes('figma.com') && cur.liveLink.startsWith('http') && (
+                      <Btn
+                        href={cur.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        label="Live Website ↗"
+                        kind="ghost"
+                        sub="Live"
                       />
                     )}
                   </div>
